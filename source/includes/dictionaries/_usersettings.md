@@ -134,9 +134,9 @@ Valid start screen values:
 > Request for User Settings:
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/context/usersettings"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/context/usersettings" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -208,11 +208,11 @@ Partial editing is allowed - only the fields present in the request will be edit
 > Request to change user settings:
 
 ```shell
-curl -X PUT
-   "https://api.kladana.com/api/remap/1.2/context/usersettings"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-   -H "Content-Type: application/json"
+curl --compressed -X PUT \
+   "https://api.kladana.com/api/remap/1.2/context/usersettings" \
+   -H "Authorization: Basic <Credentials>" \
+   -H "Accept-Encoding: gzip" \
+   -H "Content-Type: application/json" \
        -d '{
    "defaultCompany": {
      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",

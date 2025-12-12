@@ -178,9 +178,9 @@ Request to get a list of legal entities on this account.
 > Get a list of legal entities
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/organization"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/organization" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -337,11 +337,11 @@ which contains a representation of the new legal entity.
 > An example of creating a new legal entity.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/organization"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/organization" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
             "name": "JSC SvetProm",
             "description": "legal entity making small profits",
@@ -593,11 +593,11 @@ Successful request. The result is a JSON representation of the created legal ent
 > An example of creating a new legal entity with additional fields in the request body.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/organization"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/organization" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
             "name": "JSC SvetProm",
             "description": "New legal entity",
@@ -750,10 +750,10 @@ Successful request. The result is a JSON representation of the created legal ent
 > Example with legal entity type `Legal entity. International`
 
 ```shell
-curl -X POST
-  "https://api.kladana.com/api/remap/1.2/entity/organization"
-  -H "Authorization: Basic <Credentials>"
-  -H "Content-Type: application/json"
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/organization" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Content-Type: application/json" \
   -d ' {
         "name": "Johnson",
         "companyType": "legalINTERNATIONAL",
@@ -881,11 +881,11 @@ Updated legal entities must contain the identifier in the form of metadata.
 > An example of creating and updating several legal entities
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/organization"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/organization" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d'[
             {
                 "name": "JSC SvetProm",
@@ -1073,9 +1073,9 @@ Successful request. The result is a JSON array of representations of created and
 > Request to delete a legal entity with the specified ID.
 
 ```shell
-curl -X DELETE
-   "https://api.kladana.com/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+   "https://api.kladana.com/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1090,11 +1090,11 @@ In the body of the request, you need to pass an array containing the JSON metada
 > Request for bulk deletion of Organizations.
 
 ```shell
-curl -X POST
-   "https://api.kladana.com/api/remap/1.2/entity/organization/delete"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-   -H "Content-Type: application/json"
+curl --compressed -X POST \
+   "https://api.kladana.com/api/remap/1.2/entity/organization/delete" \
+   -H "Authorization: Basic <Credentials>" \
+   -H "Accept-Encoding: gzip" \
+   -H "Content-Type: application/json" \
    -d' [
             {
                 "meta": {
@@ -1142,9 +1142,9 @@ The structure of a separate object representing the additional the field is desc
 > Metadata of legal entities
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/organization/metadata"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/organization/metadata" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1180,9 +1180,9 @@ Successful request. The result is a JSON representation of the additional fields
 > Request for information on a separate additional field.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/organization/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/organization/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1219,9 +1219,9 @@ Request for obtaining a legal entity with the specified ID.
 > Example 1
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1355,9 +1355,9 @@ Successful request. The result is a JSON representation of the legal entity with
 > Example 2
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1441,11 +1441,11 @@ Request to update the legal entity with the specified ID.
 > An example of a request to update a legal entity with the specified ID.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
            "name": "JSC SvetProm",
            "description": "legal entity making small profits",
@@ -1538,11 +1538,11 @@ Successful request. The result is JSON of the updated legal entity.
 > An example of a request to update a legal entity with the specified ID.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
             "name": "JSC SvetProm",
             "description": "legal entity making small profits",
@@ -1765,9 +1765,9 @@ Returns a JSON array of legal entity account representations.
 > Get a list of accounts of a legal entity
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19/accounts"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19/accounts" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
  
@@ -1833,11 +1833,11 @@ Fields that were not specified in the request JSON are not changed.
 > Change legal entity accounts
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19/accounts"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19/accounts" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d'[
             {
                 "meta": {

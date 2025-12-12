@@ -234,9 +234,9 @@ Result: JSON object including fields:
 > Get the list of Bundles
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/bundle"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/bundle" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -390,11 +390,11 @@ The maximum number of components in a Bundle is 50.
 > An example of the most complete request in terms of the number of fields.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/bundle"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/bundle" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
               "name": "Bundle with a product and one more product",
               "code": "00003",
@@ -653,11 +653,11 @@ Successful request. The result is a JSON representation of the generated Bundle.
 > Sample request to create of a Bundle with image upload
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/bundle"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type:application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/bundle" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type:application/json" \
       -d '{
             "name": "Bundle с изображением",
             "images": [
@@ -851,11 +851,11 @@ Updated Bundles must contain the identifier in the form of metadata.
 > Example of creating and updating multiple Bundles
 
    ```shell
-     curl -X POST
-       "https://api.kladana.com/api/remap/1.2/entity/bundle"
-       -H "Authorization: Basic <Credentials>"
-       -H "Accept-Encoding: gzip"
-       -H "Content-Type: application/json"
+     curl --compressed -X POST \
+       "https://api.kladana.com/api/remap/1.2/entity/bundle" \
+       -H "Authorization: Basic <Credentials>" \
+       -H "Accept-Encoding: gzip" \
+       -H "Content-Type: application/json" \
          -d'[
               {
                   "name": "Bundle with a product and one more product",
@@ -1441,11 +1441,11 @@ in the collection passed in the body of the request (not passed at all), then th
 > Sample update request of a Bundle
  
   ```shell
-    curl -X PUT
-      "https://api.kladana.com/api/remap/1.2/entity/bundle/7944ef04-f831-11e5-7a69-971500188b19"
-      -H "Authorization: Basic <Credentials>"
-      -H "Accept-Encoding: gzip"
-      -H "Content-Type: application/json"
+    curl --compressed -X PUT \
+      "https://api.kladana.com/api/remap/1.2/entity/bundle/7944ef04-f831-11e5-7a69-971500188b19" \
+      -H "Authorization: Basic <Credentials>" \
+      -H "Accept-Encoding: gzip" \
+      -H "Content-Type: application/json" \
         -d '{
               "name": "New name",
               "barcodes": [
@@ -1652,11 +1652,11 @@ In the body of the request, you need to pass an array containing JSON of the met
 > Bulk delete request of Bundles.
 
 ```shell
-curl -X POST
-   "https://api.kladana.com/api/remap/1.2/entity/bundle/delete"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-   -H "Content-Type: application/json"
+curl --compressed -X POST \
+   "https://api.kladana.com/api/remap/1.2/entity/bundle/delete" \
+   -H "Authorization: Basic <Credentials>" \
+   -H "Accept-Encoding: gzip" \
+   -H "Content-Type: application/json" \
    -d'[
           {
               "meta": {
@@ -1714,9 +1714,9 @@ Request to get a list of all components of this Bundle.
 > Get the components of the Complex
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/bundle/7944ef04-f831-11e5-7a69-971500188b19/components"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/bundle/7944ef04-f831-11e5-7a69-971500188b19/components" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1795,11 +1795,11 @@ Successful request. The result is a JSON representation of a list of individual 
 > Request to add a Bundle component.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/bundle/7944ef04-f831-11e5-7a69-971500188b19/components"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/bundle/7944ef04-f831-11e5-7a69-971500188b19/components" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "assortment": {
                "meta": {
@@ -1852,9 +1852,9 @@ Successful request. The result is a JSON representation of the added component.
 > Request to get a separate Bundle component with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/bundle/7944ef04-f831-11e5-7a69-971500188b19/components/34f6344f-015e-11e6-9464-e4de0000006c"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/bundle/7944ef04-f831-11e5-7a69-971500188b19/components/34f6344f-015e-11e6-9464-e4de0000006c" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1896,11 +1896,11 @@ Request to change an individual Bundle component with the specified id.
 > Sample Request to Change a Bundle Component
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/bundle/7944ef04-f831-11e5-7a69-971500188b19/components/34f6344f-015e-11e6-9464-e4de0000006c"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/bundle/7944ef04-f831-11e5-7a69-971500188b19/components/34f6344f-015e-11e6-9464-e4de0000006c" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "quantity": 50
            }'
@@ -1942,9 +1942,9 @@ Successful request. The result is a JSON representation of a single Bundle compo
 > Request to remove a single Bundle component with the specified id.
 
 ```shell
-curl -X DELETE
-   "https://api.kladana.com/api/remap/1.2/entity/bundle/7944ef04-f831-11e5-7a69-971500188b19/components/34f6344f-015e-11e6-9464-e4de0000006c"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+   "https://api.kladana.com/api/remap/1.2/entity/bundle/7944ef04-f831-11e5-7a69-971500188b19/components/34f6344f-015e-11e6-9464-e4de0000006c" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1958,11 +1958,11 @@ The request body must contain an array containing JSON metadata of the Bundle co
 > Request for bulk deletion of Bundle components.
 
 ```shell
-curl -X POST
-"https://api.kladana.com/api/remap/1.2/entity/bundle/31c3c2d4-7323-11ee-c0a8-e00e0000022/components/delete"
--H "Authorization: Basic <Credentials>"
--H "Accept-Encoding: gzip"
--H "Content-Type: application/json"
+curl --compressed -X POST \
+"https://api.kladana.com/api/remap/1.2/entity/bundle/31c3c2d4-7323-11ee-c0a8-e00e0000022/components/delete" \
+-H "Authorization: Basic <Credentials>" \
+-H "Accept-Encoding: gzip" \
+-H "Content-Type: application/json" \
   -d '[
     {
       "meta": {

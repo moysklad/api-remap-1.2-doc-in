@@ -153,9 +153,9 @@ Result: JSON object including fields:
 > Get List of Receivings
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/supply"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/supply" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -469,11 +469,11 @@ Mandatory fields to create:
 > An example of creating a new Receiving.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/supply"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/supply" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "name": "404050",
              "description": "Receiving from 12/12/12",
@@ -646,11 +646,11 @@ Successful request. The result is a JSON representation of the generated Receivi
 > An example of a request to create an Receiving with additional fields.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/supply"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/supply" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "name": "404050124",
              "description": "Receiving from 909090",
@@ -885,11 +885,11 @@ Successful request. The result is a JSON representation of the generated Receivi
 > An example of a request to create an Receiving with items in the body of the request.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/supply"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/supply" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
             "name": "2000124",
             "description": "Receiving from 909090",
@@ -1181,11 +1181,11 @@ Updated Receivings must contain the identifier in the form of metadata.
 > Example of creating and updating multiple Receivings
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/supply"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/supply" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d'[
              {
                "name": "404050",
@@ -1623,9 +1623,9 @@ Successful request. The result is a JSON array of representations of the generat
 > Request to remove the Receiving with the specified id.
 
 ```shell
-curl -X DELETE
-   "https://api.kladana.com/api/remap/1.2/entity/supply/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+   "https://api.kladana.com/api/remap/1.2/entity/supply/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1640,11 +1640,11 @@ In the body of the request, you need to pass an array containing the JSON metada
 > Bulk Deletion Request Receiving.
 
 ```shell
-curl -X POST
-   "https://api.kladana.com/api/remap/1.2/entity/supply/delete"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-   -H "Content-Type: application/json"
+curl --compressed -X POST \
+   "https://api.kladana.com/api/remap/1.2/entity/supply/delete" \
+   -H "Authorization: Basic <Credentials>" \
+   -H "Accept-Encoding: gzip" \
+   -H "Content-Type: application/json" \
    -d'[
             {
                 "meta": {
@@ -1694,9 +1694,9 @@ The structure of a separate object representing the additional the field is desc
 > Receiving Metadata
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/supply/metadata"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/supply/metadata" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1754,11 +1754,11 @@ Successful request. The result is a JSON representation of the additional Receiv
 > Request to receive an Receiving template pre-filled with default values without being associated with any document.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/supply/new"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/supply/new" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d''
 ```
 
@@ -1839,11 +1839,11 @@ Request to receive a pre-filled Receiving based on a vendor order. As a result o
 > Request to create an Receiving based on a vendor order.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/supply/new"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/supply/new" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "purchaseOrder": {
                "meta": {
@@ -1959,11 +1959,11 @@ Successful request. The result is a JSON representation of the prefilled Receivi
 > Request to create an Receiving based on the vendor invoice.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/supply/new"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/supply/new" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "invoicesIn": [
                {
@@ -2084,9 +2084,9 @@ Successful request. The result is a JSON representation of the prefilled Receivi
 > Request for information on a separate additional field.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/supply/metadata/attributes/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/supply/metadata/attributes/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -2120,9 +2120,9 @@ Successful request. The result is a JSON representation of a separate additional
 > Request for a separate Receiving with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/supply/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/supply/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -2236,11 +2236,11 @@ When updating the **organization** and **agent** fields, you must also update th
 > An example of a request to update a single Receiving.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/supply/7944ef04-f831-11e5-7a69-971500188b19"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/supply/7944ef04-f831-11e5-7a69-971500188b19" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "name": "2000700",
              "description": "Receiving from counterparty",
@@ -2519,9 +2519,9 @@ Request for a list of all items in the Receiving.
 > Get Receiving Items
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/supply/7944ef04-f831-11e5-7a69-971500188b19/positions"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/supply/7944ef04-f831-11e5-7a69-971500188b19/positions" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -2603,7 +2603,7 @@ Successful request. The result is a JSON representation of a list of individual 
 > Example with marking codes
 
 ```shell
-curl --location --request GET 'https://api.kladana.com/api/remap/1.2/entity/supply/63918a49-886e-11ea-0a80-151b0000007f?expand=positions' \
+curl --compressed --location --request GET 'https://api.kladana.com/api/remap/1.2/entity/supply/63918a49-886e-11ea-0a80-151b0000007f?expand=positions' \
 --header 'Authorization: Basic <Credentials>'
 ```
 
@@ -2816,9 +2816,9 @@ Successful request. The result is a JSON representation of a list of individual 
 > Request to get a separate Receiving item with the specified ID.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/supply/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/supply/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -2871,11 +2871,11 @@ will be added to the existing ones.
 > An example of creating one item in Receiving.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/supply/7944ef04-f831-11e5-7a69-971500188b19/positions"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/supply/7944ef04-f831-11e5-7a69-971500188b19/positions" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
               "quantity": 44,
               "price": 700.0,
@@ -2944,11 +2944,11 @@ Successful request. The result is a JSON representation of the created single Re
 > An example of creating several items at once in Receiving.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/supply/7944ef04-f831-11e5-7a69-971500188b19/positions"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/supply/7944ef04-f831-11e5-7a69-971500188b19/positions" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d'[
             {
                 "quantity": 44,
@@ -3236,11 +3236,11 @@ To change the number of product units, you must use the **quantity** parameter.
 > Example of a line item update request in Receiving.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/supply/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/supply/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "quantity": 700,
              "price": 2355.0,
@@ -3300,9 +3300,9 @@ Successful request. The result is a JSON representation of the updated Receiving
 > Request to delete a separate Receiving item with the specified ID.
 
 ```shell
-curl -X DELETE
-   "https://api.kladana.com/api/remap/1.2/entity/supply/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+   "https://api.kladana.com/api/remap/1.2/entity/supply/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -3320,11 +3320,11 @@ Successful deletion of the Receiving item.
 > Request for bulk deletion of Receiving items.
 
 ```shell
-curl -X POST
-  "https://api.kladana.com/api/remap/1.2/entity/supply/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/delete"
-  -H "Authorization: Basic <Credentials>"
-  -H "Accept-Encoding: gzip"
-  -H "Content-Type: application/json"
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/supply/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/delete" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
   -d '[
         {
           "meta": {

@@ -56,24 +56,24 @@ To create the first product, you only need its name.
 > Request to create fo a product with login and password
 
 ```shell
-curl -X POST 
-  -u login:password 
-  -H "Accept-Encoding: gzip" 
-  -H "Content-Type: application/json" 
-  -H "Lognex-Pretty-Print-JSON: true" 
-  "https://api.kladana.com/api/remap/1.2/entity/product" 
+curl --compressed -X POST  \
+  -u login:password  \
+  -H "Accept-Encoding: gzip"  \
+  -H "Content-Type: application/json"  \
+  -H "Lognex-Pretty-Print-JSON: true"  \
+  "https://api.kladana.com/api/remap/1.2/entity/product"  \
   -d '{"name":"Product name"}'
 ```
 
 > Request to create a product with a token
 
 ```shell
-curl -X POST 
-  -H "Authorization: Bearer <Access-Token>"
-  -H "Accept-Encoding: gzip" 
-  -H "Content-Type: application/json" 
-  -H "Lognex-Pretty-Print-JSON: true" 
-  "https://api.kladana.com/api/remap/1.2/entity/product" 
+curl --compressed -X POST  \
+  -H "Authorization: Bearer <Access-Token>" \
+  -H "Accept-Encoding: gzip"  \
+  -H "Content-Type: application/json"  \
+  -H "Lognex-Pretty-Print-JSON: true"  \
+  "https://api.kladana.com/api/remap/1.2/entity/product"  \
   -d '{"name":"Product name"}'
 ```
 
@@ -976,11 +976,11 @@ If you need to delete more than one product, use bulk deletion. To do this, you 
 > Example of product bulk deletion
 
 ```shell
-curl -X POST
-  "https://api.kladana.com/api/remap/1.2/entity/product/delete"
-  -H "Authorization: Basic <Credentials>"
-  -H "Accept-Encoding: gzip"
-  -H "Content-Type: application/json"
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/product/delete" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
   -d '[
         {
             "meta": {

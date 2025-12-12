@@ -68,9 +68,9 @@ Result: JSON object including fields:
 > Get all discounts
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/discount"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/discount" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -310,11 +310,11 @@ Request to create a new cumulative discount. Required fields: **name** (discount
 > An example of creating a new cumulative discount
 
 ```shell
-curl -X POST
-"https://api.kladana.com/api/remap/1.2/entity/accumulationdiscount"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+curl --compressed -X POST \
+"https://api.kladana.com/api/remap/1.2/entity/accumulationdiscount" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
     -d '{
             "name": "discountName",
             "active": true,
@@ -413,9 +413,9 @@ Request for a cumulative discount.
 > An example of obtaining a cumulative discount.
 
 ```shell
-curl -X GET
-"https://api.kladana.com/api/remap/1.2/entity/accumulationdiscount/8ae26646-b1aa-11ea-ac12-000b00000001"
--H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+"https://api.kladana.com/api/remap/1.2/entity/accumulationdiscount/8ae26646-b1aa-11ea-ac12-000b00000001" \
+-H "Authorization: Basic <Credentials>" \
 -H "Accept-Encoding: gzip"
 ```
 
@@ -483,11 +483,11 @@ Request to change the cumulative discount. In the body of the request, you must 
 > An example of updating a cumulative discount
 
 ```shell
-curl -X PUT
-"https://api.kladana.com/api/remap/1.2/entity/accumulationdiscount/8ae26646-b1aa-11ea-ac12-000b00000001"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+curl --compressed -X PUT \
+"https://api.kladana.com/api/remap/1.2/entity/accumulationdiscount/8ae26646-b1aa-11ea-ac12-000b00000001" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
     -d '{
             "name": "updatedName",
             "active": false,
@@ -588,9 +588,9 @@ Request to remove a cumulative discount.
 > Request to remove a cumulative discount.
 
 ```shell
-curl -X DELETE
-"https://api.kladana.com/api/remap/1.2/entity/accumulationdiscount/8ae26646-b1aa-11ea-ac12-000b00000001"
--H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+"https://api.kladana.com/api/remap/1.2/entity/accumulationdiscount/8ae26646-b1aa-11ea-ac12-000b00000001" \
+-H "Authorization: Basic <Credentials>" \
 -H "Accept-Encoding: gzip"
 ```
 
@@ -603,11 +603,11 @@ Request to create a new personal discount. Required fields: **name** (discount n
 > Example of creating a new personal discount
 
 ```shell
-curl -X POST
-"https://api.kladana.com/api/remap/1.2/entity/personaldiscount"
--H "Authorization: Basic <Credentials>"
--H "Accept-Encoding: gzip"
--H "Content-Type: application/json"
+curl --compressed -X POST \
+"https://api.kladana.com/api/remap/1.2/entity/personaldiscount" \
+-H "Authorization: Basic <Credentials>" \
+-H "Accept-Encoding: gzip" \
+-H "Content-Type: application/json" \
 -d '{
         "name": "discountName",
         "active": true,
@@ -697,9 +697,9 @@ Request for a personal discount.
 > An example of getting a personal discount
 
 ```shell
-curl -X GET
-"https://api.kladana.com/api/remap/1.2/entity/personaldiscount/8ae26646-b1aa-11ea-ac12-000b00000001"
--H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+"https://api.kladana.com/api/remap/1.2/entity/personaldiscount/8ae26646-b1aa-11ea-ac12-000b00000001" \
+-H "Authorization: Basic <Credentials>" \
 -H "Accept-Encoding: gzip"
 ```
 
@@ -760,11 +760,11 @@ Request to change a personal discount. In the body of the request, you must pass
 > Example of updating a personal discount
 
 ```shell
-curl -X PUT
-"https://api.kladana.com/api/remap/1.2/entity/personaldiscount/8ae26646-b1aa-11ea-ac12-000b00000001"
--H "Authorization: Basic <Credentials>"
--H "Accept-Encoding: gzip"
--H "Content-Type: application/json"
+curl --compressed -X PUT \
+"https://api.kladana.com/api/remap/1.2/entity/personaldiscount/8ae26646-b1aa-11ea-ac12-000b00000001" \
+-H "Authorization: Basic <Credentials>" \
+-H "Accept-Encoding: gzip" \
+-H "Content-Type: application/json" \
 -d '{
         "name": "updatedName",
         "active": false,
@@ -853,9 +853,9 @@ Request to remove a personal discount
 > Request to remove a personal discount.
 
 ```shell
-curl -X DELETE
-"https://api.kladana.com/api/remap/1.2/entity/personaldiscount/8ae26646-b1aa-11ea-ac12-000b00000001"
--H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+"https://api.kladana.com/api/remap/1.2/entity/personaldiscount/8ae26646-b1aa-11ea-ac12-000b00000001" \
+-H "Authorization: Basic <Credentials>" \
 -H "Accept-Encoding: gzip"
 ```
 
@@ -868,11 +868,11 @@ Request to create a new special price. Required fields: **name** (name of the di
 > Example of creating a new special price
 
 ```shell
-curl -X POST
-"https://api.kladana.com/api/remap/1.2/entity/specialpriceddiscount"
--H "Authorization: Basic <Credentials>"
--H "Accept-Encoding: gzip"
--H "Content-Type: application/json"
+curl --compressed -X POST \
+"https://api.kladana.com/api/remap/1.2/entity/specialpriceddiscount" \
+-H "Authorization: Basic <Credentials>" \
+-H "Accept-Encoding: gzip" \
+-H "Content-Type: application/json" \
 -d ' {
           "name": "Special price",
           "active": false,
@@ -980,9 +980,9 @@ Request for a special price.
 > Example of getting a special price
 
 ```shell
-curl -X GET
-"https://api.kladana.com/api/remap/1.2/entity/specialpricediscount/8ae26646-b1aa-11ea-ac12-000b00000001"
--H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+"https://api.kladana.com/api/remap/1.2/entity/specialpricediscount/8ae26646-b1aa-11ea-ac12-000b00000001" \
+-H "Authorization: Basic <Credentials>" \
 -H "Accept-Encoding: gzip"
 ```
 
@@ -1057,11 +1057,11 @@ Request to change the special price. In the body of the request, you must pass t
 > Special price update example
 
 ```shell
-curl -X PUT
-"https://api.kladana.com/api/remap/1.2/entity/specialpricediscount/8ae26646-b1aa-11ea-ac12-000b00000001"
--H "Authorization: Basic <Credentials>"
--H "Accept-Encoding: gzip"
--H "Content-Type: application/json"
+curl --compressed -X PUT \
+"https://api.kladana.com/api/remap/1.2/entity/specialpricediscount/8ae26646-b1aa-11ea-ac12-000b00000001" \
+-H "Authorization: Basic <Credentials>" \
+-H "Accept-Encoding: gzip" \
+-H "Content-Type: application/json" \
 -d '{
     "name": "updatedName",
     "usePriceType": false,
@@ -1142,9 +1142,9 @@ Request to remove a special price.
 > Request to remove a special price.
 
 ```shell
-curl -X DELETE
-"https://api.kladana.com/api/remap/1.2/entity/specialpricediscount/8ae26646-b1aa-11ea-ac12-000b00000001"
--H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+"https://api.kladana.com/api/remap/1.2/entity/specialpricediscount/8ae26646-b1aa-11ea-ac12-000b00000001" \
+-H "Authorization: Basic <Credentials>" \
 -H "Accept-Encoding: gzip"
 ```
 
@@ -1161,11 +1161,11 @@ Request to change the rounding of paise. In the body of the request, you must pa
 > Example of paise rounding updating
 
 ```shell
-curl -X PUT
-"https://api.kladana.com/api/remap/1.2/entity/discount/8ae26646-b1aa-11ea-ac12-000b00000001"
--H "Authorization: Basic <Credentials>"
--H "Accept-Encoding: gzip"
--H "Content-Type: application/json"
+curl --compressed -X PUT \
+"https://api.kladana.com/api/remap/1.2/entity/discount/8ae26646-b1aa-11ea-ac12-000b00000001" \
+-H "Authorization: Basic <Credentials>" \
+-H "Accept-Encoding: gzip" \
+-H "Content-Type: application/json" \
 -d '{
     "name": "updatedName",
     "active": true

@@ -49,9 +49,9 @@ The result of a successful request is a JSON representation of a list of Marking
 > Sample Request for Marking Codes
 
 ```shell
-   curl -X GET
-     "https://api.kladana.com/api/remap/1.2/entity/supply/161d0246-1477-11ec-ac18-000b00000001/positions/161d25a8-1477-11ec-ac18-000b00000002/trackingCodes"
-     -H "Authorization: Basic <Credentials>"
+   curl --compressed -X GET \
+     "https://api.kladana.com/api/remap/1.2/entity/supply/161d0246-1477-11ec-ac18-000b00000001/positions/161d25a8-1477-11ec-ac18-000b00000002/trackingCodes" \
+     -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip"
 ```
 
@@ -110,11 +110,11 @@ Nested Marking Codes are replaced by those specified in the request.
 > Example of creating and updating multiple marking codes
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/supply/161d0246-1477-11ec-ac18-000b00000001/positions/161d25a8-1477-11ec-ac18-000b00000002/trackingCodes"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/supply/161d0246-1477-11ec-ac18-000b00000001/positions/161d25a8-1477-11ec-ac18-000b00000002/trackingCodes" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d'[
              {
                "id": "f591e101-1bc0-11ec-ac18-000c00000004",
@@ -154,11 +154,11 @@ If the Marking Code is specified in the request contains nested codes, they are 
 > Request for Bulk Deletion of Marking Codes
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/supply/161d0246-1477-11ec-ac18-000b00000001/positions/161d25a8-1477-11ec-ac18-000b00000002/trackingCodes/delete"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/supply/161d0246-1477-11ec-ac18-000b00000001/positions/161d25a8-1477-11ec-ac18-000b00000002/trackingCodes/delete" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d'[
              {
                "meta": {

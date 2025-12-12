@@ -159,9 +159,9 @@ The directory settings allow the user to change the code uniqueness checking, se
 > Request to receive all products, services, bundles, product variants and batches in the form of a list.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/assortment"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/assortment" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -775,9 +775,9 @@ curl -X GET
 > Request to receive the list of all products, services, bundles, product variants and batches.
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/entity/assortment?groupBy=consignment"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/entity/assortment?groupBy=consignment" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -1382,11 +1382,11 @@ In the body of the request, you need to pass an array containing JSON of the met
 > Request for bulk deletion of items in the Assortment.
 
 ```shell
-curl -X POST
-  "https://api.kladana.com/api/remap/1.2/entity/assortment/delete"
-  -H "Authorization: Basic <Credentials>"
-  -H "Accept-Encoding: gzip"
-  -H "Content-Type: application/json"
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/assortment/delete" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
   -d '[
         {
             "meta": {
@@ -1425,9 +1425,9 @@ curl -X POST
 > Request to get product directory settings
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/assortment/settings"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/assortment/settings" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1463,11 +1463,11 @@ The response will return the full entity, even if the update was partial.
 > Request to change the metadata of the product directory.
 
 ```shell
-curl -X PUT
-  "https://api.kladana.com/api/remap/1.2/entity/assortment/settings"
-  -H "Authorization: Basic <Credentials>"
-  -H "Accept-Encoding: gzip"
-  -H "Content-Type: application/json"
+curl --compressed -X PUT \
+  "https://api.kladana.com/api/remap/1.2/entity/assortment/settings" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
   -d '{
         "uniqueCodeRules": {
           "checkUniqueCodeBoolean": true,

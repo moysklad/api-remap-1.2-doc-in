@@ -106,9 +106,9 @@ Result: JSON object including fields:
 > Get Supplier Refunds
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/purchasereturn"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/purchasereturn" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -587,11 +587,11 @@ must match the items in the document. The difference can only be in the number o
 > An example of creating a new Purchase Returns based on an acceptance.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/purchasereturn"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/purchasereturn" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "name": "77887",
              "owner": {
@@ -867,11 +867,11 @@ Successful request. The result is a JSON representation of the generated Purchas
 > An example of creating a new Purchase Returns without a reason.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/purchasereturn"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/purchasereturn" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "name": "77887",
              "owner": {
@@ -1137,11 +1137,11 @@ Updated Returns to the supplier must contain the identifier in the form of metad
 > Example of creating and updating multiple Purchase Returns
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/purchasereturn"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/purchasereturn" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d'[
             {
                 "name": "77887",
@@ -1687,9 +1687,9 @@ Successful request. The result is a JSON array of representations of the generat
 > Request to remove the Return to the supplier with the specified ID.
 
 ```shell
-curl -X DELETE
-   "https://api.kladana.com/api/remap/1.2/entity/purchasereturn/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+   "https://api.kladana.com/api/remap/1.2/entity/purchasereturn/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1704,11 +1704,11 @@ In the body of the request, you need to pass an array containing JSON metadata o
 > Bulk delete request for Purchase Returns.
 
 ```shell
-curl -X POST
-   "https://api.kladana.com/api/remap/1.2/entity/purchasereturn/delete"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-   -H "Content-Type: application/json"
+curl --compressed -X POST \
+   "https://api.kladana.com/api/remap/1.2/entity/purchasereturn/delete" \
+   -H "Authorization: Basic <Credentials>" \
+   -H "Accept-Encoding: gzip" \
+   -H "Content-Type: application/json" \
    -d'[
         {
             "meta": {
@@ -1759,9 +1759,9 @@ The structure of a separate object representing the additional the field is desc
 > Metadata of Returns to Suppliers
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/purchasereturn/metadata"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/purchasereturn/metadata" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1854,9 +1854,9 @@ Successful request. The result is a JSON representation of the additional fields
 > Request for information on a separate additional field.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/purchasereturn/metadata/attributes/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/purchasereturn/metadata/attributes/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1885,11 +1885,11 @@ A request to receive a Purchase Returns template pre-populated with default valu
 > Create a Purchase Returns template with an empty request body
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/purchasereturn/new"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/purchasereturn/new" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d''
 ```
 
@@ -1944,11 +1944,11 @@ can then be used to create a new return using a POST request.
 > Sample request to create a Purchase Returns template based on acceptance.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/purchasereturn/new"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/purchasereturn/new" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "supply": {
                "meta": {
@@ -2054,9 +2054,9 @@ Successful request. The result is a JSON representation of a prefilled Purchase 
 > Request for a separate Return to the supplier with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/purchasereturn/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/purchasereturn/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -2201,11 +2201,11 @@ When updating return:
 > Example of a Purchase Return update request.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/purchasereturn/7944ef04-f831-11e5-7a69-971500188b19"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/purchasereturn/7944ef04-f831-11e5-7a69-971500188b19" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "name": "763457",
              "owner": {
@@ -2491,9 +2491,9 @@ Request for a list of all items of the Purchase Return.
 > Get items
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/purchasereturn/7944ef04-f831-11e5-7a69-971500188b19/positions"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/purchasereturn/7944ef04-f831-11e5-7a69-971500188b19/positions" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -2709,11 +2709,11 @@ difference in **quantity** items (the quantity in the item in the return can be 
 > An example of a request to create items in the Purchase Returns.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/purchasereturn/7944ef04-f831-11e5-7a69-971500188b19/positions"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/purchasereturn/7944ef04-f831-11e5-7a69-971500188b19/positions" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d'[
              {
                "quantity": 1,
@@ -2815,9 +2815,9 @@ Successful request. The result is a JSON representation of the created items.
 > Request to receive a single item Returned to the supplier with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/purchasereturn/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/purchasereturn/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -2867,11 +2867,11 @@ Moreover, this number must be within , where n is the number of this item in the
 > An example of a request to update a line item in Purchase Returns.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/purchasereturn/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/purchasereturn/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "quantity": 6754
            }'
@@ -2918,9 +2918,9 @@ Successful request. The result is a JSON representation of the updated Purchase 
 > Request to delete a single item returned to the supplier with the specified ID.
 
 ```shell
-curl -X DELETE
-   "https://api.kladana.com/api/remap/1.2/entity/purchasereturn/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+   "https://api.kladana.com/api/remap/1.2/entity/purchasereturn/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -2938,11 +2938,11 @@ Successful deletion of the Purchase Return item.
 > Request to bulk deletion of Purchase Return items.
 
 ```shell
-curl -X POST
-  "https://api.kladana.com/api/remap/1.2/entity/purchasereturn/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/delete"
-  -H "Authorization: Basic <Credentials>"
-  -H "Accept-Encoding: gzip"
-  -H "Content-Type: application/json"
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/purchasereturn/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/delete" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
   -d '[
         {
           "meta": {

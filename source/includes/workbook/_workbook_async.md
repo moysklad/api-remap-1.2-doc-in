@@ -21,9 +21,9 @@ Asynchronous exchange offers a different sequence of actions.
 > Request to create an Asynchronous task
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/report/stock/bystore?async=true"
-   -H "Authorization: Bearer <Access-Token>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/report/stock/bystore?async=true" \
+   -H "Authorization: Bearer <Access-Token>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -51,9 +51,9 @@ asynchronous tasks and when you repeat the request, you will get error 61002:
 > Polling the status of an asynchronous task
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/async/498b8673-0308-11e6-9464-e4de00000089"
-   -H "Authorization: Bearer <Access-Token>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/async/498b8673-0308-11e6-9464-e4de00000089" \
+   -H "Authorization: Bearer <Access-Token>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -115,8 +115,8 @@ As soon as the status of the task becomes `DONE`, the result of the task is read
 > Request to get Asynchronous tasks with result
 
 ```shell
-curl -X GET"https://api.kladana.com/api/remap/1.2/async?filter=state=done&deletionDate<2021-02-16 16:21:09"
-   -H "Authorization: Bearer <Access-Token>"
+curl --compressed -X GET"https://api.kladana.com/api/remap/1.2/async?filter=state=done&deletionDate<2021-02-16 16:21:09" \
+   -H "Authorization: Bearer <Access-Token>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -200,9 +200,9 @@ Let's say you want to get all asynchronous tasks for which a result is available
 > Request to get the result of an Asynchronous Task
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/async/498b8673-0308-11e6-9464-e4de00000089/result"
-   -H "Authorization: Bearer <Access-Token>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/async/498b8673-0308-11e6-9464-e4de00000089/result" \
+   -H "Authorization: Bearer <Access-Token>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -325,9 +325,9 @@ similar to the one returned by the synchronous resource call.
 > An example of a request to get the result of an Asynchronous task with the API_ERROR status
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/async/498b8673-0308-11e6-9464-e4de00000089/result"
-   -H "Authorization: Bearer <Access-Token>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/async/498b8673-0308-11e6-9464-e4de00000089/result" \
+   -H "Authorization: Bearer <Access-Token>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -361,11 +361,11 @@ As with regular webhooks, you need to set:
 > An example of a request to create a webhook on the execution event of an Asynchronous task
 
 ```shell
-curl -X POST
-   "https://api.kladana.com/api/remap/1.2/entity/webhook"
-   -H "Authorization: Bearer <Access-Token>"
-   -H "Accept-Encoding: gzip"
-   -H "Content-Type: application/json"
+curl --compressed -X POST \
+   "https://api.kladana.com/api/remap/1.2/entity/webhook" \
+   -H "Authorization: Bearer <Access-Token>" \
+   -H "Accept-Encoding: gzip" \
+   -H "Content-Type: application/json" \
    -d '{
            "url": "http://some_url.ru",
            "action": "PROCESSED",

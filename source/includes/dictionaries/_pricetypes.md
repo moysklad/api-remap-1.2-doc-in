@@ -18,9 +18,9 @@ The entity code for the Price Type in the JSON API is the **pricetype** keyword.
 > Get a list of all price types
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -74,11 +74,11 @@ Restrictions:
 > An example of creating a new price type.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
      -d'[
            {
              "meta": {
@@ -128,11 +128,11 @@ Successful request. The result is a JSON representation of the updated list of p
 > An example of updating an existing list.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
      -d'[
            {
              "meta": {
@@ -196,9 +196,9 @@ Successful request. The result is a JSON representation of the updated list of p
 > Get price type by ID
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype/a8967d6b-b026-11e7-9464-d04800000000"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype/a8967d6b-b026-11e7-9464-d04800000000" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -223,9 +223,9 @@ Successful request. The result is an updated price type.
 > Get default price type
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype/default"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/context/companysettings/pricetype/default" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 

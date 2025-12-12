@@ -76,9 +76,9 @@ Result: JSON object, including the fields:
 > Get a list of Events for Sales Order
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/entity/customerorder/e4609c69-00bc-11ef-ac12-00120000001a/notes"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/entity/customerorder/e4609c69-00bc-11ef-ac12-00120000001a/notes" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -165,9 +165,9 @@ Request to get one transaction Event for this account.
 > Get Sales Order Event
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/entity/customerorder/e4609c69-00bc-11ef-ac12-00120000001a/notes/844a0ef9-19ac-11ef-ac12-000b00000000"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/entity/customerorder/e4609c69-00bc-11ef-ac12-00120000001a/notes/844a0ef9-19ac-11ef-ac12-000b00000000" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -211,11 +211,11 @@ Request to add one transaction Event for the account.
 > Request to add a new event for a Sales Order.
 
 ```shell
-curl -X POST
-  "https://api.kladana.com/api/remap/1.2/entity/customerorder/e4609c69-00bc-11ef-ac12-00120000001a/notes"
-  -H "Authorization: Basic <Credentials>"
-  -H "Accept-Encoding: gzip"
-  -H "Content-Type: application/json"
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/customerorder/e4609c69-00bc-11ef-ac12-00120000001a/notes" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
     -d '{
           "description": "Hello, {{employee;730c1b3d-00ba-11ef-ac12-00120000000d}}! How are you?"
         }'  
@@ -263,11 +263,11 @@ Request to update a single Event for the account.
 > Update Sales Order Event
 
 ```shell
-curl -X PUT
-  "https://api.kladana.com/api/remap/1.2/entity/customerorder/e4609c69-00bc-11ef-ac12-00120000001a/notes/844a0ef9-19ac-11ef-ac12-000b00000000"
-  -H "Authorization: Basic <Credentials>"
-  -H "Accept-Encoding: gzip"
-  -H "Content-Type: application/json"
+curl --compressed -X PUT \
+  "https://api.kladana.com/api/remap/1.2/entity/customerorder/e4609c69-00bc-11ef-ac12-00120000001a/notes/844a0ef9-19ac-11ef-ac12-000b00000000" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
     -d '{
           "description": "Hello, {{employee;730c1b3d-00ba-11ef-ac12-00120000000d}}! How are you?"
         }'  
@@ -314,9 +314,9 @@ Request to delete one document Event for the account.
 > Delete Event of Sales Order
 
 ```shell
-curl -X DELETE
-  "https://api.kladana.com/api/remap/1.2/entity/customerorder/e4609c69-00bc-11ef-ac12-00120000001a/notes/844a0ef9-19ac-11ef-ac12-000b00000000"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+  "https://api.kladana.com/api/remap/1.2/entity/customerorder/e4609c69-00bc-11ef-ac12-00120000001a/notes/844a0ef9-19ac-11ef-ac12-000b00000000" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 

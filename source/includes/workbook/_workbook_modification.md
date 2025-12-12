@@ -13,9 +13,9 @@ have been created and used.
 > Request for the characteristics of product variants
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/variant/metadata"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/variant/metadata" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -63,11 +63,11 @@ After it became clear that some characteristics are missing to describe the prod
 > Creation of one characteristic.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "name": "Size"
            }'
@@ -93,11 +93,11 @@ Successful request. The result is a JSON representation of the generated Feature
 > Example of creating multiple Characteristics
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d'[
              {
                "name": "Size"

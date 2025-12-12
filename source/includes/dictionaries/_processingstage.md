@@ -51,9 +51,9 @@ Result: JSON object including fields:
 > Get a list of Production Operations
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/processingstage"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/processingstage" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -144,11 +144,11 @@ To create a new Production Operation, it is necessary and sufficient to specify 
 > An example of the most complete request in terms of the number of fields.
 
    ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/processingstage"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/processingstage" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "name": "Production Operation 1",
              "externalCode": "456",
@@ -209,11 +209,11 @@ Updated Production Operations must contain the identifier in the form of metadat
 > Example of creating and updating multiple Production Operations
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/processingstage"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/processingstage" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d'[
              {
                "name": "Production Operation 2"
@@ -325,9 +325,9 @@ Successful request. The result is a JSON array of representations of the created
 > Request to remove the Production Operation with the specified id.
 
 ```shell
-curl -X DELETE
-   "https://api.kladana.com/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c2"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+   "https://api.kladana.com/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c2" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -342,11 +342,11 @@ In the body of the request, you need to pass an array containing the JSON metada
 > Request for bulk deletion of Production Operations.
 
 ```shell
-curl -X POST
-   "https://api.kladana.com/api/remap/1.2/entity/processingstage/delete"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-   -H "Content-Type: application/json"
+curl --compressed -X POST \
+   "https://api.kladana.com/api/remap/1.2/entity/processingstage/delete" \
+   -H "Authorization: Basic <Credentials>" \
+   -H "Accept-Encoding: gzip" \
+   -H "Content-Type: application/json" \
    -d'[
           {
               "meta": {
@@ -393,9 +393,9 @@ curl -X POST
 > Request to receive a separate Production Operation with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -454,11 +454,11 @@ Request to update an existing Production Operation.
 > Example of the Production Operation Update Request
 
   ```shell
-    curl -X PUT
-      "https://api.kladana.com/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1"
-      -H "Authorization: Basic <Credentials>"
-      -H "Accept-Encoding: gzip"
-      -H "Content-Type: application/json"
+    curl --compressed -X PUT \
+      "https://api.kladana.com/api/remap/1.2/entity/processingstage/d2308bcc-8fd9-11ed-ac12-000b000000c1" \
+      -H "Authorization: Basic <Credentials>" \
+      -H "Accept-Encoding: gzip" \
+      -H "Content-Type: application/json" \
         -d '{
               "name": "Production Operation 1.1",
               "performers": [

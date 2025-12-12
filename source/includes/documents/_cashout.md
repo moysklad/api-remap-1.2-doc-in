@@ -80,9 +80,9 @@ Result: JSON object including fields:
 > Get Outgoing Cash Payments
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/cashout"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/cashout" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -457,11 +457,11 @@ Mandatory fields to create:
 > An example of creating a new Disbursement Note with a request body containing only the required fields.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/cashout"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/cashout" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
             "organization": {
                 "meta": {
@@ -571,11 +571,11 @@ Updatable Outgoing Cash Payments must contain the identifier in the form of meta
 > Example of creating and updating multiple Outgoing Cash Payments
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/cashout"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/cashout" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d'[
              {
                "name": "0721",
@@ -852,9 +852,9 @@ Successful request. The result is a JSON array of representations of the created
 > Request to delete an Outgoing Cash Payment with the specified id.
 
 ```shell
-curl -X DELETE
-   "https://api.kladana.com/api/remap/1.2/entity/cashout/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+   "https://api.kladana.com/api/remap/1.2/entity/cashout/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -869,11 +869,11 @@ In the body of the request, you need to pass an array containing the JSON metada
 > Request for bulk deletion of Outgoing Cash Payments.
 
 ```shell
-curl -X POST
-   "https://api.kladana.com/api/remap/1.2/entity/cashout/delete"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-   -H "Content-Type: application/json"
+curl --compressed -X POST \
+   "https://api.kladana.com/api/remap/1.2/entity/cashout/delete" \
+   -H "Authorization: Basic <Credentials>" \
+   -H "Accept-Encoding: gzip" \
+   -H "Content-Type: application/json" \
    -d'[
          {
            "meta": {
@@ -921,9 +921,9 @@ The structure of a separate object representing the additional the field is desc
 > Metadata of Outgoing Cash Payments
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1027,9 +1027,9 @@ Successful request. The result is a JSON representation of the additional fields
 > Request for information on a separate additional field.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata/attributes/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata/attributes/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1056,11 +1056,11 @@ Successful request. The result is a JSON representation of a separate additional
 > Request to receive an Outgoing Cash Payment template pre-filled with standard values without being associated with any document.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/cashout/new"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/cashout/new" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d''
 ```
 
@@ -1100,11 +1100,11 @@ Request for a pre-filled Outgoing Cash Payment representation based on another t
 > Request for an Outgoing Cash Payment template based on a vendor order.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/cashout/new"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/cashout/new" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "operations": [
                {
@@ -1181,11 +1181,11 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
 > Request for an Outgoing Cash Payment template based on Sales Return.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/cashout/new"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/cashout/new" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "operations": [
                {
@@ -1262,11 +1262,11 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
 > Request for an Outgoing Cash Payment template based on receipt.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/cashout/new"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/cashout/new" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              operations: [
                {
@@ -1343,11 +1343,11 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
 > Request for an Outgoing Cash Payment template based on a vendor invoice.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/cashout/new"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/cashout/new" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "operations": [
                {
@@ -1424,11 +1424,11 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
 > Request for an Outgoing Cash Payment template based on the issued commission agent report.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/cashout/new"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/cashout/new" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "operations": [
                {
@@ -1549,9 +1549,9 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
 > Request for a separate Outgoing Cash Payment with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/cashout/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/cashout/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1702,11 +1702,11 @@ Also, for each document, you can specify the amount paid for this document from 
 > An example of a request to update a single Outgoing Cash Payment.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/cashout/7944ef04-f831-11e5-7a69-971500188b19"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/cashout/7944ef04-f831-11e5-7a69-971500188b19" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "shared": true,
              "name": "0722",

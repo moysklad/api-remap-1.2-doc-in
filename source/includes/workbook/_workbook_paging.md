@@ -5,10 +5,10 @@ If you have multiple `documents` of the same type, then when prompted:
 > Request
 
 ```shell
-curl -X GET 
-  "https://api.kladana.com/api/remap/1.2/entity/{document type}"
-  -u login:password
-  -H "Accept-Encoding: gzip"
+curl --compressed -X GET  \
+  "https://api.kladana.com/api/remap/1.2/entity/{document type}" \
+  -u login:password \
+  -H "Accept-Encoding: gzip" \
   -H "Lognex-Pretty-Print-JSON: true"
 ```
 You will not get a complete list of documents (hereinafter referred to as a collection), but only the first 1000 documents.
@@ -18,10 +18,10 @@ A collection is also understood as the items of a specific document, obtained up
 > Request to receive document items
 
 ```shell
-curl -X GET  
-  "https://api.kladana.com/api/remap/1.2/entity/{document type}/{id}/positions"
-  -u login:password
-  -H "Accept-Encoding: gzip" 
+curl --compressed -X GET   \
+  "https://api.kladana.com/api/remap/1.2/entity/{document type}/{id}/positions" \
+  -u login:password \
+  -H "Accept-Encoding: gzip"  \
   -H "Lognex-Pretty-Print-JSON: true"
 ```
 
@@ -34,10 +34,10 @@ For example, if you want to get the first 10 orders:
 >Request
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/entity/customerorder?limit=10"
-  -u login:password
-  -H "Accept-Encoding: gzip" 
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/entity/customerorder?limit=10" \
+  -u login:password \
+  -H "Accept-Encoding: gzip"  \
   -H "Lognex-Pretty-Print-JSON: true"
 ```
 
@@ -184,10 +184,10 @@ If you want to get the first 10 items of a specific order:
 > Request
 
 ```shell
-curl -X GET 
-  "https://api.kladana.com/api/remap/1.2/entity/customerorder/51bb185a-b0e7-11ea-ac12-000d0000012a/positions?limit=10"
-  -u login:password
-  -H "Accept-Encoding: gzip" 
+curl --compressed -X GET  \
+  "https://api.kladana.com/api/remap/1.2/entity/customerorder/51bb185a-b0e7-11ea-ac12-000d0000012a/positions?limit=10" \
+  -u login:password \
+  -H "Accept-Encoding: gzip"  \
   -H "Lognex-Pretty-Print-JSON: true" 
 ```
 
@@ -251,10 +251,10 @@ An example of requesting orders, skipping the first 2 orders:
 > Request
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/entity/customerorder?offset=1"
-  -u login:password
-  -H "Accept-Encoding: gzip" 
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/entity/customerorder?offset=1" \
+  -u login:password \
+  -H "Accept-Encoding: gzip"  \
   -H "Lognex-Pretty-Print-JSON: true"
 ```
 
@@ -390,10 +390,10 @@ You can also use shift in the list of items:
 > Request
 
 ```shell
-curl -X GET 
- "https://api.kladana.com/api/remap/1.2/entity/customerorder/51bb185a-b0e7-11ea-ac12-000d0000012a/positions?offset=1"
- -u login:password 
- -H "Accept-Encoding: gzip" 
+curl --compressed -X GET  \
+ "https://api.kladana.com/api/remap/1.2/entity/customerorder/51bb185a-b0e7-11ea-ac12-000d0000012a/positions?offset=1" \
+ -u login:password  \
+ -H "Accept-Encoding: gzip"  \
  -H "Lognex-Pretty-Print-JSON: true"
 ```
 
@@ -459,10 +459,10 @@ Then offset = 160, limit = 40, i.e. the request will be like this:
 > Request
 
 ```shell
-curl -X GET
-  "https://app.kladana.com/api/remap/1.2/entity/customerorder?offset=160&limit=40"
-  -u login:password
-  -H "Accept-Encoding: gzip" 
+curl --compressed -X GET \
+  "https://app.kladana.com/api/remap/1.2/entity/customerorder?offset=160&limit=40" \
+  -u login:password \
+  -H "Accept-Encoding: gzip"  \
   -H "Lognex-Pretty-Print-JSON: true"
 ```
 In this form, you will receive 2 additional parameters in the response meta:
@@ -473,10 +473,10 @@ In this form, you will receive 2 additional parameters in the response meta:
 > Request
 
 ```shell
-curl -X GET
-  "https://app.kladana.com/api/remap/1.2/entity/customerorder?offset=160&limit=3"
-  -u login:password
-  -H "Accept-Encoding: gzip" 
+curl --compressed -X GET \
+  "https://app.kladana.com/api/remap/1.2/entity/customerorder?offset=160&limit=3" \
+  -u login:password \
+  -H "Accept-Encoding: gzip"  \
   -H "Lognex-Pretty-Print-JSON: true"
 ```
 

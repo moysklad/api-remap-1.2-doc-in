@@ -64,10 +64,10 @@ To create a webhook, just specify the url, entityType and action, as in the exam
 > Request
 
 ```shell
-curl -X POST
-   https://api.kladana.com/api/remap/1.2/entity/webhook
-   -H 'Authorization: Bearer <Access-Token>'
-   -H 'Content-Type: application/json'
+curl --compressed -X POST \
+   https://api.kladana.com/api/remap/1.2/entity/webhook \
+   -H 'Authorization: Bearer <Access-Token>' \
+   -H 'Content-Type: application/json' \
    -d '{
            "url": "http://www.example.com",
            "action": "CREATE",
@@ -103,9 +103,9 @@ As with other JSON API entity requests, other actions on webhooks are only possi
 > Request
 
 ```shell
-curl -X GET
-   https://api.kladana.com/api/remap/1.2/entity/webhook/a5b3cd1f-caee-11e8-9ff4-34e80022dcb3
-   -H 'Authorization: Bearer <Access-Token>'
+curl --compressed -X GET \
+   https://api.kladana.com/api/remap/1.2/entity/webhook/a5b3cd1f-caee-11e8-9ff4-34e80022dcb3 \
+   -H 'Authorization: Bearer <Access-Token>' \
    -H 'Content-Type: application/json'
 ```
 
@@ -115,10 +115,10 @@ Example of a request with an event change
 > Request
 
 ```shell
-curl -X PUT
-   https://api.kladana.com/api/remap/1.2/entity/webhook/a5b3cd1f-caee-11e8-9ff4-34e80022dcb3
-   -H 'Authorization: Bearer <Access-Token>'
-   -H 'Content-Type: application/json'
+curl --compressed -X PUT \
+   https://api.kladana.com/api/remap/1.2/entity/webhook/a5b3cd1f-caee-11e8-9ff4-34e80022dcb3 \
+   -H 'Authorization: Bearer <Access-Token>' \
+   -H 'Content-Type: application/json' \
    -d '{
            "action": "UPDATE"
         }'
@@ -127,10 +127,10 @@ curl -X PUT
 > Sample request with webhook disabled.
 
 ```shell
-curl -X PUT
-   https://api.kladana.com/api/remap/1.2/entity/webhook/a5b3cd1f-caee-11e8-9ff4-34e80022dcb3
-   -H 'Authorization: Bearer <Access-Token>'
-   -H 'Content-Type: application/json'
+curl --compressed -X PUT \
+   https://api.kladana.com/api/remap/1.2/entity/webhook/a5b3cd1f-caee-11e8-9ff4-34e80022dcb3 \
+   -H 'Authorization: Bearer <Access-Token>' \
+   -H 'Content-Type: application/json' \
    -d '{
            "enabled": false
         }'
@@ -139,18 +139,18 @@ curl -X PUT
 > Deleting a webhook is done in the same way, but only using the DELETE method.
 
 ```shell
-curl -X DELETE
-   https://api.kladana.com/api/remap/1.2/entity/webhook/a5b3cd1f-caee-11e8-9ff4-34e80022dcb3
-   -H 'Authorization: Bearer <Access-Token>'
+curl --compressed -X DELETE \
+   https://api.kladana.com/api/remap/1.2/entity/webhook/a5b3cd1f-caee-11e8-9ff4-34e80022dcb3 \
+   -H 'Authorization: Bearer <Access-Token>' \
    -H 'Content-Type: application/json'
 ```
 
 > You can get all webhooks with a typical GET request.
 
 ```shell
-curl -X GET
-   https://api.kladana.com/api/remap/1.2/entity/webhook
-   -H 'Authorization: Bearer <Access-Token>'
+curl --compressed -X GET \
+   https://api.kladana.com/api/remap/1.2/entity/webhook \
+   -H 'Authorization: Bearer <Access-Token>' \
    -H 'Content-Type: application/json'
 ```
 
@@ -231,11 +231,11 @@ a unique test url that must be specified in the webhook and interactively shows 
   > Request to create a webhook to create a service
  
   ```shell
-  curl -X POST
-    https://api.kladana.com/api/remap/1.2/entity/webhook
-    -H 'Authorization: Bearer <Access-Token>'
-    -H 'Cache-Control: no-cache'
-    -H 'Content-Type: application/json'
+  curl --compressed -X POST \
+    https://api.kladana.com/api/remap/1.2/entity/webhook \
+    -H 'Authorization: Bearer <Access-Token>' \
+    -H 'Cache-Control: no-cache' \
+    -H 'Content-Type: application/json' \
     -d '{
             "url": "https://webhook.site/c314f269-d524-4b1a-bf9e-5c59060b220c",
             "action": "CREATE",
