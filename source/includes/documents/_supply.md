@@ -2603,8 +2603,10 @@ Successful request. The result is a JSON representation of a list of individual 
 > Example with marking codes
 
 ```shell
-curl --compressed --location --request GET 'https://api.kladana.com/api/remap/1.2/entity/supply/63918a49-886e-11ea-0a80-151b0000007f?expand=positions' \
---header 'Authorization: Basic <Credentials>'
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/supply/63918a49-886e-11ea-0a80-151b0000007f?expand=positions" \
+   -H "Authorization: Basic <Credentials>" \
+   -H "Accept-Encoding: gzip"
 ```
 
 > Response 200(application/json)
@@ -3095,10 +3097,12 @@ Successful request. The result is a JSON representation of the list of created i
 > Example with marking codes
 
 ```shell
-curl --location --request POST 'https://api.kladana.com/api/remap/1.2/entity/supply/63918a49-886e-11ea-0a80-151b0000007f/positions' \
---header 'Authorization: Basic <Credentials>' \
---header 'Content-Type: application/json' \
---data-raw '{
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/supply/63918a49-886e-11ea-0a80-151b0000007f/positions" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
+    -d'{
                 "quantity":10.0,
                 "price":11100.0,
                 "discount":0.0,
