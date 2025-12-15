@@ -1449,11 +1449,11 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
 > Sample Service Update Request
   
    ```shell
-     curl -X PUT
-       "https://api.kladana.com/api/remap/1.2/entity/service/7944ef04-f831-11e5-7a69-971500188b19"
-       -H "Authorization: Basic <Credentials>"
-       -H "Accept-Encoding: gzip"
-       -H "Content-Type: application/json"
+     curl --compressed -X PUT \
+       "https://api.kladana.com/api/remap/1.2/entity/service/7944ef04-f831-11e5-7a69-971500188b19" \
+       -H "Authorization: Basic <Credentials>" \
+       -H "Accept-Encoding: gzip" \
+       -H "Content-Type: application/json" \
          -d '{
                "name": "Product Delivery",
                "description": "Home delivery of the selected item",
@@ -1660,11 +1660,11 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
 > Example of a request to change a Service with additional fields.
  
   ```shell
-    curl -X PUT
-      "https://api.kladana.com/api/remap/1.2/entity/service/7944ef04-f831-11e5-7a69-971500188b19"
-      -H "Authorization: Basic <Credentials>"
-      -H "Accept-Encoding: gzip"
-      -H "Content-Type: application/json"
+    curl --compressed -X PUT \
+      "https://api.kladana.com/api/remap/1.2/entity/service/7944ef04-f831-11e5-7a69-971500188b19" \
+      -H "Authorization: Basic <Credentials>" \
+      -H "Accept-Encoding: gzip" \
+      -H "Content-Type: application/json" \
         -d '{
             "name": "Cargo lining",
             "description": "Delivery cladding",

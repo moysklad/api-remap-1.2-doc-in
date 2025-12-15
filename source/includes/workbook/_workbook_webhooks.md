@@ -248,10 +248,10 @@ a unique test url that must be specified in the webhook and interactively shows 
 > Request to create a service
 
 ```shell
-curl -X POST
-   https://api.kladana.com/api/remap/1.2/entity/service
-   -H 'Authorization: Bearer <Access-Token>'
-   -H 'Content-Type: application/json'
+curl --compressed -X POST \
+   https://api.kladana.com/api/remap/1.2/entity/service \
+   -H 'Authorization: Bearer <Access-Token>' \
+   -H 'Content-Type: application/json' \
    -d '{
            "name": "Sharpening skates"
         }'

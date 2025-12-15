@@ -60,7 +60,7 @@ _Чтобы локально развернуть копию документа�
 
 > Получить Сущности
 
-curl -X GET \
+curl --compressed -X GET \
   "https://api.kladana.com/api/remap/1.2/entity/some_entity" \
   -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"

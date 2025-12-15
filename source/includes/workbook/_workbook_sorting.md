@@ -80,8 +80,8 @@ curl --compressed -X POST \
 https://api.kladana.com/api/remap/1.2/entity/product \
   -H 'Authorization: Bearer <Access-Token>' \
   -H 'Accept-Encoding: gzip' \
-  -H 'Cache-Control: no-cache'  \
-  -H 'Content-Type: application/json'  \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \
   -d '[
      {
       "name":"12345",

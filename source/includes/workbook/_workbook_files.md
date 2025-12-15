@@ -460,10 +460,10 @@ specified in `downloadHref` in `meta` of the file.
 > Sample Request for Product File
 
    ```shell
-   curl -X GET
-     "https://api.kladana.com/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
+   curl --compressed -X GET \
+     "https://api.kladana.com/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json"
    ```
 The response will come with a 302 (Found) status, where the download link will be indicated in the response header in `Location`. Important

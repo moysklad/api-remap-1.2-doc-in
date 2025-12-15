@@ -371,8 +371,8 @@ To reset the value of an additional field of the File type, you need to pass the
 > Example of assigning a value to an additional field of the File type
 
 ```shell
-curl --compressed -X PUT  \
-  "https://api.kladana.com/api/remap/1.2/entity/product/dde7f6d3-1c09-11ef-ac12-000f00000025"  \
+curl --compressed -X PUT \
+  "https://api.kladana.com/api/remap/1.2/entity/product/dde7f6d3-1c09-11ef-ac12-000f00000025" \
   -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip" \
   -d '{
@@ -395,8 +395,8 @@ curl --compressed -X PUT  \
 > Example of resetting the value of an additional field of the File type
 
 ```shell
-curl --compressed -X PUT  \
-  "https://api.kladana.com/api/remap/1.2/entity/product/dde7f6d3-1c09-11ef-ac12-000f00000025"  \
+curl --compressed -X PUT \
+  "https://api.kladana.com/api/remap/1.2/entity/product/dde7f6d3-1c09-11ef-ac12-000f00000025" \
   -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip" \
   -d '{
@@ -870,7 +870,7 @@ curl --compressed -X PUT \
   "https://api.kladana.com/api/remap/1.2/entity/demand/a6c50571-e705-11ef-ac12-000e0000001d" \
   -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip" \
-  -H 'Content-Type: application/json'  \
+  -H 'Content-Type: application/json' \
   -d '{
         "attributes": [
             {
@@ -1064,7 +1064,7 @@ The JSON API provides special resources for managing transaction items. These re
 > Sample URL for delete request with DELETE:
 
 ```shell
-curl --compressed -X DELETE  \
+curl --compressed -X DELETE \
   "https://api.kladana.com/api/remap/1.2/{document entity code, as part of the JSON API}/{id of a separate document}/positions/179dd832-960c-11e6-8a84-bae5000000dc \
   -H "Authorization: Bearer <Access-Token>" \
   -H "Accept-Encoding: gzip"
