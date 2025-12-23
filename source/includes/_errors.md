@@ -347,6 +347,7 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_22000">22000</a> | Error saving payment: allocated amount exceeds payment amount | The amount specified in linkedSum is greater than the sum of the payment. |
 | <a name="error_22001">22001</a> | Error saving payment: payment contains duplicate linked documents | You are trying to link a payment to a document more than once. |
 | <a name="error_22002">22002</a> | Error saving payment: invalid expense item: '{expense category}' | This expense item cannot be assigned to a payment. |
+| <a name="error_22003">22003</a> | Error saving payment: cannot link payment without closing documents | Payment can’t have active flag "No Closing documents" and related transaction at the same time|
 
 ### Error codes for Product groups
 
