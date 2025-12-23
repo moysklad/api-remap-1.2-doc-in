@@ -55,9 +55,9 @@ If the recipient's address uses an SSL certificate, then you need to make sure t
 > Request to receive all webhooks to change stock on this account.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/webhookstock"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/webhookstock" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -148,11 +148,11 @@ remnants with different **url** for users and no more than 1 for the application
 > An example of a request to create a new webhook to change stock.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/webhookstock"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/webhookstock" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "url": "http://www.example.com",
              "enabled": true,
@@ -189,11 +189,11 @@ Residue change webhooks that are updated must contain the identifier as metadata
 > An example of creating and updating several webhooks for changing stock
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/webhookstock"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/webhookstock" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d'[
              {
                "url": "http://www.example.com",
@@ -262,9 +262,9 @@ Successful request. The result is a JSON array of generated and updated webhooks
 > Request to receive a separate webhook to change stock with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/webhookstock/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/webhookstock/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -300,11 +300,11 @@ An example of a request to change webhook details for changing stock.
 > An example of a request to change a webhook to change stock.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/webhookstock/7944ef04-f831-11e5-7a69-971500188b19"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/webhookstock/7944ef04-f831-11e5-7a69-971500188b19" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "url": "http://www.example.com",
              "stockType": "stock",
@@ -344,11 +344,11 @@ An example of a request to disable a webhook to change stock.
 > An example of a request to disable a webhook to change stock.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/webhookstock/7944ef04-f831-11e5-7a69-971500188b19"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/webhookstock/7944ef04-f831-11e5-7a69-971500188b19" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "enabled": false
            }'
@@ -385,9 +385,9 @@ Successful request. The result is a JSON representation of a disabled webhook fo
 > An example of a request to delete a webhook to change the stock with the specified ID.
 
 ```shell
-curl -X DELETE
-   "https://api.kladana.com/api/remap/1.2/entity/webhookstock/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+   "https://api.kladana.com/api/remap/1.2/entity/webhookstock/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -402,11 +402,11 @@ In the body of the request, you need to pass an array containing JSON metadata f
 > Bulk removal request for a webhook to change stock.
 
 ```shell
-curl -X POST
-   "https://api.kladana.com/api/remap/1.2/entity/webhookstock/delete"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-   -H "Content-Type: application/json"
+curl --compressed -X POST \
+   "https://api.kladana.com/api/remap/1.2/entity/webhookstock/delete" \
+   -H "Authorization: Basic <Credentials>" \
+   -H "Accept-Encoding: gzip" \
+   -H "Content-Type: application/json" \
    -d'[
         {
             "meta": {

@@ -422,9 +422,9 @@ Result: JSON object including fields:
 > Get a list of Products
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/product"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/product" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -922,9 +922,9 @@ Successful request. The result is a JSON representation of the list of Products.
 > Get a list of Products with the Minimum Stock displayed
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/entity/product?fields=minimumStock"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/entity/product?fields=minimumStock" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -1309,11 +1309,11 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
 > An example of the most complete request in terms of the number of fields.
   
    ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/product"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/product" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
             "name": "Bananas",
             "code": "one1",
@@ -1593,11 +1593,11 @@ Successful request. The result is a JSON representation of the created Product.
 > An example of a request to create a Product with the only required field.
   
    ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/product"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/product" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "name": "Tangerines"
            }'
@@ -1705,11 +1705,11 @@ Successful request. The result is a JSON representation of the created Product.
 > An example of a request to create a Product with additional fields.
   
    ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/product"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/product" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
             "name": "Pumpkin",
             "code": "pumpkin1",
@@ -2017,11 +2017,11 @@ Successful request. The result is a JSON representation of the created Product.
 > An example of a request to create a Product with an image upload.
   
   ```shell
-  curl -X POST
-    "https://api.kladana.com/api/remap/1.2/entity/product"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+  curl --compressed -X POST \
+    "https://api.kladana.com/api/remap/1.2/entity/product" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
       -d '{
             "name": "testimage",
             "images": [
@@ -2125,11 +2125,11 @@ Successful request. The result is a JSON representation of the created Product w
 > Example of a request to create a Product with the Minimum Stock field populated.
 
   ```shell
-  curl -X POST
-    "https://api.kladana.com/api/remap/1.2/entity/product"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+  curl --compressed -X POST \
+    "https://api.kladana.com/api/remap/1.2/entity/product" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
       -d '{
             "name": "Potato",
             "minimumStock": {
@@ -2259,12 +2259,11 @@ Updated products must contain the identifier in the form of metadata.
 > Example of creating and updating multiple products
   
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/product
-"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/product" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d'[
              {
                "name": "Tangerines"
@@ -2447,9 +2446,9 @@ Successful request. The result is a JSON array of created and updated product re
 > Request to remove the Product with the specified id.
 
 ```shell
-curl -X DELETE
-   "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+   "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -2464,11 +2463,11 @@ In the body of the request, you need to pass an array containing the JSON metada
 > Request for bulk deletion of Products.
 
 ```shell
-curl -X POST
-   "https://api.kladana.com/api/remap/1.2/entity/product/delete"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-   -H"Content-Type: application/json"
+curl --compressed -X POST \
+   "https://api.kladana.com/api/remap/1.2/entity/product/delete" \
+   -H "Authorization: Basic <Credentials>" \
+   -H "Accept-Encoding: gzip" \
+   -H"Content-Type: application/json" \
    -d'[
           {
               "meta": {
@@ -2518,9 +2517,9 @@ The structure of a separate object representing the additional the field is desc
 > Product Metadata
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/product/metadata"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/product/metadata" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -2559,9 +2558,9 @@ Successful request. The result is a JSON representation of the additional Produc
 > Request for information on a separate additional field.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/product/metadata/attributes/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/product/metadata/attributes/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -2601,9 +2600,9 @@ A product that is accessed by its ID value.
 > Request to receive the Products with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -2841,11 +2840,11 @@ otherwise, an error will occur, because serial accounting of weight products is 
 > Example of a request to update a Product
   
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
             "name": "Pumpkin",
             "code": "pumpkin1",
@@ -3200,11 +3199,11 @@ Successful request. The result is a JSON representation of the updated Product.
 > An example of a request to change a Product with additional fields.
   
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
             "name": "Pumpkin",
             "code": "pumpkin1",
@@ -3484,11 +3483,11 @@ Successful request. The result is a JSON representation of the updated Products.
 > An example of a request to change a Product with packages.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
             "name": "Pumpkin",
             "code": "pumpkin1",
@@ -3760,11 +3759,11 @@ Successful request. The result is a JSON representation ofnew Product.
 > Example of a request to update a Product with Minimum Stock.
 
 ```shell
-  curl -X PUT
-    "https://api.kladana.com/api/remap/1.2/entity/product/3bdfdb5b-137a-11f0-ac15-001100000018?expand=minimumStock.storeBalances"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+  curl --compressed -X PUT \
+    "https://api.kladana.com/api/remap/1.2/entity/product/3bdfdb5b-137a-11f0-ac15-001100000018?expand=minimumStock.storeBalances" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
     -d '
 {
   "minimumStock": {
@@ -3973,11 +3972,11 @@ Successful request. The result is a JSON representation of the updated Product.
 > The request for the bulk deletion of Minimum Stock in the product.
 
 ```shell
-curl -X POST
-  "https://api.kladana.com/api/remap/1.2/entity/product/3e1c03bb-684f-11ee-ac12-000c000000b0/storebalances/delete"
-  -H "Authorization: Basic <Credentials>"
-  -H "Accept-Encoding: gzip"
-  -H "Content-Type: application/json"
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/product/3e1c03bb-684f-11ee-ac12-000c000000b0/storebalances/delete" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
   -d '[
         {
           "meta": {

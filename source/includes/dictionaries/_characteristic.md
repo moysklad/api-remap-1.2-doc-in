@@ -22,9 +22,9 @@ The list of variant characteristics will be displayed in the characteristics col
 > Get metadata and including Characteristics
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/variant/metadata"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/variant/metadata" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -76,11 +76,11 @@ The user on whose behalf the request is made must have the rights to edit produc
 > Creation of one characteristic.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "name": "Size"
            }'
@@ -110,11 +110,11 @@ Successful request. The result is a JSON representation of the generated Feature
 > Example of creating multiple Characteristics
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d'[
              {
                "name": "Size"
@@ -168,9 +168,9 @@ Successful request. The result is a JSON array of representations of the generat
 > Request for a separate Feature with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics/b55d2ddf-60c3-11e7-6adb-ede500000010"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics/b55d2ddf-60c3-11e7-6adb-ede500000010" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 

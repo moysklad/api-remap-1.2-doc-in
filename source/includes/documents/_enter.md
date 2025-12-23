@@ -106,9 +106,9 @@ Result: JSON object including fields:
 > Receive Stock Adjustments
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/enter"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/enter" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -288,11 +288,11 @@ Mandatory fields to create:
 > An example of creating a new Stock Adjustment with a request body containing only the required fields.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/enter"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/enter" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "name": "enter100",
              "externalCode": "34981sawfa42kek",
@@ -498,11 +498,11 @@ Updated Stock Adjustments must contain the ID as metadata.
 > Example of creating and updating multiple Stock Adjustments
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/enter"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/enter" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d'[
             {
                 "name": "enter100",
@@ -862,9 +862,9 @@ Successful request. The result is a JSON array of representations of the created
 > Request to remove the Stock Adjustment with the specified id.
 
 ```shell
-curl -X DELETE
-   "https://api.kladana.com/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+   "https://api.kladana.com/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -879,11 +879,11 @@ In the body of the request, you need to pass an array,containing the JSON Stock 
 > Request Stock Adjustment bulk deletion.
 
 ```shell
-curl -X POST
-   "https://api.kladana.com/api/remap/1.2/entity/enter/delete"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-   -H "Content-Type: application/json"
+curl --compressed -X POST \
+   "https://api.kladana.com/api/remap/1.2/entity/enter/delete" \
+   -H "Authorization: Basic <Credentials>" \
+   -H "Accept-Encoding: gzip" \
+   -H "Content-Type: application/json" \
    -d'[
         {
             "meta": {
@@ -934,9 +934,9 @@ The structure of a separate object representing the additional the field is desc
 > Stock Adjustment Metadata
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/enter/metadata"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/enter/metadata" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -991,9 +991,9 @@ Successful request. The result is a JSON representation of the Stock Adjustments
 > Request for information on a separate additional field.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/enter/metadata/attributes/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/enter/metadata/attributes/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1027,9 +1027,9 @@ Successful request. The result is a JSON representation of a separate additional
 > Request for a separate Stock Adjustments with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1121,11 +1121,11 @@ Request to update of Stock Adjustment with specified id.
 > An example of a request to update a single Stock Adjustment.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
             "name": "xX0enter0Xx",
             "externalCode": "21721bddSAKDAbw21eh",
@@ -1301,9 +1301,9 @@ Request to get a list of all items of the given Stock Adjustment.
 > Get Stock Adjustment items
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19/positions"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19/positions" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1453,9 +1453,9 @@ Successful request. The result is a JSON representation of a list of items of a 
 > Request for a separate Stock Adjustment item with the specified ID.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1504,11 +1504,11 @@ You can create both one and some Stock Adjustment items at the same time. All it
 > An example of creating items in Stock Adjustment.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19/positions"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19/positions" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d'[
              {
                "quantity": 103,
@@ -1607,11 +1607,11 @@ Request to update an individual Stock Adjustment item. There is no way to update
 > An example of a request to update a line item in Stock Adjustment.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "quantity": 3,
              "price": 333444.0,
@@ -1667,9 +1667,9 @@ Successful request. The result is a JSON representation of the updated Stock Adj
 > Request to remove a single Stock Adjustment item with the specified ID.
 
 ```shell
-curl -X DELETE
-   "https://api.kladana.com/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+   "https://api.kladana.com/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19/positions/7944ef04-f831-11e5-7a69-971500188b20" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1687,11 +1687,11 @@ Successful removal of Stock Adjustment item.
 > Request for bulk deletion of Stock Adjustment items.
 
 ```shell
-curl -X POST
-  "https://api.kladana.com/api/remap/1.2/entity/enter/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/delete"
-  -H "Authorization: Basic <Credentials>"
-  -H "Accept-Encoding: gzip"
-  -H "Content-Type: application/json"
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/enter/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/delete" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
   -d '[
         {
           "meta": {

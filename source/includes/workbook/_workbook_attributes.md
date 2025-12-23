@@ -14,11 +14,11 @@ An example of getting additional product fields:
 > Request
 
 ```shell
-curl
-     -X GET
-     -u login:password
-     -H "Accept-Encoding: gzip" 
-     -H "Lognex-Pretty-Print-JSON: true"
+curl \
+     -X GET \
+     -u login:password \
+     -H "Accept-Encoding: gzip" \
+     -H "Lognex-Pretty-Print-JSON: true" \
      "https://api.kladana.com/api/remap/1.2/entity/product/metadata/attributes"
 ```
 
@@ -82,13 +82,13 @@ The additional field "Keyboard highlight" is optional (**required=false**) and i
 > Request
 
 ```shell
-curl
-     -X POST
-     -u login:password
-     -H "Accept-Encoding: gzip" 
-     -H 'Accept: application/json'
-     -H 'Content-Type: application/json'
-     "https://api.kladana.com/api/remap/1.2/entity/product"
+curl \
+     -X POST \
+     -u login:password \
+     -H "Accept-Encoding: gzip" \
+     -H 'Accept: application/json' \
+     -H 'Content-Type: application/json' \
+     "https://api.kladana.com/api/remap/1.2/entity/product" \
      -d '{
                  "name": "Notebook",
                  "vat": 18,
@@ -149,13 +149,13 @@ When updating a product, we can both update the existing values of additional fi
 > Request
 
 ```shell
-curl
-     -X PUT
-     -u login:password
-     -H "Accept-Encoding: gzip" 
-     -H 'Accept: application/json'
-     -H 'Content-Type: application/json'
-     "https://api.kladana.com/api/remap/1.2/entity/product/630c578a-cb05-11e8-9109-f8fc0037889a"
+curl \
+     -X PUT \
+     -u login:password \
+     -H "Accept-Encoding: gzip" \
+     -H 'Accept: application/json' \
+     -H 'Content-Type: application/json' \
+     "https://api.kladana.com/api/remap/1.2/entity/product/630c578a-cb05-11e8-9109-f8fc0037889a" \
      -d '{
            "name": "Notebook updated",
            "attributes": [
@@ -205,10 +205,10 @@ Below are examples of updating a product with an additional field of the File ty
 > Example of assigning a value to an additional field of the **file** type
 
 ```shell
-curl -X PUT 
-  "https://api.kladana.com/api/remap/1.2/entity/product/dde7f6d3-1c09-11ef-ac12-000f00000025" 
-  -H "Authorization: Basic <Credentials>"
-  -H "Accept-Encoding: gzip"
+curl --compressed -X PUT \
+  "https://api.kladana.com/api/remap/1.2/entity/product/dde7f6d3-1c09-11ef-ac12-000f00000025" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
   -d '{
              "attributes": [
                  {
@@ -229,10 +229,10 @@ curl -X PUT
 > Example of resetting the value of an additional field of the **file** type
 
 ```shell
-curl -X PUT 
-  "https://api.kladana.com/api/remap/1.2/entity/product/dde7f6d3-1c09-11ef-ac12-000f00000025" 
-  -H "Authorization: Basic <Credentials>"
-  -H "Accept-Encoding: gzip"
+curl --compressed -X PUT \
+  "https://api.kladana.com/api/remap/1.2/entity/product/dde7f6d3-1c09-11ef-ac12-000f00000025" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
   -d '{
     "attributes": [
         {
@@ -259,11 +259,11 @@ built-in list Project and user list Region:
 > Request
 
 ```shell
-curl
-     -X GET
-     -u login:password
-     -H "Accept-Encoding: gzip" 
-     -H "Lognex-Pretty-Print-JSON: true"
+curl \
+     -X GET \
+     -u login:password \
+     -H "Accept-Encoding: gzip" \
+     -H "Lognex-Pretty-Print-JSON: true" \
      "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata"
 ```
 
@@ -388,13 +388,13 @@ Let's create a counterparty with these additional fields:
 > Request
 
 ```shell
-curl
-     -X POST
-     -u login:password
-     -H "Accept-Encoding: gzip" 
-     -H 'Accept: application/json'
-     -H 'Content-Type: application/json'
-     "https://api.kladana.com/api/remap/1.2/entity/counterparty"
+curl \
+     -X POST \
+     -u login:password \
+     -H "Accept-Encoding: gzip" \
+     -H 'Accept: application/json' \
+     -H 'Content-Type: application/json' \
+     "https://api.kladana.com/api/remap/1.2/entity/counterparty" \
      -d '{
              "name": "OOO Vostok",
              "attributes": [
@@ -559,12 +559,12 @@ The JSON API allows you to filter by value up toadditional field. Using the exam
 > Request
 
 ```shell
-curl
-     -X GET
-     -u login:password
-     -H "Accept-Encoding: gzip" 
-     -H 'Accept: application/json'
-     -H 'Content-Type: application/json'
+curl \
+     -X GET \
+     -u login:password \
+     -H "Accept-Encoding: gzip" \
+     -H 'Accept: application/json' \
+     -H 'Content-Type: application/json' \
      "https://api.kladana.com/api/remap/1.2/entity/product?filter=https://api.kladana.com/api/remap/1.2/entity/product/metadata/attributes/630c578a-cb05-11e8-9109-f8fc0037889a%3E%3D5"
 ```
 

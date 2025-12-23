@@ -40,9 +40,9 @@ Result: JSON object including fields:
 > Get a list of Images for a Product
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 > Response 200(application/json)
@@ -126,9 +126,9 @@ You can get a link to download the image by contacting the address specified in 
 > Get a link to the Product Image
 
 ```shell
-curl -X GET
-  "https://app.kladana.com/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://app.kladana.com/api/remap/1.2/download/f2728180-6afd-4d37-8a13-f3b48069bbb6" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 > Response 302 (application/json)
@@ -161,11 +161,11 @@ In the `content` field, you need to specify an image encoded in Base64, in the `
 > Example of adding an Image to a Product
   
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
      -d '{
              "filename": "birdimageNew.png",
              "content": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAA3NCSVQICAjb4U/gAAAAAEHRFWHRTb2Z0d2FyZQBTaHV0dGVyY4LQCQAAAAxJREFUCNdj+PePAQAE+gH90KA5ZAAAAABJRU5ErkJggg=="
@@ -241,11 +241,11 @@ If it is necessary to leave some Images for the Product, Product Variant, or Bun
 > An example of changing the list of Images for a Product
 
 ```shell
-curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
      -d'[
            {
              "meta": {
@@ -331,9 +331,9 @@ When deleting an image, the first image found with the given identifier is delet
 > Request to remove the Image from the Product.
 
 ```shell
-curl -X DELETE
-   "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images/19f1edc0-fc42-4001-94cb-c9ec9c62ec10"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+   "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images/19f1edc0-fc42-4001-94cb-c9ec9c62ec10" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 > Response 200(application/json)
@@ -353,11 +353,11 @@ When deleting several images for a Product, Product Variant, or Bundle, the firs
 > Multiple Image Deletion Request
 
 ```shell
-curl -X POST
-   "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images/delete"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-   -H "Content-Type: application/json"
+curl --compressed -X POST \
+   "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/images/delete" \
+   -H "Authorization: Basic <Credentials>" \
+   -H "Accept-Encoding: gzip" \
+   -H "Content-Type: application/json" \
          -d'[
                 {
                     "meta": {

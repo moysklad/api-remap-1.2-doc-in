@@ -72,9 +72,9 @@ The result of a successful request is a JSON representation of a list of reports
 > Request for a report on counterparties.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/report/counterparty"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/report/counterparty" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -285,11 +285,11 @@ The result of a successful request is a JSON representation of the list of repor
 > An example of requesting reports for several counterparties.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/report/counterparty"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/report/counterparty" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "counterparties": [
                {
@@ -427,9 +427,9 @@ Successful request. The result is a JSON representation of a report on counterpa
 > Request to receive a report on the counterparty with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/report/counterparty/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/report/counterparty/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 

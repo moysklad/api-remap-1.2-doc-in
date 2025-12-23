@@ -107,9 +107,9 @@ Result: JSON object including fields:
 > Get Sales Invoice
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/invoiceout"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/invoiceout" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -492,11 +492,11 @@ Mandatory fields to create:
 > An example of creating a new Sales Invoice with a request body containing only the required fields.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/invoiceout"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/invoiceout" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "name": "inv_out_name",
              "organization": {
@@ -617,11 +617,11 @@ Successful request. The result is a JSON representation of the created Sales Inv
 > An example of creating a new Sales Invoice with a larger request body.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/invoiceout"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/invoiceout" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "name": "inv_out_name",
              "organization": {
@@ -793,11 +793,11 @@ Successful request. The result is a JSON representation of the created Sales Inv
 > An example of a request to create an Sales Invoice with additional fields.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/invoiceout"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/invoiceout" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "name": "inv_out_name",
              "organization": {
@@ -992,11 +992,11 @@ Successful request. The result is a JSON representation of the created Sales Inv
 > An example of a request to create an Sales Invoice with items in the body of the request.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/invoiceout"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/invoiceout" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
             "name": "inv_out_name3",
             "organization": {
@@ -1188,11 +1188,11 @@ Updated Sales Invoices must contain the identifier in the form of metadata.
 > An example of creating and updating multiple Sales Invoices
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/invoiceout"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/invoiceout" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d'[
             {
                 "name": "inv_out_name",
@@ -1460,9 +1460,9 @@ Successful request. The result is an array of JSON representations of created an
 > Request to delete the Sales Invoice with the specified id.
 
 ```shell
-curl -X DELETE
-   "https://api.kladana.com/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+   "https://api.kladana.com/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1477,11 +1477,11 @@ In the body of the request, you need to pass an array containing JSON of the met
 > Request for bulk deletion of Sales Invoices.
 
 ```shell
-curl -X POST
-   "https://api.kladana.com/api/remap/1.2/entity/invoiceout/delete"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-   -H "Content-Type: application/json"
+curl --compressed -X POST \
+   "https://api.kladana.com/api/remap/1.2/entity/invoiceout/delete" \
+   -H "Authorization: Basic <Credentials>" \
+   -H "Accept-Encoding: gzip" \
+   -H "Content-Type: application/json" \
    -d'[
           {
               "meta": {
@@ -1532,9 +1532,9 @@ The structure of a separate object representing the additional the field is desc
 > Metadata of Sales Invoices
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/invoiceout/metadata"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/invoiceout/metadata" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1577,9 +1577,9 @@ Successful request. The result is a JSON representation of the additional fields
 > Request for information on a separate additional field.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/invoiceout/metadata/attributes/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/invoiceout/metadata/attributes/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1608,11 +1608,11 @@ A request to receive a Sales Invoice template pre-filled with standard values fo
 > Empty request body (application/json)
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/invoiceout/new"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/invoiceout/new" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d''
 ```
 
@@ -1664,11 +1664,11 @@ document.
 > Request to create an Sales Invoice based on the Sales Order.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/invoiceout/new"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/invoiceout/new" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "customerOrder": {
                "meta": {
@@ -1760,11 +1760,11 @@ Successful request. The result is a JSON representation of the prefilled Sales i
 > Request to create an Sales Invoice based on the Shipment.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/invoiceout/new"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/invoiceout/new" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "demands": [
                {
@@ -1904,9 +1904,9 @@ Successful request. The result is a JSON representation of the prefilled Sales i
 > Request for a separate Sales Invoice with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -2034,11 +2034,11 @@ When updating the **organization** and **agent** fields, you must also update th
 > An example of a request to update a Sales Invoice.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "name": "change name",
              "code": "change_code",
@@ -2173,11 +2173,11 @@ Successful request. The result is a JSON representation of the updated Sales Inv
 > An example of a request to change the Sales Invoice with additional fields.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "name": "change name",
              "code": "change_code",
@@ -2335,11 +2335,11 @@ Successful request. The result is a JSON representation of the updated Sales Inv
 > An example of a request to update the Sales Invoice with items in the body of the request.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "name": "change name again",
              "code": "change_code_again",
@@ -2524,9 +2524,9 @@ Request for a list of all items of the Sales Invoice.
 > Get Sales Invoice
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19/positions"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19/positions" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -2599,9 +2599,9 @@ Sales Invoice line item with the specified item ID.
 > Request to get the Sales Invoice line item with the specified ID.
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -2653,11 +2653,11 @@ Just like when working with [Sales Order Items](../documents/#transactions-sales
 > An example of creating a item in a Sales Invoice.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19/positions"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19/positions" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "quantity": 12,
              "price": 999.0,
@@ -2719,11 +2719,11 @@ Request to update a line item in an Invoice. There is no way to update the item 
 > An example of a request to update a line item in a Sales Invoice.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "quantity": 22,
              "price": 1000.0,
@@ -2774,9 +2774,9 @@ Successful request. The result is a JSON representation of the updated Sales Inv
 > Request to delete a separate item of the Sales Invoice with the specified id.
 
 ```shell
-curl -X DELETE
-   "https://api.kladana.com/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+   "https://api.kladana.com/api/remap/1.2/entity/invoiceout/7944ef04-f831-11e5-7a69-971500188b19/positions/34f6344f-015e-11e6-9464-e4de0000006c" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -2794,11 +2794,11 @@ Successful deletion of an Sales Invoice item.
 > Request to bulk delete Sales Invoice items.
 
 ```shell
-curl -X POST
-  "https://api.kladana.com/api/remap/1.2/entity/invoiceout/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/delete"
-  -H "Authorization: Basic <Credentials>"
-  -H "Accept-Encoding: gzip"
-  -H "Content-Type: application/json"
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/invoiceout/3e1c03bb-684f-11ee-ac12-000c000000b0/positions/delete" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
   -d '[
         {
           "meta": {

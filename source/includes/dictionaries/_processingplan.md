@@ -123,9 +123,9 @@ Result: JSON object including fields:
 > Get a list of Bills of Materials
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/processingplan"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/processingplan" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -402,11 +402,11 @@ Required fields for creation:
 > An example of creating a new Dashboard with a request body containing only the required fields.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/processingplan"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/processingplan" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "name": "Example",
              "cost": 1000,
@@ -525,11 +525,11 @@ Assigning another Routing will delete the materials assigned to the previous Rou
 > An example of creating and updating several Bills of Materials
 
 ```shell
-  curl -X POST
-    "https://api.kladana.com/api/remap/1.2/entity/processingplan"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+  curl --compressed -X POST \
+    "https://api.kladana.com/api/remap/1.2/entity/processingplan" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
       -d '[
             {
               "name": "Example",
@@ -764,9 +764,9 @@ Successful request. The result is a JSON array of representations created and up
 > Request for deletion of Bill of Materials with the specified ID.
 
 ```shell
-curl -X DELETE
-   "https://api.kladana.com/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+   "https://api.kladana.com/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -781,11 +781,11 @@ In the body of the request, you need to pass an array containing JSON metadata B
 > Bulk Deletion Request of Bills of Materials.
 
 ```shell
-curl -X POST
-   "https://api.kladana.com/api/remap/1.2/entity/processingplan/delete"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-   -H "Content-Type: application/json"
+curl --compressed -X POST \
+   "https://api.kladana.com/api/remap/1.2/entity/processingplan/delete" \
+   -H "Authorization: Basic <Credentials>" \
+   -H "Accept-Encoding: gzip" \
+   -H "Content-Type: application/json" \
    -d'[
           {
               "meta": {
@@ -832,9 +832,9 @@ curl -X POST
 > Request for a separate Bill of Materials with the specified ID.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -934,11 +934,11 @@ Linking another Routing will delete materials linked to the previous Routing.
 > An example of a request to update a separate Bill of Materials.
 
 ```shell
-  curl -X PUT
-    "https://api.kladana.com/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+  curl --compressed -X PUT \
+    "https://api.kladana.com/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
       -d '{
             "name": "Bill of Materials",
             "cost": 100000
@@ -1048,9 +1048,9 @@ Request to obtain a list of all Operations of a Bill of Materials.
 > Get the production operations of a Bill of Materials
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/stages"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/stages" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -1103,9 +1103,9 @@ Successful request. Result is JSON representation of the list of production oper
 > Request to get a single production operation of a Bill of Materials with the specified ID.
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/entity/processingplan/d72b4281-b000-11e6-8af5-581e00000074/stages/9560e3e3-9609-11e6-8af5-581e00000008"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/entity/processingplan/d72b4281-b000-11e6-8af5-581e00000074/stages/9560e3e3-9609-11e6-8af5-581e00000008" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -1147,11 +1147,11 @@ There are no required fields in the request body to update a Production Operatio
 > Example of a request to update a Production Operation of a Bill of Materials.
 
 ```shell
-  curl -X PUT
-    "https://api.kladana.com/api/remap/1.2/entity/processingplan/d72b4281-b000-11e6-8af5-581e00000074/stages/9560e3e3-9609-11e6-8af5-581e00000008"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+  curl --compressed -X PUT \
+    "https://api.kladana.com/api/remap/1.2/entity/processingplan/d72b4281-b000-11e6-8af5-581e00000074/stages/9560e3e3-9609-11e6-8af5-581e00000008" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
       -d '{
             "cost": 5.5
           }'  
@@ -1206,9 +1206,9 @@ Request to get the list of all raw materials in a Bill of Materials.
 > Get Bill of Materials' raw materials
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/materials"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/materials" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -1287,9 +1287,9 @@ Successful request. The result is a JSON representation of the list of raw mater
 > Request to get a separate Bill of Materials material with the specified ID.
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/entity/processingplan/d72b4281-b000-11e6-8af5-581e00000074/materials/9560e3e3-9609-11e6-8af5-581e00000008"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/entity/processingplan/d72b4281-b000-11e6-8af5-581e00000074/materials/9560e3e3-9609-11e6-8af5-581e00000008" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -1349,11 +1349,11 @@ For successful creation, you must specify the following fields in the request bo
 > Example of creating one material in the Bill of Materials.
 
 ```shell
-  curl -X POST
-    "https://api.kladana.com/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/materials"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+  curl --compressed -X POST \
+    "https://api.kladana.com/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/materials" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
       -d '[
             {
               "assortment": {
@@ -1413,11 +1413,11 @@ Successful request. The result is a JSON representation of the created material 
 > An example of creating several materials at once in the Bill of Materials with and without binding to the positions of the Routing
 
 ```shell
-  curl -X POST
-    "https://api.kladana.com/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/materials"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+  curl --compressed -X POST \
+    "https://api.kladana.com/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/materials" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
       -d '[
             {
               "assortment": {
@@ -1538,11 +1538,11 @@ Request to update a single material of Bill of Materials. There are no required 
 > Example of a request to update a single material in Bill of Materials.
 
 ```shell
-  curl -X PUT
-    "https://api.kladana.com/api/remap/1.2/entity/processingplan/d72b4281-b000-11e6-8af5-581e00000074/materials/9560e3e3-9609-11e6-8af5-581e00000008"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+  curl --compressed -X PUT \
+    "https://api.kladana.com/api/remap/1.2/entity/processingplan/d72b4281-b000-11e6-8af5-581e00000074/materials/9560e3e3-9609-11e6-8af5-581e00000008" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
       -d '{
             "quantity": 5
           }'  
@@ -1601,9 +1601,9 @@ Successful request. Result is a JSON representation of the updated Bill of Mater
 > Request to delete the Bill of Materials' material with the specified ID.
 
 ```shell
-curl -X DELETE
-  "https://api.kladana.com/api/remap/1.2/entity/processingplan/d72b4281-b000-11e6-8af5-581e00000074/materials/9560e3e3-9609-11e6-8af5-581e00000008"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+  "https://api.kladana.com/api/remap/1.2/entity/processingplan/d72b4281-b000-11e6-8af5-581e00000074/materials/9560e3e3-9609-11e6-8af5-581e00000008" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -1617,11 +1617,11 @@ The request body must contain an array containing JSON metadata of the Bill of M
 > Request for bulk deletion of Bill of Materials materials.
 
 ```shell
-curl -X POST
-  "https://api.kladana.com/api/remap/1.2/entity/processingplan/e435045e-7274-11ee-c0a8-e00e00000030/materials/delete"
-  -H "Authorization: Basic <Credentials>"
-  -H "Accept-Encoding: gzip"
-  -H "Content-Type: application/json"
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/processingplan/e435045e-7274-11ee-c0a8-e00e00000030/materials/delete" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
     -d '[
           {
               "meta": {
@@ -1666,9 +1666,9 @@ Request to get a list of all products in a Bill of Materials.
 > Get Bill of Materials products
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/products"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/products" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -1740,9 +1740,9 @@ Successful request. The result is a JSON representation of a list of products of
 > Request to get a single Bill of Materials product with the specified ID.
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/entity/processingplan/d72b4281-b000-11e6-8af5-581e00000074/products/9560e3e3-9609-11e6-8af5-581e00000008"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/entity/processingplan/d72b4281-b000-11e6-8af5-581e00000074/products/9560e3e3-9609-11e6-8af5-581e00000008" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -1796,11 +1796,11 @@ For successful creation, the following fields must be specified in the request b
 > Example of creating one product in Bill of Materials.
 
 ```shell
-  curl -X POST
-    "https://api.kladana.com/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/products"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+  curl --compressed -X POST \
+    "https://api.kladana.com/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/products" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
       -d '[
             {
               "assortment": {
@@ -1853,11 +1853,11 @@ Successful request. Result is a JSON representation of the created product of a 
 > An example of creating multiple products at once in Bill of Materials.
 
 ```shell
-  curl -X POST
-    "https://api.kladana.com/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/products"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+  curl --compressed -X POST \
+    "https://api.kladana.com/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/products" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
       -d '[
             {
               "assortment": {
@@ -1957,11 +1957,11 @@ Request to update a single product of a Bill of Materials. To update a product, 
 > Example of a request to update a single product in a Bill of Materials.
 
 ```shell
-  curl -X PUT
-    "https://api.kladana.com/api/remap/1.2/entity/processingplan/d72b4281-b000-11e6-8af5-581e00000074/products/9560e3e3-9609-11e6-8af5-581e00000008"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+  curl --compressed -X PUT \
+    "https://api.kladana.com/api/remap/1.2/entity/processingplan/d72b4281-b000-11e6-8af5-581e00000074/products/9560e3e3-9609-11e6-8af5-581e00000008" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
       -d '{
             "quantity": 5
           }'  
@@ -2014,9 +2014,9 @@ Successful request. The result is a JSON representation of the Bill of Materials
 > Request to delete the Bill of Materials product with the specified ID.
 
 ```shell
-curl -X DELETE
-  "https://api.kladana.com/api/remap/1.2/entity/processingplan/d72b4281-b000-11e6-8af5-581e00000074/products/9560e3e3-9609-11e6-8af5-581e00000008"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+  "https://api.kladana.com/api/remap/1.2/entity/processingplan/d72b4281-b000-11e6-8af5-581e00000074/products/9560e3e3-9609-11e6-8af5-581e00000008" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -2030,11 +2030,11 @@ The request body must contain an array containing JSON metadata of the Bill of M
 > Request to bulk deletion of the Bill of Materials products.
 
 ```shell
-curl -X POST
-  "https://api.kladana.com/api/remap/1.2/entity/processingplan/d9c43e3b-7274-11ee-c0a8-e00e00000023/products/delete"
-  -H "Authorization: Basic <Credentials>"
-  -H "Accept-Encoding: gzip"
-  -H "Content-Type: application/json"
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/processingplan/d9c43e3b-7274-11ee-c0a8-e00e00000023/products/delete" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
     -d '[
           {
               "meta": {

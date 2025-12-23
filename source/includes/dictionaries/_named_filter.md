@@ -32,10 +32,10 @@ Entities and documents - ```/entity/[entityType]/namedfilter```
 > Sample request to get a list of filters for products
 
 ```shell
-  curl -X GET
-    "https://api.kladana.com/api/remap/1.2/entity/product/namedfilter"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
+  curl --compressed -X GET \
+    "https://api.kladana.com/api/remap/1.2/entity/product/namedfilter" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
     -H "Content-Type: application/json"  
 ```
 
@@ -93,10 +93,10 @@ To do this, you need to specify the `owner={href of the employee}` parameter in 
 > Sample request to get another user's filter list
 
 ```shell
-  curl -X GET
-    "https://api.kladana.com/api/remap/1.2/entity/product/namedfilter?owner=https://api.kladana.com/api/remap/1.2/entity/employee/25863410-ca86-11eb-ac12-000d00000234"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
+  curl --compressed -X GET \
+    "https://api.kladana.com/api/remap/1.2/entity/product/namedfilter?owner=https://api.kladana.com/api/remap/1.2/entity/employee/25863410-ca86-11eb-ac12-000d00000234" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
     -H "Content-Type: application/json"  
 ```
 
@@ -158,10 +158,10 @@ To do this, you need to specify the `owner={href of the employee}` parameter in 
 > Example of a request to get a filter for a product by ID
 
 ```shell
-  curl -X GET
-    "https://api.kladana.com/api/remap/1.2/entity/product/namedfilter/b5863410-ca86-11eb-ac12-000d00000019"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
+  curl --compressed -X GET \
+    "https://api.kladana.com/api/remap/1.2/entity/product/namedfilter/b5863410-ca86-11eb-ac12-000d00000019" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
     -H "Content-Type: application/json"  
 ```
 

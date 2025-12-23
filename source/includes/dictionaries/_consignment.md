@@ -63,9 +63,9 @@ The result of a successful request is a JSON representation of a list of batches
 > Get List of Batches
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/consignment"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/consignment" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -150,11 +150,11 @@ Request to create a new batch. To successfully create a batch, the fields must b
 > An example of creating a new batch.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/consignment"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/consignment" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d'{
             "label": "Label",
             "barcodes": [
@@ -231,9 +231,9 @@ Successful request. The result is a JSON representation of the created batches.
 > Request to delete Batches with specified ID.
 
 ```shell
-curl -X DELETE
-   "https://api.kladana.com/api/remap/1.2/entity/consignment/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+   "https://api.kladana.com/api/remap/1.2/entity/consignment/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -248,11 +248,11 @@ In the body of the request, you need to pass an array containing the JSON metada
 > Request for bulk deletion of batches.
 
 ```shell
-curl -X POST
-   "https://api.kladana.com/api/remap/1.2/entity/consignment/delete"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-   -H "Content-Type: application/json"
+curl --compressed -X POST \
+   "https://api.kladana.com/api/remap/1.2/entity/consignment/delete" \
+   -H "Authorization: Basic <Credentials>" \
+   -H "Accept-Encoding: gzip" \
+   -H "Content-Type: application/json" \
    -d'[
         {
             "meta": {
@@ -296,11 +296,11 @@ Updated batches must contain the identifier in the form of metadata.
 > Example of creating and updating multiple batches
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/consignment"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/consignment" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d'[
              {
                "label": "Label","barcodes": [
@@ -450,9 +450,9 @@ The structure of a separate object representing the additional the field is desc
 > Get batch metadata
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/consignment/metadata"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/consignment/metadata" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -506,9 +506,9 @@ Successful request. The result is a JSON representation of the batches metadata.
 > Request for information on a separate additional field.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/consignment/metadata/attributes/958b275e-3bbf-11e7-8a7f-40d000000004"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/consignment/metadata/attributes/958b275e-3bbf-11e7-8a7f-40d000000004" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -544,9 +544,9 @@ Successful request. The result is a JSON representation of a separate additional
 > Request to get a batch with the specified ID.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/consignment/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/consignment/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -614,10 +614,10 @@ Batches update request. You can only update fields that are not marked `Read Onl
 > An example of a batch update request.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/consignment/7944ef04-f831-11e5-7a69-971500188b19"
-     -H "Authorityzation:Basic <Credentials>"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/consignment/7944ef04-f831-11e5-7a69-971500188b19" \
+     -H "Authorityzation:Basic <Credentials>" \
+     -H "Content-Type: application/json" \
        -d '{
              "code": "ke21k421c1o42n4signment12",
              "externalCode": "fbajkwbfu1249SACSKW241LKSFA2sa1",

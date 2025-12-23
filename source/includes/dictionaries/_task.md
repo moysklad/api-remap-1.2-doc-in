@@ -121,9 +121,9 @@ Result: JSON object including fields:
 > Get tasks
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/task"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/task" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -273,11 +273,11 @@ Mandatory fields to create:
 > An example of a request to create a new task.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/task"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/task" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "description": "Correct details of a legal entity",
              "dueToDate": "2017-05-12 17:12:00",
@@ -366,11 +366,11 @@ Updated Tasks must contain the identifier in the form of metadata.
 > Example of creating and updating multiple Tasks
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/task"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/task" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d'[
              {
                "description": "Correct details of a legal entity",
@@ -558,9 +558,9 @@ Also, you cannot delete tasks created by other employees without administrator r
 > Request to delete the task with the specified id.
 
 ```shell
-curl -X DELETE
-   "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+   "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -575,11 +575,11 @@ In the body of the request, you need to pass an array containing the JSON metada
 > Request for bulk deletion of Tasks.
 
 ```shell
-curl -X POST
-   "https://api.kladana.com/api/remap/1.2/entity/task/delete"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-   -H "Content-Type: application/json"
+curl --compressed -X POST \
+   "https://api.kladana.com/api/remap/1.2/entity/task/delete" \
+   -H "Authorization: Basic <Credentials>" \
+   -H "Accept-Encoding: gzip" \
+   -H "Content-Type: application/json" \
    -d'[
         {
             "meta": {
@@ -626,9 +626,9 @@ curl -X POST
 > Request to get a separate task with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -705,11 +705,11 @@ Also, you cannot modify tasks created by other employees without administrator r
 > An example of a request to update an existing task.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "description": "Specify contact persons",
              "assignee": {
@@ -843,9 +843,9 @@ Request to get a list of all comments for this Issue.
 > Get comments Tasks
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
  
@@ -930,11 +930,11 @@ For successful creation, the following fields must be specified in the request b
 > An example of creating one comment to a Task.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "text": "Hello, {{employee;861d34a9-f1b3-11ee-ac12-00110000004e}}! Is this task still relevant?"
            }'
@@ -981,11 +981,11 @@ For successful creation, the following fields must be specified in the request b
 > An example of creating several comments to a Task at once.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d'[
              {
                "text": "Hello, {{employee;861d34a9-f1b3-11ee-ac12-00110000004e}}! Is this task still relevant?"
@@ -1080,9 +1080,9 @@ Single comment to the Issue with the specified comment id.
 > Request for a separate comment to the Issue with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/34f6344f-015e-11e6-9464-e4de0000006c"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/34f6344f-015e-11e6-9464-e4de0000006c" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1128,11 +1128,11 @@ For successful creation, the following fields must be specified in the request b
 > An example of a request to update a separate comment to a Task.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/34f6344f-015e-11e6-9464-e4de0000006c"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/34f6344f-015e-11e6-9464-e4de0000006c" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "text": "new comment text 1"
            }'
@@ -1174,9 +1174,9 @@ Successful request. The result is a JSON representation of the updated issue com
 > Request to delete a separate comment to the Task with the specified id.
 
 ```shell
-curl -X DELETE
-   "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/34f6344f-015e-11e6-9464-e4de0000006c"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+   "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/34f6344f-015e-11e6-9464-e4de0000006c" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1191,11 +1191,11 @@ In the request body, you need to pass an array containing JSON metadata of the c
 > Request to bulk deletion of the comments to the Task
 
 ```shell
-curl -X POST
-  "https://api.kladana.com/api/remap/1.2/entity/task/a1ff58c4-726a-11ee-c0a8-e00e00000000/notes/delete"
-  -H "Authorization: Basic <Credentials>"
-  -H "Accept-Encoding: gzip"
-  -H "Content-Type: application/json"
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/task/a1ff58c4-726a-11ee-c0a8-e00e00000000/notes/delete" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
     -d '[
           {
               "meta": {
@@ -1225,9 +1225,9 @@ Successful deletion of the comments to the Task.
 > Get metadata including task types
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/entity/task/metadata"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/entity/task/metadata" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -1282,11 +1282,11 @@ it is necessary and sufficient to specify non-empty fields `name`, `color` in th
 > Create one Task type.
 
 ```shell
-  curl -X POST
-    "https://api.kladana.com/api/remap/1.2/entity/task/metadata/states"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+  curl --compressed -X POST \
+    "https://api.kladana.com/api/remap/1.2/entity/task/metadata/states" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
       -d '{
             "name": "Meeting",
             "color": 69446
@@ -1329,11 +1329,11 @@ one or more fields with new values: `name`, `color`.
 > Task type change.
 
 ```shell
-  curl -X PUT
-    "https://api.kladana.com/api/remap/1.2/entity/task/metadata/states/4dcb3f23-60c4-11e7-6adb-ede500000019"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+  curl --compressed -X PUT \
+    "https://api.kladana.com/api/remap/1.2/entity/task/metadata/states/4dcb3f23-60c4-11e7-6adb-ede500000019" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
       -d '{
             "color": 255
           }'  
@@ -1367,11 +1367,11 @@ Updated Task types must contain the identifier in the form of metadata.
 > Example of creating and updating multiple Task types.
 
 ```shell
-  curl -X POST
-    "https://api.kladana.com/api/remap/1.2/entity/task/metadata/states"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+  curl --compressed -X POST \
+    "https://api.kladana.com/api/remap/1.2/entity/task/metadata/states" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
       -d '[
             {
               "name": "Meeting",
@@ -1437,9 +1437,9 @@ Successful request. The result is a JSON array of representations of the created
 > Request to delete the Task type with the specified id.
 
 ```shell
-curl -X DELETE
-  "https://api.kladana.com/api/remap/1.2/entity/task/metadata/states/4dcb3f23-60c4-11e7-6adb-ede500000019"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+  "https://api.kladana.com/api/remap/1.2/entity/task/metadata/states/4dcb3f23-60c4-11e7-6adb-ede500000019" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 

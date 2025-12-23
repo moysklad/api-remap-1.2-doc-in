@@ -52,9 +52,9 @@ Result: JSON object including fields:
 > Get a list of Balance Adjustments
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -244,11 +244,11 @@ Mandatory fields to create:
 > An example of creating a new Balance Adjustment.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "agent": {
                "meta": {
@@ -354,11 +354,11 @@ Updated Balance Adjustments must contain the identifier in the form of metadata.
 > Example of creating and updating multiple Balance Adjustments
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d'[
              {
                "agent": {
@@ -556,9 +556,9 @@ Successful request. The result is a JSON array of representations of created and
 > Request to delete Account adjustments of the counterparty with the specified ID.
 
 ```shell
-curl -X DELETE
-   "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+   "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -573,11 +573,11 @@ In the body of the request, you need to pass an array containing JSON of the met
 > Request for bulk deletion of balance adjustments.
 
 ```shell
-curl -X POST
-   "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/delete"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-   -H "Content-Type: application/json"
+curl --compressed -X POST \
+   "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/delete" \
+   -H "Authorization: Basic <Credentials>" \
+   -H "Accept-Encoding: gzip" \
+   -H "Content-Type: application/json" \
    -d'[
         {
             "meta": {
@@ -627,9 +627,9 @@ The structure of a separate object representing the additional the field is desc
 > Metadata of Balance Adjustments
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/metadata"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/metadata" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -669,9 +669,9 @@ Successful request. The result is a JSON representation of the additional balanc
 > Request to receive a separate Balance Adjustments with the specified ID. 
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -762,11 +762,11 @@ are marked `Read-only` in the description of [Attributes of Balance Adjustment](
 > An example of a request to update a single Balance Adjustment.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b19"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/7944ef04-f831-11e5-7a69-971500188b19" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "sum": 123
            }'

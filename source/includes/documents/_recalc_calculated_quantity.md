@@ -15,11 +15,11 @@ Send a request to recalculate the estimated balances of Inventory Count items.
 > An example of a request (with an empty body) to recalculate the calculated balances of the Inventory Count item.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/rpc/inventory/7944ef04-f831-11e5-7a69-971500188b19/recalcCalculatedQuantity"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/rpc/inventory/7944ef04-f831-11e5-7a69-971500188b19/recalcCalculatedQuantity" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d''
 ```
 

@@ -48,9 +48,9 @@ Result: JSON object including fields:
 > Get Projects
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/project"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/project" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -181,11 +181,11 @@ to create a project is **name**.
 > An example of a request to create a new project.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/project"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/project" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "name": "Supplier vertical integration project",
              "description": "Integration with the main counterparty",
@@ -237,11 +237,11 @@ Successful request. The result is a JSON representation of the created project.
 > An example of a request to create a new project with additional fields in the request body.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/project"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/project" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "name": "New accounting system",
              "description": "Project for the transition to a new product accounting system",
@@ -320,11 +320,11 @@ Updated Projects must contain the identifier in the form of metadata.
 > An example of creating and updating several Projects
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/project"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/project" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d'[
              {
                "name": "Supplier vertical integration project",
@@ -430,9 +430,9 @@ Successful request. The result is a JSON array of representations of the created
 > Request to delete the Project with the specified id.
 
 ```shell
-curl -X DELETE
-   "https://api.kladana.com/api/remap/1.2/entity/project/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+   "https://api.kladana.com/api/remap/1.2/entity/project/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -447,11 +447,11 @@ In the body of the request, you need to pass an array containing the JSON metada
 > Request for bulk deletion of Projects.
 
 ```shell
-curl -X POST
-   "https://api.kladana.com/api/remap/1.2/entity/project/delete"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-   -H "Content-Type: application/json"
+curl --compressed -X POST \
+   "https://api.kladana.com/api/remap/1.2/entity/project/delete" \
+   -H "Authorization: Basic <Credentials>" \
+   -H "Accept-Encoding: gzip" \
+   -H "Content-Type: application/json" \
    -d'[
         {
             "meta": {
@@ -500,9 +500,9 @@ The structure of a separate object representing the additional the field is desc
 > Project method data
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/project/metadata"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/project/metadata" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -539,9 +539,9 @@ Successful request. The result is a JSON representation of the additional fields
 > Request for information on a separate additional field.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/project/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/project/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -574,9 +574,9 @@ Successful request. The result is a JSON representation of a separate additional
 > Request to get a separate project with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/project/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/project/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -644,11 +644,11 @@ Request to update an existing project with the specified id.
 > An example of a request to update an existing project.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/project/7944ef04-f831-11e5-7a69-971500188b19"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/project/7944ef04-f831-11e5-7a69-971500188b19" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "name": "Supplier vertical integration project",
              "description": "Integration with a key counterparty",
@@ -699,11 +699,11 @@ Successful request. The result is a JSON representation of the updated project.
 > An example of a request to update an existing project with additional fields in the request body.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/project/7944ef04-f831-11e5-7a69-971500188b19"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/project/7944ef04-f831-11e5-7a69-971500188b19" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "name": "New accounting and sales system",
              "description": "Project for the transition to a new system of accounting and marketing of products",

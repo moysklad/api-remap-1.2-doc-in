@@ -56,9 +56,9 @@ Each user directory contains the fields:
 > Request for Company Settings.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/context/companysettings"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/context/companysettings" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -155,11 +155,11 @@ Partial editing is allowed - only the fields present in the request will be edit
 > Request to change settingscompanies.
 
 ```shell
-curl -X PUT
-   "https://api.kladana.com/api/remap/1.2/context/companysettings"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-   -H "Content-Type: application/json"
+curl --compressed -X PUT \
+   "https://api.kladana.com/api/remap/1.2/context/companysettings" \
+   -H "Authorization: Basic <Credentials>" \
+   -H "Accept-Encoding: gzip" \
+   -H "Content-Type: application/json" \
        -d '{
                 "globalOperationNumbering": true,
                 "checkShippingStock": true,
@@ -251,9 +251,9 @@ Successful request. The result is a JSON representation of Company Settings.
 > Request to get company settings metadata.
 
 ```shell
-curl -X GET
-   "ttps://api.kladana.com/api/remap/1.2/context/companysettings/metadata"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "ttps://api.kladana.com/api/remap/1.2/context/companysettings/metadata" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 

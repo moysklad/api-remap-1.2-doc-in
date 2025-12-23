@@ -33,9 +33,9 @@ Result: JSON object including fields:
 > Get notification feed
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/notification"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/notification" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -150,9 +150,9 @@ Mark all Notifications of the current user as read.
 > Mark all Notifications of the current user as read
 
 ```shell
-curl -X PUT
-   "https://api.kladana.com/api/remap/1.2/notification/markasreadall"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X PUT \
+   "https://api.kladana.com/api/remap/1.2/notification/markasreadall" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -273,9 +273,9 @@ AppAsyncButton - Async [custom button](https://dev.moysklad.ru/doc/api/vendor/1.
 > Request to receive a Notification with the specified id.
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/notification/c290e571-f65d-11ee-c0a8-300d0000000a"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/notification/c290e571-f65d-11ee-c0a8-300d0000000a" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -322,9 +322,9 @@ AppChangePermissions - Access permissions for the installed app have expired.
 > Request to receive a Notification with the specified id.
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/notification/c290e571-f65d-11ee-c0a8-300d0000000a"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/notification/c290e571-f65d-11ee-c0a8-300d0000000a" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -376,9 +376,9 @@ NotificationExportCompleted - export completion
 > Request to receive a Notification with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/notification/02950e3c-35f2-11e9-9ff4-34e8000799c0"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/notification/02950e3c-35f2-11e9-9ff4-34e8000799c0" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -435,9 +435,9 @@ NotificationImportCompleted is an import completion.
 > Request to receive a Notification with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/notification/02950e31-35f2-11e9-9ff4-34e8000799c0"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/notification/02950e31-35f2-11e9-9ff4-34e8000799c0" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -493,9 +493,9 @@ NotificationGoodCountTooLow - reducing the balance of goods below the irreducibl
 > Request to receive a Notification with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/notification/9338c8bd-56e5-11e9-c0a8-100b00000023"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/notification/9338c8bd-56e5-11e9-c0a8-100b00000023" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -560,9 +560,9 @@ NotificationInvoiceOutOverdue - Sales Invoice is overdue.
 > Request to receive a Notification with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/notification/572d1dd9-56fc-11e9-c0a8-100b00000006"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/notification/572d1dd9-56fc-11e9-c0a8-100b00000006" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -629,9 +629,9 @@ NotificationOrderNew - new order.
 > Request to receive a Notification with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/notification/c6082a9e-56e1-11e9-c0a8-100b00000011"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/notification/c6082a9e-56e1-11e9-c0a8-100b00000011" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -693,9 +693,9 @@ NotificationOrderOverdue - overdue order
 > Request to receive a Notification with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/notification/c6082a9e-56e1-11e9-c0a8-100b00000011"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/notification/c6082a9e-56e1-11e9-c0a8-100b00000011" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -755,9 +755,9 @@ NotificationSubscribeExpired - subscription expiration
 > Request to receive a Notification with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/notification/c2582a9e-56e1-11e9-c0a8-100b00000123"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/notification/c2582a9e-56e1-11e9-c0a8-100b00000123" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -805,9 +805,9 @@ NotificationSubscribeTermsExpired - subscription terms expire
 > Request to receive a Notification with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/notification/c2582a9e-56e1-11e9-c0a8-100b00000125"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/notification/c2582a9e-56e1-11e9-c0a8-100b00000125" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -876,9 +876,9 @@ NotificationTaskAssigned - the task has been assigned
 > Request to receive a Notification with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/notification/bcd815b9-56ca-11e9-c0a8-100b00000001"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/notification/bcd815b9-56ca-11e9-c0a8-100b00000001" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -965,9 +965,9 @@ NotificationTaskUnassigned - the task has been unassigned
 > Request to receive a Notification with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/notification/80c8a58b-56cb-11e9-c0a8-100b00000009"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/notification/80c8a58b-56cb-11e9-c0a8-100b00000009" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1066,9 +1066,9 @@ NotificationTaskChanged - the task has changed
 > Request to receive a Notification with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/notification/bd0dbccf-56ca-11e9-c0a8-100b00000003"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/notification/bd0dbccf-56ca-11e9-c0a8-100b00000003" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1162,9 +1162,9 @@ NotificationTaskCompleted - task completed
 > Request to receive a Notification with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/notification/7945a089-56fd-11e9-c0a8-100b00000008"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/notification/7945a089-56fd-11e9-c0a8-100b00000008" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1249,9 +1249,9 @@ NotificationTaskDeleted - the task has been deleted
 > Request to receive a Notification with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/notification/8d07388c-56cb-11e9-c0a8-100b0000000d"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/notification/8d07388c-56cb-11e9-c0a8-100b0000000d" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1321,9 +1321,9 @@ NotificationTaskOverdue - the task is overdue
 > Request to receive a Notification with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/notification/51a5b0a3-56e4-11e9-c0a8-100b00000014"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/notification/51a5b0a3-56e4-11e9-c0a8-100b00000014" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1404,9 +1404,9 @@ NotificationTaskReopened - the task has been reopened.
 > Request to receive a Notification with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/notification/df0c3e22-56fd-11e9-c0a8-100b0000000a"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/notification/df0c3e22-56fd-11e9-c0a8-100b0000000a" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1495,9 +1495,9 @@ NotificationTaskNewComment - new comment for the task
 > Request to receive a Notification with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/notification/240706df-5704-11e9-c0a8-100b00000003"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/notification/240706df-5704-11e9-c0a8-100b00000003" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1589,9 +1589,9 @@ NotificationTaskCommentChanged - task comment changed
 > Request to receive a Notification with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/notification/3d3423ee-5704-11e9-c0a8-100b00000007"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/notification/3d3423ee-5704-11e9-c0a8-100b00000007" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1686,9 +1686,9 @@ NotificationTaskCommentDeleted - the comment to the task has been deleted
 > Request to receive a Notification with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/notification/3d2abf0f-5704-11e9-c0a8-100b00000005"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/notification/3d2abf0f-5704-11e9-c0a8-100b00000005" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1763,9 +1763,9 @@ NotificationRetailShiftOpened - the shift is open.
 > Request to receive a Notification with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/notification/8002409b-351d-11e9-9ff4-34e80002a126"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/notification/8002409b-351d-11e9-9ff4-34e80002a126" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1849,9 +1849,9 @@ NotificationRetailShiftClosed - the shift is closed
 > Request to receive a Notification with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/notification/3929d717-351c-11e9-9ff4-34e800029ad4"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/notification/3929d717-351c-11e9-9ff4-34e800029ad4" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1961,9 +1961,9 @@ Valid values for **meta.type**:
 > Request to receive a Notification with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/notification/b22dc861-645b-11eb-0a80-1f8500000044"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/notification/b22dc861-645b-11eb-0a80-1f8500000044" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -2026,9 +2026,9 @@ FacebookTokenExpirationNotification - warning about the imminent expiration of a
 > Request to receive a Notification with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/notification/9596251d-da73-11eb-ac12-000c00000015"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/notification/9596251d-da73-11eb-ac12-000c00000015" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -2080,9 +2080,9 @@ NotificationBonusMoney - Bonus money has been credited to the account.
 > Request to receive a Notification with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/notification/c2582a9e-56e1-11e9-c0a8-100b00000123"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/notification/c2582a9e-56e1-11e9-c0a8-100b00000123" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -2151,9 +2151,9 @@ Valid values ​​for **meta.type**:
 > Request to receive Notification with the specified id.
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/notification/c290e571-f65d-11ee-c0a8-300d0000000a"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/notification/c290e571-f65d-11ee-c0a8-300d0000000a" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -2230,9 +2230,9 @@ Valid values for **meta.type**:
 > Request to receive Notification with the specified id.
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/notification/c290e571-f65d-11ee-c0a8-300d0000000a"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/notification/c290e571-f65d-11ee-c0a8-300d0000000a" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -2309,9 +2309,9 @@ Valid values for **meta.type**:
 
 > Request to receive Notification with the specified id.
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/notification/c290e571-f65d-11ee-c0a8-300d0000000a"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/notification/c290e571-f65d-11ee-c0a8-300d0000000a" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -2373,9 +2373,9 @@ Query the current user's Notification settings.
 > Query the current user's Notification settings.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/notification/subscription"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/notification/subscription" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -2438,11 +2438,11 @@ Disabling notifications from scripts is not allowed. The **enabled** parameter i
 > Change the current user's Notification settings.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/notification/subscription"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/notification/subscription" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "groups" : {
                "customer_order" : {

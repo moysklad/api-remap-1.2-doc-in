@@ -57,9 +57,9 @@ Result: JSON object including fields:
 > Request for list of Routings
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/processingprocess"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/processingprocess" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -145,9 +145,9 @@ Successful request. The result is a JSON representation of the Routings list.
 > Request to get a separate Routing with the specified ID.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/processingprocess/d2308bcc-8fd9-11ed-ac12-000b000000c1"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/processingprocess/d2308bcc-8fd9-11ed-ac12-000b000000c1" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -210,11 +210,11 @@ Required fields for creating:
 > Request to create a new Routing with a request body containing only the required fields.
 
 ```shell
-  curl -X POST
-  "https://api.kladana.com/api/remap/1.2/entity/processingprocess"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+  curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/processingprocess" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
     -d '{
           "name": "We make the engine",
           "positions": [
@@ -296,11 +296,11 @@ Important: there is a difference in behavior between the UI and API when replaci
 > Request to update Routing with the replacement of the stage of the existing item and the creation of a new item.
 
 ```shell
-  curl -X PUT
-  "https://api.kladana.com/api/remap/1.2/entity/processingprocess/117cae13-a612-11ed-ac12-000900000022"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+  curl --compressed -X PUT \
+  "https://api.kladana.com/api/remap/1.2/entity/processingprocess/117cae13-a612-11ed-ac12-000900000022" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
     -d' {
             "name": "We are making engine #2",
             "externalCode": "dfsafsfsd1231231",
@@ -395,9 +395,9 @@ Successful request. The result is a JSON representation of the updated Routing.
 > Request to remove the Routing with the specified ID.
 
 ```shell
-curl -X DELETE
-   "https://api.kladana.com/api/remap/1.2/entity/processingprocess/d2308bcc-8fd9-11ed-ac12-000b000000c1"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+   "https://api.kladana.com/api/remap/1.2/entity/processingprocess/d2308bcc-8fd9-11ed-ac12-000b000000c1" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -437,9 +437,9 @@ Request to get a list of all items of this Routing.
 > Request for a list of items Routing
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/processingprocess/d5069703-988e-11ed-ac19-000400000029/positions"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/processingprocess/d5069703-988e-11ed-ac19-000400000029/positions" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -501,9 +501,9 @@ Successful request. The result is a JSON representation of a list of individual 
 > Request to get an individual Routing item with the specified ID.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/processingprocess/1d4adde5-a6bb-11ed-ac12-00090000003f/positions/23a62e19-a6bb-11ed-ac12-000900000043"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/processingprocess/1d4adde5-a6bb-11ed-ac12-00090000003f/positions/23a62e19-a6bb-11ed-ac12-000900000043" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -542,11 +542,11 @@ Successful request. The result is a JSON representation of a single Routing item
 > Request to create Routing items
 
 ```shell
-  curl -X POST
-    "https://api.kladana.com/api/remap/1.2/entity/processingprocess/1d4adde5-a6bb-11ed-ac12-00090000003f/positions"
-      -H "Authorization: Basic <Credentials>"
-      -H "Accept-Encoding: gzip"
-      -H "Content-Type: application/json"
+  curl --compressed -X POST \
+    "https://api.kladana.com/api/remap/1.2/entity/processingprocess/1d4adde5-a6bb-11ed-ac12-00090000003f/positions" \
+      -H "Authorization: Basic <Credentials>" \
+      -H "Accept-Encoding: gzip" \
+      -H "Content-Type: application/json" \
       -d' [
             {
                 "processingStage": {
@@ -601,11 +601,11 @@ Important: there is a difference in behavior between the UI and API when replaci
 > Request to update Routing item
 
 ```shell
-  curl -X PUT
-    "https://api.kladana.com/api/remap/1.2/entity/processingprocess/1d4adde5-a6bb-11ed-ac12-00090000003f/positions/23a62e19-a6bb-11ed-ac12-000900000043"
-      -H "Authorization: Basic <Credentials>"
-      -H "Accept-Encoding: gzip"
-      -H "Content-Type: application/json"
+  curl --compressed -X PUT \
+    "https://api.kladana.com/api/remap/1.2/entity/processingprocess/1d4adde5-a6bb-11ed-ac12-00090000003f/positions/23a62e19-a6bb-11ed-ac12-000900000043" \
+      -H "Authorization: Basic <Credentials>" \
+      -H "Accept-Encoding: gzip" \
+      -H "Content-Type: application/json" \
       -d' {
             "processingStage": {
                 "meta": {
@@ -654,9 +654,9 @@ Successful request. The result is a JSON representation of the updated Routing i
 > Request to delete the Routing item with the specified ID.
 
 ```shell
-curl -X DELETE
-   "https://api.kladana.com/api/remap/1.2/entity/processingprocess/d5069703-988e-11ed-ac19-000400000029/positions/d5069da5-988e-11ed-ac19-00040000002a"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+   "https://api.kladana.com/api/remap/1.2/entity/processingprocess/d5069703-988e-11ed-ac19-000400000029/positions/d5069da5-988e-11ed-ac19-00040000002a" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -670,11 +670,11 @@ The request body must contain an array containing JSON metadata of the Routing I
 > Request for bulk deletion of Routing Items.
 
 ```shell
-curl -X POST
-  "https://api.kladana.com/api/remap/1.2/entity/processingprocess/5fe17cd6-72fd-11ee-c0a8-e00e00000017/positions/delete"
-  -H "Authorization: Basic <Credentials>"
-  -H "Accept-Encoding: gzip"
-  -H "Content-Type: application/json"
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/processingprocess/5fe17cd6-72fd-11ee-c0a8-e00e00000017/positions/delete" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
     -d '[
           {
               "meta": {
@@ -704,11 +704,11 @@ containing the JSON representation of the Routings you want to create or update.
 > Request to create and update multiple Routings
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/processingprocess"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/processingprocess" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
      -d' [
             {
                 "meta": {
@@ -839,11 +839,11 @@ In the body of the request, you need to pass an array containing JSON of the Rou
 > Request for Routings bulk deletion.
 
 ```shell
-curl -X POST
-   "https://api.kladana.com/api/remap/1.2/entity/processingprocess/delete"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-   -H "Content-Type: application/json"
+curl --compressed -X POST \
+   "https://api.kladana.com/api/remap/1.2/entity/processingprocess/delete" \
+   -H "Authorization: Basic <Credentials>" \
+   -H "Accept-Encoding: gzip" \
+   -H "Content-Type: application/json" \
    -d' [
             {
                 "meta": {

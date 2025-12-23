@@ -77,9 +77,9 @@ Result: JSON object including fields:
 > Get a list of contracts
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/contract"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/contract" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -357,11 +357,11 @@ Mandatory fields for creating a Contract:
 > An example of creating a new Contract, with a request, the Body of which contains only required fields.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/contract"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/contract" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "ownAgent": {
                "meta": {
@@ -467,11 +467,11 @@ Successful request. The result is a JSON representation of the created Contract.
 > An example of creating a new Contract with a richer request body.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/contract"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/contract" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "name": "00000011111",
              "description": "Contract with partner organization Solnyshko LLC",
@@ -593,11 +593,11 @@ Successful request. The result is a JSON representation of the created Contract.
 > An example of creating a new Contract, with a request, the Body of which contains additional fields.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/contract"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/contract" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d'[
             {
                 "name": "666",
@@ -834,11 +834,11 @@ Updated Contracts must contain the identifier in the form of metadata.
 > An example of creating and updating several Contracts
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/contract"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/contract" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d'[
              {
                "name": "666",
@@ -943,9 +943,9 @@ Successful request. The result is a JSON array of representations of created and
 > Request to delete the Contract with the specified ID.
 
 ```shell
-curl -X DELETE
-   "https://api.kladana.com/api/remap/1.2/entity/contract/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+   "https://api.kladana.com/api/remap/1.2/entity/contract/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -959,11 +959,11 @@ In the body of the request, you need to pass an array containing the JSON metada
 > Request for Contracts bulk deletion.
 
 ```shell
-curl -X POST
-   "https://api.kladana.com/api/remap/1.2/entity/contract/delete"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-   -H "Content-Type: application/json"
+curl --compressed -X POST \
+   "https://api.kladana.com/api/remap/1.2/entity/contract/delete" \
+   -H "Authorization: Basic <Credentials>" \
+   -H "Accept-Encoding: gzip" \
+   -H "Content-Type: application/json" \
    -d'[
           {
               "meta": {
@@ -1013,9 +1013,9 @@ The structure of a separate object representing the additional the field is desc
 > Obtaining methodical contracts
  
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/contract/metadata"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/contract/metadata" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1081,9 +1081,9 @@ Successful request. The result is a JSON representation of the additional fields
 > Request for information on a specific additional field.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/contract/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/contract/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1117,9 +1117,9 @@ Successful request. The result is a JSON representation of a separate additional
 > Request for a separate Contract with the specified ID.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/contract/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/contract/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -1242,11 +1242,11 @@ When updating the **organization** and **agent** fields, you must also update th
 > An example of a request to update a separate Contract.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/contract/7944ef04-f831-11e5-7a69-971500188b19"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/contract/7944ef04-f831-11e5-7a69-971500188b19" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "name": "666_02",
              "ownAgent": {
@@ -1362,11 +1362,11 @@ Successful request. The result is a JSON representation of the updated Contract.
 > An example of a request to update a separate Contract with a request body containing additional fields.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/contract/7944ef04-f831-11e5-7a69-971500188b19"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/contract/7944ef04-f831-11e5-7a69-971500188b19" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
               "name": "123_456",
               "ownAgent": {

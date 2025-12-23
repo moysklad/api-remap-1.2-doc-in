@@ -77,9 +77,9 @@ Result: JSON object, including the following fields:
 > Get a list of Operation Reports
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -482,11 +482,11 @@ Creating an Operation Report with serial numbers is currently not supported.
 > Example of creating a new Operation Report with a request body containing only the required fields.
 
 ```shell
-  curl -X POST
-    "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+  curl --compressed -X POST \
+    "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
       -d '{
             "productionStage": {
               "meta": {
@@ -578,11 +578,11 @@ Successful request. The result is a JSON representation of the generated Operati
 > An example of creating a new Operation Report with a richer request body.
 
 ```shell
-  curl -X POST
-    "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+  curl --compressed -X POST \
+    "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
       -d '{
             "name": "000034",
             "owner": {
@@ -716,11 +716,11 @@ Successful request. The result is a JSON representation of the generated Operati
 > Example of creating and updating several Operation Reports
 
 ```shell
-  curl -X POST
-    "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+  curl --compressed -X POST \
+    "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
       -d '[
             {
                 "name": "000033",
@@ -923,9 +923,9 @@ Successful request. The result is a JSON array of views of the created and updat
 > Request to delete Operation Report with the specified ID.
 
 ```shell
-curl -X DELETE
-  "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+  "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -939,11 +939,11 @@ The request body must contain an array with the JSON metadata of the Operation R
 > Request for bulk deletion of Operation Reports.
 
 ```shell
-curl -X POST
-  "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/delete"
-  -H "Authorization: Basic <Credentials>"
-  -H "Accept-Encoding: gzip"
-  -H "Content-Type: application/json"
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/delete" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
   -d '[
         {
             "meta": {
@@ -988,9 +988,9 @@ curl -X POST
 > Request to get a single Operation Report with the specified ID.
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -1084,11 +1084,11 @@ marked `Read-only` in the description of the Operation Report attributes.
 > Example of a request to update a separate Operation Report.
 
 ```shell
-  curl -X PUT
-    "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+  curl --compressed -X PUT \
+    "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
       -d '{
             "name": "000034",
             "productionVolume": 22,
@@ -1219,9 +1219,9 @@ A request to get a list of all Operation Report Raw Materials.
 > Request to get a list of all Raw Materials of a Operation Report
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/materials"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/materials" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -1291,11 +1291,11 @@ For successful creation, the following fields must be specified in the request b
 > Example of request to add Raw Material of Operation Report.
 
 ```shell
-  curl -X POST
-    "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/materials"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+  curl --compressed -X POST \
+    "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/materials" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
       -d '{
             "consumedQuantity": 2,
             "assortment": {
@@ -1334,11 +1334,11 @@ Successful request. The result is a JSON representation of the added material.
 > Example of a request to add Raw Material of Operation Report taking into account serial numbers.
 
 ```shell
-  curl -X POST
-    "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/materials"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+  curl --compressed -X POST \
+    "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/materials" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
       -d '{
             "assortment": {
               "meta": {
@@ -1389,11 +1389,11 @@ For items with serial numbers, the `consumedQuantity` field is automatically upd
 > Example of a request to update the quantity of a single Raw Material of an Operation Report.
 
 ```shell
-  curl -X PUT
-    "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/materials/34f6344f-015e-11e6-9464-e4de0000006c"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+  curl --compressed -X PUT \
+    "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/materials/34f6344f-015e-11e6-9464-e4de0000006c" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
       -d '{
             "consumedQuantity": 3,
           }
@@ -1428,11 +1428,11 @@ Successful request. The result is a JSON representation of the updated material.
 > Example of a request to update serial numbers of a single Raw Material of an Operation Report.
 
 ```shell
-  curl -X PUT
-    "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/materials/34f6344f-015e-11e6-9464-e4de0000006c"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+  curl --compressed -X PUT \
+    "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/materials/34f6344f-015e-11e6-9464-e4de0000006c" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
       -d '{
             "things": ["F564X056", "F564X057"]
           }
@@ -1488,9 +1488,9 @@ A request to get a list of all Operation Report Products.
 > Request to get a list of all Products of this Operation Report
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/products/"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/products/" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -1556,11 +1556,11 @@ For products with by serial numbers, the `producedQuantity` field is automatical
 > Example of a request to update the quantity of a single Product of Operation Report.
 
 ```shell
-  curl -X PUT
-    "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/products/34f6344f-015e-11e6-9464-e4de0000006c"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+  curl --compressed -X PUT \
+    "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/products/34f6344f-015e-11e6-9464-e4de0000006c" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
       -d '{
             "producedQuantity": 2.7,
           }
@@ -1595,11 +1595,11 @@ Successful request. Result is a JSON representation of the updated Product of Op
 > An example of a request to update serial numbers of a specific Operation Report Product.
 
 ```shell
-  curl -X PUT
-    "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/products/34f6344f-015e-11e6-9464-e4de0000006c"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+  curl --compressed -X PUT \
+    "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/7944ef04-f831-11e5-7a69-971500188b19/products/34f6344f-015e-11e6-9464-e4de0000006c" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
       -d '{
             "things": ["F564X056", "F564X057"]
           }

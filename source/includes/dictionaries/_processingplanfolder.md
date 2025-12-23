@@ -42,9 +42,9 @@ Result: JSON object including fields:
 > Get list of Bills of Materials Folders
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/processingplanfolder"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/processingplanfolder" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -121,11 +121,11 @@ The fields required for the creation of the Bills of Materials Folder:
 > An example of creating a new Bills of Materials Folder with a request body containing only the name field.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/processingplanfolder"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/processingplanfolder" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "name": "Group 1"
            }'
@@ -172,11 +172,11 @@ Successful request. The result is a JSON representation of the created Bills of 
 > An example of creating a new Bills of Materials Folder with a larger request body.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/processingplanfolder"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/processingplanfolder" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "name": "Group 2",
              "code": "13321",
@@ -231,11 +231,11 @@ In the body of the request, you need to pass an array containing the JSON repres
 > Example of creating and updating some Bills of Materials Folders
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/processingplanfolder"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/processingplanfolder" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d'[
              {
                "name": "Furniture Group",
@@ -336,9 +336,9 @@ Successful request. The result is a JSON array of representations of the created
 > Request to remove the Bills of Materials Folder with the specified id.
 
 ```shell
-curl -X DELETE
-   "https://api.kladana.com/api/remap/1.2/entity/processingplanfolder/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+   "https://api.kladana.com/api/remap/1.2/entity/processingplanfolder/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -353,11 +353,11 @@ In the body of the request, you need to pass an array containing the JSON Bills 
 > Bulk deletion request for Bills of Materials Folders.
 
 ```shell
-curl -X POST
-   "https://api.kladana.com/api/remap/1.2/entity/processingplanfolder/delete"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-   -H "Content-Type: application/json"
+curl --compressed -X POST \
+   "https://api.kladana.com/api/remap/1.2/entity/processingplanfolder/delete" \
+   -H "Authorization: Basic <Credentials>" \
+   -H "Accept-Encoding: gzip" \
+   -H "Content-Type: application/json" \
    -d'[
          {
            "meta": {
@@ -406,9 +406,9 @@ The structure of a separate object representing the additional the field is desc
 > Get metadata of Bills of Materials Folder
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/processingplanfolder/metadata"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/processingplanfolder/metadata" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -437,9 +437,9 @@ Successful request. The result is a JSON representation of the additional fields
 > Request for a separate Bills of Materials Folders with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/processingplanfolder/8c329385-bee9-11ec-0a82-04c500000102"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/processingplanfolder/8c329385-bee9-11ec-0a82-04c500000102" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -499,11 +499,11 @@ To update the **pathName** field, you need to update the link to the parent Bill
 > An example of a request to update a specific Bills of Materials Folder.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/processingplanfolder/7944ef04-f831-11e5-7a69-971500188b19"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/processingplanfolder/7944ef04-f831-11e5-7a69-971500188b19" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "name": "Group 1",
              "code": "groupCode",

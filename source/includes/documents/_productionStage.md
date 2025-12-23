@@ -68,9 +68,9 @@ Result: JSON object, including fields:
 > Get a list of Production Operations for a Production Order
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/entity/productionstage/?filter=productionTask=https://api.kladana.com/api/remap/1.2/entity/productiontask/1906fa20-99d6-11ee-0a83-0a2e00000767"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/entity/productionstage/?filter=productionTask=https://api.kladana.com/api/remap/1.2/entity/productiontask/1906fa20-99d6-11ee-0a83-0a2e00000767" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -163,11 +163,11 @@ The request body can only contain fields that need to be changed in the Producti
 > Example of a request to update a single Production Operation.
 
 ```shell
-  curl -X PUT
-    "https://api.kladana.com/api/remap/1.2/entity/productionstage/19070bfd-99d6-11ee-0a83-0a2e0000076b"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+  curl --compressed -X PUT \
+    "https://api.kladana.com/api/remap/1.2/entity/productionstage/19070bfd-99d6-11ee-0a83-0a2e0000076b" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
       -d '{
             "processingUnitCost": 70.0,
             "labourUnitCost": 30.5,
@@ -251,9 +251,9 @@ A request to get Production Operation raw materials. The result is a JSON object
 > Request to get a list of all raw materials for a Production Operation
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/entity/productionstage/7944ef04-f831-11e5-7a69-971500188b19/materials"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/entity/productionstage/7944ef04-f831-11e5-7a69-971500188b19/materials" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -322,11 +322,11 @@ To create it successfully, the following fields must be specified in the request
 > Example of a request to add a raw material to a Production Operation.
 
 ```shell
-  curl -X POST
-    "https://api.kladana.com/api/remap/1.2/entity/productionstage/7944ef04-f831-11e5-7a69-971500188b19/materials"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+  curl --compressed -X POST \
+    "https://api.kladana.com/api/remap/1.2/entity/productionstage/7944ef04-f831-11e5-7a69-971500188b19/materials" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
       -d '{
             "planQuantity": 2,
             "assortment": {
@@ -381,11 +381,11 @@ Request to update a single raw material of a Production Operation.
 > Example of a request to update the quantity of a single raw material of a Production Operation.
 
 ```shell
-  curl -X PUT
-    "https://api.kladana.com/api/remap/1.2/entity/productionstage/7944ef04-f831-11e5-7a69-971500188b19/materials/34f6344f-015e-11e6-9464-e4de0000006c"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+  curl --compressed -X PUT \
+    "https://api.kladana.com/api/remap/1.2/entity/productionstage/7944ef04-f831-11e5-7a69-971500188b19/materials/34f6344f-015e-11e6-9464-e4de0000006c" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
       -d '{
             "planQuantity": 3,
             "assortment": {
@@ -443,9 +443,9 @@ Material out of a Production Operation that has a completed operation cannot be 
 > Request to delete a single raw material from a Production Operation with the specified ID.
 
 ```shell
-curl -X DELETE
-  "https://api.kladana.com/api/remap/1.2/entity/productionstage/7944ef04-f831-11e5-7a69-971500188b19/materials/34f6344f-015e-11e6-9464-e4de0000006c"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+  "https://api.kladana.com/api/remap/1.2/entity/productionstage/7944ef04-f831-11e5-7a69-971500188b19/materials/34f6344f-015e-11e6-9464-e4de0000006c" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
