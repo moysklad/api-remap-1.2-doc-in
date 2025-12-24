@@ -37,7 +37,7 @@ The context contains only general information about the events related to it.
 | **eventType** | Enum | Event Action (the field is present only if it is the same for all Events within the given Context)<br>`+Required when replying` `+Read Only` |
 | **events** | Array(Object) | List of Method Audit Events<br>`+Required when replying` `+Read Only` |
 | **id** | UUID | Context ID<br>`+Required when replying` `+Read Only` |
-| **info** | String(255) | Short Description<br>`+Read Only` |
+| **info** | Object | Short Description<br>`+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Context entity metadata<br>`+Required when replying` `+Read-only` |
 | **moment** | DateTime | Modified date<br>`+Required when replying` `+Read only` |
 | **objectCount** | Int | number of objects changed<br>`+Required when replying` `+Read only` |
