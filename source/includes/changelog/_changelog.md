@@ -8,8 +8,8 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 
 ### 24-12-2025
 #### Added
-- Endpoint for Sale Platforms
-- Endpoint for Content Cards
+- Endpoint for [Sale Platforms](../dictionaries/#entities-sale-platform)
+- Endpoint for [Content Cards](../dictionaries/#entities-content-card)
 
 ### 23-12-2025
 #### Changed

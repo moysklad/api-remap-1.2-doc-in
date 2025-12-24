@@ -9,12 +9,12 @@ Searching among sale platform objects for a match to a search string is performe
 + by Sale Platform group **salePlatformGroup**
 
 #### Entity attributes
-| Title         | Type                                                       | Filtration                  | Description                                                                                                                            |
-| ---------------- | :-------------------------------------------------------- | :-------------------------- |:------------------------------------------------------------------------------------------------------------------------------------|
-| **id**           | UUID                                                      | `=` `!=`                    | Sale Platform ID<br>`+Required when answering` `+Read Only`                                                                         |
-| **meta**         | [Meta](../#kladana-json-api-general-info-metadata) |                             | Sale Platform metadata<br>`+Required when answering`                                                                                |
-| **name**         | String(255)                                               |      | Sale Platform name<br>`+Required when answering`                                                                                    |
-| **salePlatformGroup**         | Enum                                                      | `=` `!=`                    | Sale platform group More details here<br>`+Required when answering`                                                                 |
+| Title         | Type                                                       | Filtration                  | Description                                                     |
+| ---------------- | :-------------------------------------------------------- | :-------------------------- |:----------------------------------------------------------------|
+| **id**           | UUID                                                      | `=` `!=`                    | Sale Platform ID<br>`+Required when answering` `+Read Only`     |
+| **meta**         | [Meta](../#kladana-json-api-general-info-metadata) |                             | Sale Platform metadata<br>`+Required when answering`            |
+| **name**         | String(255)                                               |      | Sale Platform name<br>`+Required when answering`                |
+| **salePlatformGroup**         | Enum                                                      | `=` `!=`                    | Sale platform group. [Learn more](../dictionaries/#entities-sale-platform-sale-platforms-sale-platform-group)<br>`+Required when answering` |
 
 #### Sale platform group
 List of values representing the Sale Platform group:
