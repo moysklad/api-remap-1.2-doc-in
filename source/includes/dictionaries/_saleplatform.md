@@ -92,8 +92,8 @@ curl --compressed -X GET \
         "mediaType": "application/json"
       },
       "id": "39aaefe6-0304-4b85-ad3c-e8b93549f426",
-      "name": "Shopify",
-      "salePlatformGroup": "MARKETPLACES"
+      "name": "Telegram",
+      "salePlatformGroup": "MESSENGERS"
     },
     {
       "meta": {
@@ -103,8 +103,8 @@ curl --compressed -X GET \
         "mediaType": "application/json"
       },
       "id": "59e5ed71-f3ac-4346-86e5-e23e3769a2fe",
-      "name": "Facebook",
-      "salePlatformGroup": "MARKETPLACES"
+      "name": "Whatsapp",
+      "salePlatformGroup": "MESSENGERS"
     }
   ]
 }
@@ -140,7 +140,7 @@ Successful request. The result is a JSON representation of the sale platform.
     "mediaType": "application/json"
   },
   "id": "39aaefe6-0304-4b85-ad3c-e8b93549f426",
-  "name": "Avito",
-  "salePlatformGroup": "MARKETPLACES"
+  "name": "Telegram",
+  "salePlatformGroup": "MESSENGERS"
 }
 ```
