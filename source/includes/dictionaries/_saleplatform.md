@@ -61,7 +61,7 @@ curl --compressed -X GET \
 ```
 
 > Response 200 (application/json)
-Успешный запрос. Результат - JSON представление списка площадок для продаж.
+Successful request. The result is a JSON representation of the sale platforms.
 
 ```json
 {
