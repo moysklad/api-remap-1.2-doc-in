@@ -692,6 +692,7 @@ This section lists the JSON API error codes and their descriptions.
 
 ### Error codes for Series
 
-| Error code                      | Message                                            | Description                                       |
-|---------------------------------|----------------------------------------------------|---------------------------------------------------|
-| <a name="error_71000">71000</a> | Series saving error: assortment cannot be a series | Check the assortment of the series and try again. |
+| Error code                      | Message                                                                                                  | Description                                       |
+|---------------------------------|----------------------------------------------------------------------------------------------------------|---------------------------------------------------|
+| <a name="error_71000">71000</a> | Series saving error: assortment cannot be a series                                                       | Check the assortment of the series and try again. |
+| <a name="error_71000">71001</a> | Validation error: one of the required fields is missing. Specify 'expiryDate' or 'label' in the request. | Specify a batch label or an expiration date.      |
