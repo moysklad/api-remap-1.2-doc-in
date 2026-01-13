@@ -9,7 +9,7 @@ The availability of the Stock report content is based on the user access rights.
 - specific products and warehouses data;
 - costs, purchase prices, profits.
 
-Important: Only products with already recalculated balances at the time of the request are included in the report. The recalculation of balances in the system is not instantaneous, its duration depends on the number of simultaneously recalculated product balances. This feature should be taken into account when working with the endpoints of balance reports.
+**Important**: Only products whose balances have already been recalculated at the time of the request are included in the report. Balance recalculation in the system is not instantaneous; its duration depends on the number of product balances being recalculated simultaneously. This feature must be taken into account when working with balance report endpoints.
 
 Learn more about [Stock report](https://kladana.zendesk.com/hc/en-us/articles/360012272317-Stock-report).
 
