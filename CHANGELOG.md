@@ -2,14 +2,14 @@
 
 JSON API 1.2 changes will be added here soon
 
+### 15-01-2026
+#### Added
+- Error codes for serial number validation: [3048-3050](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-common-validation-errors)
+
 ### 24-12-2025
 #### Added
 - Endpoint for [Sale Platforms](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-sale-platform)
 - Endpoint for [Content Cards](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-content-card)
-
-### 15-01-2026
-#### Added
-- Error codes for serial number validation: [3048-3050](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-common-validation-errors)
 
 ### 23-12-2025
 #### Changed
