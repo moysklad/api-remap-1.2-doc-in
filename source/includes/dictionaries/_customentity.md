@@ -36,11 +36,11 @@ This action is available exclusively to users with administrator rights.
 > Request to create a new Custom list.
 
 ```shell
-  curl -X POST
-    "https://api.kladana.com/api/remap/1.2/entity/customentity"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+  curl --compressed -X POST \
+    "https://api.kladana.com/api/remap/1.2/entity/customentity" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
       -d '{
             "name": "Delivery"
           }'  
@@ -75,11 +75,11 @@ This action is available exclusively to users with administrator rights.
 > Request to update a new Custom list.
 
 ```shell
-  curl -X PUT
-    "https://api.kladana.com/api/remap/1.2/entity/customentity/3f9a2f30-76af-11e7-6adb-ede50000000b"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+  curl --compressed -X PUT \
+    "https://api.kladana.com/api/remap/1.2/entity/customentity/3f9a2f30-76af-11e7-6adb-ede50000000b" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
       -d '{
             "name": "Delivery zones"
           }'  
@@ -114,9 +114,9 @@ This action is available exclusively to users with administrator rights.
 > Request to delete a new Custom list.
 
 ```shell
-curl -X DELETE
-  "https://api.kladana.com/api/remap/1.2/entity/customentity/3f9a2f30-76af-11e7-6adb-ede50000000b"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+  "https://api.kladana.com/api/remap/1.2/entity/customentity/3f9a2f30-76af-11e7-6adb-ede50000000b" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -148,9 +148,9 @@ the [Working with additional fields](../#kladana-json-api-general-info-additiona
 > Request to get Custom list metadata.
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/entity/customentity/3f9a2f30-76af-11e7-6adb-ede50000000b/metadata"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/entity/customentity/3f9a2f30-76af-11e7-6adb-ede50000000b/metadata" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -225,9 +225,9 @@ Result: JSON object including fields:
 > Request to get all elements of the Custom list.
 
 ```shell
- curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/customentity/3f9a2f30-76af-11e7-6adb-ede50000000b"
-   -H "Authorization: Basic <Credentials>"
+ curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/customentity/3f9a2f30-76af-11e7-6adb-ede50000000b" \
+   -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -398,9 +398,9 @@ Result: JSON object including fields:
 > Request to get a Custom list element with the specified ID.
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/entity/customentity/3f9a2f30-76af-11e7-6adb-ede50000000b/6343f631-265d-11e6-8a84-bae500000014"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/entity/customentity/3f9a2f30-76af-11e7-6adb-ede50000000b/6343f631-265d-11e6-8a84-bae500000014" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -470,11 +470,11 @@ The only required field to create a custom list element is the **name** field.
 > Request to create a Custom list element.
 
 ```shell
-  curl -X POST
-    "https://api.kladana.com/api/remap/1.2/entity/customentity/3f9a2f30-76af-11e7-6adb-ede50000000b"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+  curl --compressed -X POST \
+    "https://api.kladana.com/api/remap/1.2/entity/customentity/3f9a2f30-76af-11e7-6adb-ede50000000b" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
       -d '{
             "name": "Lake",
             "code": "lake",
@@ -538,11 +538,11 @@ A request to update an element of the Custom list.
 > Request to update a Custom list element
 
 ```shell
-  curl -X PUT
-    "https://api.kladana.com/api/remap/1.2/entity/customentity/3f9a2f30-76af-11e7-6adb-ede50000000b/6343f631-265d-11e6-8a84-bae500000014"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+  curl --compressed -X PUT \
+    "https://api.kladana.com/api/remap/1.2/entity/customentity/3f9a2f30-76af-11e7-6adb-ede50000000b/6343f631-265d-11e6-8a84-bae500000014" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
       -d '{
             "name": "Railway Station",
             "code": "railway station",
@@ -628,9 +628,9 @@ Request to delete an element of the Custom list.
 > Request to delete a Custom list element.
 
 ```shell
-curl -X DELETE
-  "https://api.kladana.com/api/remap/1.2/entity/customentity/3f9a2f30-76af-11e7-6adb-ede50000000b/6343f631-265d-11e6-8a84-bae500000014"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+  "https://api.kladana.com/api/remap/1.2/entity/customentity/3f9a2f30-76af-11e7-6adb-ede50000000b/6343f631-265d-11e6-8a84-bae500000014" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 

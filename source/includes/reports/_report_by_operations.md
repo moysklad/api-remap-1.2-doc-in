@@ -59,9 +59,9 @@ Filtering examples:
 > Request for obtaining a Document Report displaying stock.
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/report/byoperations/stock?filter=assortment=https://api.kladana.com/api/remap/1.2/entity/product/bb1865dc-32e1-11ef-ac16-001100000003"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/report/byoperations/stock?filter=assortment=https://api.kladana.com/api/remap/1.2/entity/product/bb1865dc-32e1-11ef-ac16-001100000003" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -166,9 +166,9 @@ Filtering examples:
 > Request to get a Document Report displaying 'Committed' products.
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/report/byoperations/reserve?filter=assortment=https://api.kladana.com/api/remap/1.2/entity/product/bb1865dc-32e1-11ef-ac16-001100000003"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/report/byoperations/reserve?filter=assortment=https://api.kladana.com/api/remap/1.2/entity/product/bb1865dc-32e1-11ef-ac16-001100000003" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -269,9 +269,9 @@ Filtering examples:
 > Request to receive a Document Report showing pending.
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/report/byoperations/intransit?filter=assortment=https://api.kladana.com/api/remap/1.2/entity/product/bb1865dc-32e1-11ef-ac16-001100000003"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/report/byoperations/intransit?filter=assortment=https://api.kladana.com/api/remap/1.2/entity/product/bb1865dc-32e1-11ef-ac16-001100000003" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 

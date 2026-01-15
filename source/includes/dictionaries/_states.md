@@ -48,9 +48,9 @@ The list of statuses for the `demand` transaction is displayed in the states col
 > Get metadata including statuses
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -129,11 +129,11 @@ it is necessary and sufficient to specify non-empty fields `name`, `color`, `sta
 > Create one status.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata/states"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata/states" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "name": "Approved",
              "color": 69446,
@@ -180,11 +180,11 @@ one or more fields with new values: `name`, `color`, `stateType`.
 > Status change.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata/states/4dcb3f23-60c4-11e7-6adb-ede500000019"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata/states/4dcb3f23-60c4-11e7-6adb-ede500000019" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              color: 255
              "stateType": "Regular"
@@ -219,11 +219,11 @@ Updated Statuses must contain the identifier in the form of metadata.
 > Example of creating and updating multiple Statuses
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/metadata/states"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/metadata/states" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d'[
              {
                "name": "Pending",
@@ -292,9 +292,9 @@ Successful requestWith. The result is a JSON array of representations of the cre
 > Request to delete the Status with the specified id.
 
 ```shell
-curl -X DELETE
-   "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata/states/4dcb3f23-60c4-11e7-6adb-ede500000019"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+   "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata/states/4dcb3f23-60c4-11e7-6adb-ede500000019" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 

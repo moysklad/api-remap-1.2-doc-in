@@ -48,9 +48,9 @@ The result of the query is the stock of items in the transaction, on the date of
 > Request to receive the current stock without detalization by warehouse.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/report/stock/byoperation?operation.id=34efe2ee-015e-11e6-9464-e4de0000006b"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/report/stock/byoperation?operation.id=34efe2ee-015e-11e6-9464-e4de0000006b" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 

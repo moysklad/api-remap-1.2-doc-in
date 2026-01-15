@@ -26,9 +26,9 @@ You can receive and change roles on behalf of an employee with `System Administr
 > Request to get a custom role with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/role/736da682-ad8b-11eb-0a80-17ef000000d4"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/role/736da682-ad8b-11eb-0a80-17ef000000d4" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -376,9 +376,9 @@ Successful request. The result is a JSON representation of the custom role.
 > Request for user roles.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/role/"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/role/" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -747,11 +747,11 @@ Successful request. The result is a JSON representation of user roles.
 > Request to create a user role.
 
 ```shell
-curl -X POST
-  "https://api.kladana.com/api/remap/1.2/entity/role/"
-  -H "Authorization: Basic <Credentials>"
-  -H "Accept-Encoding: gzip"
-  -H "Content-Type: application/json"
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/role/" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
       -d '{
             "name": "testRole",
             "permissions": {
@@ -1137,11 +1137,11 @@ Successful request. The result is a JSON representation of the created role.
 > Request to upgrade a user role.
 
 ```shell
-curl -X PUT
-  "https://api.kladana.com/api/remap/1.2/entity/role/ae6e61ad-ad8c-11eb-0a80-380e00001e6c"
-  -H "Authorization: Basic <Credentials>"
-  -H "Accept-Encoding: gzip"
-  -H "Content-Type: application/json"
+curl --compressed -X PUT \
+  "https://api.kladana.com/api/remap/1.2/entity/role/ae6e61ad-ad8c-11eb-0a80-380e00001e6c" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
       -d '{
             "name": "updatedTestRole",
             "permissions": {
@@ -1523,8 +1523,8 @@ Successful request. The result is a JSON representation of the updated role.
 > Request to remove a custom role.
 
 ```shell
-curl -X DELETE
-   "https://api.kladana.com/api/remap/1.2/entity/role/ae6e61ad-ad8c-11eb-0a80-380e00001e6c"
+curl --compressed -X DELETE \
+   "https://api.kladana.com/api/remap/1.2/entity/role/ae6e61ad-ad8c-11eb-0a80-380e00001e6c" \
    -H "Authorization: Basic <Credentials>
 ```
 

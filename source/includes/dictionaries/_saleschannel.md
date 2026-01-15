@@ -77,9 +77,9 @@ Result: JSON object including fields:
 > Get Sales Channels
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/saleschannel"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/saleschannel" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -183,11 +183,11 @@ to create a Sales Channel are **name** and **type**.
 > An example of a request to create a new Sales Channel.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/saleschannel"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/saleschannel" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "name": "Phone call",
              "description": "Call customer",
@@ -245,11 +245,11 @@ Updated Sales Channels must contain the identifier in the form of metadata. For 
 > Example of creating and updating multiple Sales Channels
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/saleschannel"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type:application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/saleschannel" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type:application/json" \
        -d'[
              {
                "name":"Promotion",
@@ -357,9 +357,9 @@ Successful request. The result is a JSON array of representations of the created
 > Request to delete the Sales Channel with the specified id.
 
 ```shell
-curl -X DELETE
-   "https://api.kladana.com/api/remap/1.2/entity/saleschannel/d94605a8-2033-11ec-9621-0242ac130002"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+   "https://api.kladana.com/api/remap/1.2/entity/saleschannel/d94605a8-2033-11ec-9621-0242ac130002" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -374,11 +374,11 @@ In the body of the request, you need to pass an array containing the JSON metada
 > Bulk delete request for Sales Channels.
 
 ```shell
-curl -X POST
-   "https://api.kladana.com/api/remap/1.2/entity/saleschannel/delete"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-   -H "Content-Type: application/json"
+curl --compressed -X POST \
+   "https://api.kladana.com/api/remap/1.2/entity/saleschannel/delete" \
+   -H "Authorization: Basic <Credentials>" \
+   -H "Accept-Encoding: gzip" \
+   -H "Content-Type: application/json" \
    -d'[
           {
               "meta": {
@@ -424,9 +424,9 @@ curl -X POST
 > Request to get a separate Sales Channel with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/saleschannel/d94605a8-2033-11ec-9621-0242ac130002"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/saleschannel/d94605a8-2033-11ec-9621-0242ac130002" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -482,11 +482,11 @@ Request to change the Sales Channel object. For Sales Channels that were created
 > Sample request to update an existing Sales Channel.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/saleschannel/b2dc42f0-203e-11ec-9621-0242ac130002"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/saleschannel/b2dc42f0-203e-11ec-9621-0242ac130002" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "name": "CommerceML Exchange"
            }'

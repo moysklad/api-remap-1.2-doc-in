@@ -31,8 +31,8 @@ Result: JSON object including fields:
 > Get Serial numbers
 
 ```shell
-curl -X GET
-   "https://app.kladana.com/api/remap/1.2/entity/thing"
+curl --compressed -X GET \
+   "https://app.kladana.com/api/remap/1.2/entity/thing" \
    -H "Authorization: Basic <Credentials>"
 ```
 
@@ -101,8 +101,8 @@ Successful request. The result is a JSON representation of the list of Serial nu
 > Request to get the Serial number with the specified ID.
 
 ```shell
-curl -X GET
-   "https://app.kladana.com/api/remap/1.2/entity/thing/3840d8d8-9f2d-11ee-8c90-0242ac120002"
+curl --compressed -X GET \
+   "https://app.kladana.com/api/remap/1.2/entity/thing/3840d8d8-9f2d-11ee-8c90-0242ac120002" \
    -H "Authorization: Basic <Credentials>"
 ```
 

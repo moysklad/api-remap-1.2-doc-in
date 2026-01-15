@@ -32,9 +32,9 @@ The search among the objects of the Items of expenditure for matching the search
 > Request for a list of expense items.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/expenseitem"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/expenseitem" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -189,11 +189,11 @@ Request to create a new expense item. Mandatory field for creating an expense it
 > An example of a request to create a new expense item.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/expenseitem"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/expenseitem" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
                 "name": "Taxes and non-taxes",
                 "description": "Expense item taxes",
@@ -231,11 +231,11 @@ Updated Line Items must contain the identifier in the form of metadata.
 > Example of creating and updating multiple Line Items
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/expenseitem"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/expenseitem" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d'[
              {
                "name": "Taxes and non-taxes",
@@ -307,9 +307,9 @@ Successful request. The result is a JSON array of representations of the created
 > Request to delete an Expense Item with the specified ID.
 
 ```shell
-curl -X DELETE
-   "https://api.kladana.com/api/remap/1.2/entity/expenseitem/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+   "https://api.kladana.com/api/remap/1.2/entity/expenseitem/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -324,11 +324,11 @@ In the body of the request, you need to pass an array containing the JSON metada
 > Request for bulk deletion of Line Items.
 
 ```shell
-curl -X POST
-   "https://api.kladana.com/api/remap/1.2/entity/expenseitem/delete"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-   -H "Content-Type: application/json"
+curl --compressed -X POST \
+   "https://api.kladana.com/api/remap/1.2/entity/expenseitem/delete" \
+   -H "Authorization: Basic <Credentials>" \
+   -H "Accept-Encoding: gzip" \
+   -H "Content-Type: application/json" \
    -d'[
           {
               "meta": {
@@ -378,9 +378,9 @@ Working with an expense item with the specified id.
 > Request to get an expense item with the specified ID.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/expenseitem/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/expenseitem/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -417,11 +417,11 @@ Request to change an existing expense item.
 > An example of a request to update an expense item.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/expenseitem/7944ef04-f831-11e5-7a69-971500188b19"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/expenseitem/7944ef04-f831-11e5-7a69-971500188b19" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "name": "Not taxes and taxes",
              "description": "Taxes and non-taxes. Such an article",

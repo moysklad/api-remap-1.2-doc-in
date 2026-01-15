@@ -2,6 +2,16 @@
 
 JSON API 1.2 changes will be added here soon
 
+### 24-12-2025
+#### Added
+- Endpoint for [Sale Platforms](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-sale-platform)
+- Endpoint for [Content Cards](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-content-card)
+
+### 23-12-2025
+#### Changed
+- Error [22003](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-payments)
+- Field **noClosingDocs** in [Outgoing Cash Payment](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-outgoing-cash-payment) and [Outgoing Payment](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-outgoing-payment) is now available for editing.
+
 ### 11-12-2025
 #### Added
 - Error codes for serial number validation: [3048-3050](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-common-validation-errors)

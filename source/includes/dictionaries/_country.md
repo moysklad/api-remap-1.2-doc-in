@@ -46,9 +46,9 @@ Result: JSON object including fields:
 > Get countries
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/country"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/country" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -197,11 +197,11 @@ to create a Country - field **name**.
 > An example of a request to create a new country.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/country"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/country" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "name": "Panama 2",
              "description": "We created Panama",
@@ -258,11 +258,11 @@ Updated Countries must contain the identifier in the form of metadata.
 > Example of creating and updating multiple countries
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/country"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/country" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d'[
              {
                "name": "Panama 2",
@@ -374,9 +374,9 @@ You can only delete countries created through the main interface or through the 
 > Delete Country
 
 ```shell
-   curl -X DELETE
-     "https://api.kladana.com/api/remap/1.2/entity/country/7944ef04-f831-11e5-7a69-971500188b19"
-     -H "Authorization: Basic <Credentials>"
+   curl --compressed -X DELETE \
+     "https://api.kladana.com/api/remap/1.2/entity/country/7944ef04-f831-11e5-7a69-971500188b19" \
+     -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip"
 ```
 
@@ -391,11 +391,11 @@ In the body of the request, you need to pass an array containing the JSON metada
 > Request for bulk deletion of countries.
 
 ```shell
-curl -X POST
-   "https://api.kladana.com/api/remap/1.2/entity/country/delete"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-   -H "Content-Type: application/json"
+curl --compressed -X POST \
+   "https://api.kladana.com/api/remap/1.2/entity/country/delete" \
+   -H "Authorization: Basic <Credentials>" \
+   -H "Accept-Encoding: gzip" \
+   -H "Content-Type: application/json" \
    -d'[
         {
             "meta": {
@@ -448,9 +448,9 @@ curl -X POST
 > Request to get the country with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/country/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/country/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -488,11 +488,11 @@ Only countries created through the main interface or through the POST method can
 > Sample country update request.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/country/7944ef04-f831-11e5-7a69-971500188b19"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/country/7944ef04-f831-11e5-7a69-971500188b19" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "name": "Other Russia",
              "description": "Anyone can change Russia, but only if he created it himself",

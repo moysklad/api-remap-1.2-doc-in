@@ -37,7 +37,7 @@ The context contains only general information about the events related to it.
 | **eventType** | Enum | Event Action (the field is present only if it is the same for all Events within the given Context)<br>`+Required when replying` `+Read Only` |
 | **events** | Array(Object) | List of Method Audit Events<br>`+Required when replying` `+Read Only` |
 | **id** | UUID | Context ID<br>`+Required when replying` `+Read Only` |
-| **info** | String(255) | Short Description<br>`+Read Only` |
+| **info** | Object | Short Description<br>`+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Context entity metadata<br>`+Required when replying` `+Read-only` |
 | **moment** | DateTime | Modified date<br>`+Required when replying` `+Read only` |
 | **objectCount** | Int | number of objects changed<br>`+Required when replying` `+Read only` |
@@ -101,9 +101,9 @@ Result: JSON object including fields:
 > Get Contexts
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/audit"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/audit" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -162,9 +162,9 @@ https://api.kladana.com/api/remap/1.2/audit?filter=entityType=customerorder
 > Get Contexts with filtering
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/audit?filter=entityType=customerorder"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/audit?filter=entityType=customerorder" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -324,9 +324,9 @@ Request to receive Context events with the specified ID. Result: JSON object inc
 > Get Events by Context
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/audit/7944ef04-f831-11e5-7a69-971500188b19/events"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/audit/7944ef04-f831-11e5-7a69-971500188b19/events" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -407,9 +407,9 @@ Request to receive events by the entity with the specified ID. Result: JSON obje
 > Get Events by Entity
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/audit"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/entity/product/7944ef04-f831-11e5-7a69-971500188b19/audit" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -584,9 +584,9 @@ Result: JSON object including fields:
 > Get Filters
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/audit/metadata/filters"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/audit/metadata/filters" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 

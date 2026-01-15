@@ -60,9 +60,9 @@ Result: JSON object including fields:
 > Get Bonus Transactions
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/bonustransaction"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/bonustransaction" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -283,11 +283,11 @@ Mandatory fields to create:
 > An example of a request to create a new bonus operation.
 
 ```shell
-  curl -X POST
-    "https://api.kladana.com/api/remap/1.2/entity/bonustransaction"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+  curl --compressed -X POST \
+    "https://api.kladana.com/api/remap/1.2/entity/bonustransaction" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
       -d '{
             "name": "d00001",
             "applicable": true,
@@ -399,11 +399,11 @@ Updated Bonus Transactions must contain the identifier in the form of metadata.
 > An example of creating and updating several Bonus Operations
 
 ```shell
-  curl -X POST
-    "https://api.kladana.com/api/remap/1.2/entity/bonustransaction"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+  curl --compressed -X POST \
+    "https://api.kladana.com/api/remap/1.2/entity/bonustransaction" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
       -d '[
             {
               "name": "d00001",
@@ -658,9 +658,9 @@ Successful request. The result is a JSON array of representations of the created
 > Request to delete a bonus operation.
 
 ```shell
-curl -X DELETE
-   "https://api.kladana.com/api/remap/1.2/entity/bonustransaction/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+   "https://api.kladana.com/api/remap/1.2/entity/bonustransaction/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -675,11 +675,11 @@ In the body of the request, pass an array containing the JSON metadata of the Bo
 > Request for bulk deletion of Bonus Transactions.
 
 ```shell
-curl -X POST
-  "https://api.kladana.com/api/remap/1.2/entity/bonustransaction/delete"
-  -H "Authorization: Basic <Credentials>"
-  -H "Accept-Encoding: gzip"
-  -H "Content-Type: application/json"
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/bonustransaction/delete" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
   -d '[
         {
             "meta": {
@@ -726,9 +726,9 @@ curl -X POST
 > Request for a bonus transaction with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/bonustransaction/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/bonustransaction/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -818,11 +818,11 @@ A request to change an object representing a bonus operation. It is not possible
 > An example of a request to update a Bonus operation.
 
 ```shell
-  curl -X PUT
-    "https://api.kladana.com/api/remap/1.2/entity/bonustransaction/7944ef04-f831-11e5-7a69-971500188b19"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+  curl --compressed -X PUT \
+    "https://api.kladana.com/api/remap/1.2/entity/bonustransaction/7944ef04-f831-11e5-7a69-971500188b19" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
       -d '{
             "bonusValue": 15524
           }'  

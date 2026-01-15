@@ -96,9 +96,9 @@ If the **momentTo** parameter is absent and the **momentFrom** parameter is spec
 > Request for a Profit Report by Products.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/report/profit/byproduct"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/report/profit/byproduct" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -325,9 +325,9 @@ If the **momentTo** parameter is absent and the **momentFrom** parameter is spec
 > Request for the Profit Report by product variants.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/report/profit/byvariant"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/report/profit/byvariant" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -547,9 +547,9 @@ If the **momentTo** parameter is absent and the **momentFrom** parameter is spec
 > Request for the Profit Report by Employee.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/report/profit/byemployee"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/report/profit/byemployee" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -687,9 +687,9 @@ If the **momentTo** parameter is absent and the **momentFrom** parameter is spec
 > Request for the Profit Report by counterparty.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/report/profit/bycounterparty"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/report/profit/bycounterparty" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -826,9 +826,9 @@ If the **momentTo** parameter is absent and the **momentFrom** parameter is spec
 > Request for the Profit Report by Sales Channel report.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/report/profit/bysaleschannel"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/report/profit/bysaleschannel" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 

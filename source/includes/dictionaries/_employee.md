@@ -99,9 +99,9 @@ Result: JSON object including fields:
 > Get Employees
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/employee"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/employee" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
  
@@ -205,11 +205,11 @@ Updated Employees must contain the identifier in the form of metadata.
 > Example of updating multiple Employees
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/employee"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/employee" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
      -d' [
             {
                 "meta": {
@@ -329,9 +329,9 @@ Successful request. The result is a JSON array of representations of the updated
 > Request to delete an Employee with the specified id.
 
 ```shell
-curl -X DELETE
-   "https://api.kladana.com/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+   "https://api.kladana.com/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -345,11 +345,11 @@ In the body of the request, you need to pass an array containing the JSON metada
 > Request for bulk deletion of Employees.
 
 ```shell
-curl -X POST
-   "https://api.kladana.com/api/remap/1.2/entity/employee/delete"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-   -H "Content-Type: application/json"
+curl --compressed -X POST \
+   "https://api.kladana.com/api/remap/1.2/entity/employee/delete" \
+   -H "Authorization: Basic <Credentials>" \
+   -H "Accept-Encoding: gzip" \
+   -H "Content-Type: application/json" \
    -d'[
         {
             "meta": {
@@ -399,9 +399,9 @@ The structure of a separate object representing the additional the field is desc
 > Employee Metadata
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/employee/metadata"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/employee/metadata" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -438,9 +438,9 @@ Successful request. The result is a JSON representation of the additional employ
 > Request for information on a separate additional field.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/employee/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/employee/metadata/attributes/5290a290-0313-11e6-9464-e4de00000020" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -474,9 +474,9 @@ Successful request. The result is a JSON representation of a separate additional
 > Request to get an individual employee with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -554,11 +554,11 @@ Request to create an employee. Mandatory fields to create:
 > An example of a request to create an Employee.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/employee/"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/employee/" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "firstName": "John",
              "middleName": "John",
@@ -652,11 +652,11 @@ Request to update an existing Employee. The **lastName** field must be specified
 > An example of a request to update an Employee.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "firstName": "John",
              "middleName": "John",
@@ -946,9 +946,9 @@ Request for information about the rights of the Employee.
 > An example of a request for information about the rights of an Employee.
 
 ```shell
-   curl -X GET
-     "https://api.kladana.com/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19/security"
-     -H "Authorization: Basic <Credentials>"
+   curl --compressed -X GET \
+     "https://api.kladana.com/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19/security" \
+     -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip"
 ```
 
@@ -1440,11 +1440,11 @@ If the tariff does not allow changing permissions and the transferred or previou
 > An example of a request to change information about the rights of an Employee.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19/security"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19/security" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "group": {
                  "meta": {
@@ -1520,11 +1520,11 @@ In this case, you can use the previously set password for this user.
 > An example of an Employee activation request.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19/access/activate"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19/access/activate" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "login": "newmanager@lognex",
              "group": {
@@ -1567,9 +1567,9 @@ Request to deactivate an Employee in Kladana.
 > An example of a request to deactivate an Employee.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19/access/deactivate"
-     -H "Authorization: Basic <Credentials>"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19/access/deactivate" \
+     -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip"
 ```
 
@@ -1588,9 +1588,9 @@ Password Reset Request for Employee in Kladana. A new password will be sent to t
 > An example of a request to reset an Employee's password.
 
 ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19/access/resetpassword"
-     -H "Authorization: Basic <Credentials>"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/employee/7944ef04-f831-11e5-7a69-971500188b19/access/resetpassword" \
+     -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip"
 ```
 
@@ -1602,9 +1602,9 @@ Password Reset Request for Employee in Kladana. A new password will be sent to t
 > An example of a request for an admin role.
 
 ```shell
-   curl -X GET
-     "https://api.kladana.com/api/remap/1.2/entity/role/admin"
-     -H "Authorization: Basic <Credentials>"
+   curl --compressed -X GET \
+     "https://api.kladana.com/api/remap/1.2/entity/role/admin" \
+     -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip"
 ```
 
@@ -1626,9 +1626,9 @@ Successful request. The result is a JSON representation of information about the
 > An example of a request for an individual role.
 
 ```shell
-   curl -X GET
-     "https://api.kladana.com/api/remap/1.2/entity/role/individual"
-     -H "Authorization: Basic <Credentials>"
+   curl --compressed -X GET \
+     "https://api.kladana.com/api/remap/1.2/entity/role/individual" \
+     -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip"
 ```
 
@@ -1649,9 +1649,9 @@ Successful request. The result is a JSON representation of the individual role i
 > Example of a request for the cashier role.
 
 ```shell
-  curl -X GET
-    "https://api.kladana.com/api/remap/1.2/entity/role/cashier"
-    -H "Authorization: Basic <Credentials>"
+  curl --compressed -X GET \
+    "https://api.kladana.com/api/remap/1.2/entity/role/cashier" \
+    -H "Authorization: Basic <Credentials>" \
     -H "Accept-Encoding: gzip"
 ```
 
@@ -1675,9 +1675,9 @@ The role is available only if the `Production Management` option is enabled.
 > Example of a request for obtaining the role of production employee.
 
 ```shell
-  curl -X GET
-    "https://api.kladana.com/api/remap/1.2/entity/role/worker"
-    -H "Authorization: Basic <Credentials>"
+  curl --compressed -X GET \
+    "https://api.kladana.com/api/remap/1.2/entity/role/worker" \
+    -H "Authorization: Basic <Credentials>" \
     -H "Accept-Encoding: gzip"
 ```
 

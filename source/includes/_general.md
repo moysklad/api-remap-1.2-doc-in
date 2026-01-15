@@ -19,9 +19,9 @@ Request for a new token. As in other requests, in the `Authorization` header, th
 > Example: Request for a new token
 
 ```shell
-curl -X POST
-   "https://api.kladana.com/api/remap/1.2/security/token"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X POST \
+   "https://api.kladana.com/api/remap/1.2/security/token" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -114,9 +114,9 @@ selection by specifying only the necessary entities in the **type** filter.
 > Example of a request to get metadata using GET:
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/entity/metadata?filter=type=product;type=service;type=demand"
-  -H "Authorization: Bearer <Access-Token>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/entity/metadata?filter=type=product;type=service;type=demand" \
+  -H "Authorization: Bearer <Access-Token>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -371,10 +371,10 @@ To reset the value of an additional field of the File type, you need to pass the
 > Example of assigning a value to an additional field of the File type
 
 ```shell
-curl -X PUT 
-  "https://api.kladana.com/api/remap/1.2/entity/product/dde7f6d3-1c09-11ef-ac12-000f00000025" 
-  -H "Authorization: Basic <Credentials>"
-  -H "Accept-Encoding: gzip"
+curl --compressed -X PUT \
+  "https://api.kladana.com/api/remap/1.2/entity/product/dde7f6d3-1c09-11ef-ac12-000f00000025" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
   -d '{
     "attributes": [
         {
@@ -395,10 +395,10 @@ curl -X PUT
 > Example of resetting the value of an additional field of the File type
 
 ```shell
-curl -X PUT 
-  "https://api.kladana.com/api/remap/1.2/entity/product/dde7f6d3-1c09-11ef-ac12-000f00000025" 
-  -H "Authorization: Basic <Credentials>"
-  -H "Accept-Encoding: gzip"
+curl --compressed -X PUT \
+  "https://api.kladana.com/api/remap/1.2/entity/product/dde7f6d3-1c09-11ef-ac12-000f00000025" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
   -d '{
     "attributes": [
         {
@@ -440,9 +440,9 @@ Result: JSON object including fields:
 > Get additional shipping fields
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/entity/demand/metadata/attributes"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/entity/demand/metadata/attributes" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -577,10 +577,10 @@ Request to create a new fields for the specified entity type.
 > Creation of two new additional shipping fields.
 
 ```shell
-curl -X POST
-  "https://api.kladana.com/api/remap/1.2/entity/demand/metadata/attributes"
-  -H "Authorization: Basic <Credentials>"
-  -H "Accept-Encoding: gzip"
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/demand/metadata/attributes" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
   -H 'Content-Type: application/json' \
   -d '[
         {
@@ -633,10 +633,10 @@ Successful request. The result is a JSON representation of the created additiona
 > An example of creating a new additional fields of Shipments and updates of the existing one request.
 
 ```shell
-curl -X POST
-  "https://api.kladana.com/api/remap/1.2/entity/demand/metadata/attributes"
-  -H "Authorization: Basic <Credentials>"
-  -H "Accept-Encoding: gzip"
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/demand/metadata/attributes" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
   -H 'Content-Type: application/json' \
   -d '[
         {
@@ -693,10 +693,10 @@ Successful request. The result is a JSON representation of the created and updat
 > An example of creating an additional field of the user directory type.
 
 ```shell
-curl -X POST
-  "https://api.kladana.com/api/remap/1.2/entity/demand/metadata/attributes"
-  -H "Authorization: Basic <Credentials>"
-  -H "Accept-Encoding: gzip"
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/demand/metadata/attributes" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
   -H 'Content-Type: application/json' \
   -d '{
         "customEntityMeta": {
@@ -740,10 +740,10 @@ Request to remove multiple additional shipping fields.
 > Removing two extra fields in one request
 
 ```shell
-curl -X POST
-  "https://api.kladana.com/api/remap/1.2/entity/demand/metadata/attributes/delete"
-  -H "Authorization: Basic <Credentials>"
-  -H "Accept-Encoding: gzip"
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/demand/metadata/attributes/delete" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
   -H 'Content-Type: application/json' \
   -d '[
         {
@@ -781,9 +781,9 @@ Request for a separate additional shipment fields with the specified id.
 > Request for a separate additional shipping fields
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/entity/demand/metadata/attributes/7bc578d8-6501-11e8-9464-e4de00000004"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/entity/demand/metadata/attributes/7bc578d8-6501-11e8-9464-e4de00000004" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -813,10 +813,10 @@ Request to update a separate additional fields for the passed entity type.
 > Request to update additional shipping fields
 
 ```shell
-curl -X PUT
-  "https://api.kladana.com/api/remap/1.2/entity/demand/metadata/attributes/7bc578d8-6501-11e8-9464-e4de00000004"
-  -H "Authorization: Basic <Credentials>"
-  -H "Accept-Encoding: gzip"
+curl --compressed -X PUT \
+  "https://api.kladana.com/api/remap/1.2/entity/demand/metadata/attributes/7bc578d8-6501-11e8-9464-e4de00000004" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
   -H 'Content-Type: application/json' \
   -d '{
          "name": "updated String field",
@@ -851,9 +851,9 @@ Request for deletion shipment fields with the specified id.
 > Request to remove additional shipping fields
 
 ```shell
-curl -X DELETE
-  "https://api.kladana.com/api/remap/1.2/entity/demand/metadata/attributes/7bc578d8-6501-11e8-9464-e4de00000004"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+  "https://api.kladana.com/api/remap/1.2/entity/demand/metadata/attributes/7bc578d8-6501-11e8-9464-e4de00000004" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -866,11 +866,11 @@ Request to update collection fields of a particular entity.
 > Request to update additional shipping fields
 
 ```shell
-curl -X PUT
-  "https://api.kladana.com/api/remap/1.2/entity/demand/a6c50571-e705-11ef-ac12-000e0000001d"
-  -H "Authorization: Basic <Credentials>"
-  -H "Accept-Encoding: gzip"
-  -H 'Content-Type: application/json' 
+curl --compressed -X PUT \
+  "https://api.kladana.com/api/remap/1.2/entity/demand/a6c50571-e705-11ef-ac12-000e0000001d" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H 'Content-Type: application/json' \
   -d '{
         "attributes": [
             {
@@ -1064,9 +1064,9 @@ The JSON API provides special resources for managing transaction items. These re
 > Sample URL for delete request with DELETE:
 
 ```shell
-curl -X DELETE 
-  "https://api.kladana.com/api/remap/1.2/{document entity code, as part of the JSON API}/{id of a separate document}/positions/179dd832-960c-11e6-8a84-bae5000000dc
-  -H "Authorization: Bearer <Access-Token>"
+curl --compressed -X DELETE \
+  "https://api.kladana.com/api/remap/1.2/{document entity code, as part of the JSON API}/{id of a separate document}/positions/179dd832-960c-11e6-8a84-bae5000000dc \
+  -H "Authorization: Bearer <Access-Token>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -1082,9 +1082,9 @@ It is also possible to bulk delete transaction items using the POST method to th
 > An example URL for a request to bulk delete items using POST:
 
 ```shell
-curl -X POST
-  "https://api.kladana.com/api/remap/1.2/{document entity code, as part of the JSON API}/{id of a separate document}/positions/delete
-  -H "Authorization: Bearer <Access-Token>"
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/{document entity code, as part of the JSON API}/{id of a separate document}/positions/delete \
+  -H "Authorization: Bearer <Access-Token>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -1458,9 +1458,9 @@ The Recycle Bin allows you to avoid the risk of accidentally deleting important 
 > Example of deleting a Receiving to the Recycle Bin
 
 ```shell
-curl -X POST
-  "https://api.kladana.com/api/remap/1.2/entity/move/b8fe9f6b-f48f-11ed-ac1a-000d0000003a/trash"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/move/b8fe9f6b-f48f-11ed-ac1a-000d0000003a/trash" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ``` 
 
@@ -1514,9 +1514,9 @@ Below are examples of using **expand** on [Sales Returns](documents/#transaction
 > Example of return request without expand
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/entity/salesreturn/685a0eb9-e707-11ef-ac12-000e00000043"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/entity/salesreturn/685a0eb9-e707-11ef-ac12-000e00000043" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -1642,9 +1642,9 @@ We pass the parameter **expand**=demand.
 > Example of the Return request of Shipment with **expand** 
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/entity/salesreturn/685a0eb9-e707-11ef-ac12-000e00000043?expand=demand"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/entity/salesreturn/685a0eb9-e707-11ef-ac12-000e00000043?expand=demand" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -1911,9 +1911,9 @@ Pass the parameter **expand**=demand and limit=100.
 > Example of a return request of shipping with expand 
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/entity/salesreturn?limit=100&expand=demand"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/entity/salesreturn?limit=100&expand=demand" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -2169,9 +2169,9 @@ parameter **expand** equal to two.
 > Example c expand return request with depth 2
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/entity/salesreturn/685a0eb9-e707-11ef-ac12-000e00000043?expand=demand.agent"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/entity/salesreturn/685a0eb9-e707-11ef-ac12-000e00000043?expand=demand.agent" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -2513,10 +2513,10 @@ Successful request. The result is a JSON representation of the Customer Return w
 > Example of a request to create a shipment with the **agent** field expanded
 
 ```shell
-curl -X POST
-  "https://api.kladana.com/api/remap/1.2/entity/demand?expand=agent"
-  -H "Authorization: Basic <Credentials>"
-  -H "Accept-Encoding: gzip"
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/demand?expand=agent" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
   -H 'Content-Type: application/json' \
   -d '{
           "name": "0001",
@@ -2716,10 +2716,10 @@ Successful request. The result is JSON representation of the created Shipment wi
 > Example of a shipment update request with the **agent** and **organization** objects expanded
 
 ```shell
-curl -X PUT
-  "https://api.kladana.com/api/remap/1.2/entity/demand/1c3f30d2-88b9-11e7-9464-e4de00000000?expand=agent,organization"
-  -H "Authorization: Basic <Credentials>"
-  -H "Accept-Encoding: gzip"
+curl --compressed -X PUT \
+  "https://api.kladana.com/api/remap/1.2/entity/demand/1c3f30d2-88b9-11e7-9464-e4de00000000?expand=agent,organization" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
   -H 'Content-Type: application/json' \
   -d '{
         "name": "3738"
@@ -3130,9 +3130,9 @@ Request to get the context of the Employee's request.
 > An example of a request to get the context of an Employee's request.
 
 ```shell
-  curl -X GET
-    "https://api.kladana.com/api/remap/1.2/context/employee/"
-    -H "Authorization: Basic <Credentials>"
+  curl --compressed -X GET \
+    "https://api.kladana.com/api/remap/1.2/context/employee/" \
+    -H "Authorization: Basic <Credentials>" \
     -H "Accept-Encoding: gzip"
 ```
 
@@ -3562,9 +3562,9 @@ Returns the parameters of the application within which the request is made (simi
 > Application Context Request Example
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/context/application"
-  -H "Authorization: Bearer <Access-Token>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/context/application" \
+  -H "Authorization: Bearer <Access-Token>" \
   -H "Accept-Encoding: gzip"
 ``` 
 
@@ -3595,9 +3595,9 @@ Returns the parameters of the installed application by the ID of the application
 > Sample request to get the entity of an installed application
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/entity/application/b58a6312-f958-11e9-ac12-000a00000020"
-  -H "Authorization: Bearer <Access-Token>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/entity/application/b58a6312-f958-11e9-ac12-000a00000020" \
+  -H "Authorization: Bearer <Access-Token>" \
   -H "Accept-Encoding: gzip"
 ``` 
 

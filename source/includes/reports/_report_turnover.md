@@ -123,9 +123,9 @@ If the **momentTo** parameter is missing and the **momentFrom** parameter is spe
 > Request to receive the "Stock movement report by goods".
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/report/turnover/all"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/report/turnover/all" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -360,9 +360,9 @@ If the **momentTo** parameter is missing and the **momentFrom** parameter is spe
 > Request to receive the "Product Stock movement report" with the specified product id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/report/turnover/bystore?filter=product=https://api.kladana.com/api/remap/1.2/entity/product/66990dc7-bdfe-11eb-c0a8-800c00000016"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/report/turnover/bystore?filter=product=https://api.kladana.com/api/remap/1.2/entity/product/66990dc7-bdfe-11eb-c0a8-800c00000016" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -612,9 +612,9 @@ If the **momentTo** parameter is missing and the **momentFrom** parameter is spe
 > Request to receive the report "Product Stock movement report with transaction details" with the specified product id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/report/turnover/byoperations?filter=product=https://api.kladana.com/api/remap/1.2/entity/product/66990dc7-bdfe-11eb-c0a8-800c00000016"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/report/turnover/byoperations?filter=product=https://api.kladana.com/api/remap/1.2/entity/product/66990dc7-bdfe-11eb-c0a8-800c00000016" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
