@@ -6,6 +6,10 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 15-01-2026
+#### Added
+- Error codes for serial number validation: [3048-3050](..#kladana-json-api-errors-common-validation-errors)
+
 ### 24-12-2025
 #### Added
 - Endpoint for [Sale Platforms](../dictionaries/#entities-sale-platform)
@@ -15,10 +19,6 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 #### Changed
 - Error [22003](../#kladana-json-api-errors-error-codes-for-payments)
 - Field **noClosingDocs** in [Outgoing Cash Payment](../documents/#transactions-outgoing-cash-payment) and [Outgoing Payment](../documents/#transactions-outgoing-payment) is now available for editing.
-
-### 11-12-2025
-#### Added
-- Error codes for serial number validation: [3048-3050](..#kladana-json-api-errors-common-validation-errors)
 
 ### 03-12-2025
 #### Added
