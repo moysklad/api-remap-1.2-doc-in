@@ -2,6 +2,15 @@
 
 JSON API 1.2 changes will be added here soon
 
+### 30-12-2025
+#### Added
+- Field `expiryDate` in [Attributes of the batch](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-batch-batch-entity-attributes)
+- Error [71001](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-series)
+
+#### Changed
+- Field `label` in [Attributes of the batch](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-batch-batch-entity-attributes)
+- Description of the [Batch](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-batch-batch)
+
 ### 24-12-2025
 #### Added
 - Endpoint for [Sale Platforms](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-sale-platform)
