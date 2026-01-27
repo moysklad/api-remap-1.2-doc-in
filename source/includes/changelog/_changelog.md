@@ -6,6 +6,15 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 03-02-2026
+#### Added
+- Endpoint for [getting account owner role](../dictionaries/employee#3-account-owner-role-request)
+- Error codes regarding account owner operations: [43031-43036](../#kladana-json-api-errors-error-codes-for-employees)
+- New [permissions](../#kladana-json-api-general-info-employee-request-context)
+
+#### Changed
+- Permissions list in response to [get employee context](../#kladana-json-api-general-info-employee-request-context)
+
 ### 15-01-2026
 #### Added
 - Error codes for serial number validation: [3048-3050](..#kladana-json-api-errors-common-validation-errors)
