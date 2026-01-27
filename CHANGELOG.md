@@ -2,6 +2,11 @@
 
 JSON API 1.2 changes will be added here soon
 
+### 23-01-2026
+#### Added
+- Field `rate` with bank account currency in legal entity accounts, returned in [Legal entity](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-entity-legal-entity) responses (section "Legal entity accounts").
+- Error codes for bank accounts: [80000-80001](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-bank-accounts)
+
 ### 15-01-2026
 #### Added
 - Error codes for serial number validation: [3048-3050](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-common-validation-errors)
