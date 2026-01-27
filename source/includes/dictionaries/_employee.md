@@ -1597,6 +1597,30 @@ Password Reset Request for Employee in Kladana. A new password will be sent to t
 > Response 204
 
 
+### Account owner role request
+
+> An example of a request for an account owner role.
+
+```shell
+   curl --compressed -X GET \
+     "https://api.kladana.com/api/remap/1.2/entity/role/owner" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip"
+```
+
+> Response 200(application/json)
+Successful request. The result is a JSON representation of information about the account owner role.
+
+```json
+{
+   "meta": {
+     "href": "https://api.kladana.com/api/remap/1.2/entity/role/owner",
+     "type": "systemrole",
+     "mediaType": "application/json"
+   }
+}
+```
+
 ### Admin role request
 
 > An example of a request for an admin role.

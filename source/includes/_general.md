@@ -3016,6 +3016,9 @@ The fields of an object represent a single permission, where the name indicates 
 | **pnl**                       | View profitability                   |
 | **stock**                     | View inventory by item               |
 | **tariff_crm**                | Is there a CRM option on the account |
+| **ownerDataUpdate**           | Edit account owner info              |
+| **ownerAssign**               | Change account owner                 |
+| **accountDelete**             | Delete account                       |
 
 If there is a corresponding permission, the object contains a **VIEW** field with a value of `ALL`
 
@@ -3547,6 +3550,15 @@ Successful request. The result is a JSON representation of information about the
             "view": "ALL"
         },
         "dashboardMoney": {
+            "view": "ALL"
+        },
+        "ownerDataUpdate": {
+            "view": "ALL"
+        },
+        "ownerAssign": {
+            "view": "ALL"
+        },
+        "accountDelete": {
             "view": "ALL"
         }
     }
