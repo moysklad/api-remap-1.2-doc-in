@@ -4,8 +4,9 @@ JSON API 1.2 changes will be added here soon
 
 ### 23-01-2026
 #### Added
-- Field `rate` with bank account currency in legal entity accounts, returned in [Legal entity](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-entity-legal-entity) responses (section "Legal entity accounts").
-- Error codes for bank accounts: [80000-80001](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-bank-accounts)
+- Field `currency` with bank account currency in legal entity accounts, returned in [Legal entity](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-entity-legal-entity) responses (section "Legal entity accounts") for accounts with filled `accountNumber`.
+- Error code for bank accounts: [72000](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-bank-accounts)
+- When attempting to change currency of an existing bank account, error [3001](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-common-validation-errors) is returned.
 
 ### 15-01-2026
 #### Added
