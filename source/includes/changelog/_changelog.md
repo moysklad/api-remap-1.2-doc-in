@@ -8,12 +8,13 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 
 ### 03-02-2026
 #### Added
-- Endpoint for [getting account owner role](../dictionaries/employee#3-account-owner-role-request)
+- Endpoint for [getting account owner role](../dictionaries/#entities-employee-account-owner-role-request)
 - Error codes regarding account owner operations: [43031-43036](../#kladana-json-api-errors-error-codes-for-employees)
-- New [permissions](../#kladana-json-api-general-info-employee-request-context)
+- New employee permissions in [general info](../#kladana-json-api-general-info-employee-request-context) and [employee rights](../dictionaries/#entities-employee-work-with-employee-rights)
 
 #### Changed
 - Permissions list in response to [get employee context](../#kladana-json-api-general-info-employee-request-context)
+- List of [existing roles](../dictionaries/#entities-employee-work-with-employee-rights)
 
 ### 15-01-2026
 #### Added

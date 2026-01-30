@@ -4,12 +4,13 @@ JSON API 1.2 changes will be added here soon
 
 ### 03-02-2026
 #### Added
-- Endpoint for [getting account owner role](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#3-account-owner-role-request)
+- Endpoint for [getting account owner role](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-employee-account-owner-role-request)
 - Error codes regarding account owner operations: [43031-43036](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-employees)
-- New [permissions](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-general-info-employee-request-context)
+- New permissions in [general info](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-general-info-employee-request-context) and [employee rights](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-employee-work-with-employee-rights)
 
 #### Changed
 - Permissions list in response to [get employee context](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-general-info-employee-request-context)
+- List of [existing roles](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-employee-work-with-employee-rights)
 
 ### 15-01-2026
 #### Added

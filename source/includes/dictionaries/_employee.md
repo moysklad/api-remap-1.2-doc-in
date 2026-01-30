@@ -762,7 +762,7 @@ employee with `System Administrator` rights.
 #### Nested entity attributes
 ##### Role
 
-There are five types of roles: `System Administrator`, `Production Employee`, `Custom Role` and `Individual Role`. The `Production Employee` role is only available when the `Production Management` option is enabled. Use `Individual role` (with non-default permissions) and `User role` is only available in `Professional` and `Corporate` subscription plans. For an `Individual role`, you can customize the list of permissions by filling in the `permissions` field.
+There are six types of roles: `Account owner`, `System Administrator`, `Production Employee`, `Custom Role` and `Individual Role`. The `Production Employee` role is only available when the `Production Management` option is enabled. Use `Individual role` (with non-default permissions) and `User role` is only available in `Professional` and `Corporate` subscription plans. For an `Individual role`, you can customize the list of permissions by filling in the `permissions` field.
 If not all permissions are specified in the `permissions` field, then those not transferred will be turned off.
 Default values are set if the user, without specifying individual permissions, sets an individual role for an employee,
 for which no individual permissions were previously set.
@@ -777,6 +777,7 @@ for which no individual permissions were previously set.
 | Title | Possible values | Default value | Description |
 |-------| ------ | ------ | --------- |
 | **apiRequest** | Boolean | true | API access |
+| **accountDelete** | Boolean | false | Delete account |
 | **deleteFromRecycleBin** | Boolean | true | Empty cart |
 | **editCurrencyRateOfDocument** | Boolean | true | Edit document currency rate |
 | **editDocumentTemplates** | Boolean | true | Edit document and report templates |
@@ -785,6 +786,8 @@ for which no individual permissions were previously set.
 | **importdata** | Boolean | true | Import data |
 | **listenCalls** | Boolean | true | Listening to calls |
 | **onlineShops** | Boolean | true | Internet shops |
+| **ownerAssign** | Boolean | false | Transfer account ownership |
+| **ownerDataUpdate** | Boolean | false | Edit owner data |
 | **purchaseControl** | Boolean | true | Purchasing management |
 | **restoreFromRecycleBin** | Boolean | true | Restore transactions|
 | **sendEmail** | Boolean | true | Send mail |
