@@ -56,24 +56,24 @@ To create the first product, you only need its name.
 > Request to create fo a product with login and password
 
 ```shell
-curl -X POST 
-  -u login:password 
-  -H "Accept-Encoding: gzip" 
-  -H "Content-Type: application/json" 
-  -H "Lognex-Pretty-Print-JSON: true" 
-  "https://api.kladana.com/api/remap/1.2/entity/product" 
+curl --compressed -X POST \
+  -u login:password \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
+  -H "Lognex-Pretty-Print-JSON: true" \
+  "https://api.kladana.com/api/remap/1.2/entity/product" \
   -d '{"name":"Product name"}'
 ```
 
 > Request to create a product with a token
 
 ```shell
-curl -X POST 
-  -H "Authorization: Bearer <Access-Token>"
-  -H "Accept-Encoding: gzip" 
-  -H "Content-Type: application/json" 
-  -H "Lognex-Pretty-Print-JSON: true" 
-  "https://api.kladana.com/api/remap/1.2/entity/product" 
+curl --compressed -X POST \
+  -H "Authorization: Bearer <Access-Token>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
+  -H "Lognex-Pretty-Print-JSON: true" \
+  "https://api.kladana.com/api/remap/1.2/entity/product" \
   -d '{"name":"Product name"}'
 ```
 
@@ -198,10 +198,10 @@ curl -X POST
 > Now you can see it in the list of products:
 
 ``` shell
-curl -X GET 
-  -u login:password 
-  -H "Accept-Encoding: gzip" 
-  -H "Lognex-Pretty-Print-JSON: true" 
+curl --compressed -X GET \
+  -u login:password \
+  -H "Accept-Encoding: gzip" \
+  -H "Lognex-Pretty-Print-JSON: true" \
   "https://api.kladana.com/api/remap/1.2/entity/product"
 ```
 
@@ -375,10 +375,10 @@ Another type of metadata is *entity metadata* - information that does not relate
 > Request for product metadata:
 
 ``` shell
-curl -X GET 
-  -u login:password 
-  -H "Accept-Encoding: gzip" 
-  -H "Lognex-Pretty-Print-JSON: true"
+curl --compressed -X GET \
+  -u login:password \
+  -H "Accept-Encoding: gzip" \
+  -H "Lognex-Pretty-Print-JSON: true" \
   "https://api.kladana.com/api/remap/1.2/entity/product/metadata"
 ```
 
@@ -409,12 +409,12 @@ curl -X GET
 > When creating a product, it is necessary to specify the name, otherwise an error will be returned.
 
 ``` shell
-curl -X POST 
-  -u login:password 
-  -H "Accept-Encoding: gzip" 
-  -H "Content-Type: application/json" 
-  -H "Lognex-Pretty-Print-JSON: true" 
-  "https://api.kladana.com/api/remap/1.2/entity/product" 
+curl --compressed -X POST \
+  -u login:password \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
+  -H "Lognex-Pretty-Print-JSON: true" \
+  "https://api.kladana.com/api/remap/1.2/entity/product" \
   -d '{}'
 ```
 
@@ -451,10 +451,10 @@ In the JSON API, different HTTP methods correspond to different actions:
 > GET - requesting a list of products
 
 ``` shell
-curl -X GET 
-  -u login:password 
-  -H "Accept-Encoding: gzip" 
-  -H "Lognex-Pretty-Print-JSON: true" 
+curl --compressed -X GET \
+  -u login:password \
+  -H "Accept-Encoding: gzip" \
+  -H "Lognex-Pretty-Print-JSON: true" \
   "https://api.kladana.com/api/remap/1.2/entity/product"
 ```
 
@@ -593,12 +593,12 @@ curl -X GET
 > POST - product creation
 
 ``` shell
-curl -X POST 
-  -u login:password
-  -H "Accept-Encoding: gzip" 
-  -H "Content-Type: application/json" 
-  -H "Lognex-Pretty-Print-JSON: true" 
-  "https://api.kladana.com/api/remap/1.2/entity/product" 
+curl --compressed -X POST \
+  -u login:password \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
+  -H "Lognex-Pretty-Print-JSON: true" \
+  "https://api.kladana.com/api/remap/1.2/entity/product" \
   -d '{"name":"Product name"}'
 ```
 
@@ -717,10 +717,10 @@ The product metadata contains a link to this product ("href":"https://api.kladan
 > GET - request for a specific product
 
 ``` shell
-curl -X GET 
-  -u login:password
-  -H "Accept-Encoding: gzip" 
-  -H "Lognex-Pretty-Print-JSON: true" 
+curl --compressed -X GET \
+  -u login:password \
+  -H "Accept-Encoding: gzip" \
+  -H "Lognex-Pretty-Print-JSON: true" \
   "https://api.kladana.com/api/remap/1.2/entity/product/6b44332f-b0ac-11ea-ac14-000a00000002"
 ```
 
@@ -839,11 +839,11 @@ You can also use the link to change this product:
 > PUT - product change
 
 ``` shell
-curl -X PUT 
-  -u login:password
-  -H "Accept-Encoding: gzip" 
-  -H "Lognex-Pretty-Print-JSON: true" 
-  "https://api.kladana.com/api/remap/1.2/entity/product/6b44332f-b0ac-11ea-ac14-000a00000002"
+curl --compressed -X PUT \
+  -u login:password \
+  -H "Accept-Encoding: gzip" \
+  -H "Lognex-Pretty-Print-JSON: true" \
+  "https://api.kladana.com/api/remap/1.2/entity/product/6b44332f-b0ac-11ea-ac14-000a00000002" \
   -d '{"name":"New product name"}'
 ```
 
@@ -963,9 +963,9 @@ You can also use the link to delete the product:
 > DELETE - product deletion
 
 ``` shell
-curl -X DELETE 
-  -u login:password
-  -H "Accept-Encoding: gzip" 
+curl --compressed -X DELETE \
+  -u login:password \
+  -H "Accept-Encoding: gzip" \
   "https://api.kladana.com/api/remap/1.2/entity/product/6b44332f-b0ac-11ea-ac14-000a00000002"
 ```
 
@@ -976,11 +976,11 @@ If you need to delete more than one product, use bulk deletion. To do this, you 
 > Example of product bulk deletion
 
 ```shell
-curl -X POST
-  "https://api.kladana.com/api/remap/1.2/entity/product/delete"
-  -H "Authorization: Basic <Credentials>"
-  -H "Accept-Encoding: gzip"
-  -H "Content-Type: application/json"
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/product/delete" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
   -d '[
         {
             "meta": {
@@ -1023,12 +1023,12 @@ Let's fill in the `country` field for the product. Fields that are objects must 
 > When updating objects, it is not necessary to transfer all fields. When specifying some of the fields, only the transferred fields will be changed.
 
 ``` shell
-curl -X PUT 
-  -u login:password
-  -H "Accept-Encoding: gzip" 
-  -H "Content-Type: application/json" 
-  -H "Lognex-Pretty-Print-JSON: true" 
-  "https://api.kladana.com/api/remap/1.2/entity/product/6b44332f-b0ac-11ea-ac14-000a00000002" 
+curl --compressed -X PUT \
+  -u login:password \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
+  -H "Lognex-Pretty-Print-JSON: true" \
+  "https://api.kladana.com/api/remap/1.2/entity/product/6b44332f-b0ac-11ea-ac14-000a00000002" \
   -d {"country": null}
 ```
 
@@ -1147,12 +1147,12 @@ To remove a value from an object type field, you need to pass null in the entity
 > Incorrect update request
 
 ``` shell
-curl -X PUT 
-  -u login:password
-  -H "Accept-Encoding: gzip" 
-  -H "Content-Type: application/json" 
-  -H "Lognex-Pretty-Print-JSON: true" 
-  "https://api.kladana.com/api/remap/1.2/entity/product/6b44332f-b0ac-11ea-ac14-000a00000002" 
+curl --compressed -X PUT \
+  -u login:password \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
+  -H "Lognex-Pretty-Print-JSON: true" \
+  "https://api.kladana.com/api/remap/1.2/entity/product/6b44332f-b0ac-11ea-ac14-000a00000002" \
   -d '{"name": null}'
 ```
 
@@ -1184,11 +1184,11 @@ In the filtering parameters, you must specify date-time fields in this format.
 > Example of a request with the updated field in products
 
 ``` shell
-curl -X GET 
-  -u login:password
-  -H "Accept-Encoding: gzip" 
-  -H "Lognex-Pretty-Print-JSON: true" 
-  -H "X-Lognex-Format-Millisecond: true" 
+curl --compressed -X GET \
+  -u login:password \
+  -H "Accept-Encoding: gzip" \
+  -H "Lognex-Pretty-Print-JSON: true" \
+  -H "X-Lognex-Format-Millisecond: true" \
   "https://api.kladana.com/api/remap/1.2/entity/product/6b44332f-b0ac-11ea-ac14-000a00000002"
 ```
 
@@ -1319,10 +1319,10 @@ Reports represent a certain slice of information based on a set of documents. Fo
 > Requesting reports
 
 ``` shell
-curl -X GET 
-  -u login:password
-  -H "Accept-Encoding: gzip" 
-  -H "Lognex-Pretty-Print-JSON: true" 
+curl --compressed -X GET \
+  -u login:password \
+  -H "Accept-Encoding: gzip" \
+  -H "Lognex-Pretty-Print-JSON: true" \
   "https://api.kladana.com/api/remap/1.2/report/stock/all?stockMode=all"
 ```
 
@@ -1386,10 +1386,10 @@ update time "filter=name=New name;filter=updated&gt;2018-01-01 00:00:00".
 > Request:
 
 ``` shell
-curl -X GET 
-  -u login:password
-  -H "Accept-Encoding: gzip" 
-  -H "Lognex-Pretty-Print-JSON: true" 
+curl --compressed -X GET \
+  -u login:password \
+  -H "Accept-Encoding: gzip" \
+  -H "Lognex-Pretty-Print-JSON: true" \
   "https://api.kladana.com/api/remap/1.2/entity/product?filter=name=Product name;updated>2018-01-01 00:00:00"
 ```
 
@@ -1517,10 +1517,10 @@ Let's look at an example of a country request.
 > Request:
 
 ``` shell
-curl -X GET 
-  -u login:password
-  -H "Accept-Encoding: gzip" 
-  -H "Lognex-Pretty-Print-JSON: true" 
+curl --compressed -X GET \
+  -u login:password \
+  -H "Accept-Encoding: gzip" \
+  -H "Lognex-Pretty-Print-JSON: true" \
   "https://api.kladana.com/api/remap/1.2/entity/country"
 ```
 
@@ -1553,10 +1553,10 @@ curl -X GET
 > Request with limit and offset:
 
 ``` shell
-curl -X GET 
-  -u login:password
-  -H "Accept-Encoding: gzip" 
-  -H "Lognex-Pretty-Print-JSON: true" 
+curl --compressed -X GET \
+  -u login:password \
+  -H "Accept-Encoding: gzip" \
+  -H "Lognex-Pretty-Print-JSON: true" \
   "https://api.kladana.com/api/remap/1.2/entity/country/?limit=25&offset=25"
 ```
 
@@ -1602,10 +1602,10 @@ Contextual search of countries `"search=mari"`
 > Request:
 
 ``` shell
-curl -X GET 
-  -u login:password
-  -H "Accept-Encoding: gzip" 
-  -H "Lognex-Pretty-Print-JSON: true" 
+curl --compressed -X GET \
+  -u login:password \
+  -H "Accept-Encoding: gzip" \
+  -H "Lognex-Pretty-Print-JSON: true" \
   "https://api.kladana.com/api/remap/1.2/entity/country?search=Ind"
 ```
 
@@ -1660,10 +1660,10 @@ Sorting is supported for the following field types: numeric, string, date-time, 
 > Request:
 
 ``` shell
-curl -X GET 
-  -u login:password
-  -H "Accept-Encoding: gzip" 
-  -H "Lognex-Pretty-Print-JSON: true" 
+curl --compressed -X GET \
+  -u login:password \
+  -H "Accept-Encoding: gzip" \
+  -H "Lognex-Pretty-Print-JSON: true" \
   "https://api.kladana.com/api/remap/1.2/entity/country/?order=name,desc;updated"
 ```
 
@@ -1758,10 +1758,10 @@ For example, a product has an owner field (link to an Employee), and an employee
 > Example of a get request with **expand**
 
 ``` shell
-curl -X GET 
-  -u login:password
-  -H "Accept-Encoding: gzip" 
-  -H "Lognex-Pretty-Print-JSON: true" 
+curl --compressed -X GET \
+  -u login:password \
+  -H "Accept-Encoding: gzip" \
+  -H "Lognex-Pretty-Print-JSON: true" \
   "https://api.kladana.com/api/remap/1.2/entity/product/0884d27a-b0e3-11ea-ac12-000b00000002?expand=owner.group"
 ```
 
@@ -1919,11 +1919,11 @@ Successful request. Result is a JSON representation of the Product with a simple
 >  Example of update query with **expand**
 
 ``` shell
-curl -X PUT 
-  -u login:password
-  -H "Accept-Encoding: gzip" 
-  -H "Lognex-Pretty-Print-JSON: true" 
-  "https://api.kladana.com/api/remap/1.2/entity/product/0884d27a-b0e3-11ea-ac12-000b00000002?expand=owner.group" 
+curl --compressed -X PUT \
+  -u login:password \
+  -H "Accept-Encoding: gzip" \
+  -H "Lognex-Pretty-Print-JSON: true" \
+  "https://api.kladana.com/api/remap/1.2/entity/product/0884d27a-b0e3-11ea-ac12-000b00000002?expand=owner.group" \
   -d '{"name":"New product name"}'
 ```
 
@@ -2081,10 +2081,10 @@ Successful request. Result - JSON representation of the updated Product with the
 > Example of a request to get a set of products with **expand**
 
 ``` shell
-curl -X GET 
-  -u login:password
-  -H "Accept-Encoding: gzip" 
-  -H "Lognex-Pretty-Print-JSON: true" 
+curl --compressed -X GET \
+  -u login:password \
+  -H "Accept-Encoding: gzip" \
+  -H "Lognex-Pretty-Print-JSON: true" \
   "https://api.kladana.com/api/remap/1.2/entity/product?limit=100&expand=owner.group"
 ```
 

@@ -14,11 +14,11 @@ A barcode is a convenient means of identifying a product, bundle, service, or pr
 > Create an item with a barcode
 
   ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/product"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/product" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
             "name": "good",
             "barcodes": [
@@ -143,11 +143,11 @@ A barcode is a convenient means of identifying a product, bundle, service, or pr
 > Update barcodes for products
 
 ```shell
-  curl -X PUT
-    "https://api.kladana.com/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+  curl --compressed -X PUT \
+    "https://api.kladana.com/api/remap/1.2/entity/product/bd1c0a3e-95ee-11e6-8a84-bae500000004" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
       -d '{
             "barcodes": [
               {

@@ -30,9 +30,9 @@ Search among objects of departments to match the search string will be carried o
 > Request to get all departments on this account.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/group"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/group" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -98,9 +98,9 @@ Successful request. The result is a JSON representation of a list of departments
 > Request to get a separate department with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -132,11 +132,11 @@ If you need to put a new department at the top of the list, just pass 0 in the `
 > An example of adding a department.
   
    ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/group"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/group" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "name": "New department",
            }'
@@ -163,11 +163,11 @@ Successful request. The result is a JSON representation of the created Departmen
 > An example of inserting a Department at the top of the list.
   
    ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/group"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/group" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "name": "New department",
              "index" : 0
@@ -199,11 +199,11 @@ Request to update the name and/or serial number of the Department.
 > An example of changing the name of the Department.
   
    ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "name": "New department name",
            }'
@@ -230,11 +230,11 @@ Successful request. The result is a JSON representation of the created Product.
 > An example of moving a Department to the top of the list.
   
    ```shell
-   curl -X PUT
-     "https://api.kladana.com/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X PUT \
+     "https://api.kladana.com/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "index": 0
            }'
@@ -269,9 +269,9 @@ Successful request. The result is a JSON representation of the created Departmen
 > Request to delete the Department with the specified id.
 
 ```shell
-curl -X DELETE
-   "https://api.kladana.com/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X DELETE \
+   "https://api.kladana.com/api/remap/1.2/entity/group/a4047c9a-0fca-11eb-ac13-000700000003" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 

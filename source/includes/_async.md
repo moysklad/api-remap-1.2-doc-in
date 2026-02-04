@@ -28,9 +28,9 @@ In addition, elements may be missing if, in parallel with the processing of an A
 > Sample request to create an Asynchronous task
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/report/stock/bystore?async=true"
-  -H "Authorization: Bearer <Access-Token>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/report/stock/bystore?async=true" \
+  -H "Authorization: Bearer <Access-Token>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -98,9 +98,9 @@ An asynchronous task contains information about the creator of the task, its cur
 > Example of a request to get a list of statuses of Asynchronous tasks
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/async/"
-  -H "Authorization: Bearer <Access-Token>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/async/" \
+  -H "Authorization: Bearer <Access-Token>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -181,9 +181,9 @@ The result contains the statuses of the Asynchronous Tasks for the last week.
 > Example of a request to get the status of an Asynchronous task
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/async/498b8673-0308-11e6-9464-e4de00000089"
-  -H "Authorization: Bearer <Access-Token>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/async/498b8673-0308-11e6-9464-e4de00000089" \
+  -H "Authorization: Bearer <Access-Token>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -255,9 +255,9 @@ Request to get the execution status of an Asynchronous task.
 > Example of a request to get the result of an Asynchronous task
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/async/498b8673-0308-11e6-9464-e4de00000089/result"
-  -H "Authorization: Bearer <Access-Token>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/async/498b8673-0308-11e6-9464-e4de00000089/result" \
+  -H "Authorization: Bearer <Access-Token>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -372,9 +372,9 @@ similar to the one returned by the synchronous resource call.
 > An example of a request to get the result of an Asynchronous task with the API_ERROR status
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/async/498b8673-0308-11e6-9464-e4de00000089/result"
-  -H "Authorization: Bearer <Access-Token>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/async/498b8673-0308-11e6-9464-e4de00000089/result" \
+  -H "Authorization: Bearer <Access-Token>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -407,11 +407,11 @@ When forming a request to create a webhook, the `entityType` field must specify 
   > An example of a request to create a webhook on the PROCESSED event for an Asynchronous task
 
 ```shell
-curl -X POST
-  "https://api.kladana.com/api/remap/1.2/entity/webhook"
-  -H "Authorization: Bearer <Access-Token>"
-  -H "Accept-Encoding: gzip"
-  -H "Content-Type: application/json"
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/webhook" \
+  -H "Authorization: Bearer <Access-Token>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
   -d '{
           "url": "http://some_url.ru",
           "action": "PROCESSED",
@@ -465,9 +465,9 @@ to get the status of an asynchronous task.
 > Sample Request to Cancel an Asynchronous Task
 
 ```shell
-curl -X PUT
-  "https://api.kladana.com/api/remap/1.2/async/498b8673-0308-11e6-9464-e4de00000089/cancel"
-  -H "Authorization: Bearer <Access-Token>"
+curl --compressed -X PUT \
+  "https://api.kladana.com/api/remap/1.2/async/498b8673-0308-11e6-9464-e4de00000089/cancel" \
+  -H "Authorization: Bearer <Access-Token>" \
   -H "Accept-Encoding: gzip"
 ```
 

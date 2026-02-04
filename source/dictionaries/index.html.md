@@ -18,6 +18,7 @@ includes:
   - dictionaries/characteristic
   - dictionaries/companysettings
   - dictionaries/companysubscription
+  - dictionaries/contentcard
   - dictionaries/contract
   - dictionaries/counterparty
   - dictionaries/country
@@ -43,6 +44,7 @@ includes:
   - dictionaries/region
   - dictionaries/processingprocess
   - dictionaries/saleschannel
+  - dictionaries/saleplatform
   - dictionaries/named_filter
   - dictionaries/thing
   - dictionaries/consignment

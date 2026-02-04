@@ -9,6 +9,8 @@ The availability of the Stock report content is based on the user access rights.
 - specific products and warehouses data;
 - costs, purchase prices, profits.
 
+**Important**: Only products whose balances have already been recalculated at the time of the request are included in the report. Balance recalculation in the system is not instantaneous; its duration depends on the number of product balances being recalculated simultaneously. This feature must be taken into account when working with balance report endpoints.
+
 Learn more about [Stock report](https://kladana.zendesk.com/hc/en-us/articles/360012272317-Stock-report).
 
 ### Extended Stock report
@@ -187,9 +189,9 @@ Examples of using the `includeRelated` parameter: <br> `filter=variant!=<URL>&in
 > Request for an Advanced Stock Report.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/report/stock/all"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/report/stock/all" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -734,9 +736,9 @@ Multiple values can be specified separated by commas or multiple parameters:
 > Request to receive current stock without breakdown by warehouses.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/report/stock/all/current"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/report/stock/all/current" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -753,9 +755,9 @@ Successful request. The result is a JSON representation of the report.
 > Request to get the current stock "available" with the output of zero values.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/report/stock/all/current?stockType=quantity&include=zeroLines"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/report/stock/all/current?stockType=quantity&include=zeroLines" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -774,9 +776,9 @@ Successful request. The result is a JSON representation of the report.
 > Request to get stock with "changedSince" parameter.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/report/stock/all/current?changedSince=2022-08-23 15:00:00"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/report/stock/all/current?changedSince=2022-08-23 15:00:00" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -793,9 +795,9 @@ Successful request. The result is a JSON representation of the report.
 > Request to receive current stock in warehouses, indicating the type of stock.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/report/stock/bystore/current?stockType=freeStock"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/report/stock/bystore/current?stockType=freeStock" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -815,9 +817,9 @@ The string with "storeId":null corresponds to a part of 'Committed' products for
 > Request to obtain current reserves by warehouses with the type 'reserve' type.
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/report/stock/bystore/current?stockType=reserve"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/report/stock/bystore/current?stockType=reserve" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -837,9 +839,9 @@ The string with "storeId":null corresponds to a reservation for a Sales Order wi
 > Request to get current waiting lists for warehouses of the 'inTransit' type.
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/report/stock/bystore/current?stockType=inTransit"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/report/stock/bystore/current?stockType=inTransit" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -859,9 +861,9 @@ The row with "storeId":null matches the expectation for a Sales Order without a 
 > Request for current stock with filtering.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/report/stock/bystore/current?filter=assortmentId=12345678-5838-aaeb-0a80-003a003ef439,12345678-279c-aaeb-0a80-00d6001f847c;storeId=12345678-b123-aaee-0a80-012b0001bb10,12345678-b123-aaee-0a80-012b0001bb13"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/report/stock/bystore/current?filter=assortmentId=12345678-5838-aaeb-0a80-003a003ef439,12345678-279c-aaeb-0a80-00d6001f847c;storeId=12345678-b123-aaee-0a80-012b0001bb10,12345678-b123-aaee-0a80-012b0001bb13" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -900,9 +902,9 @@ Multiple values can be specified using commas or multiple parameters:
 > Request to retrieve current warehouse bin balances with filtering
 
 ```shell
-curl -X GET
-  "https://api.kladana.com/api/remap/1.2/report/stock/byslot/current?filter=assortmentId=12345678-5838-aaeb-0a80-003a003ef439,12345678-279c-aaeb-0a80-00d6001f847c;storeId=12345678-b123-aaee-0a80-012b0001bb10,12345678-b123-aaee-0a80-012b0001bb13"
-  -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/report/stock/byslot/current?filter=assortmentId=12345678-5838-aaeb-0a80-003a003ef439,12345678-279c-aaeb-0a80-00d6001f847c;storeId=12345678-b123-aaee-0a80-012b0001bb10,12345678-b123-aaee-0a80-012b0001bb13" \
+  -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip"
 ```
 
@@ -1054,9 +1056,9 @@ By default, the selection is sorted by product group and product name.
 > Request to receive the Stock report by warehouses.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/report/stock/bystore"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/report/stock/bystore" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 

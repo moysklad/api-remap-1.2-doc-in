@@ -59,11 +59,11 @@ for Sales Invoice:
 > An example of a request to print a separate document based on a printable template.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/demand/a86708d2-f8d3-4e67-8f04-6101158da808/export/"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/demand/a86708d2-f8d3-4e67-8f04-6101158da808/export/" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
              "template": {
                "meta": {
@@ -97,11 +97,11 @@ for Sales Invoice:
 > An example of a request to print a set of documents. As a result of the request, a set of 6 printed forms will be printed.
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/entity/demand/a86708d2-f8d3-4e67-8f04-6101158da808/export/"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/entity/demand/a86708d2-f8d3-4e67-8f04-6101158da808/export/" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d '{
             "templates": [
                 {

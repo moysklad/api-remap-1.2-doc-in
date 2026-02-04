@@ -42,11 +42,11 @@ Nested entity attributes
 > An example of a request to print labels and price tags based on a template for a printed form for products.
 
 ```shell
-  curl -X POST
-    "https://api.kladana.com/api/remap/1.2/entity/product/a86708d2-f8d3-4e67-8f04-6101158da808/export/"
-    -H "Authorization: Basic <Credentials>"
-    -H "Accept-Encoding: gzip"
-    -H "Content-Type: application/json"
+  curl --compressed -X POST \
+    "https://api.kladana.com/api/remap/1.2/entity/product/a86708d2-f8d3-4e67-8f04-6101158da808/export/" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
       -d '{
               "organization": {
                   "meta": {

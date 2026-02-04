@@ -90,11 +90,11 @@ Fills in the product price field **price** (if not explicitly specified) with th
 > Request to autocomplete prices
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/wizard/demand?action=evaluate_price"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/wizard/demand?action=evaluate_price" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d'{
             "agent": {
                 "meta": {
@@ -191,11 +191,11 @@ the counterparty passed in the **agent** field.
 > Request to autocomplete discounts
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/wizard/demand?action=evaluate_discount"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/wizard/demand?action=evaluate_discount" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d'{
             "agent": {
                 "meta": {
@@ -287,11 +287,11 @@ taxes and **vat** fields for items with the value from the product card, if the 
 > Tax autocomplete request
 
 ```shell
-   curl -X POST
-     "https://api.kladana.com/api/remap/1.2/wizard/demand?action=evaluate_vat"
-     -H "Authorization: Basic <Credentials>"
-     -H "Accept-Encoding: gzip"
-     -H "Content-Type: application/json"
+   curl --compressed -X POST \
+     "https://api.kladana.com/api/remap/1.2/wizard/demand?action=evaluate_vat" \
+     -H "Authorization: Basic <Credentials>" \
+     -H "Accept-Encoding: gzip" \
+     -H "Content-Type: application/json" \
        -d'{
             "organization": {
                 "meta": {
@@ -409,11 +409,11 @@ Fills in the **cost** fields of items with the cost value calculated according t
 > Autocomplete cost request
 
 ```shell
-   curl -X POST
-   "https://api.kladana.com/api/remap/1.2/wizard/salesreturn?action=evaluate_cost"
-   -H "Authorization: Basic <Credentials>"
-   -H "Accept-Encoding: gzip"
-   -H "Content-Type: application/json"
+   curl --compressed -X POST \
+   "https://api.kladana.com/api/remap/1.2/wizard/salesreturn?action=evaluate_cost" \
+   -H "Authorization: Basic <Credentials>" \
+   -H "Accept-Encoding: gzip" \
+   -H "Content-Type: application/json" \
      -d'{
             "store": {
                 "meta": {

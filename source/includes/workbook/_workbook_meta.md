@@ -35,9 +35,9 @@ Consider the request of the counterparty `Supplier LLC`
 > Request
 
 ```shell
-curl -X GET
-   https://api.kladana.com/api/remap/1.2/entity/counterparty/ab4dd5fc-d100-11e8-ac12-00080000006d
-   -H 'Authorization: Bearer <Access-Token>'
+curl --compressed -X GET \
+   https://api.kladana.com/api/remap/1.2/entity/counterparty/ab4dd5fc-d100-11e8-ac12-00080000006d \
+   -H 'Authorization: Bearer <Access-Token>' \
    -H 'Cache-Control: no-cache'
 ```
 
@@ -169,10 +169,10 @@ For example, using the value of the `href` field, we will request employee data.
 > Request
 
 ```shell
-curl -X GET
-   https://api.kladana.com/api/remap/1.2/entity/employee/ab306d83-d100-11e8-ac12-000800000042
-   -H 'Authorization: Bearer <Access-Token>'
-   -H "Accept-Encoding: gzip"
+curl --compressed -X GET \
+   https://api.kladana.com/api/remap/1.2/entity/employee/ab306d83-d100-11e8-ac12-000800000042 \
+   -H 'Authorization: Bearer <Access-Token>' \
+   -H "Accept-Encoding: gzip" \
    -H 'Cache-Control: no-cache'
 ```
 
@@ -252,12 +252,12 @@ Execute a request to create a bundle, specifying the product in the components.
 > Request
 
 ```shell
-curl -X POST
-   'https://api.kladana.com/api/remap/1.2/entity/bundle?expand=components'
-   -H 'Authorization: Bearer <Access-Token>'
-   -H "Accept-Encoding: gzip"
-   -H 'Cache-Control: no-cache'
-   -H 'Content-Type: application/json'
+curl --compressed -X POST \
+   'https://api.kladana.com/api/remap/1.2/entity/bundle?expand=components' \
+   -H 'Authorization: Bearer <Access-Token>' \
+   -H "Accept-Encoding: gzip" \
+   -H 'Cache-Control: no-cache' \
+   -H 'Content-Type: application/json' \
    -d '{
             "name":"Pencil set",
             "components":[
@@ -390,12 +390,12 @@ Let's change the product by specifying a unit of measure for it. Provided that t
 > Request
 
 ```shell
-curl -X PUT
-   https://api.kladana.com/api/remap/1.2/entity/product/3b336cc5-d10a-11e8-ac12-000b00000021
-   -H 'Authorization: Bearer <Access-Token>'
-   -H "Accept-Encoding: gzip"
-   -H 'Cache-Control: no-cache'
-   -H 'Content-Type: application/json'
+curl --compressed -X PUT \
+   https://api.kladana.com/api/remap/1.2/entity/product/3b336cc5-d10a-11e8-ac12-000b00000021 \
+   -H 'Authorization: Bearer <Access-Token>' \
+   -H "Accept-Encoding: gzip" \
+   -H 'Cache-Control: no-cache' \
+   -H 'Content-Type: application/json' \
    -d '{
     "uom": {
        "meta": {
@@ -534,10 +534,10 @@ For example, when requesting webhooks:
 > Request
 
 ```shell
-curl -X GET
-   https://api.kladana.com/api/remap/1.2/entity/webhook
-   -H 'Authorization: Bearer <Access-Token>'
-   -H "Accept-Encoding: gzip"
+curl --compressed -X GET \
+   https://api.kladana.com/api/remap/1.2/entity/webhook \
+   -H 'Authorization: Bearer <Access-Token>' \
+   -H "Accept-Encoding: gzip" \
    -H 'Cache-Control: no-cache'
 ```
 
@@ -595,10 +595,10 @@ Add new webhooks and request them, but with a limit of 1
 > Request
 
 ```shell
-curl -X GET
-   'https://api.kladana.com/api/remap/1.2/entity/webhook?limit=1'
-   -H 'Authorization: Bearer <Access-Token>'
-   -H "Accept-Encoding: gzip"
+curl --compressed -X GET \
+   'https://api.kladana.com/api/remap/1.2/entity/webhook?limit=1' \
+   -H 'Authorization: Bearer <Access-Token>' \
+   -H "Accept-Encoding: gzip" \
    -H 'Cache-Control: no-cache'
    ```
   
@@ -650,10 +650,10 @@ By applying the limit, a `nextHref` pagination link to the next page of the coll
 > Request
 
 ```shell
-curl -X GET
-   'https://api.kladana.com/api/remap/1.2/entity/webhook?limit=1&offset=1'
-   -H 'Authorization: Bearer <Access-Token>'
-   -H "Accept-Encoding: gzip"
+curl --compressed -X GET \
+   'https://api.kladana.com/api/remap/1.2/entity/webhook?limit=1&offset=1' \
+   -H 'Authorization: Bearer <Access-Token>' \
+   -H "Accept-Encoding: gzip" \
    -H 'Cache-Control: no-cache'
 ```
 
@@ -714,9 +714,9 @@ Request the metadata of the counterparty entity from the example above.
 > Request
 
 ```shell
-curl -X GET
-   https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata
-   -H 'Authorization: Bearer <Access-Token>'
+curl --compressed -X GET \
+   https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata \
+   -H 'Authorization: Bearer <Access-Token>' \
    -H 'Cache-Control: no-cache'
 ```
 

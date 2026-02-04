@@ -171,6 +171,9 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_3042">3042</a> | Validation error: only one field is allowed in a request                                                                                                    | You cannot specify the same values in fields                                                                                                                                                                                         |
 | <a name="error_3043">3043</a> | Validation error: invalid values for parameter `fields`: `{field values}`                                                                                   | Invalid values are used for the `fields` parameter                                                                                                                                                                                   |
 | <a name="error_3046">3046</a> | Validation error: field object access denied: `{fields name}`                                                                                               | Insufficient permissions on field objects                                                                                                                                                                                            |
+| <a name="error_3048">3048</a> | Validation error: The serial numbers `{serial number codes}` have already been added to the item `{assortment's id}`                                        | You cannot add a duplicate item with a serial number.                                                                                                                                                                                |
+| <a name="error_3049">3049</a> | Validation error: The item with serial numbers `{serial number codes}` are already in stock                                                                 | You cannot accept an item with a serial number that has already been accepted at any warehouse.                                                                                                                                      |
+| <a name="error_3050">3050</a> | Validation error: The item with serial numbers `{serial number codes}` are not in stock yet                                                                 | You cannot write off items with a serial number that is not in stock.                                                                                                                                                                |
 
 ### Error codes for POSs
 
@@ -348,6 +351,7 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_22000">22000</a> | Error saving payment: allocated amount exceeds payment amount | The amount specified in linkedSum is greater than the sum of the payment. |
 | <a name="error_22001">22001</a> | Error saving payment: payment contains duplicate linked documents | You are trying to link a payment to a document more than once. |
 | <a name="error_22002">22002</a> | Error saving payment: invalid expense item: '{expense category}' | This expense item cannot be assigned to a payment. |
+| <a name="error_22003">22003</a> | Error saving payment: cannot link payment without closing documents | Payment can’t have active flag "No Closing documents" and related transaction at the same time|
 
 ### Error codes for Product groups
 

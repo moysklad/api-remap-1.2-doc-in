@@ -41,11 +41,11 @@ Creating two additional fields with the same name is not allowed.
 > Request
 
 ```shell
-curl -X POST
-   -u login:password
-   -H 'Accept: application/json'
-   -H 'Content-Type: application/json'
-   "https://api.kladana.com/api/remap/1.2/entity/product/metadata/attributes"
+curl --compressed -X POST \
+   -u login:password \
+   -H 'Accept: application/json' \
+   -H 'Content-Type: application/json' \
+   "https://api.kladana.com/api/remap/1.2/entity/product/metadata/attributes" \
    -d '{
        "name": "Hull Material",
        "type": "string"
@@ -85,11 +85,11 @@ To create an attribute of the Catalog type product, you need to specify the valu
 > Request
 
 ```shell
-curl -X POST
-   -u login:password
-   -H 'Accept: application/json'
-   -H 'Content-Type: application/json'
-   "https://api.kladana.com/api/remap/1.2/entity/product/metadata/attributes"
+curl --compressed -X POST \
+   -u login:password \
+   -H 'Accept: application/json' \
+   -H 'Content-Type: application/json' \
+   "https://api.kladana.com/api/remap/1.2/entity/product/metadata/attributes" \
    -d '{
        "name": "Case",
        "type": "product"
@@ -131,11 +131,11 @@ The new value of the "name" property must not match the existing ones. The "type
 > Request
 
 ```shell
-curl -X POST
-   -u login:password
-   -H 'Accept: application/json'
-   -H 'Content-Type: application/json'
-   "https://api.kladana.com/api/remap/1.2/entity/product/metadata/attributes"
+curl --compressed -X POST \
+   -u login:password \
+   -H 'Accept: application/json' \
+   -H 'Content-Type: application/json' \
+   "https://api.kladana.com/api/remap/1.2/entity/product/metadata/attributes" \
    -d'[
          {
              "meta": {
@@ -207,10 +207,10 @@ To display a list of attributes of an entity (in this case, a product), you need
 > Request
 
 ```shell
-curl
-     -X GET
-     -u login:password
-     -H "Lognex-Pretty-Print-JSON: true"
+curl \
+     -X GET \
+     -u login:password \
+     -H "Lognex-Pretty-Print-JSON: true" \
      "https://api.kladana.com/api/remap/1.2/entity/product/metadata/attributes"
 ```
 
@@ -271,10 +271,10 @@ If you specify a specific attribute ID in the request, we will get only it.
 > Request
 
 ```shell
-curl
-     -X GET
-     -u login:password
-     -H "Lognex-Pretty-Print-JSON: true"
+curl \
+     -X GET \
+     -u login:password \
+     -H "Lognex-Pretty-Print-JSON: true" \
      "https://api.kladana.com/api/remap/1.2/entity/product/metadata/attributes/acd884ce-b44f-11e9-7ae5-884b00009002"
 ```
 
@@ -305,11 +305,11 @@ properties. Note that the "type" property cannot be changed. Change the name of 
 > Request
 
 ```shell
-curl -X PUT
-   -u login:password
-   -H 'Accept: application/json'
-   -H 'Content-Type: application/json'
-   "https://api.kladana.com/api/remap/1.2/entity/product/metadata/attributes/33b2fe47-b465-11e9-7ae5-884b0001562f"
+curl --compressed -X PUT \
+   -u login:password \
+   -H 'Accept: application/json' \
+   -H 'Content-Type: application/json' \
+   "https://api.kladana.com/api/remap/1.2/entity/product/metadata/attributes/33b2fe47-b465-11e9-7ae5-884b0001562f" \
    -d '{
          "name":"CD/DVD-Rom available"
        }'
@@ -341,10 +341,10 @@ To remove an additional field via the JSON API, you must execute a DELETE reques
 > Request
 
 ```shell
-curl -X DELETE
-   -u login:password
-   -H 'Accept: application/json'
-   -H 'Content-Type: application/json'
+curl --compressed -X DELETE \
+   -u login:password \
+   -H 'Accept: application/json' \
+   -H 'Content-Type: application/json' \
    "https://api.kladana.com/api/remap/1.2/entity/product/metadata/attributes/33b2fe47-b465-11e9-7ae5-884b0001562f"
 ```
 
@@ -356,11 +356,11 @@ To delete several attributes at once, you need to execute the following POST req
 > Request
 
 ```shell
-curl -X POST
-   -u login:password
-   -H 'Accept: application/json'
-   -H 'Content-Type: application/json'
-   "https://api.kladana.com/api/remap/1.2/entity/product/metadata/attributes/delete"
+curl --compressed -X POST \
+   -u login:password \
+   -H 'Accept: application/json' \
+   -H 'Content-Type: application/json' \
+   "https://api.kladana.com/api/remap/1.2/entity/product/metadata/attributes/delete" \
    -d'[
           {
               "meta": {

@@ -32,9 +32,9 @@ Tariff field values
 > Request for a company subscription.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/accountSettings/subscription"
-   -H Authorization: Basic <Credentials>
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/accountSettings/subscription" \
+   -H "Authorization: Basic <Credentials>"
 ```
 
 > Response 200(application/json)

@@ -76,12 +76,12 @@ Let's first create products with different names that can start with Latin, Cyri
 > Request
 
 ```shell
-curl -X POST
-https://api.kladana.com/api/remap/1.2/entity/product
-  -H 'Authorization: Bearer <Access-Token>'
-  -H 'Accept-Encoding: gzip'
-  -H 'Cache-Control: no-cache' 
-  -H 'Content-Type: application/json' 
+curl --compressed -X POST \
+https://api.kladana.com/api/remap/1.2/entity/product \
+  -H 'Authorization: Bearer <Access-Token>' \
+  -H 'Accept-Encoding: gzip' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \
   -d '[
      {
       "name":"12345",
@@ -143,10 +143,10 @@ To get a collection of products sorted by name, you must specify the `name` fiel
 > Request
 
 ```shell
-curl -X GET
-'https://api.kladana.com/api/remap/1.2/entity/product?order=name'
--H 'Authorization: Bearer <Access-Token>'
--H 'Accept-Encoding: gzip'
+curl --compressed -X GET \
+'https://api.kladana.com/api/remap/1.2/entity/product?order=name' \
+-H 'Authorization: Bearer <Access-Token>' \
+-H 'Accept-Encoding: gzip' \
 -H 'Cache-Control: no-cache'
 ```
 The response will contain the following ascending order:
@@ -169,10 +169,10 @@ Change the sort direction
 > Request
 
 ```shell
-curl -X GET
-'https://api.kladana.com/api/remap/1.2/entity/product?order=name,desc'
--H 'Authorization: Bearer <Access-Token>'
--H 'Accept-Encoding: gzip'
+curl --compressed -X GET \
+'https://api.kladana.com/api/remap/1.2/entity/product?order=name,desc' \
+-H 'Authorization: Bearer <Access-Token>' \
+-H 'Accept-Encoding: gzip' \
 -H 'Cache-Control: no-cache'
 ```
 
@@ -194,11 +194,11 @@ Let's try to sort products simultaneously in descending order of the `weighed` l
 > Request
 
 ```shell
-curl -X GET
-'https://api.kladana.com/api/remap/1.2/entity/product?order=weighed,desc;name'
--H 'Authorization: Bearer <Access-Token>'
--H 'Accept-Encoding: gzip'
--H 'Cache-Control: no-cache'
+curl --compressed -X GET \
+'https://api.kladana.com/api/remap/1.2/entity/product?order=weighed,desc;name' \
+-H 'Authorization: Bearer <Access-Token>' \
+-H 'Accept-Encoding: gzip' \
+-H 'Cache-Control: no-cache' \
 -H 'Content-Type: application/json'
 ```
 
@@ -220,11 +220,11 @@ Let's add sorting by the `weight` numeric field.
 > Request
 
 ```shell
-curl -X GET
-'https://api.kladana.com/api/remap/1.2/entity/product?order=weighed,desc;weight,desc;name'
--H 'Authorization: Bearer <Access-Token>'
--H 'Accept-Encoding: gzip'
--H 'Cache-Control: no-cache'
+curl --compressed -X GET \
+'https://api.kladana.com/api/remap/1.2/entity/product?order=weighed,desc;weight,desc;name' \
+-H 'Authorization: Bearer <Access-Token>' \
+-H 'Accept-Encoding: gzip' \
+-H 'Cache-Control: no-cache' \
 -H 'Content-Type: application/json'
 ```
 
@@ -246,11 +246,11 @@ In addition to text, numeric and boolean fields, sorting by fields of uuid and d
 > Request
 
 ```shell
-curl -X GET
-'https://api.kladana.com/api/remap/1.2/entity/product?order=syncId'
--H 'Authorization: Bearer <Access-Token>'
--H 'Accept-Encoding: gzip'
--H 'Cache-Control: no-cache'
+curl --compressed -X GET \
+'https://api.kladana.com/api/remap/1.2/entity/product?order=syncId' \
+-H 'Authorization: Bearer <Access-Token>' \
+-H 'Accept-Encoding: gzip' \
+-H 'Cache-Control: no-cache' \
 -H 'Content-Type: application/json'
 ```
 

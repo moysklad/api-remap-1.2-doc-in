@@ -47,9 +47,9 @@ Result: JSON object including fields:
 > Get Regions
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/region"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/region" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
@@ -444,9 +444,9 @@ Successful request. Result - JSON representation of the list of Regions
 > Request to get a separate Region with the specified id.
 
 ```shell
-curl -X GET
-   "https://api.kladana.com/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077"
-   -H "Authorization: Basic <Credentials>"
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/region/00000000-0000-0000-0000-000000000077" \
+   -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip"
 ```
 
