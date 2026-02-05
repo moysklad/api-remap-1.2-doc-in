@@ -6,6 +6,11 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 23-01-2026
+#### Added
+- Field `currency` with bank account currency in legal entity accounts, returned in [Legal entity](#/dictionaries/organization#2-yurlico) responses (section "Legal entity accounts").
+- Error code for bank accounts: [72000](..#kladana-json-api-errors-error-codes-for-bank-accounts)
+
 ### 15-01-2026
 #### Added
 - Error codes for serial number validation: [3048-3050](..#kladana-json-api-errors-common-validation-errors)
