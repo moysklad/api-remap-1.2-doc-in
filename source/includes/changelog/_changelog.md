@@ -8,9 +8,8 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 
 ### 23-01-2026
 #### Added
-- Field `currency` with bank account currency in legal entity accounts, returned in [Legal entity](#/dictionaries/organization#2-yurlico) responses (section "Legal entity accounts") for accounts with filled `accountNumber`.
+- Field `currency` with bank account currency in legal entity accounts, returned in [Legal entity](#/dictionaries/organization#2-yurlico) responses (section "Legal entity accounts").
 - Error code for bank accounts: [72000](..#kladana-json-api-errors-error-codes-for-bank-accounts)
-- When attempting to change currency of an existing bank account, error [3001](..#kladana-json-api-errors-common-validation-errors) is returned.
 
 ### 15-01-2026
 #### Added

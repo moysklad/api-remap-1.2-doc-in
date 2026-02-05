@@ -120,7 +120,7 @@ Only for legal entity with type `Legal entity. International`.
 | **correspondentAccount** | String(255)                                        | Corr account |
 | **id** | UUID                                               | Account ID<br>`+Required when replying` `+Read only` |
 | **isDefault** | Boolean                                            | Is the account the main account of a legal entity<br>`+Required when replying` |
-| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of bank account currency. Returned for accounts that have **accountNumber** field filled.<br>`+Required when answering` `+Expand` |
+| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of bank account currency<br>`+Required when answering` `+Expand` |
 | **updated** | DateTime                                           | Moment of the last update of the legal entity<br>`+Required when replying` `+Read only` |
 
 #### Legal entity type
@@ -1545,8 +1545,8 @@ Request to update the legal entity with the specified ID.
 When updating a legal entity via `PUT /entity/organization/{id}`:
 
 - if when creating the legal entity field **accounts** was absent and accounts are being added for the first time, at least one of the added bank accounts must be in the company's accounting currency, otherwise error [72000](../#kladana-json-api-errors-error-codes-for-bank-accounts) will be returned;
-- if when creating the legal entity field **accounts** was present and additional bank accounts are being added, new accounts can be created in any currency;
-- for existing bank accounts, changing currency (field `currency`) is prohibited — attempting to change currency metadata of any account will return error [3001](../#kladana-json-api-errors-common-validation-errors).
+- if when creating the legal entity field **accounts** was present and additional bank accounts are being added, additional accounts can be created in any currency;
+- after creating a bank account, its currency (field `currency`) cannot be changed — attempting to change currency metadata of any account will return error [3001](../#kladana-json-api-errors-common-validation-errors).
 
 **Parameters**
 
@@ -1940,7 +1940,7 @@ All fields specified in the request JSON object are updated, except for
 marked `Read only` in the description of [legal entity account attributes](../dictionaries/#entities-entity-legal-entity-attributes-of-entity-address-legal-entity-accounts).
 Fields that were not specified in the request JSON are not changed.
 
-**Important:** For existing bank accounts, changing currency (field `currency`) is prohibited — attempting to change currency metadata of any account will return error [3001](../#kladana-json-api-errors-common-validation-errors). New accounts can be created in any currency.
+**Important:** For existing bank accounts, changing currency (field `currency`) is prohibited — attempting to change currency metadata of any account will return error [3001](../#kladana-json-api-errors-common-validation-errors). Additional accounts can be created in any currency.
 
 **Parameters**
 
