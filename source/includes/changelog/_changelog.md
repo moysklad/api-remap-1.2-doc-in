@@ -6,7 +6,7 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
-### 30-12-2025
+### 09-02-2026
 #### Added
 - Field `expiryDate` in [Attributes of the batch](../dictionaries/#entities-batch-batch-entity-attributes)
 - Error [71001](../#kladana-json-api-errors-error-codes-for-series)
