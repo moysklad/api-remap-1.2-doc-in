@@ -13,7 +13,9 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 - New employee permissions in [general info](../#kladana-json-api-general-info-employee-request-context) and [employee rights](../dictionaries/#entities-employee-work-with-employee-rights)
 
 #### Changed
-- Permissions list in response to [get employee context](../#kladana-json-api-general-info-employee-request-context)
+- Permissions list in response to [get employee context](../#kladana-json-api-general-info-employee-request-context) and [get employee's rights](../dictionaries/#entities-employee-get-information-about-the-employee-39-s-rights)
+- Permissions list in response to [get user role](../dictionaries/#entities-user-roles-get-user-role) and [get all user roles](../dictionaries/#entities-user-roles-get-all-user-roles)
+- Permissions list in request and response to  [create](../dictionaries/#entities-user-roles-create-user-role) and [edit](../dictionaries/#entities-user-roles-update-user-role) user role
 - List of [existing roles](../dictionaries/#entities-employee-work-with-employee-rights)
 
 ### 15-01-2026

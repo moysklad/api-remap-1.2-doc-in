@@ -1013,6 +1013,9 @@ Successful request. The result is a JSON representation of information about the
             "subscriptionControl": false,
             "purchaseControl": true,
             "listenCalls": true,
+            "ownerAssign": false,
+            "ownerDataUpdate": false,
+            "accountDelete": false,
             "remarkingOrder": {
                 "view": "NO",
                 "print": "NO",

@@ -73,6 +73,9 @@ Successful request. The result is a JSON representation of the custom role.
     "subscriptionControl": false,
     "purchaseControl": true,
     "listenCalls": true,
+    "ownerAssign": false,
+    "ownerDataUpdate": false,
+    "accountDelete": false,
     "supply": {
       "view": "ALL",
       "print": "ALL",
@@ -442,6 +445,9 @@ Successful request. The result is a JSON representation of user roles.
         "subscriptionControl": false,
         "purchaseControl": true,
         "listenCalls": true,
+        "ownerAssign": false,
+        "ownerDataUpdate": false,
+        "accountDelete": false,
         "supply": {
           "view": "ALL",
           "print": "ALL",
@@ -782,7 +788,10 @@ curl --compressed -X POST \
               "editCurrencyRateOfDocument": false,
               "subscriptionControl": false,
               "purchaseControl": false,
-              "listenCalls": false
+              "listenCalls": false,
+              "ownerAssign": false,
+              "ownerDataUpdate": false,
+              "accountDelete": false,
             }
           }'
 ```
@@ -828,6 +837,9 @@ Successful request. The result is a JSON representation of the created role.
     "subscriptionControl": false,
     "purchaseControl": false,
     "listenCalls": false,
+    "ownerAssign": false,
+    "ownerDataUpdate": false,
+    "accountDelete": false,
     "supply": {
       "view": "NO",
       "print": "NO",
@@ -1172,7 +1184,10 @@ curl --compressed -X PUT \
               "editCurrencyRateOfDocument": false,
               "subscriptionControl": false,
               "purchaseControl": false,
-              "listenCalls": false
+              "listenCalls": false,
+              "ownerAssign": false,
+              "ownerDataUpdate": false,
+              "accountDelete": false,
             }
           }'
 ```
@@ -1218,6 +1233,9 @@ Successful request. The result is a JSON representation of the updated role.
     "subscriptionControl": false,
     "purchaseControl": false,
     "listenCalls": false,
+    "ownerAssign": false,
+    "ownerDataUpdate": false,
+    "accountDelete": false,
     "supply": {
       "view": "NO",
       "print": "NO",
