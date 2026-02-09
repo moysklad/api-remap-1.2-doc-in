@@ -11,6 +11,10 @@ JSON API 1.2 changes will be added here soon
 - Field `label` in [Attributes of the batch](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-batch-batch-entity-attributes)
 - Description of the [Batch](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-batch-batch)
 
+### 15-01-2026
+#### Added
+- Error codes for serial number validation: [3048-3050](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-common-validation-errors)
+
 ### 24-12-2025
 #### Added
 - Endpoint for [Sale Platforms](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-sale-platform)

@@ -15,6 +15,10 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 - Field `label` in [Attributes of the batch](../dictionaries/#entities-batch-batch-entity-attributes)
 - Description of the [Batch](../dictionaries/#entities-batch-batch)
 
+### 15-01-2026
+#### Added
+- Error codes for serial number validation: [3048-3050](..#kladana-json-api-errors-common-validation-errors)
+
 ### 24-12-2025
 #### Added
 - Endpoint for [Sale Platforms](../dictionaries/#entities-sale-platform)
