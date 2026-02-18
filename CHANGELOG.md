@@ -2,6 +2,10 @@
 
 JSON API 1.2 changes will be added here soon
 
+### 18-02-2026
+#### Added
+- The ability to read field `expenseItem` in [Write-off](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-write-off)
+
 ### 09-02-2026
 #### Added
 - Field `expiryDate` in [Attributes of the batch](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-batch-batch-entity-attributes)

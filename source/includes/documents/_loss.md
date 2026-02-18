@@ -5,35 +5,36 @@ Using the JSON API, you can create and update information about Write-offs, requ
 ### Write-off
 #### Entity attributes
 
-| Title | Type                                              | Filtration| Description |
-| --------- |---------------------------------------------------| --------- | --------- |
-| **accountId** | UUID                                              | `=` `!=` | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
-| **applicable** | Boolean                                           | `=` `!=` | Handling flag<br>`+Required when replying` `+Change-handler` |
-| **attributes** | Array(Object)                                     | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)<br> `+Change-handler` |
-| **code** | String(255)                                       | `=` `!=` `~` `~=` `=~` | Write-off Code |
-| **created** | DateTime                                          | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read-only` `+Change-handler` |
-| **deleted** | DateTime                                          | `=` `!=` `<` `>` `<=` `>=` | Time of last deletion of Write-off<br>`+Read Only` |
-| **description** | String(4096)                                      | `=` `!=` `~` `~=` `=~` | Write-Off Comment<br>`+Change-handler` |
-| **externalCode** | String(255)                                       | `=` `!=` `~` `~=` `=~` | External Code of Write-off<br>`+Required when replying` `+Change-handler` |
-| **files** | MetaArray                                         | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
-| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
-| **id** | UUID                                              | `=` `!=` | Write-off ID<br>`+Required when replying` `+Read-only` `+Change-handler` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Write-off Metadata<br>`+Required when replying` `+Change-handler` |
-| **moment** | DateTime                                          | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying` `+Change-handler` |
-| **name** | string(255)                                       | `=` `!=` `~` `~=` `=~` | Write-off Name<br>`+Required when replying` `+Change-handler` |
-| **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating` `+Change-handler` |
-| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
-| **positions** | MetaArray                                         | | Write-off item metadata<br>`+Required when replying` `+Expand` `+Change-handler` |
-| **printed** | Boolean                                           | `=` `!=` | Is the document printed<br>`+Required when replying` `+Read Only` |
-| **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` `+Change-handler` |
-| **published** | Boolean                                           | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only` |
-| **rate** | Object                                            | | Currency. [Learn more](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` `+Change-handler` |
-| **shared** | Boolean                                           | `=` `!=` | Sharing<br>`+Required when replying` |
-| **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Write-off status metadata<br>`+Expand` `+Change-handler` |
-| **store** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Warehouse metadata<br>`+Required when replying` `+Expand` `+Required when creating` `+Change-handler` |
-| **sum** | Float                                             | `=` `!=` `<` `>` `<=` `>=` | Write-off amount in paise<br>`+Required when replying` `+Read-only` `+Change-handler` |
-| **syncId** | UUID                                              | `=` `!=` | Synchronization ID. After filling it is not available for change |
-| **updated** | DateTime                                          | `=` `!=` `<` `>` `<=` `>=`| Time when the Write-off was last updated<br>`+Required when replying` `+Read-only` `+Change-handler` |
+| Title            | Type                                               | Filtration                                                                                                                                            | Description                                                                                                                       |
+|------------------|----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| **accountId**    | UUID                                               | `=` `!=`                                                                                                                                              | Account ID<br>`+Required when replying` `+Read-only` `+Change-handler`                                                            |
+| **applicable**   | Boolean                                            | `=` `!=`                                                                                                                                              | Handling flag<br>`+Required when replying` `+Change-handler`                                                                      |
+| **attributes**   | Array(Object)                                      | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)<br> `+Change-handler` |
+| **code**         | String(255)                                        | `=` `!=` `~` `~=` `=~`                                                                                                                                | Write-off Code                                                                                                                    |
+| **created**      | DateTime                                           | `=` `!=` `<` `>` `<=` `>=`                                                                                                                            | Creation date<br>`+Required when replying` `+Read-only` `+Change-handler`                                                         |
+| **deleted**      | DateTime                                           | `=` `!=` `<` `>` `<=` `>=`                                                                                                                            | Time of last deletion of Write-off<br>`+Read Only`                                                                                |
+| **description**  | String(4096)                                       | `=` `!=` `~` `~=` `=~`                                                                                                                                | Write-Off Comment<br>`+Change-handler`                                                                                            |
+| **expenseItem**  | [Meta](../#kladana-json-api-general-info-metadata) |                                                                                                                                                       | Metadata Line Items<br>`+Read-only` `+Expand`                                                                                     |
+| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~`                                                                                                                                | External Code of Write-off<br>`+Required when replying` `+Change-handler`                                                         |
+| **files**        | MetaArray                                          |                                                                                                                                                       | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand`    |
+| **group**        | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`                                                                                                                                              | Employee's department<br>`+Required when replying` `+Expand`                                                                      |
+| **id**           | UUID                                               | `=` `!=`                                                                                                                                              | Write-off ID<br>`+Required when replying` `+Read-only` `+Change-handler`                                                          |
+| **meta**         | [Meta](../#kladana-json-api-general-info-metadata) |                                                                                                                                                       | Write-off Metadata<br>`+Required when replying` `+Change-handler`                                                                 |
+| **moment**       | DateTime                                           | `=` `!=` `<` `>` `<=` `>=`                                                                                                                            | Document date<br>`+Required when replying` `+Change-handler`                                                                      |
+| **name**         | string(255)                                        | `=` `!=` `~` `~=` `=~`                                                                                                                                | Write-off Name<br>`+Required when replying` `+Change-handler`                                                                     |
+| **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`                                                                                                                                              | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating` `+Change-handler`                          |
+| **owner**        | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`                                                                                                                                              | Owner (Employee)<br>`+Expand`                                                                                                     |
+| **positions**    | MetaArray                                          |                                                                                                                                                       | Write-off item metadata<br>`+Required when replying` `+Expand` `+Change-handler`                                                  |
+| **printed**      | Boolean                                            | `=` `!=`                                                                                                                                              | Is the document printed<br>`+Required when replying` `+Read Only`                                                                 |
+| **project**      | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`                                                                                                                                              | Project metadata<br>`+Expand` `+Change-handler`                                                                                   |
+| **published**    | Boolean                                            | `=` `!=`                                                                                                                                              | Is the document published<br>`+Required when replying` `+Read Only`                                                               |
+| **rate**         | Object                                             |                                                                                                                                                       | Currency. [Learn more](../documents/#transactions-currency-in-transactions)<br>`+Required when replying` `+Change-handler`        |
+| **shared**       | Boolean                                            | `=` `!=`                                                                                                                                              | Sharing<br>`+Required when replying`                                                                                              |
+| **state**        | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`                                                                                                                                              | Write-off status metadata<br>`+Expand` `+Change-handler`                                                                          |
+| **store**        | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`                                                                                                                                              | Warehouse metadata<br>`+Required when replying` `+Expand` `+Required when creating` `+Change-handler`                             |
+| **sum**          | Float                                              | `=` `!=` `<` `>` `<=` `>=`                                                                                                                            | Write-off amount in paise<br>`+Required when replying` `+Read-only` `+Change-handler`                                             |
+| **syncId**       | UUID                                               | `=` `!=`                                                                                                                                              | Synchronization ID. After filling it is not available for change                                                                  |
+| **updated**      | DateTime                                           | `=` `!=` `<` `>` `<=` `>=`                                                                                                                            | Time when the Write-off was last updated<br>`+Required when replying` `+Read-only` `+Change-handler`                              |
 
 #### Links to other documents
 
@@ -198,6 +199,14 @@ Successful request. The result is a JSON representation of the List of Write-off
            "size": 2,
            "limit": 1000,
            "offset": 0
+         }
+       },
+       "expenseItem": {
+         "meta": {
+           "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/metadata",
+           "type": "expenseitem",
+           "mediaType": "application/json"
          }
        }
      },
