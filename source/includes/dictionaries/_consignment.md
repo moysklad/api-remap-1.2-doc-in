@@ -10,24 +10,27 @@ The search among the objects of the batches for matching the search string will 
 + by batch name **name**
 + according to the batch description **description**
 
+When creating or editing a batch, specify a batch label ("label") or a batch expiration date ("expiryDate").
+
 #### Entity attributes
 
-| Title | Type | Filtration | Description |
-| ------| ------ | ------ | ------- |
-| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **archived**     | Boolean | `=` `!=` | Whether the batch is archived<br>`+Required when replying`  |
-| **attributes** | [Meta](../#kladana-json-api-general-info-metadata) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Collection of additional fields of the batch<br>`+Required when replying` `+Required when creating` |
-| **assortment**   | [Meta](../#kladana-json-api-general-info-metadata) |  | Metadata of the product/service/bundle represented by the component<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **barcodes** | Array(Object) | `=` `!=` `~` `~=` `=~` | Batch barcodes. To filter by this field, use its singular form - **barcode**. |
-| **code** | String(255) | `=` `!=` `~` `~=` `=~` | Batch Code |
-| **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Batches Description |
-| **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Batches Code<br>`+Required when replying` |
-| **id** | UUID | `=` `!=` | Batch ID<br>`+Required when replying` `+Read only` |
-| **images** | [Meta](../#kladana-json-api-general-info-metadata) | | Image of the product to which this batch belongs |
-| **label** | String(255) | | Batch Label<br>`+Required when replying` `+Required when creating` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Batches Metadata<br>`+Required when replying`|
-| **name** | String(255) | `=` `!=` `~` `~=` `=~` | Batch Name. "Collected" and displayed as "Product Name / Batch Label"<br>`+Required when replying` `+Read Only` |
-| **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required when replying` `+Read-only` |
+| Title            | Type                                               | Filtration                                                                                                                                            | Description                                                                                                                          |
+|------------------|----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+| **accountId**    | UUID                                               | `=` `!=`                                                                                                                                              | Account ID<br>`+Required when replying` `+Read Only`                                                                                 |
+| **archived**     | Boolean                                            | `=` `!=`                                                                                                                                              | Whether the batch is archived<br>`+Required when replying`                                                                           |
+| **attributes**   | [Meta](../#kladana-json-api-general-info-metadata) | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Collection of additional fields of the batch<br>`+Required when replying` `+Required when creating`                                  |
+| **assortment**   | [Meta](../#kladana-json-api-general-info-metadata) |                                                                                                                                                       | Metadata of the product/service/bundle represented by the component<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **barcodes**     | Array(Object)                                      | `=` `!=` `~` `~=` `=~`                                                                                                                                | Batch barcodes. To filter by this field, use its singular form - **barcode**.                                                        |
+| **code**         | String(255)                                        | `=` `!=` `~` `~=` `=~`                                                                                                                                | Batch Code                                                                                                                           |
+| **description**  | String(4096)                                       | `=` `!=` `~` `~=` `=~`                                                                                                                                | Batches Description                                                                                                                  |
+| **expiryDate**   | DateTIme                                           | `=` `!=` `<` `>` `<=` `>=`                                                                                                                            | Batch expiration date<br>`+Required when creating`                                                                                   |
+| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~`                                                                                                                                | External Batches Code<br>`+Required when replying`                                                                                   |
+| **id**           | UUID                                               | `=` `!=`                                                                                                                                              | Batch ID<br>`+Required when replying` `+Read only`                                                                                   |
+| **images**       | [Meta](../#kladana-json-api-general-info-metadata) |                                                                                                                                                       | Image of the product to which this batch belongs                                                                                     |
+| **label**        | String(255)                                        | `=` `!=` `~` `~=` `=~`                                                                                                                                | Batch Label<br>`+Required when creating`                                                                                             |
+| **meta**         | [Meta](../#kladana-json-api-general-info-metadata) |                                                                                                                                                       | Batches Metadata<br>`+Required when replying`                                                                                        |
+| **name**         | String(255)                                        | `=` `!=` `~` `~=` `=~`                                                                                                                                | Batch Name. "Collected" and displayed as "Product Name / Batch Label"<br>`+Required when replying` `+Read Only`                      |
+| **updated**      | DateTime                                           | `=` `!=` `<` `>` `<=` `>=`                                                                                                                            | When the entity was last updated<br>`+Required when replying` `+Read-only`                                                           |
 
 #### Nested entity attributes
 ##### Batch Metadata

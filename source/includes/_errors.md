@@ -90,6 +90,7 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_1091">1091</a> | Invalid values ​​{query value} for query parameter {parameter name}                                        | The parameter can only accept values ​​from a limited list. The values ​​passed are not in this list.                                                                                                                                                                                                                                 |
 | <a name="error_1092">1092</a> | Access denied: you do not have permission to hold the {object type} object                                 | The parameter can only accept values ​​from a limited list. The values ​​passed are not in this list.                                                                                                                                                                                                                                 |
 | <a name="error_1093">1093</a> | Missing mandatory header {header name}                                                                     | Mandatory request header not specified.                                                                                                                                                                                                                                                                                               |
+| <a name="error_1095">1095</a> | Take a moment, please. Application is not available now                                                    | The application is currently unable to process requests. Please try again in a minute.                                                                                                                                                                                                                                                |
 | <a name="error_1999">1999</a> | Unknown error                                                                                              | An unexpected error has occurred. Please contact Kladana technical support and provide details about the conditions under which the error occurred.                                                                                                                                                                                   |
 
 ### Format errors
@@ -701,6 +702,7 @@ This section lists the JSON API error codes and their descriptions.
 
 ### Error codes for Series
 
-| Error code                      | Message                                            | Description                                       |
-|---------------------------------|----------------------------------------------------|---------------------------------------------------|
-| <a name="error_71000">71000</a> | Series saving error: assortment cannot be a series | Check the assortment of the series and try again. |
+| Error code                      | Message                                                                        | Description                                       |
+|---------------------------------|--------------------------------------------------------------------------------|---------------------------------------------------|
+| <a name="error_71000">71000</a> | Series saving error: assortment cannot be a series                             | Check the assortment of the series and try again. |
+| <a name="error_71000">71001</a> | Validation error: one of the fields 'label' or 'expiryDate' must be filled in. | Specify a batch label or an expiration date.      |

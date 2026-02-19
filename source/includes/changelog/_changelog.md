@@ -6,6 +6,15 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 09-02-2026
+#### Added
+- Field `expiryDate` in [Attributes of the batch](../dictionaries/#entities-batch-batch-entity-attributes)
+- Error [71001](../#kladana-json-api-errors-error-codes-for-series)
+
+#### Changed
+- Field `label` in [Attributes of the batch](../dictionaries/#entities-batch-batch-entity-attributes)
+- Description of the [Batch](../dictionaries/#entities-batch-batch)
+
 ### 03-02-2026
 #### Added
 - Endpoint for [getting account owner role](../dictionaries/#entities-employee-account-owner-role-request)

@@ -2,6 +2,15 @@
 
 JSON API 1.2 changes will be added here soon
 
+### 09-02-2026
+#### Added
+- Field `expiryDate` in [Attributes of the batch](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-batch-batch-entity-attributes)
+- Error [71001](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-series)
+
+#### Changed
+- Field `label` in [Attributes of the batch](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-batch-batch-entity-attributes)
+- Description of the [Batch](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-batch-batch)
+
 ### 03-02-2026
 #### Added
 - Endpoint for [getting account owner role](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-employee-account-owner-role-request)
