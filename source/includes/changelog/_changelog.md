@@ -6,7 +6,7 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
-### 18-02-2026
+### 25-02-2026
 #### Added
 - The ability to read field `expenseItem` in [Write-off](../documents/#transactions-write-off)
 
