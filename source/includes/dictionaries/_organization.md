@@ -1,6 +1,6 @@
 ## Entity
 Using the JSON API, you can create and update information about legal entities, request lists of legal entities and information on individual legal entities. With the help of a special resource, you can manage the accounts of a separate legal entity. The entity code for a legal entity in the JSON API is the **organization** keyword.
-This entity can be contextually searched using the special `search` parameter. [Learn more](../#kladana-json-api-general-info-context-search).
+This entity can be contextually searched using the special `search` parameter. [Learn more](../#kladana-json-api-general-info-context-search). The search with the search parameter differs from others in that the search is not prefixed and without tokenization. Searches for strings that include the value of the search string.
 
 Search among objects of legal entities to match the search string will be carried out in the following fields:
 

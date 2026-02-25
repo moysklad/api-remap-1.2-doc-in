@@ -3,7 +3,7 @@
 
 Using the JSON API, you can create and update information about Counterparties, request lists of Counterparties and information on individual Counterparties. Accounts of the Counterparty and its contact persons can be managed both as part of a separate Counterparty, and separately - using special resources for managing accounts and contact persons of the Counterparty. The entity code for the Counterparty in the JSON API is the keyword **counterparty**. Learn more about [Counterparties](https://kladana.zendesk.com/hc/en-us/articles/6507246022045-Create-counterparty).
 
-The entity can be contextually searched using the special `search` parameter. [Learn more](../#kladana-json-api-general-info-context-search).
+The entity can be contextually searched using the special `search` parameter. [Learn more](../#kladana-json-api-general-info-context-search). The search with the search parameter differs from others in that the search is not prefixed and without tokenization. Searches for strings that include the value of the search string.
 
 The search among the objects of the Counterparty is carried out according to several conditions. If the values of the counterparty fields satisfy at least one of the conditions, then the counterparty will be found.
 
