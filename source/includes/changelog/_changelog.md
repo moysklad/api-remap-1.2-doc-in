@@ -19,6 +19,18 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 - Field `label` in [Attributes of the batch](../dictionaries/#entities-batch-batch-entity-attributes)
 - Description of the [Batch](../dictionaries/#entities-batch-batch)
 
+### 03-02-2026
+#### Added
+- Endpoint for [getting account owner role](../dictionaries/#entities-employee-account-owner-role-request)
+- Error codes regarding account owner operations: [43031-43036](../#kladana-json-api-errors-error-codes-for-employees)
+- New employee permissions in [general info](../#kladana-json-api-general-info-employee-request-context) and [employee rights](../dictionaries/#entities-employee-work-with-employee-rights)
+
+#### Changed
+- Permissions list in response to [get employee context](../#kladana-json-api-general-info-employee-request-context) and [get employee's rights](../dictionaries/#entities-employee-get-information-about-the-employee-39-s-rights)
+- Permissions list in response to [get user role](../dictionaries/#entities-user-roles-get-user-role) and [get all user roles](../dictionaries/#entities-user-roles-get-all-user-roles)
+- Permissions list in request and response to  [create](../dictionaries/#entities-user-roles-create-user-role) and [edit](../dictionaries/#entities-user-roles-update-user-role) user role
+- List of [existing roles](../dictionaries/#entities-employee-work-with-employee-rights)
+
 ### 15-01-2026
 #### Added
 - Error codes for serial number validation: [3048-3050](..#kladana-json-api-errors-common-validation-errors)
