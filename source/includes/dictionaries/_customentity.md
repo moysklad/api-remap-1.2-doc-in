@@ -9,6 +9,12 @@ within Custom lists and retrieve details about their additional fields.
 <br>
 To work with Custom lists, you need the identifier for each list.
 This identifier is available in the metadata request for the entity, located in the `id` field.
+This entity can be contextually searched using the special `search` parameter. [Learn more](../#kladana-json-api-general-info-context-search).
+
+The search among the objects of products to match the search string will be carried out in the following fields:
+
++ by customentity name (name)
++ by customentity description (description)
 
 #### Entity attributes
 
