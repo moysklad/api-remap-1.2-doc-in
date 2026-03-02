@@ -111,6 +111,7 @@ Creating webhooks is available for all entity and document types, except for the
 
 * `webhook`
 *`discount`
+* `notes` - is a special resource inside documents, read more about the [Event Feed](../#entities-event-feed).
 
 ### Get a list of webhooks
 > Request to get all webhooks on this account.

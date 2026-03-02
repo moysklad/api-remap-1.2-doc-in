@@ -9,7 +9,7 @@ Using the JSON API, you can create and update information about Internal Orders,
 | ------ |---------------------------------------------------| ------- | ------- |
 | **accountId** | UUID                                              | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
 | **applicable** | Boolean                                           | `=` `!=` | Check mark<br>`+Required when replying` |
-| **attributes** | Array(Object)                                     | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)<br>`+Read only` |
+| **attributes** | Array(Object)                                     | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)<br> |
 | **code** | String(255)                                       | `=` `!=` `~` `~=` `=~` | Internal order code |
 | **created** | DateTime                                          | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only` |
 | **deleted** | DateTime                                          | `=` `!=` `<` `>` `<=` `>=` | The moment when the Internal Order was last deleted<br>`+Read Only` |

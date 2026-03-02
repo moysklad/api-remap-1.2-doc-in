@@ -1,6 +1,6 @@
 ## Autocomplete
 
-Using the JSON API, you can calculate the value of discounts, prices, and taxes for the items in the following transactions:
+The code for the Autocomplete endpoint in the JSON API is the `wizard` keyword. The endpoint can be used to calculate the value of discounts, prices, and VAT for items in the following documents:
 
 - [Stock Adjustment](../documents/#transactions-stock-adjustment)
 - [Sales Order](../documents/#transactions-sales-order)

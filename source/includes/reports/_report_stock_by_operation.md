@@ -45,7 +45,7 @@ The result of the query is the stock of items in the transaction, on the date of
 
 #### Request examples
 
-> Request to receive the current stock without detalization by warehouse.
+> Request to receive the current document balances.
 
 ```shell
 curl --compressed -X GET \
