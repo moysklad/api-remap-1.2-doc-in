@@ -1,33 +1,58 @@
 ## Limitations
 
-The following limitations apply to the JSON API:
+### Limitations
 
-- No more than 45 requests per 3-second period per account.
-- No more than 5 parallel requests from a single user.
-- No more than 20 parallel requests per account.
-- The request header (including URL, User-Agent, Authorization, etc.) must not exceed 8 KB.
-- The data sent in a single request must not exceed 20 MB.
-- No more than 4 asynchronous tasks can be queued per account.
-- Content compression for responses is mandatory.
+Access to the JSON API is granted via:
+
++ user login and password (Basic Auth)
++ user token (Bearer token)
++ solution token (Bearer token)
+
+Limits on the number of requests per 3-second period depend on the authentication method used (more details in this section)
+
+There are also a number of restrictions that are independent of the authentication method:
+- no more than 5 parallel requests from a single user or solution
+- no more than 20 parallel requests per account
+- the request header (including URL, User-Agent, Authorization, etc.) must not exceed 8 KB.
+- the data sent in a single request must not exceed 20 MB
+- no more than 4 asynchronous tasks can be queued per account.
+- content compression for responses is mandatory. 
+
+### Request limit per 3-second period
+
+Starting March 20, 2026, the request limit will no longer be applied to the entire account and will be calculated separately
+for each user and each solution. This means that multiple users or solutions in the same account no longer compete for the same limit.
+
+Actual limit consumption depends on the request weight — the number of limit units deducted per HTTP request.
+The higher the request weight, the faster the limit is depleted.
+
+The formula `the weight of one request is 5 units and
+is independent of the authentication method` applies to the endpoints:
+
+- `GET /api/remap/1.2/report/stock/all`
+- `GET /api/remap/1.2/report/stock/bystore`
+
+For all other endpoints:
+
+- When authenticating with a public or private solution token, the request weight remains standard and the limit is 45 requests per 3 seconds.
+- When authenticating with a solution token in the `Draft` or `Under Moderation` status from **April 13, 2026**, the weight of one request will be 4 units → **11 requests per 3 seconds** (rounded down to the nearest whole number).
+- For integrations that use a username and password or a user token, the weight of one request will increase in stages:
+- From **May 12, 2026**: 1 request = 2 units → **22 requests in 3 seconds**
+- From **September 1, 2026**: 1 request = 3 units → **15 requests in 3 seconds**
+- From **December 1, 2026**: 1 request = 4 units → **11 requests in 3 seconds**
+
+**Example of request weight calculation:**
+
+If you use a username/password or a user token for authorization, then 2, 3, or 4 requests will be debited from the "bucket" of 45 requests allocated every 3 seconds, rather than 1 (see the schedule of changes above).
+For example, on May 21, 2026, integration using the user's login and password made 7 requests within a three-second period—7 * 2 = 14 requests were debited from the cart.
+
+### Data Size Limits
 
 Additionally, there's a limit on the maximum number of objects (positions, materials, products) that can be sent in a single array within a request — no more than 1,000 items. If the limit is exceeded, 413 Status Error occurs. 
 
 To add more items, you need to work with a specialized resource, which is described in the documentation for the specific entity.
 
-Kladana automatically disables:
-
-- API access for a user if they make more than 200 identical requests per minute that result in an error within the last hour.
-- API access for a user if they make more than 200 requests per minute that result in an Error 429 within the last hour.
-- API access for a user if they make more than 100 PUT requests to the same entity per minute within the last hour.
-- Webhooks if the service receiving them has responded with error codes or been unavailable for more than seven out of the last ten days, and has not successfully processed any webhooks in the last ten days.
-
-Notifications about webhook or API access deactivation are sent to the email of the employee specified as the account owner.
-
-If your API or webhooks are disabled:
-
-- Resolve the issue.
-- Contact Kladana technical support to restore API access.
-- Reactivate webhooks yourself (no technical support contact required).
+### Tariff Restrictions
 
 JSON API has price restrictions. The user has access to the functionality in accordance with the current subscription plan.
 
