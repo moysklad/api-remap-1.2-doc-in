@@ -8,15 +8,16 @@ Access to the JSON API is granted via:
 + user token (Bearer token)
 + solution token (Bearer token)
 
-Limits on the number of requests per 3-second period depend on the authentication method used (more details in this section)
+Limits on the number of requests per 3-second period depend on the authentication method used ([more details in this section](#kladana-json-api-limitations-request-limit-per-3-second-period))
 
 There are also a number of restrictions that are independent of the authentication method:
+
 - no more than 5 parallel requests from a single user or solution
 - no more than 20 parallel requests per account
 - the request header (including URL, User-Agent, Authorization, etc.) must not exceed 8 KB.
 - the data sent in a single request must not exceed 20 MB
-- no more than 4 asynchronous tasks can be queued per account.
-- content compression for responses is mandatory. 
+- no more than 4 [asynchronous tasks](#kladana-json-api-asynchronous-exchange) can be queued per account.
+- content [compression for responses](#kladana-json-api-general-info-response-content-compression) is mandatory. 
 
 ### Request limit per 3-second period
 
