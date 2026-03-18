@@ -2,29 +2,29 @@
 
 ### Limitations
 
-Access to the JSON API is granted via:
+Access to the JSON API is provided via:
 
 - a username and password (Basic Auth)
 - a user token (Bearer token)
 - an application token (Bearer token)
 
-Request limits per 3 seconds depend on the authentication method used ([more details in this section](#kladana-json-api-limitations-request-limit-per-3-second-period)).
+The rate limit per 3-second window depends on the authentication method used ([more details in this section](#kladana-json-api-limitations-request-limit-per-3-second-period)).
 
 There are also restrictions that are independent of the authentication method:
 
-- no more than 5 parallel requests per user or application
-- no more than 20 parallel requests per account
-- the request header (including URL, User-Agent, Authorization, etc.) must not exceed 8 KB
-- the data sent in a single request must not exceed 20 MB
-- no more than 4 [asynchronous tasks](#kladana-json-api-asynchronous-exchange) can be queued per account
-- content [compression for responses](#kladana-json-api-general-info-response-content-compression) is mandatory
+- No more than 5 parallel requests per user or application.
+- No more than 20 parallel requests per account.
+- The request header (including URL, User-Agent, Authorization, etc.) must not exceed 8 KB.
+- The data sent in a single request must not exceed 20 MB.
+- No more than 4 [asynchronous tasks](#kladana-json-api-asynchronous-exchange) can be queued per account.
+- Content [compression for responses](#kladana-json-api-general-info-response-content-compression) is mandatory.
 
 ### Request limit per 3 seconds
 
-As March 20, 2026, the request limit will no longer apply to the entire account and will be calculated separately 
-for each user and each application. This means multiple users or applications within the same account will no longer compete for the same limit.
+As of March 20, 2026, the rate limit will no longer apply to the entire account and will be calculated separately 
+for each user and each application. This means multiple users or applications within the same account will no longer share the same limit.
 
-Actual limit consumption depends on the request weight — the number of limit units deducted per HTTP request. 
+Actual limit usage depends on request weight — the number of units deducted per HTTP request.
 The higher the request weight, the faster the limit is depleted.
 
 A request weight of 5 units (regardless of the authentication method) applies to the following endpoints:
@@ -43,8 +43,8 @@ For all other endpoints:
 
 **Example of request weight calculation**
 
-If you use a username/password or a user token for authorization, then 2, 3, or 4 requests will be deducted from the "bucket" of 45 requests allocated every 3 seconds, rather than 1 (see the schedule above).
-For example, on May 21, 2026, an integration using the username and password made 7 requests within a three-second period—7 × 2 = 14 requests were deducted from the "bucket".
+If you use a username/password or a user token for authorization, then 2, 3, or 4 units (instead of 1) will be deducted per request from the 45-request rate-limit "bucket" that is replenished every 3 seconds (see the schedule above).
+For example, on May 21, 2026, an integration using a username and password made 7 requests within a 3-second period — 7 × 2 = 14 units were deducted from the "bucket".
 
 ### Data size limits
 
