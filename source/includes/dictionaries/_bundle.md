@@ -52,31 +52,31 @@ Using the JSON API, you can create and update information about Bundles, request
 
 The values of the trackingType field.
 
-| Value | Description |
-| ----- | ----------- |
-| **BEER_ALCOHOL** | Beer and low-alcohol beverages |
-| **BICYCLE**  | Bicycles |
-| **ELECTRONICS** | Cameras and flash lamps |
-| **FOOD_SUPPLEMENT** | Biologically active food supplements |
-| **LP_CLOTHES** | Label type "Clothing" |
-| **LP_LINENS** | Label type "Bed linen" |
+| Value | Description                     |
+| ----- |---------------------------------|
+| **BEER_ALCOHOL** | Beer and low-alcohol beverages  |
+| **BICYCLE**  | Bicycles                        |
+| **ELECTRONICS** | Cameras and flash lamps         |
+| **FOOD_SUPPLEMENT** | Food Supplement                 |
+| **LP_CLOTHES** | Clothing                        |
+| **LP_LINENS** | Bed linen                       |
 | **MEDICAL_DEVICES** | Medical devices and wheelchairs |
-| **MILK** | Dairy products |
-| **NABEER** | Non-alcoholic beer  |
-| **NCP** | Nicotine-containing products |
-| **NOT_TRACKED** | No label |
-| **OTP** | Alternative tobacco products |
-| **PERFUMERY** | Perfumes and eau de toilette |
-| **PET_FOOD** | Pet food |
-| **SANITIZER** | Antiseptics |
-| **SEAFOOD** | Caviar and seafood  |
-| **SHOES** | Label type "Shoes" |
-| **SOFT_DRINKS** | Soft drinks |
-| **TIRES** | Tires |
-| **TOBACCO** | Label type "Tobacco" |
-| **VEGETABLE_OIL** | Vegetable oils |
-| **VETPHARMA** | Veterinary medicines |
-| **WATER** | Packaged water |
+| **MILK** | Dairy products                  |
+| **NABEER** | Non-alcoholic beer              |
+| **NCP** | Nicotine-containing products    |
+| **NOT_TRACKED** | Advanced tracking is not used    |
+| **OTP** | Alternative tobacco products    |
+| **PERFUMERY** | Perfumes and eau de toilette    |
+| **PET_FOOD** | Pet food                        |
+| **SANITIZER** | Antiseptics                     |
+| **SEAFOOD** | Caviar and seafood              |
+| **SHOES** | Shoes                           |
+| **SOFT_DRINKS** | Soft drinks                     |
+| **TIRES** | Tires                           |
+| **TOBACCO** | Tobacco                         |
+| **VEGETABLE_OIL** | Vegetable oils                  |
+| **VETPHARMA** | Veterinary medicines            |
+| **WATER** | Packaged water                  |
 
 ##### Indicator of the calculation item
 

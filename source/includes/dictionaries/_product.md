@@ -71,25 +71,25 @@ by updating the **productFolder** attribute.
 
 The values of the trackingType field.
 
-| Value               | Description                          |
-|---------------------|--------------------------------------|
-| **BEER_ALCOHOL**    | Beer and low-alcohol beverages       |
-| **ELECTRONICS**     | Cameras and flash lamps              |
-| **FOOD_SUPPLEMENT** | Biologically active food supplements |
-| **LP_CLOTHES**      | Label type "Clothing"                |
-| **LP_LINENS**       | Label type "Bed linen"               |
-| **MEDICAL_DEVICES** | Medical devices and wheelchairs      |
-| **MILK**            | Dairy products                       |
-| **NCP**             | Nicotine-containing products         |
-| **NOT_TRACKED**     | No label                             |
-| **OTP**             | Alternative tobacco products         |
-| **PERFUMERY**       | Perfumes and eau de toilette         |
-| **SANITIZER**       | Antiseptics                          |
-| **SHOES**           | Label type "Shoes"                   |
-| **SOFT_DRINKS**     | Soft drinks                          |
-| **TIRES**           | Tires and tires                      |
-| **TOBACCO**         | Label type "Tobacco"                 |
-| **WATER**           | Packaged water                       |
+| Value               | Description                     |
+|---------------------|---------------------------------|
+| **BEER_ALCOHOL**    | Beer and low-alcohol beverages  |
+| **ELECTRONICS**     | Cameras and flash lamps         |
+| **FOOD_SUPPLEMENT** | Food Supplement                 |
+| **LP_CLOTHES**      | Clothing                        |
+| **LP_LINENS**       | Bed linen                       |
+| **MEDICAL_DEVICES** | Medical devices and wheelchairs |
+| **MILK**            | Dairy products                  |
+| **NCP**             | Nicotine-containing products    |
+| **NOT_TRACKED**     | Advanced tracking is not used   |
+| **OTP**             | Alternative tobacco products    |
+| **PERFUMERY**       | Perfumes and eau de toilette    |
+| **SANITIZER**       | Antiseptics                     |
+| **SHOES**           | Shoes                           |
+| **SOFT_DRINKS**     | Soft drinks                     |
+| **TIRES**           | Tires and tires                 |
+| **TOBACCO**         | Tobacco                         |
+| **WATER**           | Packaged water                  |
 
 ##### Sign of the subject of calculation
 
