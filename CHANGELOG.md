@@ -2,6 +2,10 @@
 
 JSON API 1.2 changes will be added here soon
 
+### 31-03-2026
+#### Added
+- link to Production Order in [Shipment](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-shipment)
+
 ### 25-02-2026
 #### Added
 - The ability to read field `expenseItem` in [Write-off](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-write-off)
