@@ -4,115 +4,104 @@
 
 ### Assortment
 
-The 'assortment' entity is the list of all products, services, bundles, batches, and product variants with the fields: `stock`, `reserve`, `inTransit`, `quantity`. The fields show the number of items reserved, awaiting, available, in stock, and in transit. The fields are not available for bundles and services. The data in the fields can be calculated depending on the date and stock using the `stockMoment` and `stockStore` filtering options.
+The `assortment` entity is the list of all products, services, bundles, product variants, and batches.
+
+The new assortment endpoint is a lightweight version that performs faster by not calculating stock levels within a single request.
+
+To use it, pass the special header:
+
+`X-Lognex-Remap-Beta-Feature: assortmentWithoutStock`
+
+If the header is not provided, the request is handled by the [legacy assortment endpoint](../dictionaries/#entities-assortment-deprecated), which is planned for removal.
+
+#### Differences from the legacy endpoint
+
+##### Stock fields
+
+The fields `stock`, `reserve`, `inTransit`, `quantity` are **not returned** in the response.
+
+To retrieve stock levels, use the [Brief Stock Report](../reports/#reports-stock-report-brief-stock-report):
+
+- `GET /report/stock/all/current` — stock by products
+- `GET /report/stock/bystore/current` — stock broken down by warehouse
+
+You can match data using `meta.href` from the assortment response and the `meta` field from the stock report.
+
+##### Unavailable filters
+
+`stockMode`, `quantityMode`, `stockMoment`, `stockStore`, `minimumBalance`, `salePrice`, `article`, `alcoholic.type`, `isSerialTrackable`, `owner`, `updatedBy`, `weighed`.
+
+##### Changes in filter behavior
+
+- **`barcode`** — the `!=` operator is not supported. Available operators: `=`, `~`, `~=`, `=~`.
+- **LIKE operator combinations** — incompatible combinations for the same field (e.g., `code~val1;code~val2`).
+
+##### Expand limitations
+
+Only the following first-level expands are supported: `product`, `images`, `components`.
+
+##### Unavailable sort fields
+
+`stock`, `minimumBalance`, `reserve`, `intransit`, `quantity`, `salePrice`.
 
 #### Attributes available for filtering
 
-The query results can be filtered using the 'filter' parameter.
+The query results can be filtered using the `filter` parameter.
 
 | Title | Description |
 | --------- | ------- |
-| **alcoholic.type** | parameter for filtering by the code of the type of alcoholic product. You can use the `=` and `!=` operators. The value of the parameter is an integer. You can pass an empty value, then the selection will include products with a filled or empty value of the product type code. |
 | **archived** | parameter for filtering on the basis of archived goods. Possible values: true, false. To display both regular and archived products, you need to pass two values at once, true and false. By default, only regular products are included in the search results. |
-| **article** | parameter for filtering by article numbers of products and bundles. You can use the `=`, `!=`, `~`, `~=`, `=~` operators. You can pass multiple values. You can specify an empty value. |
-| **barcode** | parameter for filtering by entity barcodes. A valid operator is `=`. You can pass multiple values. You can specify an empty value. |
+| **barcode** | parameter for filtering by entity barcodes. Allowed operators: `=`, `~`, `~=`, `=~`. The `!=` operator is not supported. You can pass multiple values. You can specify an empty value. |
 | **code** | parameter for filtering by entity codes. You can use the `=`, `!=`, `~`, `~=`, `=~` operators. You can pass multiple values. You can specify an empty value. |
 | **description** | parameter for filtering by entity descriptions. You can use the `=`, `!=`, `~`, `~=`, `=~` operators. You can pass multiple values. You can specify an empty value. |
 | **externalCode** | parameter for filtering by external entity codes. You can use the `=`, `!=`, `~`, `~=`, `=~` operators. You can pass multiple values. You can specify an empty value. |
 | **group** | parameter to filter by owner-department. You can use the `=` and `!=` operators. The value of the parameter is a link to the department. You can pass multiple values. |
 | **id** | parameter for filtering by entity IDs. You can use the `=` and `!=` operators. You can pass multiple values. |
-| **isSerialTrackable** | parameter to filter by using serial numbers |
 | **name** | parameter for filtering by entity names. You can use the `=`, `!=`, `~`, `~=`, `=~` operators. You can pass multiple values. |
-| **owner** | parameter to filter by owner-employee. You can use the `=` and `!=` operators. The value of the parameter is a link to the employee. You can pass multiple values. You can specify an empty value. |
-| **pathname** | parameter for filtering by the name of product groups. You can use the `=`, `!=`, `~`, `~=`, `=~` operators. You can pass multiple values. You can specify an empty value. |
-| **productFolder** | parameter for filtering by several product groups. You can use the `=` and `!=` operators. The value of the parameter is a link to a product group that shouldbe included in or excluded from the sample. You can pass multiple values. The selection will include products that are (or are not) directly in the specified groups. |
-| **quantityMode** | option to filter by value is available. The default value is all. [Available values](../dictionaries/#entities-assortment-assortment-attributes-available-for-filtering-available-values-for-quantitymode) |
-| **search** | prefix search in string fields displayed in assortment. For this parameter, you need to use the `=` operator. Barcode search is performed by full match. Only one value can be passed.[Learn more](../dictionaries/#entities-assortment-assortment-attributes-available-for-filtering-available-values-for-search) |
-| **shared** | parameter for filtering based on shared access. Possible values: true, false. |
-| **stockMode** | parameter for filtering by the remainder value. The default value is all. [Available values](../dictionaries/#entities-assortment-assortment-attributes-available-for-filtering-available-values-for-stockmode) |
-| **stockMoment** | point in time when you want to withdraw the stock. Passed as a string in [date-time format](../#kladana-json-api-general-info-date-and-time-format) |
-| **stockStore** | parameter for filtering by multiple warehouses. You can use the `=` and `!=` operators. The value of the parameter is a reference to the warehouse that should be taken into account in the selection or excluded from it. You can pass multiple values. |
-| **supplier** | option to filter by multiple vendors. You can use the `=` and `!=` operators. The value of the parameter is a link to the counterparty or organization. The selection will include or exclude products from the specified suppliers. You can pass an empty value, then the selection will include products with an empty or filled supplier. |
-| **type** | parameter for filtering by entity type (product, service, bundle, product variant). It is used with the `=` operator. You can pass multiple values. To filter by consignment type, you need to use grouping (groupBy=consignment). |
-| **updated** | parameter for filtering by the time of the last update of entities. You can use the `=`, `<`, `<=`, `>`, `>=` operators. The action of strict operators is synonymous with non-strict ones. Passed as a string in [date-time format](../#kladana-json-api-general-info-date-and-time-format). |
-| **updatedBy** | parameter to filter by the author of the last update. You can use the `=` and `!=` operators. The parameter value is `uid` (`admin@admin`). You can pass multiple values. |
-| **weighed** | parameter for filtering by weight item. Possible values: true, false. |
-| **withSubFolders** | parameter for considering nested subgroups. It works only if a non-empty filter by `productFolder` is applied. By default, it is set to `true`, and products from the child subgroups of the filtered groups are displayed. If `false` is passed, only products from the filtered groups are displayed, without considering subgroups.|
-| **additional field(url)** | the filtering parameter is the url of the additional field. The filtering operator depends on the type of additional field. [Learn more](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields-available-operators-for-filtering-additional-fields). |
+| **pathName** | parameter for filtering by the name of product groups. You can use the `=`, `!=`, `~`, `~=`, `=~` operators. You can pass multiple values. You can specify an empty value. |
+| **productFolder** | parameter for filtering by several product groups. You can use the `=` and `!=` operators. The value of the parameter is a link to a product group that should be included in or excluded from the sample. You can pass multiple values. The selection will include products that are (or are not) directly in the specified groups. |
+| **search** | prefix search in string fields displayed in assortment. For this parameter, you need to use the `=` operator. Barcode search is performed by full match. Only one value can be passed. [Learn more](../dictionaries/#entities-assortment-assortment-attributes-available-for-filtering-available-values-for-search) |
+| **supplier** | option to filter by multiple vendors. You can use the `=` and `!=` operators. The value of the parameter is a link to the counterparty or organization. You can pass an empty value. |
+| **type** | parameter for filtering by entity type (product, service, bundle, variant, consignment). It is used with the `=` operator. You can pass multiple values. To filter by consignment type, you need to use grouping (groupBy=consignment). |
+| **updated** | parameter for filtering by the time of the last update of entities. You can use the `=`, `<`, `<=`, `>`, `>=` operators. Passed as a string in [date-time format](../#kladana-json-api-general-info-date-and-time-format). |
+| **withSubFolders** | parameter for considering nested subgroups. It works only if a non-empty filter by `productFolder` is applied. By default `true`. If `false` is passed, only products from the filtered group are displayed, without considering subgroups. |
+| **additional field(url)** | the filtering parameter is the url of the additional field. [Learn more](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields-available-operators-for-filtering-additional-fields). |
 
-Filtering by additional fields is also available. [Learn more](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) details about filtering by additional fields.
-
-##### Available values for stockMode
-The default value is all.
-
-| Meaning | Description |
-| --------|---------|
-| **all** | Any value of the remainder |
-| **positiveOnly** | Positive stock |
-| **negativeOnly** | Negative stock |
-| **empty** | Zero stock |
-| **nonEmpty** | Non-zero remainder |
-| **underMinimum** | The stock is below the minimum |
-
-##### Available values for quantityMode
-The default value is all.
-
-| Meaning | Description |
-| --------| ------------|
-| **all** | Any value of the remainder |
-| **positiveOnly** | Positive balance |
-| **negativeOnly** | Negative balance |
-| **empty** | Zero balance |
-| **nonEmpty** | Non-zero remainder |
-| **underMinimum** | Balance below minimum balance |
-  
 ##### Available values for search
 For this parameter, you need to use the `=` operator. Barcode search is performed by full match. Only one value can be passed.
 
-    + by the name of the Assortment item **name**
-    + by product variant name **name**
-    + by code **code**
-    + by product variant code **code**
-    + by article **article**
-    + by barcode **barcode**
-    + by product variant barcode **barcode**
-    + by barcode of product packages **barcode**
-    + by the barcode of product variant packages **barcode**
- 
-
-When using filters **alcoholic.type**, **weighed** and filters **stockMode**, **quantityMode** with values other than all, services and bundles are not included in the search results.
+   + by the name of the Assortment item **name**
+   + by product variant name **name**
+   + by code **code**
+   + by product variant code **code**
+   + by barcode **barcode**
+   + by product variant barcode **barcode**
+   + by barcode of product packages **barcode**
+   + by the barcode of product variant packages **barcode**
 
 ##### Filtering additional fields
 
-The functionality is described in more detail in the section [Filtering by additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields). 
+The functionality is described in more detail in the section [Filtering by additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields).
 
 Filtering examples:
 
-- `filter=stockStore=https://api.kladana.com/api/remap/1.2/entity/store/656c4032-8667-11e6-8a84-bae500003321`
 - `filter=id=677c4032-8667-11e6-8a84-bae500003344`
-- `filter=name~див`
+- `filter=name~product`
 - `filter=code~0002`
 - `filter=externalCode~xdls`
-- `filter=article~3456`
-- `filter=description~див`
-- `filter=shared=false`
+- `filter=description~product`
 - `filter=updated>=2019-07-10 12:00:00;updated<=2019-07-12 12:00:00`
-- `filter=updatedBy=admin@company`
-- `filter=owner=https://api.kladana.com/api/remap/1.2/entity/employee/a88d0702-85c7-11e9-ac12-000d00000321`
 - `filter=group=https://api.kladana.com/api/remap/1.2/entity/group/a99d0702-85c7-11e9-ac12-000d00000551`
-- `filter=alcoholic.type=123`
 - `filter=productFolder=https://api.kladana.com/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1`
-- `filter=stockMode=all`
-- `filter=quantityMode=all`
-- `filter=stockMode=all;quantityMode=all`
-- `filter=stockMoment=2019-07-10 12:00:00`
-- `filter=weighed=true`
+- `filter=productFolder=https://api.kladana.com/api/remap/1.2/entity/productfolder/c56d0702-85c7-11e9-ac12-000d000000b1;withSubFolders=false`
 - `filter=archived=true`
 - `filter=archived=false;archived=true`
 - `filter=supplier=https://api.kladana.com/api/remap/1.2/entity/counterparty/656c4032-8667-11e6-8a84-bae5000033aa`
-- `filter=search=див`
+- `filter=barcode=2000000000015`
+- `filter=search=product`
 - `filter=https://api.kladana.com/api/remap/1.2/entity/product/metadata/attributes/b83c12e7-42bf-11ec-0a80-08bb00000161=color`
 - `filter=https://api.kladana.com/api/remap/1.2/entity/product/metadata/attributes/83386e05-51c0-11ec-0a83-0640000001bb>=2021-11-30 12:39:00`
+
 
 
 **Parameters**
@@ -162,7 +151,8 @@ The directory settings allow the user to change the code uniqueness checking, se
 curl --compressed -X GET \
    "https://api.kladana.com/api/remap/1.2/entity/assortment" \
    -H "Authorization: Basic <Credentials>" \
-   -H "Accept-Encoding: gzip"
+   -H "Accept-Encoding: gzip" \
+   -H "X-Lognex-Remap-Beta-Feature: assortmentWithoutStock"
 ```
 
 > Response 200(application/json). Successful request. The result is a JSON representation of a list of all products, services, product variants and batches.
@@ -306,17 +296,7 @@ curl --compressed -X GET \
         }
       ],
       "variantsCount": 0,
-      "isSerialTrackable": false,
-      "stock": 0,
-      "reserve": 0,
-      "inTransit": 0,
-      "quantity": 0
-    },
-    {
-      "stock": 0,
-      "reserve": 0,
-      "inTransit": 0,
-      "quantity": 0
+      "isSerialTrackable": false
     },
     {
       "meta": {
@@ -626,11 +606,7 @@ curl --compressed -X GET \
         }
       ],
       "variantsCount": 2,
-      "isSerialTrackable": false,
-      "stock": 0,
-      "reserve": 0,
-      "inTransit": 0,
-      "quantity": 0
+      "isSerialTrackable": false
     },
     {
       "meta": {
@@ -693,11 +669,7 @@ curl --compressed -X GET \
           "type": "product",
           "mediaType": "application/json"
         }
-      },
-      "stock": 0,
-      "reserve": 0,
-      "inTransit": 0,
-      "quantity": 0
+      }
     },
     {
       "meta": {
@@ -760,11 +732,7 @@ curl --compressed -X GET \
           "type": "product",
           "mediaType": "application/json"
         }
-      },
-      "stock": 0,
-      "reserve": 0,
-      "inTransit": 0,
-      "quantity": 0
+      }
     }
   ]
 }
@@ -778,7 +746,8 @@ curl --compressed -X GET \
 curl --compressed -X GET \
   "https://api.kladana.com/api/remap/1.2/entity/assortment?groupBy=consignment" \
   -H "Authorization: Basic <Credentials>" \
-  -H "Accept-Encoding: gzip"
+  -H "Accept-Encoding: gzip" \
+  -H "X-Lognex-Remap-Beta-Feature: assortmentWithoutStock"
 ```
 
 > Response 200 (application/json). Successful request. Result is JSON representation of the list of all products, services, bundles, product variants and batches.
@@ -927,11 +896,7 @@ curl --compressed -X GET \
           "limit": 1000,
           "offset": 0
         }
-      },
-      "stock": 0.0,
-      "reserve": 0.0,
-      "inTransit": 0.0,
-      "quantity": 0.0
+      }
     },
     {
       "meta": {
@@ -971,11 +936,7 @@ curl --compressed -X GET \
           "mediaType": "application/json",
           "uuidHref": "https://app.kladana.com/app/#good/edit?id=ba3a833f-3d33-11ef-ac15-0010000000ed"
         }
-      },
-      "stock": 0.0,
-      "reserve": 0.0,
-      "inTransit": 0.0,
-      "quantity": 0.0
+      }
     },
     {
       "meta": {
@@ -1052,11 +1013,7 @@ curl --compressed -X GET \
           "mediaType": "application/json",
           "uuidHref": "https://app.kladana.com/app/#good/edit?id=ba3a833f-3d33-11ef-ac15-0010000000ed"
         }
-      },
-      "stock": 0.0,
-      "reserve": 0.0,
-      "inTransit": 0.0,
-      "quantity": 0.0
+      }
     },
     {
       "meta": {
@@ -1133,11 +1090,7 @@ curl --compressed -X GET \
           "mediaType": "application/json",
           "uuidHref": "https://app.kladana.com/app/#good/edit?id=ba3a833f-3d33-11ef-ac15-0010000000ed"
         }
-      },
-      "stock": 0.0,
-      "reserve": 0.0,
-      "inTransit": 0.0,
-      "quantity": 0.0
+      }
     },
     {
       "meta": {

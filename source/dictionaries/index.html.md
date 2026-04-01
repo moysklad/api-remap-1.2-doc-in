@@ -10,6 +10,7 @@ toc_footers:
 
 includes:
   - dictionaries/assortment
+  - dictionaries/assortment_legacy
   - dictionaries/processingplan
   - dictionaries/processingplanfolder
   - dictionaries/bonus_operation

@@ -6,6 +6,13 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 31-03-2026
+#### Added
+- New [Assortment](../dictionaries/#entities-assortment) endpoint — a lightweight version without stock calculation
+
+#### Changed
+- The [Assortment](../dictionaries/#entities-assortment-deprecated) endpoint is marked as planned for removal
+
 ### 25-02-2026
 #### Added
 - The ability to read field `expenseItem` in [Write-off](../documents/#transactions-write-off)
