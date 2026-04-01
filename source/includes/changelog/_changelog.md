@@ -11,7 +11,7 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 - New [Assortment](../dictionaries/#entities-assortment) endpoint — a lightweight version without stock calculation
 
 #### Changed
-- The [Assortment](../dictionaries/#entities-assortment-deprecated) endpoint is marked as planned for removal
+- The [Assortment](../dictionaries/#entities-assortment-deprecated) endpoint will be gradually deprecated in 2027
 
 ### 25-02-2026
 #### Added

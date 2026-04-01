@@ -22,14 +22,102 @@ The fields `stock`, `reserve`, `inTransit`, `quantity` are **not returned** in t
 
 To retrieve stock levels, use the [Brief Stock Report](../reports/#reports-stock-report-brief-stock-report):
 
-- `GET /report/stock/all/current` — stock by products
-- `GET /report/stock/bystore/current` — stock broken down by warehouse
+You can match data using the `id` field from the assortment response and the `assortmentId` field from the stock report.
 
-You can match data using `meta.href` from the assortment response and the `meta` field from the stock report.
+**Example: getting assortment with stock levels**
+
+> Get the assortment:
+
+```shell
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/entity/assortment" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H "X-Lognex-Remap-Beta-Feature: assortmentWithoutStock"
+```
+
+> From the response, take the `id` of the required items:
+
+```json
+{
+  "rows": [
+    { "id": "35427052-36e7-11e7-8a7f-40d0000000d7", "name": "Product A" },
+    { "id": "437f2d67-36e7-11e7-8a7f-40d0000000df", "name": "Product B" }
+  ]
+}
+```
+
+> Request all stock types:
+
+```shell
+# stock
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/report/stock/all/current?stockType=stock&filter=assortmentId=35427052-36e7-11e7-8a7f-40d0000000d7,437f2d67-36e7-11e7-8a7f-40d0000000df" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip"
+
+# reserve
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/report/stock/all/current?stockType=reserve&filter=assortmentId=35427052-36e7-11e7-8a7f-40d0000000d7,437f2d67-36e7-11e7-8a7f-40d0000000df" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip"
+
+# inTransit
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/report/stock/all/current?stockType=inTransit&filter=assortmentId=35427052-36e7-11e7-8a7f-40d0000000d7,437f2d67-36e7-11e7-8a7f-40d0000000df" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip"
+
+# quantity
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/report/stock/all/current?stockType=quantity&filter=assortmentId=35427052-36e7-11e7-8a7f-40d0000000d7,437f2d67-36e7-11e7-8a7f-40d0000000df" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip"
+```
+
+> Response 200 (application/json). Successful request. `stockType=stock`
+
+```json
+[{ "assortmentId": "35427052-36e7-11e7-8a7f-40d0000000d7", "stock": 15 },
+ { "assortmentId": "437f2d67-36e7-11e7-8a7f-40d0000000df", "stock": 3 }]
+```
+
+> Response 200 (application/json). Successful request. `stockType=reserve`
+
+```json
+[{ "assortmentId": "35427052-36e7-11e7-8a7f-40d0000000d7", "reserve": 2 },
+ { "assortmentId": "437f2d67-36e7-11e7-8a7f-40d0000000df", "reserve": 0 }]
+```
+
+> Response 200 (application/json). Successful request. `stockType=inTransit`
+
+```json
+[{ "assortmentId": "35427052-36e7-11e7-8a7f-40d0000000d7", "inTransit": 5 },
+ { "assortmentId": "437f2d67-36e7-11e7-8a7f-40d0000000df", "inTransit": 1 }]
+```
+
+> Response 200 (application/json). Successful request. `stockType=quantity`
+
+```json
+[{ "assortmentId": "35427052-36e7-11e7-8a7f-40d0000000d7", "quantity": 18 },
+ { "assortmentId": "437f2d67-36e7-11e7-8a7f-40d0000000df", "quantity": 4 }]
+```
 
 ##### Unavailable filters
 
-`stockMode`, `quantityMode`, `stockMoment`, `stockStore`, `minimumBalance`, `salePrice`, `article`, `alcoholic.type`, `isSerialTrackable`, `owner`, `updatedBy`, `weighed`.
+- `alcoholic.type`
+- `article`
+- `isSerialTrackable`
+- `minimumBalance`
+- `owner`
+- `quantityMode`
+- `salePrice`
+- `shared`
+- `stockMode`
+- `stockMoment`
+- `stockStore`
+- `updatedBy`
+- `weighed`
 
 ##### Changes in filter behavior
 
@@ -42,7 +130,12 @@ Only the following first-level expands are supported: `product`, `images`, `comp
 
 ##### Unavailable sort fields
 
-`stock`, `minimumBalance`, `reserve`, `intransit`, `quantity`, `salePrice`.
+- `inTransit`
+- `minimumBalance`
+- `quantity`
+- `reserve`
+- `salePrice`
+- `stock`
 
 #### Attributes available for filtering
 

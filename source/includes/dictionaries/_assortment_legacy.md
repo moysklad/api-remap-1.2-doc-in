@@ -2,7 +2,7 @@
 
 The `assortment` entity is the list of all products, services, bundles, product variants, and batches with the fields `stock`, `reserve`, `inTransit`, `quantity`, showing the stock, reserve, awaiting, and available quantity for each entity (these fields are not returned for bundles and services). The data in these fields can be calculated depending on the date and warehouse using the `stockMoment` and `stockStore` filter parameters.
 
- **Note**: This endpoint is planned for removal in future API versions. We recommend migrating to the [new assortment endpoint](../dictionaries/#entities-assortment), which performs faster and is actively developed.
+**Note**: This endpoint will be gradually deprecated in 2027. We recommend migrating to the [new assortment endpoint](../dictionaries/#entities-assortment), which performs faster and is actively developed.
 
 #### Attributes available for filtering
 
