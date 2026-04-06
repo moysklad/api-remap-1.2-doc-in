@@ -122,7 +122,7 @@ curl --compressed -X GET \
 ##### Changes in filter behavior
 
 - **`barcode`** — the `!=` operator is not supported. Available operators: `=`, `~`, `~=`, `=~`.
-- **LIKE operator combinations** — incompatible combinations for the same field (e.g., `code~val1;code~val2`).
+- **LIKE operator combinations** — incompatible combinations for the same field (e.g., `code~val1;code~val2`). Available combinations `~=`, `=~` (e.g., `code=~val1;code~=val2` or `code~=val1;code=~val2`).
 
 ##### Expand limitations
 
