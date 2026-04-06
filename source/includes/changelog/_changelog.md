@@ -6,7 +6,7 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
-### 31-03-2026
+### 06-04-2026
 #### Added
 - link to Production Order in [Shipment](../documents/#transactions-shipment)
 

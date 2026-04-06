@@ -2,7 +2,7 @@
 
 JSON API 1.2 changes will be added here soon
 
-### 31-03-2026
+### 06-04-2026
 #### Added
 - link to Production Order in [Shipment](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-shipment)
 
