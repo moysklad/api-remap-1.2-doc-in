@@ -6,7 +6,7 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
-### 31-03-2026
+### 07-04-2026
 #### Added
 - New [Assortment](../dictionaries/#entities-assortment) endpoint — a lightweight version without stock calculation
 
