@@ -11,7 +11,12 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 - New [Assortment](../dictionaries/#entities-assortment) endpoint — a lightweight version without stock calculation
 
 #### Changed
+- Tracking types description in the [product](../dictionaries/#entities-product) and [bundle](../dictionaries/#entities-bundle)
 - The [Assortment](../dictionaries/#entities-assortment-deprecated) endpoint will be gradually deprecated in 2027
+
+### 06-04-2026
+#### Added
+- link to Production Order in [Shipment](../documents/#transactions-shipment)
 
 ### 25-02-2026
 #### Added
