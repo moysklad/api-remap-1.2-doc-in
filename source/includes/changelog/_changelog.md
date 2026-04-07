@@ -6,9 +6,13 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
-### 24-03-2026
+### 07-04-2026
 #### Changed
 - Tracking types description in the [product](../dictionaries/#entities-product) and [bundle](../dictionaries/#entities-bundle)
+
+### 06-04-2026
+#### Added
+- link to Production Order in [Shipment](../documents/#transactions-shipment)
 
 ### 25-02-2026
 #### Added
