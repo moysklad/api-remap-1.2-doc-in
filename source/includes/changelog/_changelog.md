@@ -6,9 +6,13 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
-### 07-04-2026
+### 10-04-2026
 #### Added
 - Error [3051](../#kladana-json-api-errors-common-validation-errors)
+
+### 06-04-2026
+#### Added
+- link to Production Order in [Shipment](../documents/#transactions-shipment)
 
 ### 25-02-2026
 #### Added

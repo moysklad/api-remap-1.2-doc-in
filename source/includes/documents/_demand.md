@@ -67,6 +67,7 @@ Description of overhead expenses fields.
 | **customerOrder** | Link to the Sales Orderto which this Shipment is associated in the format [Metadata](../#kladana-json-api-general-info-metadata) |
 | **returns** | An array of links to related returns in the format [Metadata](../#kladana-json-api-general-info-metadata) |
 | **payments** | An array of links to related payments in the format [Metadata](../#kladana-json-api-general-info-metadata) |
+| **productionTasks** | An array of links to related Production Orders in the format [Metadata](../#kladana-json-api-general-info-metadata) |
 | **invoicesOut** | An array of links to related customer invoices in the format [Metadata](../#kladana-json-api-general-info-metadata) |
 
 #### Other fields

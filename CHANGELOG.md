@@ -2,9 +2,13 @@
 
 JSON API 1.2 changes will be added here soon
 
-### 07-04-2026
+### 10-04-2026
 #### Added
 - Error [3051](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-common-validation-errors)
+
+### 06-04-2026
+#### Added
+- link to Production Order in [Shipment](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-shipment)
 
 ### 25-02-2026
 #### Added
