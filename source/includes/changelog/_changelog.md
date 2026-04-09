@@ -6,9 +6,21 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
-### 07-04-2026
+### 10-04-2026
 #### Added
 - Error [3051](../#kladana-json-api-errors-common-validation-errors)
+
+### 07-04-2026
+#### Added
+- New [Assortment](../dictionaries/#entities-assortment) endpoint — a lightweight version without stock calculation
+
+#### Changed
+- Tracking types description in the [product](../dictionaries/#entities-product) and [bundle](../dictionaries/#entities-bundle)
+- The [Assortment](../dictionaries/#entities-assortment-deprecated) endpoint will be gradually deprecated in 2027
+
+### 06-04-2026
+#### Added
+- link to Production Order in [Shipment](../documents/#transactions-shipment)
 
 ### 25-02-2026
 #### Added
