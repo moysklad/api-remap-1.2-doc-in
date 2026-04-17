@@ -378,14 +378,15 @@ This section lists the JSON API error codes and their descriptions.
 
 ### Error codes for Routings
 
-| Error code | Message | Description |
-| ------------| ----------| ---------|
+| Error code                      | Message | Description |
+|---------------------------------| ----------| ---------|
 | <a name="error_25030">25030</a> | Save error: number of production operations in a Routing cannot be greater than '100' | The maximum number of production operations in one Routing is 100. |
 | <a name="error_25031">25031</a> | Save error: Routing cannot contain duplicate production operations | Each production operation can only appear once in a Routing. |
 | <a name="error_25032">25032</a> | Error deleting object: main Routing cannot be deleted | Deletion is only possible for custom Routings. |
 | <a name="error_25033">25033</a> | Save error: last added production operation cannot contain the following items | The last item must not have the following production operations. |
 | <a name="error_25034">25034</a> | Save error: Routing structure is corrupted | Routing has more than one final production operation or Routing is in a loop. |
 | <a name="error_25035">25035</a> | Save error: cannot simultaneously pass a filled list of employees and the allperformers=true flag | Check that you are not simultaneously passing a list of specific employees and the flag indicating that any employee can be assigned to a production operation. |
+| <a name="error_25036">25036</a> | Cannot restrict task visibility for an operation that all employees perform | Make sure you are not creating a situation where an operation has no explicitly assigned performers, but a filter is enabled that only shows each performer their own tasks. |
 
 ### Error codes for Bills of Materials
 
