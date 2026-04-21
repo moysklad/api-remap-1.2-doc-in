@@ -370,23 +370,22 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_24003">24003</a> | Inventory save error: Service cannot be an inventory item | A service cannot be an inventory item. |
 | <a name="error_24004">24004</a> | Error saving inventory: inventory cannot contain duplicate items | A product, product variant, service, batches or bundle can only be added to the inventory once. |
 
-### Error codes for Production Operations
+### Error codes for Production Records
 
 | Error code | Message | Description |
 | ------------| ----------| ---------|
-| <a name="error_25003">25003</a> | Saving error: the production operation must contain a product or Bill of Materials | When creating a production operation or deleting a product, the production operation must have at least one product item. |
+| <a name="error_25003">25003</a> | Saving error: the production record must contain a product or Bill of Materials | When creating a production record or deleting a product, the production operation must have at least one product item. |
 
 ### Error codes for Routings
 
-| Error code                      | Message | Description |
-|---------------------------------| ----------| ---------|
+| Error code | Message | Description |
+| ------------| ----------| ---------|
 | <a name="error_25030">25030</a> | Save error: number of production operations in a Routing cannot be greater than '100' | The maximum number of production operations in one Routing is 100. |
 | <a name="error_25031">25031</a> | Save error: Routing cannot contain duplicate production operations | Each production operation can only appear once in a Routing. |
 | <a name="error_25032">25032</a> | Error deleting object: main Routing cannot be deleted | Deletion is only possible for custom Routings. |
 | <a name="error_25033">25033</a> | Save error: last added production operation cannot contain the following items | The last item must not have the following production operations. |
 | <a name="error_25034">25034</a> | Save error: Routing structure is corrupted | Routing has more than one final production operation or Routing is in a loop. |
 | <a name="error_25035">25035</a> | Save error: cannot simultaneously pass a filled list of employees and the allperformers=true flag | Check that you are not simultaneously passing a list of specific employees and the flag indicating that any employee can be assigned to a production operation. |
-| <a name="error_25036">25036</a> | Cannot restrict task visibility for an operation that all employees perform | Make sure you are not creating a situation where an operation has no explicitly assigned performers, but a filter is enabled that only shows each performer their own tasks. |
 
 ### Error codes for Bills of Materials
 
@@ -397,6 +396,11 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_25062">25062</a> | Save error: When specifying a Bill of Material for a raw material, it must contain this material as a product | Check that the operation does not result in incorrect Bills of Materials. |
 | <a name="error_25063">25063</a> | Save error: cannot enable standard hours calculation for a Production Operation and modify the labour cost value at the same time | Check the `enableHourAccounting` flag for the Bill of Materials Operation. When standard hours calculation is enabled, the `labourCost` value is reset and calculated automatically. If you want to set a new labour cost value manually, first change the calculation type to fixed (`enableHourAccounting == false`). |
 
+### Error codes for Production Operations
+
+| Error code                      | Message | Description |
+|---------------------------------| ----------| ---------|
+| <a name="error_25101">25101</a> | Cannot restrict task visibility for an operation that all employees perform | Make sure you are not creating a situation where an operation has no explicitly assigned performers, but a filter is enabled that only shows each performer their own tasks. |
 
 ### Error codes for Production Orders
 

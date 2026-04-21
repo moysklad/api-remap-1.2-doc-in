@@ -6,9 +6,9 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
-### 17-04-2026
+### 21-04-2026
 #### Added
-- Production Operations validation error: [25036](../#kladana-json-api-errors-error-codes-for-routings)
+- Production Operations validation error: [25101](../#kladana-json-api-errors-error-codes-for-routings)
 
 ### 10-04-2026
 #### Added

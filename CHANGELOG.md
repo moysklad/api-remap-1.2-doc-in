@@ -2,9 +2,9 @@
 
 JSON API 1.2 changes will be added here soon
 
-### 17-04-2026
+### 21-04-2026
 #### Added
-- Production Operations validation error: [25036](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-routings) 
+- Production Operations validation error: [25101](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-routings) 
 
 ### 10-04-2026
 #### Added
