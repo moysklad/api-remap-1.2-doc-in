@@ -8,7 +8,7 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 
 ### 21-04-2026
 #### Added
-- Production Operations validation error: [25101](../#kladana-json-api-errors-error-codes-for-routings)
+- Production Operations validation error: [25101](../#kladana-json-api-errors-error-codes-for-production-operations)
 
 ### 10-04-2026
 #### Added
