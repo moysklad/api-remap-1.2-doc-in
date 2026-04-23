@@ -47,6 +47,11 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 - Permissions list in request and response to  [create](../dictionaries/#entities-user-roles-create-user-role) and [edit](../dictionaries/#entities-user-roles-update-user-role) user role
 - List of [existing roles](../dictionaries/#entities-employee-work-with-employee-rights)
 
+### 23-01-2026
+#### Added
+- Field `currency` with bank account currency in legal entity accounts, returned in [Legal entity](../dictionaries/#entities-entity-legal-entity) responses (section "Legal entity accounts").
+- Error code for bank accounts: [72000](../#kladana-json-api-errors-error-codes-for-bank-accounts)
+
 ### 15-01-2026
 #### Added
 - Error codes for serial number validation: [3048-3050](..#kladana-json-api-errors-common-validation-errors)

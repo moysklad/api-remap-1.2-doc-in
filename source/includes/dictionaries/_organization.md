@@ -120,6 +120,7 @@ Only for legal entity with type `Legal entity. International`.
 | **correspondentAccount** | String(255)                                        | Corr account |
 | **id** | UUID                                               | Account ID<br>`+Required when replying` `+Read only` |
 | **isDefault** | Boolean                                            | Is the account the main account of a legal entity<br>`+Required when replying` |
+| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of bank account currency<br>`+Required when answering` `+Expand` |
 | **updated** | DateTime                                           | Moment of the last update of the legal entity<br>`+Required when replying` `+Read only` |
 
 #### Legal entity type
@@ -333,6 +334,11 @@ Request to create a new legal entity.
 #### Description
 The legal entity is created based on the passed JSON object,
 which contains a representation of the new legal entity.
+
+If when creating a legal entity the request body contains field **accounts** with an array of bank accounts, additional rules apply:
+
+- at least one of the provided bank accounts must be in the company's accounting currency; if there is no such account, creation will fail with error [72000](../#kladana-json-api-errors-error-codes-for-bank-accounts);
+- after creating a bank account, its currency (field `currency`) cannot be changed — when attempting to change account currency metadata, the server will return error [3001](../#kladana-json-api-errors-common-validation-errors).
 
 > An example of creating a new legal entity.
 
@@ -744,6 +750,110 @@ Successful request. The result is a JSON representation of the created legal ent
        "offset": 0
      }
    }
+}
+```
+
+> Example of creating a legal entity with bank accounts and specifying account currency.
+
+```shell
+  curl --compressed -X POST \
+    "https://api.kladana.com/api/remap/1.2/entity/organization?expand=accounts" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
+      -d '{  
+  "name":"ОАО СвеПром111",
+  "accounts": {
+    "rows": [
+        {
+            "accountNumber" : "5755999",
+            "currency": {
+                "meta": {
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/currency/0f5fbe16-ceff-11ee-0a83-00490000009d",
+                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
+                    "type": "currency",
+                    "mediaType": "application/json"
+                }
+            }
+        }
+    ]
+  }
+}'
+```
+
+> Response 200 (application/json)
+Successful request. Result is JSON representation of the created legal entity.
+
+```json
+{
+    "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/organization/13033b66-4a17-11f0-0a83-01ea00000020?expand=accounts",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
+        "type": "organization",
+        "mediaType": "application/json",
+        "uuidHref": "https://app.kladana.com/app/#mycompany/edit?id=13033b66-4a17-11f0-0a83-01ea00000020"
+    },
+    "id": "13033b66-4a17-11f0-0a83-01ea00000020",
+    "accountId": "5e259af8-4571-11f0-0a82-19ae00000023",
+    "owner": {
+        "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/employee/5e8379dc-4571-11f0-0a81-141c00000520",
+            "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+            "type": "employee",
+            "mediaType": "application/json",
+            "uuidHref": "https://app.kladana.com/app/#employee/edit?id=5e8379dc-4571-11f0-0a81-141c00000520"
+        }
+    },
+    "shared": true,
+    "group": {
+        "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/group/5e261def-4571-11f0-0a82-19ae00000024",
+            "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
+            "type": "group",
+            "mediaType": "application/json"
+        }
+    },
+    "updated": "2025-06-15 21:32:21.156",
+    "name": "ОАО СвеПром111",
+    "externalCode": "mzVw8qgNgo-3sVsZ2Vtn30",
+    "archived": false,
+    "created": "2025-06-15 21:32:21.156",
+    "companyType": "legal",
+    "accounts": {
+        "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/organization/13033b66-4a17-11f0-0a83-01ea00000020/accounts",
+            "type": "account",
+            "mediaType": "application/json",
+            "size": 1,
+            "limit": 1000,
+            "offset": 0
+        },
+        "rows": [
+            {
+                "meta": {
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/organization/13033b66-4a17-11f0-0a83-01ea00000020/accounts/130353db-4a17-11f0-0a83-01ea00000021",
+                    "type": "account",
+                    "mediaType": "application/json"
+                },
+                "id": "130353db-4a17-11f0-0a83-01ea00000021",
+                "accountId": "5e259af8-4571-11f0-0a82-19ae00000023",
+                "updated": "2025-06-15 21:32:21.199",
+                "isDefault": true,
+                "accountNumber": "5755999",
+                "currency": {
+                    "meta": {
+                        "href": "https://api.kladana.com/api/remap/1.2/entity/currency/0f5fbe16-ceff-11ee-0a83-00490000009d",
+                        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
+                        "type": "currency",
+                        "mediaType": "application/json",
+                        "uuidHref": "https://app.kladana.com/app/#currency/edit?id=0f5fbe16-ceff-11ee-0a83-00490000009d"
+                    }
+                }
+            }
+        ]
+    },
+    "isEgaisEnable": false,
+    "payerVat": true
 }
 ```
 
@@ -1824,6 +1934,8 @@ All fields specified in the request JSON object are updated, except for
 marked `Read only` in the description of [legal entity account attributes](../dictionaries/#entities-entity-legal-entity-attributes-of-entity-address-legal-entity-accounts).
 Fields that were not specified in the request JSON are not changed.
 
+**Important:** For existing bank accounts, changing currency (field `currency`) is prohibited — attempting to change currency metadata of any account will return error [3001](../#kladana-json-api-errors-common-validation-errors). Additional accounts can be created in any currency.
+
 **Parameters**
 
 | Parameter | Description|
@@ -1883,7 +1995,16 @@ Successful request.
      "bankName": "Bank",
      "bankLocation": "Moscow",
      "correspondentAccount": "123141242451",
-     "bic": "21412hhhh4"
+     "bic": "21412hhhh4",
+     "currency": {
+       "meta": {
+         "href": "https://api.kladana.com/api/remap/1.2/entity/currency/0f5fbe16-ceff-11ee-0a83-00490000009d",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
+         "type": "currency",
+         "mediaType": "application/json",
+         "uuidHref": "https://app.kladana.com/app/#currency/edit?id=0f5fbe16-ceff-11ee-0a83-00490000009d"
+       }
+     }
    },
    {
      "meta": {
@@ -1899,7 +2020,144 @@ Successful request.
      "bankName": "Bank",
      "bankLocation": "Moscow",
      "correspondentAccount": "123141242451",
-     "bic": "21412555554"
+     "bic": "21412555554",
+     "currency": {
+       "meta": {
+         "href": "https://api.kladana.com/api/remap/1.2/entity/currency/0f5fbe16-ceff-11ee-0a83-00490000009d",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
+         "type": "currency",
+         "mediaType": "application/json",
+         "uuidHref": "https://app.kladana.com/app/#currency/edit?id=0f5fbe16-ceff-11ee-0a83-00490000009d"
+       }
+     }
    }
 ]
+```
+
+### Get a legal entity account
+Returns JSON representation of a separate legal entity account.
+
+**Parameters**
+
+| Parameter                       | Description                                                                                                                               |
+| ------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------- |
+| **id**                         | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* legal entity ID.                                                         |
+| **accountId**                  | `string` (required) *Example: 4b9d69b7-0575-11e6-9464-e4de00000009* legal entity account ID.                                                    |
+
+> Get a legal entity account
+
+```shell
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19/accounts/4b9d69b7-0575-11e6-9464-e4de00000009" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip"
+```
+
+> Response 200 (application/json)
+Successful request.
+
+```json
+{
+  "meta": {
+    "href": "https://api.kladana.com/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008/accounts/4b9d69b7-0575-11e6-9464-e4de00000009",
+    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
+    "type": "account",
+    "mediaType": "application/json"
+  },
+  "id": "4b9d69b7-0575-11e6-9464-e4de00000009",
+  "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
+  "updated": "2016-04-18 17:53:21",
+  "isDefault": true,
+  "accountNumber": "40702810100000000001",
+  "bankName": "ОАО Сбербанк",
+  "bankLocation": "г Москва",
+  "correspondentAccount": "30101810400000000225",
+  "bic": "044525225",
+  "agent": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
+      "type": "organization",
+      "mediaType": "application/json"
+    }
+  },
+  "currency": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/currency/0f5fbe16-ceff-11ee-0a83-00490000009d",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
+      "type": "currency",
+      "mediaType": "application/json",
+      "uuidHref": "https://app.kladana.com/app/#currency/edit?id=0f5fbe16-ceff-11ee-0a83-00490000009d"
+    }
+  }
+}
+```
+
+### Change a legal entity account
+Updates a separate legal entity account with the specified id.
+
+**Important:** After creating a bank account, its currency can no longer be changed. An attempt to change currency metadata in field `currency` will return error [3001](../#kladana-json-api-errors-common-validation-errors).
+
+**Parameters**
+
+| Parameter                       | Description                                                                       |
+| ------------------------------ | :----------------------------------------------------------------------------- |
+| **id**                         | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* legal entity ID. |
+| **accountId**                  | `string` (required) *Example: 4b9d69b7-0575-11e6-9464-e4de00000009* legal entity account ID. |
+
+> Change a legal entity account
+
+```shell
+curl --compressed -X PUT \
+  "https://api.kladana.com/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19/accounts/4b9d69b7-0575-11e6-9464-e4de00000009" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
+    -d '{
+  "accountNumber": "40702810100000000002",
+  "bankName": "ОАО Сбербанк",
+  "bankLocation": "г Москва",
+  "correspondentAccount": "30101810400000000225",
+  "bic": "044525225"
+}'
+```
+
+> Response 200 (application/json)
+Successful request.
+
+```json
+{
+  "meta": {
+    "href": "https://api.kladana.com/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008/accounts/4b9d69b7-0575-11e6-9464-e4de00000009",
+    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
+    "type": "account",
+    "mediaType": "application/json"
+  },
+  "id": "4b9d69b7-0575-11e6-9464-e4de00000009",
+  "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
+  "updated": "2016-04-18 17:53:22",
+  "isDefault": true,
+  "accountNumber": "40702810100000000002",
+  "bankName": "ОАО Сбербанк",
+  "bankLocation": "г Москва",
+  "correspondentAccount": "30101810400000000225",
+  "bic": "044525225",
+  "agent": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
+      "type": "organization",
+      "mediaType": "application/json"
+    }
+  },
+  "currency": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/currency/0f5fbe16-ceff-11ee-0a83-00490000009d",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
+      "type": "currency",
+      "mediaType": "application/json",
+      "uuidHref": "https://app.kladana.com/app/#currency/edit?id=0f5fbe16-ceff-11ee-0a83-00490000009d"
+    }
+  }
+}
 ```

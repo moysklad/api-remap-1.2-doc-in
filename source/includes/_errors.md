@@ -706,4 +706,10 @@ This section lists the JSON API error codes and their descriptions.
 | Error code                      | Message                                                                        | Description                                       |
 |---------------------------------|--------------------------------------------------------------------------------|---------------------------------------------------|
 | <a name="error_71000">71000</a> | Series saving error: assortment cannot be a series                             | Check the assortment of the series and try again. |
-| <a name="error_71000">71001</a> | Validation error: one of the fields 'label' or 'expiryDate' must be filled in. | Specify a batch label or an expiration date.      |
+| <a name="error_71001">71001</a> | Validation error: one of the fields 'label' or 'expiryDate' must be filled in. | Specify a batch label or an expiration date.      |
+
+### Error codes for bank accounts
+
+| Error code                         | Message                                                                                                                           | Description                                                                                                                                                                      |
+|------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <a name="error_72000">72000</a>  | Error saving bank account: at least one of the bank accounts must be in the accounting currency                                    | When creating or first adding bank accounts to a legal entity, at least one of the accounts must be in the company's accounting currency.                                                    |
