@@ -22,6 +22,10 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 #### Added
 - link to Production Order in [Shipment](../documents/#transactions-shipment)
 
+### 27-02-2026
+#### Changed
+- Calculate field `balance` in [Cash balances](../reports/#reports-money-report-cash-balances)
+
 ### 25-02-2026
 #### Added
 - The ability to read field `expenseItem` in [Write-off](../documents/#transactions-write-off)
