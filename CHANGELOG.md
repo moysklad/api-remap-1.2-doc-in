@@ -2,6 +2,11 @@
 
 JSON API 1.2 changes will be added here soon
 
+### 23-04-2026
+#### Added
+- Error [4004](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-poss) when saving entities (including point of sale `retailstore`) if the selected organization's primary bank account is not in the accounting currency
+- Error [22004](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-payments) when saving [Incoming](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-incoming-payment) or [Outgoing](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-outgoing-payment) payment if the document currency does not match the organization account currency
+
 ### 10-04-2026
 #### Added
 - Error [3051](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-common-validation-errors)

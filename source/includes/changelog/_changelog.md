@@ -6,6 +6,11 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 23-04-2026
+#### Added
+- Error [4004](../#kladana-json-api-errors-error-codes-for-poss) when saving entities (including point of sale `retailstore`) if the selected organization's primary bank account is not in the accounting currency
+- Error [22004](../#kladana-json-api-errors-error-codes-for-payments) when saving [Incoming](../documents/#transactions-incoming-payment) or [Outgoing](../documents/#transactions-outgoing-payment) payment if the document currency does not match the organization account currency
+
 ### 10-04-2026
 #### Added
 - Error [3051](../#kladana-json-api-errors-common-validation-errors)

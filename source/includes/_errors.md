@@ -185,6 +185,7 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_4001">4001</a> | Error saving the object: the allowed limit of active points of sale for your tariff has been exceeded                                                                                    | The number of active points of sale, taking into account the saved ones, exceeds the tariff limit.                                                                                                                   |
 | <a name="error_4002">4002</a> | Error saving point of sale: for type `minionToMasterType` = CHOSEN, list `masterRetailStores` must contain at least one point of sale                                                    | If the link (the `minionToMasterType` field) between the cloud cash desk and the cash register that fiscalizes checks is `CHOSEN`, then at least one point of sale must be present in the `masterRetailStores` list. |
 | <a name="error_4003">4003</a> | Point of sale save error: you cannot specify both a parent product folder and its subfolders at the same time.                                                                           | In the `productFolders` field, you cannot specify both a parent product folder and its subfolders simultaneously.                                                                                                    |
+| <a name="error_4004">4004</a> | Object save error: The selected company's primary bank account is not in the accounting currency. Set a different bank account as primary in the company's settings. | Returned, for example, when creating or updating a point of sale (`retailstore`) if the organization specified in `organization` has its primary bank account in a currency other than the company's accounting currency. |
 
 
 ### Error codes for Agent Reports
@@ -353,6 +354,7 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_22001">22001</a> | Error saving payment: payment contains duplicate linked documents | You are trying to link a payment to a document more than once. |
 | <a name="error_22002">22002</a> | Error saving payment: invalid expense item: '{expense category}' | This expense item cannot be assigned to a payment. |
 | <a name="error_22003">22003</a> | Error saving payment: cannot link payment without closing documents | Payment can’t have active flag "No Closing documents" and related transaction at the same time|
+| <a name="error_22004">22004</a> | Payment save error: you can’t use in the transaction the currency that is different from the bank account currency | For an [Incoming](../documents/#transactions-incoming-payment) or [Outgoing](../documents/#transactions-outgoing-payment) payment with **organizationAccount** in a non-accounting currency, the document currency (**rate**) must match the bank account currency. |
 
 ### Error codes for Product groups
 
