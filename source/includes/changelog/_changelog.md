@@ -6,10 +6,15 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
-### 23-04-2026
+### 24-04-2026
 #### Added
+- Field `currency` with bank account currency in legal entity accounts, returned in [Legal entity](../dictionaries/#entities-entity-legal-entity) responses (section "Legal entity accounts").
+- Error [72000](../#kladana-json-api-errors-error-codes-for-bank-accounts) when saving bank accounts: at least one account must be in the default currency
 - Error [4004](../#kladana-json-api-errors-error-codes-for-poss) when saving entities (including point of sale `retailstore`) if the selected organization's primary bank account is not in the accounting currency
 - Error [22004](../#kladana-json-api-errors-error-codes-for-payments) when saving [Incoming](../documents/#transactions-incoming-payment) or [Outgoing](../documents/#transactions-outgoing-payment) payment if the document currency does not match the organization account currency
+
+#### Changed
+- Calculate field `balance` in [Cash balances](../reports/#reports-money-report-cash-balances)
 
 ### 10-04-2026
 #### Added
@@ -26,10 +31,6 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 ### 06-04-2026
 #### Added
 - link to Production Order in [Shipment](../documents/#transactions-shipment)
-
-### 27-02-2026
-#### Changed
-- Calculate field `balance` in [Cash balances](../reports/#reports-money-report-cash-balances)
 
 ### 25-02-2026
 #### Added
@@ -55,11 +56,6 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 - Permissions list in response to [get user role](../dictionaries/#entities-user-roles-get-user-role) and [get all user roles](../dictionaries/#entities-user-roles-get-all-user-roles)
 - Permissions list in request and response to  [create](../dictionaries/#entities-user-roles-create-user-role) and [edit](../dictionaries/#entities-user-roles-update-user-role) user role
 - List of [existing roles](../dictionaries/#entities-employee-work-with-employee-rights)
-
-### 23-01-2026
-#### Added
-- Field `currency` with bank account currency in legal entity accounts, returned in [Legal entity](../dictionaries/#entities-entity-legal-entity) responses (section "Legal entity accounts").
-- Error code for bank accounts: [72000](../#kladana-json-api-errors-error-codes-for-bank-accounts)
 
 ### 15-01-2026
 #### Added

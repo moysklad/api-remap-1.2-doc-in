@@ -2,10 +2,15 @@
 
 JSON API 1.2 changes will be added here soon
 
-### 23-04-2026
+### 24-04-2026
 #### Added
+- Field `currency` with bank account currency in legal entity accounts, returned in [Legal entity](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-entity-legal-entity) responses (section "Legal entity accounts").
+- Error [72000](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-bank-accounts) when saving bank accounts: at least one account must be in the default currency
 - Error [4004](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-poss) when saving entities (including point of sale `retailstore`) if the selected organization's primary bank account is not in the accounting currency
 - Error [22004](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-payments) when saving [Incoming](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-incoming-payment) or [Outgoing](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-outgoing-payment) payment if the document currency does not match the organization account currency
+
+#### Changed
+- Calculate field `balance` in [Cash balances](https://dev.kladana.com/doc/api/remap/1.2/reports/#reports-money-report-cash-balances)
 
 ### 10-04-2026
 #### Added
@@ -18,10 +23,6 @@ JSON API 1.2 changes will be added here soon
 ### 06-04-2026
 #### Added
 - link to Production Order in [Shipment](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-shipment)
-
-### 27-02-2026
-#### Changed
-- Calculate field `balance` in [Cash balances](https://dev.kladana.com/doc/api/remap/1.2/reports/#reports-money-report-cash-balances)
 
 ### 25-02-2026
 #### Added
@@ -47,11 +48,6 @@ JSON API 1.2 changes will be added here soon
 - Permissions list in response to [get user role](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-user-roles-get-user-role) and [get all user roles](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-user-roles-get-all-user-roles)
 - Permissions list in request and response to  [create](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-user-roles-create-user-role) and [edit](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-user-roles-update-user-role) user role
 - List of [existing roles](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-employee-work-with-employee-rights)
-
-### 23-01-2026
-#### Added
-- Field `currency` with bank account currency in legal entity accounts, returned in [Legal entity](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-entity-legal-entity) responses (section "Legal entity accounts").
-- Error code for bank accounts: [72000](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-bank-accounts)
 
 ### 15-01-2026
 #### Added
