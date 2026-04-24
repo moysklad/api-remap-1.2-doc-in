@@ -10,7 +10,6 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 #### Added
 - Field `currency` with bank account currency in legal entity accounts, returned in [Legal entity](../dictionaries/#entities-entity-legal-entity) responses (section "Legal entity accounts").
 - Error [72000](../#kladana-json-api-errors-error-codes-for-bank-accounts) when saving bank accounts: at least one account must be in the default currency
-- Error [4004](../#kladana-json-api-errors-error-codes-for-poss) when saving entities (including point of sale `retailstore`) if the selected organization's primary bank account is not in the accounting currency
 - Error [22004](../#kladana-json-api-errors-error-codes-for-payments) when saving [Incoming](../documents/#transactions-incoming-payment) or [Outgoing](../documents/#transactions-outgoing-payment) payment if the document currency does not match the organization account currency
 
 #### Changed
