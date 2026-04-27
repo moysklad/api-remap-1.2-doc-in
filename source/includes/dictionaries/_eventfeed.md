@@ -32,25 +32,25 @@ No more than 5000 Events can be created for each transaction.
 
 #### Access rights
 
-| Operation              | Access |
-| ---------------------- | ------ |
-| **View events**   | User with administrator rights or with permission to view the transaction|
-| **Create events** | User with administrator rights or with permission to view the transaction|
-| **Edit events**   | User with administrator rights or the event author with permission to view the transaction|
-| **Delete events** | User with administrator rights or the event author with permission to view the transaction|
+| Operation         | Access                                                                                     |
+|-------------------|--------------------------------------------------------------------------------------------|
+| **View events**   | User with administrator rights or with permission to view the transaction                  |
+| **Create events** | User with administrator rights or with permission to view the transaction                  |
+| **Edit events**   | User with administrator rights or the event author with permission to view the transaction |
+| **Delete events** | User with administrator rights or the event author with permission to view the transaction |
 
 
 #### Entity attributes
 
-| Name | Type | Description |
-| ----- | ----- | -------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Event Metadata<br>`+Required when replying` |
-| **id** | UUID | Event ID<br>`+Required when replying` `+Read-only` |
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Read-only` |
-| **created** | DateTime | Event creation time<br>`+Required when replying` `+Read-only` |
-| **description** | String(4096) | Event Text<br>`+Required when replying` `+Required when creating` |
-| **author** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Employee - the creator of the Event (account administrator, if the author is an application)<br>`+Required when replying` `+Read-only` `+Expand` |
-| **authorApplication** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Application - the creator of the event<br>`+Read-only` `+Expand` |
+| Name                  | Type                                               | Description                                                                                                                                                      |
+|-----------------------|----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **meta**              | [Meta](../#kladana-json-api-general-info-metadata) | Event Metadata<br>`+Required when replying`                                                                                                                      |
+| **id**                | UUID                                               | Event ID<br>`+Required when replying` `+Read-only`                                                                                                               |
+| **accountId**         | UUID                                               | Account ID<br>`+Required when replying` `+Read-only`                                                                                                             |
+| **created**           | DateTime                                           | Event creation time<br>`+Required when replying` `+Read-only`                                                                                                    |
+| **description**       | String(4096)                                       | Event Text<br>`+Required when replying` `+Required when creating`                                                                                                |
+| **author**            | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Employee - the creator of the Event (account administrator, if the author is an application)<br>`+Required when replying` `+Read-only` `+Expand` |
+| **authorApplication** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Application - the creator of the event<br>`+Read-only` `+Expand`                                                                                 |
 
 ### Get a list of Transaction Events
 
@@ -83,7 +83,7 @@ curl --compressed -X GET \
 ```
 
 > Response 200 (application/json)
-Successful request. Result is JSON representation of Events list.
+> Successful request. Result is JSON representation of Events list.
 
 ```json
 {
@@ -172,7 +172,7 @@ curl --compressed -X GET \
 ```
 
 > Response 200 (application/json)
-Successful request. Result is JSON representation of the Event.
+> Successful request. The result is a JSON representation of the Event.
 
 ```json
 {
@@ -199,14 +199,14 @@ Successful request. Result is JSON representation of the Event.
 
 ### Add Event
 
-Request to add one transaction Event for the account.
+Request to add a transaction Event for the account.
 
 **Parameters**
 
-| Parameter | Description |
-| --------- | ----------- |
-| **document_type** | `string` (required) *Example: customerorder* transaction type for which the Event is created. |
-| **document_id** | `string` (required) *Example: e4609c69-00bc-11ef-ac12-00120000001a* transaction ID for which the Event is created. |
+| Parameter         | Description                                                                                                        |
+|-------------------|--------------------------------------------------------------------------------------------------------------------|
+| **document_type** | `string` (required) *Example: customerorder* transaction type for which the Event is created.                      |
+| **document_id**   | `string` (required) *Example: e4609c69-00bc-11ef-ac12-00120000001a* transaction ID for which the Event is created. |
 
 > Request to add a new event for a Sales Order.
 
@@ -221,7 +221,7 @@ curl --compressed -X POST \
         }'  
 ```
 
-> Response 201 (application/json). Successful request. Result - JSON representation of the added Event.
+> Response 201 (application/json). Successful request. Result – JSON representation of the added Event.
 
 ```json
 [
@@ -322,3 +322,38 @@ curl --compressed -X DELETE \
 
 > Response 204 (application/json)
 > Successfully deleted Event.
+
+### Bulk removal of Events via JSON API
+
+To delete several Events at once, you need to execute the following POST request, specifying the metadata of the Event
+to be deleted in the body:
+
+> Request
+
+```shell
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/customerorder/e4609c69-00bc-11ef-ac12-00120000001a/notes/delete" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
+    -d '[
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/customerorder/e4609c69-00bc-11ef-ac12-00120000001a/notes/acd884ce-b44f-11e9-7ae5-884b00009002",
+            "type": "eventnote",
+            "mediaType": "application/json"
+          }
+        },
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/customerorder/e4609c69-00bc-11ef-ac12-00120000001a/notes/33b30b2e-b465-11e9-7ae5-884b00015630",
+            "type": "eventnote",
+            "mediaType": "application/json"
+          }
+        }
+      ]'
+```
+
+We will also receive an empty response with a status of 200. As a result, the specified Events have been removed. If you
+specify the meta of a non-existent Event in the body of such a request, then the entire request will not be executed,
+even if it contains existing meta.
