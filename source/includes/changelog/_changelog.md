@@ -6,6 +6,11 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 27-04-2026
+#### Added
+- Bulk [create/update](../dictionaries/#entities-event-feed-add-event) for Event Feed
+- Bulk [delete](../dictionaries/#entities-event-feed-bulk-removal-of-events-via-json-api) for Event Feed
+
 ### 10-04-2026
 #### Added
 - Error [3051](../#kladana-json-api-errors-common-validation-errors)

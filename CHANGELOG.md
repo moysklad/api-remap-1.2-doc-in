@@ -2,6 +2,11 @@
 
 JSON API 1.2 changes will be added here soon
 
+### 27-04-2026
+#### Added
+- Bulk [create/update](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-event-feed-add-event) for Event Feed
+- Bulk [delete](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-event-feed-bulk-removal-of-events-via-json-api) for Event Feed
+
 ### 10-04-2026
 #### Added
 - Error [3051](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-common-validation-errors)
