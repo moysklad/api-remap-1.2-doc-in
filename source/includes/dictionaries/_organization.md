@@ -338,6 +338,7 @@ which contains a representation of the new legal entity.
 If when creating a legal entity the request body contains field **accounts** with an array of bank accounts, additional rules apply:
 
 - at least one of the provided bank accounts must be in the company's accounting currency; if there is no such account, creation will fail with error [72000](../#kladana-json-api-errors-error-codes-for-bank-accounts);
+- if the `currency` field is not passed for a created bank account, the account will be created in the company's accounting currency;
 - after creating a bank account, its currency (field `currency`) cannot be changed — when attempting to change account currency metadata, the server will return error [3001](../#kladana-json-api-errors-common-validation-errors).
 
 > An example of creating a new legal entity.
@@ -771,6 +772,17 @@ Successful request. The result is a JSON representation of the created legal ent
                 "meta": {
                     "href": "https://api.kladana.com/api/remap/1.2/entity/currency/0f5fbe16-ceff-11ee-0a83-00490000009d",
                     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
+                    "type": "currency",
+                    "mediaType": "application/json"
+                }
+            }
+        },
+        {
+            "accountNumber" : "1234567890",
+            "currency": {
+                "meta": {
+                    "href": "https://api.moysklad.ru/api/remap/1.2/entity/currency/79b17fec-ceff-11ee-0a83-00490000009d",
+                    "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/currency/metadata",
                     "type": "currency",
                     "mediaType": "application/json"
                 }
@@ -1913,15 +1925,7 @@ Successful request.
        "id": "4b9d69b7-0575-11e6-9464-e4de00000009",
        "accountId": "84e60e93-f504-11e5-8a84-bae500000008",
        "updated": "2016-04-18 17:53:21",
-       "isDefault": true,
-       "agent": {
-         "meta": {
-           "href": "https://api.kladana.com/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008",
-           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
-           "type": "organization",
-           "mediaType": "application/json"
-         }
-       }
+      "isDefault": true
      }
    ]
 }
@@ -2073,14 +2077,6 @@ Successful request.
   "bankLocation": "г Москва",
   "correspondentAccount": "30101810400000000225",
   "bic": "044525225",
-  "agent": {
-    "meta": {
-      "href": "https://api.kladana.com/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008",
-      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
-      "type": "organization",
-      "mediaType": "application/json"
-    }
-  },
   "currency": {
     "meta": {
       "href": "https://api.kladana.com/api/remap/1.2/entity/currency/0f5fbe16-ceff-11ee-0a83-00490000009d",
@@ -2142,14 +2138,6 @@ Successful request.
   "bankLocation": "г Москва",
   "correspondentAccount": "30101810400000000225",
   "bic": "044525225",
-  "agent": {
-    "meta": {
-      "href": "https://api.kladana.com/api/remap/1.2/entity/organization/4b9d5bec-0575-11e6-9464-e4de00000008",
-      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
-      "type": "organization",
-      "mediaType": "application/json"
-    }
-  },
   "currency": {
     "meta": {
       "href": "https://api.kladana.com/api/remap/1.2/entity/currency/0f5fbe16-ceff-11ee-0a83-00490000009d",
