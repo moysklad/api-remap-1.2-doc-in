@@ -6,6 +6,10 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 29-04-2026
+#### Added
+- Error [62004](../#kladana-json-api-errors-error-codes-for-extended-bonus-program) when the bonus account balance limit of a counterparty is exceeded
+
 ### 10-04-2026
 #### Added
 - Error [3051](../#kladana-json-api-errors-common-validation-errors)

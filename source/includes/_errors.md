@@ -664,6 +664,7 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_62000">62000</a> | Error: you cannot create bonus operations with deferred accrual, because your tariff plan does not have the extended bonus program option | To create pending bonus transactions, you need the "Extended bonus program" |
 | <a name="error_62001">62001</a> | Error: you cannot edit the date of accrual of the bonus transaction, because your tariff plan does not have the extended bonus program option | To change the date of accrual of the bonus operation, the "Extended bonus program" option must be enabled || <a name="error_62002">62002</a> | Validation error: field '{parameter}' cannot be specified for bonus write-off operation | The passed parameter is available for editing only for bonus accrual operations |
 | <a name="error_62003">62003</a> | Validation error: field '{parameter}' can only be changed for pending bonus operation | The passed parameter is available for editing only for pending bonus operations |
+| <a name="error_62004">62004</a> | Bonus operation save error: bonus account balance limit exceeded | The number of bonus points in the operation exceeds the maximum allowed balance of the counterparty's bonus account |
 
 ### Error codes for Saved filter
 
