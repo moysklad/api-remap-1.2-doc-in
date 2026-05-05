@@ -8,13 +8,10 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 
 ### 04-05-2026
 #### Added
-- Error [1096](../#kladana-json-api-errors)
-
-### 04-05-2026
-#### Added
 - Field `currency` with bank account currency in legal entity accounts, returned in [Legal entity](../dictionaries/#entities-entity-legal-entity) responses (section "Legal entity accounts").
 - Error [72000](../#kladana-json-api-errors-error-codes-for-bank-accounts) when saving bank accounts: at least one account must be in the default currency
 - Error [22004](../#kladana-json-api-errors-error-codes-for-payments) when saving [Incoming](../documents/#transactions-incoming-payment) or [Outgoing](../documents/#transactions-outgoing-payment) payment if the document currency does not match the organization account currency
+- Error [1096](../#kladana-json-api-errors)
 
 #### Changed
 - Calculate field `balance` in [Cash balances](../reports/#reports-money-report-cash-balances)
