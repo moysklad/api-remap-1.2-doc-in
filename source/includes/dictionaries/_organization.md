@@ -781,8 +781,8 @@ Successful request. The result is a JSON representation of the created legal ent
             "accountNumber" : "1234567890",
             "currency": {
                 "meta": {
-                    "href": "https://api.moysklad.ru/api/remap/1.2/entity/currency/79b17fec-ceff-11ee-0a83-00490000009d",
-                    "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/currency/metadata",
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/currency/79b17fec-ceff-11ee-0a83-00490000009d",
+                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
                     "type": "currency",
                     "mediaType": "application/json"
                 }
