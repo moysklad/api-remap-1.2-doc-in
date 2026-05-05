@@ -7,6 +7,7 @@ JSON API 1.2 changes will be added here soon
 - Field `currency` with bank account currency in legal entity accounts, returned in [Legal entity](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-entity-legal-entity) responses (section "Legal entity accounts").
 - Error [72000](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-bank-accounts) when saving bank accounts: at least one account must be in the default currency
 - Error [22004](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-payments) when saving [Incoming](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-incoming-payment) or [Outgoing](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-outgoing-payment) payment if the document currency does not match the organization account currency
+- Error [1096](../#kladana-json-api-errors)
 
 #### Changed
 - Calculate field `balance` in [Cash balances](https://dev.kladana.com/doc/api/remap/1.2/reports/#reports-money-report-cash-balances)
