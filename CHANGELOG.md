@@ -2,6 +2,11 @@
 
 JSON API 1.2 changes will be added here soon
 
+### 07-05-2026
+#### Added
+- Error [62004](../#kladana-json-api-errors-error-codes-for-extended-bonus-program) when the bonus account balance limit of a counterparty is exceeded
+
+
 ### 04-05-2026
 #### Added
 - Field `currency` with bank account currency in legal entity accounts, returned in [Legal entity](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-entity-legal-entity) responses (section "Legal entity accounts").
