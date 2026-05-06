@@ -56,6 +56,10 @@ Allowed types of linked operations:
 
 About working with Incoming payments fields can be read [here](../#kladana-json-api-general-info-additional-fields)
 
+#### Organization account and document currency
+
+If **organizationAccount** is set and the organization's bank account is in a currency other than the company's accounting currency, the document currency (**rate**) must match that account's currency. Otherwise saving returns error [22004](../#kladana-json-api-errors-error-codes-for-payments). Cash orders (cashin/cashout) are not validated against the organization account in this way.
+
 ### Get Incoming Payments
 
 Request all Incoming payments on this account.
