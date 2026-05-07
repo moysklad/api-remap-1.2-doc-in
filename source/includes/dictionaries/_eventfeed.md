@@ -1,10 +1,11 @@
 ## Event Feed
 
-### Working with the Event Feed in transactions 
+### Working with the Event Feed in a transactions using special resources
 
 The entity code for the Event Feed in the JSON API is the **notes** keyword.
 
-Using the JSON API, you can request lists of events, as well as information on individual events for transactions of the following types:
+Using the JSON API, you can create, update, and delete events, request lists of events, as well as information on
+individual events for transactions of the following types:
 
 + [Purchase Order](../documents/#transactions-purchase-order)
 + [Purchase Return](../documents/#transactions-purchase-returns)
@@ -18,7 +19,8 @@ Using the JSON API, you can request lists of events, as well as information on i
 Events in the Feed can contain mentions of other entities directly in the text of the Event itself.
 
 Mention format: `{{type;uuid}}`. For example, when mentioning an employee, the Event text may look like this:
-`Hello, {{employee;861d34a9-f1b3-11ee-ac12-00110000004e}}! How are you doing?`, the display format for an active/archived/deleted entity is the same.
+`Hello, {{employee;861d34a9-f1b3-11ee-ac12-00110000004e}}! How are you doing?`. The display format for an
+active/archived/deleted entity is the same.
 
 **Attention!** If an entity with such UUID was not found, the text will be displayed in the web interface without any processing.
 
@@ -54,24 +56,24 @@ No more than 5000 Events can be created for each transaction.
 
 ### Get a list of Transaction Events
 
-Request to get all transaction events for the account.
+Request to get all transaction Events for the account.
 
 Result: JSON object, including the fields:
 
 | Name        | Type                                               | Description                                                                        |
 |-------------|----------------------------------------------------|------------------------------------------------------------------------------------|
-| **meta**    | [Meta](../#kladana-json-api-general-info-metadata) | Issue Metadata.                                                                    |
+| **meta**    | [Meta](../#kladana-json-api-general-info-metadata) | Response metadata.                                                                 |
 | **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata on the employee who performed the request.                                |
 | **rows**    | Array(Object)                                      | Array of JSON objects representing [Events](../dictionaries/#entities-event-feed). |
 
 **Parameters**
 
-| Parameter         | Description                                                                                                                 |
-|-------------------|-----------------------------------------------------------------------------------------------------------------------------|
-| **document_type** | `string` (required) *Example: customerorder* transaction type for which Events are requested.                               |
-| **document_id**   | `string` (required) *Example: e4609c69-00bc-11ef-ac12-00120000001a* transaction ID with Events.                             |
-| **limit**         | `number` (optional) **Default: 1000** *Example: 1000* Maximum number of entities to retrieve.`Valid values ​​are 1 - 1000`. |
-| **offset**        | `number` (optional) **Default: 0** *Example: 40* Indentation in the returned list of entities.                              |
+| Parameter         | Description                                                                                                                |
+|-------------------|----------------------------------------------------------------------------------------------------------------------------|
+| **document_type** | `string` (required) *Example: customerorder* transaction type for which Events are requested.                              |
+| **document_id**   | `string` (required) *Example: e4609c69-00bc-11ef-ac12-00120000001a* transaction ID with Events.                            |
+| **limit**         | `number` (optional) **Default: 1000** *Example: 1000* Maximum number of entities to retrieve. `Valid values are 1 - 1000`. |
+| **offset**        | `number` (optional) **Default: 0** *Example: 40* Offset in the returned list of entities.                                  |
 
 > Get a list of Events for Sales Order
 
@@ -83,7 +85,7 @@ curl --compressed -X GET \
 ```
 
 > Response 200 (application/json)
-> Successful request. Result is JSON representation of Events list.
+> Successful request. The result is the JSON representation of the Events list.
 
 ```json
 {
@@ -152,15 +154,15 @@ curl --compressed -X GET \
 
 ### Get Event
 
-Request to get one transaction Event for this account.
+Request to get one transaction Event for the account.
 
 **Parameters**
 
-| Parameter         | Description                                                                                      |
-|-------------------|--------------------------------------------------------------------------------------------------|
-| **document_type** | `string` (required) *Example: customerorderr* transaction type for which the Event is requested. |
-| **document_id**   | `string` (required) *Example: e4609c69-00bc-11ef-ac12-00120000001a* transaction ID with Events.  |
-| **id**            | `string` (required) *Example: 844a0ef9-19ac-11ef-ac12-000b00000000* Event ID.                    |
+| Parameter         | Description                                                                                     |
+|-------------------|-------------------------------------------------------------------------------------------------|
+| **document_type** | `string` (required) *Example: customerorder* transaction type for which the Event is requested. |
+| **document_id**   | `string` (required) *Example: e4609c69-00bc-11ef-ac12-00120000001a* transaction ID with Events. |
+| **id**            | `string` (required) *Example: 844a0ef9-19ac-11ef-ac12-000b00000000* Event ID.                   |
 
 > Get Sales Order Event
 
@@ -172,7 +174,7 @@ curl --compressed -X GET \
 ```
 
 > Response 200 (application/json)
-> Successful request. The result is a JSON representation of the Event.
+> Successful request. The result is the JSON representation of the Event.
 
 ```json
 {
@@ -221,7 +223,7 @@ curl --compressed -X POST \
         }'  
 ```
 
-> Response 201 (application/json). Successful request. Result – JSON representation of the added Event.
+> Response 201 (application/json). Successful request. The result is the JSON representation of the added Event.
 
 ```json
 [
@@ -250,15 +252,15 @@ curl --compressed -X POST \
 
 ### Update Event
 
-Request to update a single Event for the account.
+Request to update a single transaction Event for the account.
 
 **Parameters**
 
-| Parameter         | Description                                                                                            |
-|-------------------|--------------------------------------------------------------------------------------------------------|
-| **document_type** | `string` (required) *Example: customerorder* transaction type for which the Event is updated.          |
-| **document_id**   | `string` (required) *Example: e4609c69-00bc-11ef-ac12-00120000001a* Id of the transaction with Events. |
-| **id**            | `string` (required) *Example: 844a0ef9-19ac-11ef-ac12-000b00000000* Event ID.                          |
+| Parameter         | Description                                                                                     |
+|-------------------|-------------------------------------------------------------------------------------------------|
+| **document_type** | `string` (required) *Example: customerorder* transaction type for which the Event is updated.   |
+| **document_id**   | `string` (required) *Example: e4609c69-00bc-11ef-ac12-00120000001a* transaction ID with Events. |
+| **id**            | `string` (required) *Example: 844a0ef9-19ac-11ef-ac12-000b00000000* Event ID.                   |
 
 > Update Sales Order Event
 
@@ -274,7 +276,7 @@ curl --compressed -X PUT \
 ```
 
 > Response 200 (application/json)
-> Successful request. Result is a JSON representation of the Event.
+> Successful request. The result is the JSON representation of the Event.
 
 ```json
 {
@@ -299,17 +301,94 @@ curl --compressed -X PUT \
 }
 ```
 
+### Bulk creation and update of Events
+
+[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Events.
+The request body must contain an array with JSON representations of the Events that you want to create or update.
+Events to be updated must contain an identifier in the form of metadata.
+
+> Create and update multiple Sales Order Events
+
+```shell
+  curl --compressed -X POST \
+    "https://api.kladana.com/api/remap/1.2/entity/customerorder/e4609c69-00bc-11ef-ac12-00120000001a/notes" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
+      -d '[
+            {
+              "description": "Hello, {{employee;730c1b3d-00ba-11ef-ac12-00120000000d}}! This is a new Event"
+            },
+            {
+              "description": "Hello, {{employee;730c1b3d-00ba-11ef-ac12-00120000000d}}! This is an updated Event",
+              "meta": {
+                "href": "https://api.kladana.com/api/remap/1.2/entity/customerorder/e4609c69-00bc-11ef-ac12-00120000001a/notes/844a0ef9-19ac-11ef-ac12-000b00000000",
+                "type": "eventnote",
+                "mediaType": "application/json"
+              }
+            }
+          ]'  
+```
+
+> Response 200 (application/json)
+> Successful request. The result is JSON representations of the created and updated Events in an array.
+
+```json
+[
+  {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/customerorder/e4609c69-00bc-11ef-ac12-00120000001a/notes/c49d7517-5b69-40dc-9254-6721f72a860a",
+      "type": "eventnote",
+      "mediaType": "application/json"
+    },
+    "id": "c49d7517-5b69-40dc-9254-6721f72a860a",
+    "accountId": "85284e22-f1b3-11ee-ac12-000f00000001",
+    "created": "2026-05-07 12:03:40.849",
+    "description": "Hello, {{employee;730c1b3d-00ba-11ef-ac12-00120000000d}}! This is a new Event",
+    "author": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/employee/861d34a9-f1b3-11ee-ac12-00110000004e",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+        "type": "employee",
+        "mediaType": "application/json",
+        "uuidHref": "https://app.kladana.com/app/#employee/edit?id=861d34a9-f1b3-11ee-ac12-00110000004e"
+      }
+    }
+  },
+  {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/customerorder/e4609c69-00bc-11ef-ac12-00120000001a/notes/844a0ef9-19ac-11ef-ac12-000b00000000",
+      "type": "eventnote",
+      "mediaType": "application/json"
+    },
+    "id": "844a0ef9-19ac-11ef-ac12-000b00000000",
+    "accountId": "85284e22-f1b3-11ee-ac12-000f00000001",
+    "created": "2024-05-24 12:03:40.849",
+    "description": "Hello, {{employee;730c1b3d-00ba-11ef-ac12-00120000000d}}! This is an updated Event",
+    "author": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/employee/861d34a9-f1b3-11ee-ac12-00110000004e",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+        "type": "employee",
+        "mediaType": "application/json",
+        "uuidHref": "https://app.kladana.com/app/#employee/edit?id=861d34a9-f1b3-11ee-ac12-00110000004e"
+      }
+    }
+  }
+]
+```
+
 ### Delete Event
 
-Request to delete one document Event for the account.
+Request to delete one transaction Event for the account.
 
 **Parameters**
 
-| Parameter         | Description                                                                                            |
-|-------------------|--------------------------------------------------------------------------------------------------------|
-| **document_type** | `string` (required) *Example: customerorder* transaction type for which the Event is deleted.          |
-| **document_id**   | `string` (required) *Example: e4609c69-00bc-11ef-ac12-00120000001a* ID of the transaction with Events. |
-| **id**            | `string` (required) *Example: 844a0ef9-19ac-11ef-ac12-000b00000000* Event ID.                          |
+| Parameter         | Description                                                                                     |
+|-------------------|-------------------------------------------------------------------------------------------------|
+| **document_type** | `string` (required) *Example: customerorder* transaction type for which the Event is deleted.   |
+| **document_id**   | `string` (required) *Example: e4609c69-00bc-11ef-ac12-00120000001a* transaction ID with Events. |
+| **id**            | `string` (required) *Example: 844a0ef9-19ac-11ef-ac12-000b00000000* Event ID.                   |
 
 > Delete Event of Sales Order
 
@@ -323,12 +402,12 @@ curl --compressed -X DELETE \
 > Response 204 (application/json)
 > Successfully deleted Event.
 
-### Bulk removal of Events via JSON API
+### Bulk removal of Events
 
 To delete several Events at once, you need to execute the following POST request, specifying the metadata of the Event
 to be deleted in the body:
 
-> Request
+> Delete multiple Sales Order Events
 
 ```shell
 curl --compressed -X POST \
@@ -354,6 +433,5 @@ curl --compressed -X POST \
       ]'
 ```
 
-We will also receive an empty response with a status of 200. As a result, the specified Events have been removed. If you
-specify the meta of a non-existent Event in the body of such a request, then the entire request will not be executed,
-even if it contains existing meta.
+If the specified objects are deleted successfully, the server returns an empty response body with status 200.
+If an error occurs, the response body contains the error description.
