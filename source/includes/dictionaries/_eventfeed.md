@@ -330,7 +330,7 @@ Events to be updated must contain an identifier in the form of metadata.
           ]'  
 ```
 
-> Response 200 (application/json)
+> Response 201 (application/json)
 > Successful request. The result is JSON representations of the created and updated Events in an array.
 
 ```json
