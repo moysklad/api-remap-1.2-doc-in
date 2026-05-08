@@ -8,8 +8,8 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 
 ### 27-04-2026
 #### Added
-- Bulk [create/update](../dictionaries/#entities-event-feed-add-event) for Event Feed
-- Bulk [delete](../dictionaries/#entities-event-feed-bulk-removal-of-events-via-json-api) for Event Feed
+- Bulk [create/update](../dictionaries/#entities-event-feed-bulk-creation-and-update-of-events) for Event Feed
+- Bulk [delete](../dictionaries/#entities-event-feed-bulk-removal-of-events) for Event Feed
 
 ### 10-04-2026
 #### Added
