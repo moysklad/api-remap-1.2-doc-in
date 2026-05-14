@@ -6,6 +6,14 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 13-05-2026
+#### Added
+- Methods for creating, updating, and deleting, as well as bulk creating, updating, and deleting [Content Cards](../dictionaries/#entities-content-card)
+- Error [74000](../#kladana-json-api-errors-error-codes-for-content-cards) when passing `owner`, `group`, or `shared` fields that differ from the corresponding fields of the specified Assortment
+
+#### Changed
+- Fields `owner`, `group`, `shared`, and `assortment` in [Content Cards](../dictionaries/#entities-content-card) are marked as read-only
+
 ### 07-05-2026
 #### Added
 - Error [62004](../#kladana-json-api-errors-error-codes-for-extended-bonus-program) when the bonus account balance limit of a counterparty is exceeded
