@@ -594,7 +594,7 @@ curl --compressed -X PUT \
   -H "Accept-Encoding: gzip" \
   -H "Content-Type: application/json" \
   -d '{
-        "name": "product",
+        "name": "Updated product name",
         "description": "Updated description",
         "cardContentName": "Updated name",
         "salesChannels": [
@@ -641,7 +641,7 @@ Successful request. The result is a JSON representation of the updated Content C
       "mediaType": "application/json"
     }
   },
-  "name": "product",
+  "name": "Updated product name",
   "description": "Updated description",
   "cardContentName": "Updated name",
   "assortment": {
