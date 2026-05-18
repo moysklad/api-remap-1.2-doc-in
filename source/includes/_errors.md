@@ -687,15 +687,16 @@ This section lists the JSON API error codes and their descriptions.
 
 ### Error codes for Bins and Warehouse Locations
 
-| Error code | Message | Description |
-| ------------| ----------| ---------|
-| <a name="error_67000">67000</a> |A bin with identifier '{parameter}' does not belong to the specified warehouse '{parameter}'" | You cannot specify a bin from another warehouse |
-| <a name="error_67001">67001</a> | Cannot specify bin for '{parameter}' | You cannot specify a bin for document items of type Bundle or Service |
-| <a name="error_67002">67002</a> | The specified location '{parameter}' is not a warehouse location '{parameter}' of the bin | It is not allowed to assign another warehouse location to a bin |
-| <a name="error_67003">67003</a> | Exceeded the maximum number of locations at the warehouse | The limit on the number of locations on an account has been violated |
-| <a name="error_67004">67004</a> | Warehouse location '{parameter}' is not a warehouse location '{parameter}' | You cannot change the location of another warehouse for a given warehouse |
-| <a name="error_67005">67005</a> | Bin '{parameter}' is not a warehouse bin '{parameter}' | For a given warehouse, you cannot change the bin of another warehouse |
-| <a name="error_67006">67006</a> | Barcode already specified in another bin | Cannot duplicate a bin barcode within a warehouse |
+| Error code                      | Message                                                                                       | Description                                                               |
+|---------------------------------|-----------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
+| <a name="error_67000">67000</a> | A bin with identifier '{parameter}' does not belong to the specified warehouse '{parameter}'" | You cannot specify a bin from another warehouse                           |
+| <a name="error_67001">67001</a> | Cannot specify bin for '{parameter}'                                                          | You cannot specify a bin for document items of type Bundle or Service     |
+| <a name="error_67002">67002</a> | The specified location '{parameter}' is not a warehouse location '{parameter}' of the bin     | It is not allowed to assign another warehouse location to a bin           |
+| <a name="error_67003">67003</a> | Exceeded the maximum number of locations at the warehouse                                     | The limit on the number of locations on an account has been violated      |
+| <a name="error_67004">67004</a> | Warehouse location '{parameter}' is not a warehouse location '{parameter}'                    | You cannot change the location of another warehouse for a given warehouse |
+| <a name="error_67005">67005</a> | Bin '{parameter}' is not a warehouse bin '{parameter}'                                        | For a given warehouse, you cannot change the bin of another warehouse     |
+| <a name="error_67006">67006</a> | Barcode already specified in another bin                                                      | Cannot duplicate a bin barcode within a warehouse                         |
+| <a name="error_67007">67007</a> | Error working with warehouses: the number of active warehouses cannot exceed 2000             | The limit on the number of warehouses on an account has been violated     |
 
 ### Error Codes for Event Feed
 
