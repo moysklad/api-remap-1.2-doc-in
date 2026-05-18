@@ -597,6 +597,14 @@ curl --compressed -X PUT \
         "name": "Updated product name",
         "description": "Updated description",
         "cardContentName": "Updated name",
+        "salePlatform": {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/saleplatform/0f9b8b4c-4597-4772-b896-c8aff047a117",
+            "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/saleplatform/metadata",
+            "type": "saleplatform",
+            "mediaType": "application/json"
+          }
+        },
         "salesChannels": [
           {
             "meta": {
