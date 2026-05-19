@@ -418,6 +418,8 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_26113">26113</a> | Error updating: quantity of goods taken into account by serial numbers cannot be fractional | When using a material or product taken into account by serial numbers, it is necessary to specify its quantity in integer form |
 | <a name="error_26114">26114</a> | Production stage update error: cannot enable standard hours calculation and modify the labour cost value at the same time | Check the `enableHourAccounting` flag for the production stage. When standard hours calculation is enabled, the `labourUnitCost` value is reset and calculated automatically. If you want to set a new labour cost value manually, first change the calculation type to fixed (`enableHourAccounting == false`). |
 | <a name="error_26115">26115</a> | Error updating production order item: item volume ratio is less than allowable limit | Unable to decrease the volume ratio for the Production Order item below the value already consumed. Check the volume ratios for completed, distributed, and in-progress operations. |
+| <a name="error_26116">26116</a> | Error updating production order item: Replacing the variant is not supported | The BOM variant of a production order item cannot be changed". |
+| <a name="error_26117">26117</a> | Error saving production order: Variant is missing | Make sure that when using a parametric BOM, a product variant of this BOM is provided. This is required to correctly transfer materials from the BOM to the production order. If you need to produce the base product, use a BOM that does not contain materials dependent on variant attributes (non-parametric BOM). |
 
 ### Error codes for Operation Reports
 
