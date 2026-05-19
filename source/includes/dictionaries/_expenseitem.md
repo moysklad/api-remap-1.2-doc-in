@@ -1,6 +1,6 @@
 ## Expense item
 ### Expense items
-Using the JSON API, you can request lists of Expense Items and information on individual Expense Items. The entity code for Expense Items in the JSON API is the **expenseitem** keyword.
+Using the JSON API, you can create and update Expense Items, request lists of Expense Items and information on individual Expense Items. The entity code for Expense Items in the JSON API is the **expenseitem** keyword.
 This entity can be contextually searched using the special `search` parameter. [Learn more](../#kladana-json-api-general-info-context-search). The search with the search parameter differs from others in that the search is not prefixed, without tokenization, and only goes through one field at a time. Searches for strings that include the value of the search string.
 
 The search among the objects of the Items of expenditure for matching the search string will be carried out in the following fields:
@@ -15,9 +15,12 @@ The search among the objects of the Items of expenditure for matching the search
 | **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Code Items of expenditure |
 | **description** | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Description Items of expenditure |
 | **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External code Expense item<br>`+Required when replying` |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee department<br>`+Expand` `+For custom expense items` |
 | **id** | UUID                                               | `=` `!=` | Expense item ID<br>`+Required when replying` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Expense Item Metadata<br>`+Required when replying` |
 | **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Name Item of expenses<br>`+Required when replying` `+Required when creating` |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` `+For custom expense items` |
+| **shared** | Boolean                                           | `=` `!=` | Shared access<br>`+Required when replying` `+For custom expense items` |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required when replying` `+Read-only` |
 
 ### Get Expense Items
@@ -295,6 +298,8 @@ Successful request. The result is a JSON array of representations of the created
    }
 ]
 ```
+
+Standard (system) expense items cannot be modified or deleted. An attempt to modify returns error [1024](../#kladana-json-api-errors-common-validation-errors), deletion returns [1025](../#kladana-json-api-errors-common-validation-errors).
 
 ### Delete Line Item
 
