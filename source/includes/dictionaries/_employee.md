@@ -874,6 +874,7 @@ Values in order of their scope expansion: `NO` &#8594; `OWN` &#8594; `OWN_SHARED
 | **employees** | base | All ALL | Employees                                      |
 | **enrollOrder** | DICTIONARY | All NO | Introduction of marking codes into circulation |
 | **enter** | OPERATION | All ALL | Posting |
+| **expenseitem** | BASE | All ALL | Expense items |
 | **good** | DICTIONARY | All ALL | Goods and Services |
 | **internalOrder** | OPERATION | All ALL | Internal orders |
 | **inventory** | DICTIONARY | All ALL | Inventory |
@@ -1258,6 +1259,12 @@ Successful request. The result is a JSON representation of information about the
                 "delete": "ALL"
             },
             "uom": {
+                "view": "ALL",
+                "create": "ALL",
+                "update": "ALL",
+                "delete": "ALL"
+            },
+            "expenseitem": {
                 "view": "ALL",
                 "create": "ALL",
                 "update": "ALL",

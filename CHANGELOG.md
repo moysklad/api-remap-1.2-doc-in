@@ -2,6 +2,14 @@
 
 JSON API 1.2 changes will be added here soon
 
+### 19-05-2026
+#### Added
+- [expenseitem entity permissions](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-employee-employee-permissions) (Expense items)
+- expenseitem permissions in JSON returned in [Custom roles](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-custom-role-get-custom-role)
+
+#### Changed
+- [Expense items](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-expense-item) entity description: **owner**, **group**, **shared** fields
+
 ### 18-05-2026
 #### Added
 - Bulk [create/update](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-event-feed-bulk-creation-and-update-of-events) for Event Feed
@@ -10,7 +18,6 @@ JSON API 1.2 changes will be added here soon
 ### 07-05-2026
 #### Added
 - Error [62004](../#kladana-json-api-errors-error-codes-for-extended-bonus-program) when the bonus account balance limit of a counterparty is exceeded
-
 
 ### 04-05-2026
 #### Added

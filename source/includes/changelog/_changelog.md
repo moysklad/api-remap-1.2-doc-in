@@ -6,6 +6,14 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 19-05-2026
+#### Added
+- [expenseitem entity permissions](../dictionaries/#entities-employee-employee-permissions) (Expense items)
+- expenseitem permissions in JSON returned in [Custom roles](../dictionaries/#entities-custom-role-get-custom-role)
+
+#### Changed
+- [Expense items](../dictionaries/#entities-expense-item) entity description: **owner**, **group**, **shared** fields
+
 ### 18-05-2026
 #### Added
 - Bulk [create/update](../dictionaries/#entities-event-feed-bulk-creation-and-update-of-events) for Event Feed

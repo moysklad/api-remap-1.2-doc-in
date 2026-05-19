@@ -165,6 +165,12 @@ Successful request. The result is a JSON representation of the custom role.
       "update": "ALL",
       "delete": "ALL"
     },
+    "expenseitem": {
+      "view": "ALL",
+      "create": "ALL",
+      "update": "ALL",
+      "delete": "ALL"
+    },
     "purchaseOrder": {
       "view": "ALL",
       "print": "ALL",
@@ -532,6 +538,12 @@ Successful request. The result is a JSON representation of user roles.
           "delete": "ALL"
         },
         "project": {
+          "view": "ALL",
+          "create": "ALL",
+          "update": "ALL",
+          "delete": "ALL"
+        },
+        "expenseitem": {
           "view": "ALL",
           "create": "ALL",
           "update": "ALL",
@@ -929,6 +941,12 @@ Successful request. The result is a JSON representation of the created role.
       "update": "NO",
       "delete": "NO"
     },
+    "expenseitem": {
+      "view": "NO",
+      "create": "NO",
+      "update": "NO",
+      "delete": "NO"
+    },
     "purchaseOrder": {
       "view": "NO",
       "print": "NO",
@@ -1319,6 +1337,12 @@ Successful request. The result is a JSON representation of the updated role.
       "delete": "NO"
     },
     "project": {
+      "view": "NO",
+      "create": "NO",
+      "update": "NO",
+      "delete": "NO"
+    },
+    "expenseitem": {
       "view": "NO",
       "create": "NO",
       "update": "NO",
