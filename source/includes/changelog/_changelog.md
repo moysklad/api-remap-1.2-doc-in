@@ -12,7 +12,7 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 - Error [74000](../#kladana-json-api-errors-error-codes-for-content-cards) when passing `owner`, `group`, or `shared` fields that differ from the corresponding fields of the specified Assortment
 
 #### Changed
-- Fields `owner`, `group`, `shared`, and `assortment` in [Content Cards](../dictionaries/#entities-content-card) are marked as read-only
+- Updated the descriptions of the `assortment`, `cardContentName`, `description`, `name`, `salePlatform`, and `salesChannels` fields in [Content Cards](../dictionaries/#entities-content-card)
 
 ### 07-05-2026
 #### Added

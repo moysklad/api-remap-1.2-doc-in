@@ -4,20 +4,20 @@
 Using the JSON API, you can create, update, delete, and view Content Cards, request lists of Content Cards, and get information about individual Content Cards. The entity code for a Content Card in the JSON API is the **contentcard** keyword.
 
 #### Entity attributes
-| Title | Type | Filtration | Description |
-| ------ | :------ | :------ | :------ |
-| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Assortment metadata<br>`+Expand` `+Required when replying` `+Read Only` |
-| **cardContentName** | String(255) | | How the Content Card is displayed in the UI list |
-| **description** | String(10000) | | Product or service description |
-| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee department metadata<br>`+Required when replying` `+Expand` `+Read Only` |
-| **id** | UUID | `=` `!=` | Content Card ID<br>`+Required when replying` `+Read Only` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Content Card metadata<br>`+Required when replying` |
-| **name** | String(255) | | Product or service name<br>`+Required when replying` |
-| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee) metadata<br>`+Expand` `+Read Only` |
-| **shared** | Boolean | | Shared access<br>`+Required when replying` `+Read Only` |
-| **salePlatform** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sale Platform metadata. [Learn more](../dictionaries/#entities-sale-platform).<br>`+Expand` `+Required when replying` |
-| **salesChannels** | Array(Object) | `=` | Array of links to related Sales Channels in the Metadata format. [Learn more](../dictionaries/#entities-sales-channel). Maximum number is 1000. To filter by this field, use its singular form: **salesChannel**.<br>`+Expand` `+Required when replying` |
+| Title | Type | Filtration | Description                                                                                                                                                                                                                                              |
+| ------ | :------ | :------ |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only`                                                                                                                                                                                                     |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Assortment metadata<br>`+Expand` `+Required when replying` `+Required when creating` `+Cannot be changed after filling`                                                                                                                                  |
+| **cardContentName** | String(255) | | How the Content Card is displayed in the UI list<br>`+Required when creating`                                                                                                                                                                            |
+| **description** | String(10000) | | Product or service description<br>`+Required when creating`                                                                                                                                                                                              |
+| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee department metadata<br>`+Required when replying` `+Expand` `+Read Only`                                                                                                                                                                         |
+| **id** | UUID | `=` `!=` | Content Card ID<br>`+Required when replying` `+Read Only`                                                                                                                                                                                                |
+| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Content Card metadata<br>`+Required when replying`                                                                                                                                                                                                       |
+| **name** | String(255) | | Product or service name<br>`+Required when replying` `+Required when creating`                                                                                                                                                                           |
+| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee) metadata<br>`+Expand` `+Read Only`                                                                                                                                                                                                      |
+| **shared** | Boolean | | Shared access<br>`+Required when replying` `+Read Only`                                                                                                                                                                                                  |
+| **salePlatform** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sale Platform metadata. [Learn more](../dictionaries/#entities-sale-platform).<br>`+Expand` `+Required when replying` `+Required when creating`                                                                                                                                     |
+| **salesChannels** | Array(Object) | `=` | Array of links to related Sales Channels in the Metadata format. [Learn more](../dictionaries/#entities-sales-channel). Maximum number is 1000. To filter by this field, use its singular form: **salesChannel**.<br>`+Expand` `+Required when replying` `+Required when creating`|
 
 #### Attributes available for filtering
 | Value | Description |
