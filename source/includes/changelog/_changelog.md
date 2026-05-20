@@ -6,9 +6,28 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
-### 21-04-2026
+### 20-05-2026
 #### Added
 - Production Operations validation error: [25101](../#kladana-json-api-errors-error-codes-for-production-operations)
+
+### 18-05-2026
+#### Added
+- Bulk [create/update](../dictionaries/#entities-event-feed-bulk-creation-and-update-of-events) for Event Feed
+- Bulk [delete](../dictionaries/#entities-event-feed-bulk-removal-of-events) for Event Feed
+
+### 07-05-2026
+#### Added
+- Error [62004](../#kladana-json-api-errors-error-codes-for-extended-bonus-program) when the bonus account balance limit of a counterparty is exceeded
+
+### 04-05-2026
+#### Added
+- Field `currency` with bank account currency in legal entity accounts, returned in [Legal entity](../dictionaries/#entities-entity-legal-entity) responses (section "Legal entity accounts").
+- Error [72000](../#kladana-json-api-errors-error-codes-for-bank-accounts) when saving bank accounts: at least one account must be in the default currency
+- Error [22004](../#kladana-json-api-errors-error-codes-for-payments) when saving [Incoming](../documents/#transactions-incoming-payment) or [Outgoing](../documents/#transactions-outgoing-payment) payment if the document currency does not match the organization account currency
+- Error [1096](../#kladana-json-api-errors)
+
+#### Changed
+- Calculate field `balance` in [Cash balances](../reports/#reports-money-report-cash-balances)
 
 ### 10-04-2026
 #### Added

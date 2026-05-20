@@ -170,11 +170,11 @@ Successful request. The result is a JSON representation of the report.
 #### Report object attributes
 
 #### Unit
-| Title | Type | Description |
-| ------------ | ------ |----- |
+| Title | Type | Description                                                                                                                                                                                                                                                  |
+| ------------ | ------ |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **account** | Object | Account of the organization (not displayed for the balance of the cash desk, since there is only one cash desk for the organization). [Learn more](../dictionaries/#entities-product-products-entity-attributes-tax-system-code)<br>`+Required when replying` |
-| **organization** | Object | Organization. [Learn more](../dictionaries/#entities-product-products-entity-attributes-tax-system-code)<br>`+Required when replying` |
-| **balance** | Float | Current balance<br>`+Required when replying` |
+| **organization** | Object | Organization. [Learn more](../dictionaries/#entities-product-products-entity-attributes-tax-system-code)<br>`+Required when replying`                                                                                                                        |
+| **balance** | Float | Current balance in bank account currency<br>`+Required when replying`                                                                                                                                                                                         |
 
 #### Organization account
 
