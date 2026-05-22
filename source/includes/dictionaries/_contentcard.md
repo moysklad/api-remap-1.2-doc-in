@@ -10,12 +10,9 @@ Using the JSON API, you can view information about Content Cards, request lists 
 | **assortment**      | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`               | Assortment metadata<br>`+Expand` `+Required when replying`                                                                                                                                                                 |
 | **cardContentName** | String(255)                    |  | How the content card is displayed in the UI list                                                                                                                                                                           |
 | **description**     | String(10000)                  |  | Description of the product or service                                                                                                                                                                                      |
-| **group**           | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`               | Employee department metadata<br>`+Required when replying` `+Expand`                                                                                                                                                        |
 | **id**              | UUID                           | `=` `!=`               | Content Card ID<br>`+Required when replying` `+Read Only`                                                                                                                                                                  |
 | **meta**            | [Meta](../#kladana-json-api-general-info-metadata) |                        | Content Card metadata<br>`+Required when replying`                                                                                                                                                                         |
 | **name**            | String(255)                    |  | Name of the product or service<br>`+Required when replying`                                                                                                                                                                |
-| **owner**           | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`               | Owner (Employee) metadata<br>`+Expand`                                                                                                                                                                                     |
-| **shared**          | Boolean                        |                | Shared access<br>`+Required when replying` `+Read Only`                                                                                                                                                                    |
 | **salePlatform**    | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`               | Sale Platform metadata. [Learn more](../dictionaries/#entities-sale-platform).<br>`+Expand` `+Required when replying`                                                                                                      |
 | **salesChannels**   | Array(Object) | `=` | Array of links to related sales channels in the Metadata format. [Learn more](../dictionaries/#entities-sales-channel). Maximum number is 1000. To filter by this field, you must use its singular form: **salesChannel**.<br>`+Expand` `+Required when replying` |
 
@@ -25,9 +22,7 @@ Using the JSON API, you can view information about Content Cards, request lists 
 |-----------------------|:-------------------------|
 | **accountId**         | Account ID               |
 | **assortment**         | Content card assortment  |
-| **group**             | Employee department       |
 | **id**                | Content Card ID   |
-| **owner**             | Owner (Employee)  |
 | **salePlatform** | Sale Platform     |
 | **salesChannel**             | Sales channel             |
 
@@ -92,24 +87,6 @@ Successful request. The result is a JSON representation of the list of content c
       },
       "id": "529eb5b6-d726-11f0-0a80-073800000329",
       "accountId": "e008259e-d666-11f0-0a83-14a000000002",
-      "owner": {
-        "meta": {
-          "href": "https://api.kladana.com/api/remap/1.2/entity/employee/e0b3018f-d666-11f0-0a80-073800000055",
-          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
-          "type": "employee",
-          "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.com/app/#employee/edit?id=e0b3018f-d666-11f0-0a80-073800000055"
-        }
-      },
-      "shared": true,
-      "group": {
-        "meta": {
-          "href": "https://api.kladana.com/api/remap/1.2/entity/group/e00acc42-d666-11f0-0a83-14a000000003",
-          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
-          "type": "group",
-          "mediaType": "application/json"
-        }
-      },
       "name": "product",
       "description": "Description",
       "cardContentName": "title",
@@ -151,24 +128,6 @@ Successful request. The result is a JSON representation of the list of content c
       },
       "id": "dfbef48e-d67d-11f0-0a80-0738000002d8",
       "accountId": "e008259e-d666-11f0-0a83-14a000000002",
-      "owner": {
-        "meta": {
-          "href": "https://api.kladana.com/api/remap/1.2/entity/employee/e0b3018f-d666-11f0-0a80-073800000055",
-          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
-          "type": "employee",
-          "mediaType": "application/json",
-          "uuidHref": "https://app.kladana.com/app/#employee/edit?id=e0b3018f-d666-11f0-0a80-073800000055"
-        }
-      },
-      "shared": true,
-      "group": {
-        "meta": {
-          "href": "https://api.kladana.com/api/remap/1.2/entity/group/e00acc42-d666-11f0-0a83-14a000000003",
-          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
-          "type": "group",
-          "mediaType": "application/json"
-        }
-      },
       "name": "product",
       "description": "Description",
       "cardContentName": "name",
@@ -236,24 +195,6 @@ Successful request. The result is a JSON representation of the content card.
   },
   "id": "529eb5b6-d726-11f0-0a80-073800000329",
   "accountId": "e008259e-d666-11f0-0a83-14a000000002",
-  "owner": {
-    "meta": {
-      "href": "https://api.kladana.com/api/remap/1.2/entity/employee/e0b3018f-d666-11f0-0a80-073800000055",
-      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
-      "type": "employee",
-      "mediaType": "application/json",
-      "uuidHref": "https://app.kladana.com//app/#employee/edit?id=e0b3018f-d666-11f0-0a80-073800000055"
-    }
-  },
-  "shared": true,
-  "group": {
-    "meta": {
-      "href": "https://api.kladana.com/api/remap/1.2/entity/group/e00acc42-d666-11f0-0a83-14a000000003",
-      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
-      "type": "group",
-      "mediaType": "application/json"
-    }
-  },
   "name": "product",
   "description": "Description",
   "cardContentName": "name",
