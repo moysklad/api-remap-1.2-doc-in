@@ -7,7 +7,7 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
 ### 22-05-2026
-#### Changed
+#### Removed
 - Fields `owner`, `group`, and `shared` were removed from [Content Cards](../dictionaries/#entities-content-card)
 
 ### 20-05-2026

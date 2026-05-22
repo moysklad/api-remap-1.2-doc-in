@@ -3,7 +3,7 @@
 JSON API 1.2 changes will be added here soon
 
 ### 22-05-2026
-#### Changed
+#### Removed
 - Fields `owner`, `group`, and `shared` were removed from [Content Cards](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-content-card)
 
 ### 20-05-2026
