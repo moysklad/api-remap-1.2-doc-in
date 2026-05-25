@@ -616,7 +616,7 @@ Successful request. The result is a JSON representation of the created Sales Ord
   "agent": {
     "meta": {
       "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/9794d400-f689-11e5-8a84-bae500000078",
-      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterperty/metadata",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
       "type": "counterparty",
       "mediaType": "application/json"
     }
