@@ -159,7 +159,7 @@ Successful request. The result is a JSON representation of a list of Sales Order
     }
   },
   "meta": {
-    "href": "https://api.kladana.com/api/remap/1.2/entity/customerOrder",
+    "href": "https://api.kladana.com/api/remap/1.2/entity/customerorder",
     "type": "customerorder",
     "mediaType": "application/json",
     "size": 1,
