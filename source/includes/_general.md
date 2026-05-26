@@ -1177,7 +1177,6 @@ Fields marked `Read Only` are ignored when creating/updating the object.
 When using the POST method, you can specify in the request body instead of one -
 entity array. To do this, you need to pass an array (start the request body with `[` and end with `]`) that will contain the JSON representation
 objects you want to create or update. Updated entities must contain the identifier in the form of metadata.
-If the entity is not found during the update, it will be created.
 
 It is also possible to bulk delete entities if you specify a url like `/entity/{type}/delete` when using the POST method.
 
