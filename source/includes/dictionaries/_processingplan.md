@@ -17,6 +17,7 @@ This entity can be contextually searched using the special `search` parameter. [
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
 |**stages** | MetaArray | | Collection of metadata of the Bill of Materials' operations <br>`+Required when replying` `+Expand` |
 | **id** | UUID                                               | `=` `!=` | Bill of Materials ID<br>`+Required when replying` `+Read only` |
+| **parametricMaterials**   | MetaArray                      | | Parametric Raw Materials Metadata Collection Bills of Materials<br>`+Required when replying` `+Expand`|
 | **materials** | MetaArray                                          | | Material Metadata Collection Bills of Materials<br>`+Required when replying` `+Expand` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata Bills of Materials<br>`+Required when replying` |
 | **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Name Bills of Materials<br>`+Required when replying` `+Required when creating` |
@@ -73,6 +74,27 @@ Raw material object in Bills of Materials contains the following fields:
 | **materialProcessingPlan** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Bill of Materials' raw material<br>`+Read-only` |
 
 If you do not specify a link to a Bill of Materials item when adding a raw material, the material will be linked by default to the first item in the Bill of Materials.
+
+#### Parametric Materials of Bills of Materials
+
+Bill of Materials' parametric raw materials a list of products and variants used to manufacture finished products (variants of the same parent product). These materials are configured depending on variant attributes.
+Parametric raw material object in Bills of Materials contains the following fields:
+
+| Title   | Type   | Description   |
+| ------- | ------ | ------------- |
+| **accountId** | UUID    | Account ID<br>`+Required when replying` `+Read Only`    |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Product or product variant item metadata<br>`+Required when replying` `+Expand` |
+| **id** | UUID | Raw material ID<br>`+Required when replying` `+Read-only` |
+| **product** | [Meta](../#kladana-json-api-general-info-metadata) | Product item metadata. If the **assortment** field specifies a product variant, the field contains the product to which the product variant applies<br>`+Required when replying` `+Expand` |
+| **quantity** | Float | Quantity of products of the type in the item<br>`+Required when replying` |
+| **paramFeatureCharacteristic**  | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the product attribute that determines which raw material is selected for this parametric material item. Returns null when a specific raw material is set.<br>`+Required when replying`                                                                    |
+| **paramQuantityCharacteristic** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the product attribute that determines the quota for this parametric material item. Returns null when the quota is fixed for the entire parametric material item.<br>`+Required when replying`                                       |
+| **paramFeatures**               | Array(Object)                  | List of attribute values linked to raw materials. Each object describes which raw material is used for the corresponding attribute value.<br>`+Required when replying`                                                                                        |
+| **paramQuantities**             | Array(Object)                  | List of attribute values linked to quotas. Each object describes the material quantity required for the corresponding attribute value.<br>`+Required when replying`                                                                            |
+| **characteristicValue**         | String                         | The attribute value for which a raw material (in paramFeatures) or a quota (in paramQuantities) is set. This field is omitted when a specific raw material is used (paramFeatureCharacteristic = null) or a specific quota is used (paramQuantityCharacteristic = null).<br>`+Read only` |
+| **processingProcessPosition** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Bill of Materials' item<br>`+Required when replying` |
+
+If you do not specify a link to a Bill of Materials item when adding a parametric raw material, the material will be linked by default to the first item in the Bill of Materials.
 
 #### Products of Bills of Materials
 
@@ -1642,6 +1664,483 @@ curl --compressed -X POST \
 
 > Response 200 (application/json)
 Successfully removed materials from Bill of Materials.
+
+### Parametric Materials in Bill of Materials
+A separate resource for managing Bill of Materials' parametric raw materials. As with the regular raw material resource, it allows you to manage a larger number of raw materials than when saving raw materials together with the document (the limit for the number of raw materials in a document is 1000).
+
+### Get Parametric Material
+Request to retrieve parametric materials in a BOM. Returns collections of materials and quotas linked to variant attributes. A parametric BOM always has a product with variants as its finished product, and uses their attributes. Each collection consists of pairs of attribute values and materials (or quotas), grouped under a specific attribute.
+
+When only the material depends on the attribute and the quota is a fixed value, the attribute’s metadata is returned with quantityCharacteristic == null, and the characteristicValue values in the quantityValues[] array — which contains the single quota value — are not returned.
+Similarly, when only the quota depends on the attribute and the material is a fixed value, with materialCharacteristic == null, the characteristicValue values in the materialValues[] array — which contains the single material — are not returned.
+
+**Parameters**
+
+| Parameter | Description |
+| ------------- | ---------- |
+| **id** | `string` (required) *Example: d72b4281-b000-11e6-8af5-581e00000074* Bill of Materials ID. |
+| **positionID** | `string` (required) *Example: 9560e3e3-9609-11e6-8af5-581e00000008* Item ID of the Bill of Materials. |
+
+> Request to get Bill of Materials parametric materials.
+
+```shell
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/entity/processingplan/0f0a0efe-4eb2-11f1-0a82-18900000038f/parametricmaterials" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip"
+```
+
+> Response 200 (application/json)
+
+```json
+{
+    "context": {
+        "employee": {
+            "meta": {
+                "href": "https://api.kladana.com/api/remap/1.2/context/employee",
+                "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+                "type": "employee",
+                "mediaType": "application/json"
+            }
+        }
+    },
+    "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/processingplan/0f0a0efe-4eb2-11f1-0a82-18900000038f/parametricmaterials",
+        "type": "processingplanparametricmaterial",
+        "mediaType": "application/json",
+        "size": 1,
+        "limit": 1000,
+        "offset": 0
+    },
+    "rows": [
+        {
+            "meta": {
+                "href": "https://api.kladana.com/api/remap/1.2/entity/processingplan/0f0a0efe-4eb2-11f1-0a82-18900000038f/parametricmaterials/50790432-4eb2-11f1-0a82-189000000394",
+                "type": "processingplanmaterial",
+                "mediaType": "application/json"
+            },
+            "id": "50790432-4eb2-11f1-0a82-189000000394",
+            "accountId": "cc2fabaa-4eb1-11f1-0a83-04c40000000d",
+            "paramFeatureCharacteristic": {
+                "meta": {
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics/e5bc4f6f-4eb1-11f1-0a82-189000000314",
+                    "type": "attributemetadata",
+                    "mediaType": "application/json"
+                }
+            },
+            "paramFeatures": [
+                {
+                    "characteristicValue": "Red",
+                    "assortment": {
+                        "meta": {
+                            "href": "https://api.kladana.com/api/remap/1.2/entity/variant/f5768800-4eb1-11f1-0a82-189000000360",
+                            "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata",
+                            "type": "variant",
+                            "mediaType": "application/json",
+                            "uuidHref": "https://api.kladana.com/app/#feature/edit?id=f5767e6c-4eb1-11f1-0a82-18900000035e"
+                        }
+                    }
+                },
+                {
+                    "characteristicValue": "Blue",
+                    "assortment": {
+                        "meta": {
+                            "href": "https://api.kladana.com/api/remap/1.2/entity/variant/f579d684-4eb1-11f1-0a82-189000000365",
+                            "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata",
+                            "type": "variant",
+                            "mediaType": "application/json",
+                            "uuidHref": "https://api.kladana.com/app/#feature/edit?id=f579cd1c-4eb1-11f1-0a82-189000000363"
+                        }
+                    }
+                }
+            ],
+            "paramQuantityCharacteristic": {
+                "meta": {
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics/e5bc54e3-4eb1-11f1-0a82-189000000315",
+                    "type": "attributemetadata",
+                    "mediaType": "application/json"
+                }
+            },
+            "paramQuantities": [
+                {
+                    "characteristicValue": "L",
+                    "quantity": 1.0
+                },
+                {
+                    "characteristicValue": "XL",
+                    "quantity": 2.0
+                }
+            ],
+            "processingProcessPosition": {
+                "meta": {
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/processingprocess/ccaf8b1b-4eb1-11f1-0a82-1890000002b6/positions/ccaf8f2f-4eb1-11f1-0a82-1890000002b7",
+                    "type": "processingprocessposition",
+                    "mediaType": "application/json"
+                }
+            }
+        }
+    ]
+}
+```
+
+> Request to get a separate Bill of Materials material with the specified ID.
+
+```shell
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/entity/processingplan/d6f4307a-5504-11f1-3593-85de000001ac/parametricmaterials/d6f43c04-5504-11f1-3593-85de000001ad" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip"
+```
+
+> Response 200 (application/json)
+Successful request. Result is a JSON representation of a separate Bill of Materials' item.
+
+```json
+{
+ "meta": {
+  "href": "https://api.kladana.com/api/remap/1.2/entity/processingplan/d6f4307a-5504-11f1-3593-85de000001ac/parametricmaterials/d6f43c04-5504-11f1-3593-85de000001ad",
+  "type": "processingplanparametricmaterial",
+  "mediaType": "application/json"
+ },
+ "id": "d6f43c04-5504-11f1-3593-85de000001ad",
+ "accountId": "976b7d32-5504-11f1-a690-207c00000001",
+ "paramFeatureCharacteristic": {
+  "meta": {
+   "href": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics/c348958b-5504-11f1-3593-85de00000181",
+   "type": "attributemetadata",
+   "mediaType": "application/json"
+  }
+ },
+ "paramFeatures": [
+  {
+   "characteristicValue": "blue",
+   "assortment": {
+    "meta": {
+     "href": "https://api.kladana.com/api/remap/1.2/entity/variant/b2f3b991-5504-11f1-3593-85de0000016e",
+     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata",
+     "type": "variant",
+     "mediaType": "application/json",
+     "uuidHref": "https://api.kladana.com/app/#feature/edit?id=b2f3b496-5504-11f1-3593-85de0000016d"
+    }
+   }
+  },
+  {
+   "characteristicValue": "red",
+   "assortment": {
+    "meta": {
+     "href": "https://api.kladana.com/api/remap/1.2/entity/variant/b6badef4-5504-11f1-3593-85de00000175",
+     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata",
+     "type": "variant",
+     "mediaType": "application/json",
+     "uuidHref": "https://api.kladana.com/app/#feature/edit?id=b6bad6c2-5504-11f1-3593-85de00000174"
+    }
+   }
+  }
+ ],
+ "paramQuantityCharacteristic": {
+  "meta": {
+   "href": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics/c348a010-5504-11f1-3593-85de00000182",
+   "type": "attributemetadata",
+   "mediaType": "application/json"
+  }
+ },
+ "paramQuantities": [
+  {
+   "characteristicValue": "L",
+   "quantity": 1.0
+  },
+  {
+   "characteristicValue": "M",
+   "quantity": 1.0
+  }
+ ],
+ "processingProcessPosition": {
+  "meta": {
+   "href": "https://api.kladana.com/api/remap/1.2/entity/processingprocess/9990d1d6-5504-11f1-3593-85de000000fd/positions/9990da42-5504-11f1-3593-85de000000fe",
+   "type": "processingprocessposition",
+   "mediaType": "application/json"
+  }
+ }
+}
+```
+
+### Create Parametric Material
+Like a regular raw material, the collection must consist of both raw materials and quotas. Using fixed values without specifying an attribute is allowed for only one of the two: either for the raw material or for the quota. If you need to add a raw material that will be used to produce all variants and does not depend on attributes, use the /materials resource.
+
+> Example of creating one parametric material in the Bill of Materials.
+
+```shell
+  curl --compressed -X POST \
+    "https://api.kladana.com/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/parametricmaterials" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
+      -d '[{
+    "paramFeatureCharacteristic": {
+        "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics/c348958b-5504-11f1-3593-85de00000181",
+            "type": "attributemetadata",
+            "mediaType": "application/json"
+        }
+    },
+    "paramFeatures": [
+        {
+            "characteristicValue": "blue",
+            "assortment": {
+                "meta": {
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/product/b2f3b991-5504-11f1-3593-85de0000016e",
+                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+                    "type": "product",
+                    "mediaType": "application/json",
+                    "uuidHref": "https://api.kladana.com/app/#feature/edit?id=b2f3b496-5504-11f1-3593-85de0000016d"
+                }
+            }
+        },
+        {
+            "characteristicValue": "red",
+            "assortment": {
+                "meta": {
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/product/b6badef4-5504-11f1-3593-85de00000175",
+                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+                    "type": "product",
+                    "mediaType": "application/json",
+                    "uuidHref": "https://api.kladana.com/app/#feature/edit?id=b6bad6c2-5504-11f1-3593-85de00000174"
+                }
+            }
+        }
+    ],
+    "paramQuantityCharacteristic": {
+        "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics/c348a010-5504-11f1-3593-85de00000182",
+            "type": "attributemetadata",
+            "mediaType": "application/json"
+        }
+    },
+    "paramQuantities": [
+        {
+            "characteristicValue": "L",
+            "quantity": 1.0
+        },
+        {
+            "characteristicValue": "M",
+            "quantity": 1.0
+        }
+    ]
+}]'  
+```
+
+> Response 200 (application/json)
+Successful request. The result is a JSON representation of the created material of a separate Bill of Materials.
+
+```json
+[
+ {
+  "meta": {
+   "href": "https://api.kladana.com/api/remap/1.2/entity/processingplan/d6f4307a-5504-11f1-3593-85de000001ac/parametricmaterials/f981eb42-58fc-11f1-2841-b5c200000000",
+   "type": "processingplanmaterial",
+   "mediaType": "application/json"
+  },
+  "id": "f981eb42-58fc-11f1-2841-b5c200000000",
+  "accountId": "976b7d32-5504-11f1-a690-207c00000001",
+  "paramFeatureCharacteristic": {
+   "meta": {
+    "href": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics/c348958b-5504-11f1-3593-85de00000181",
+    "type": "attributemetadata",
+    "mediaType": "application/json"
+   }
+  },
+  "paramFeatures": [
+   {
+    "characteristicValue": "red",
+    "assortment": {
+     "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/variant/b6badef4-5504-11f1-3593-85de00000175",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata",
+      "type": "variant",
+      "mediaType": "application/json",
+      "uuidHref": "https://api.kladana.com/app/#feature/edit?id=b6bad6c2-5504-11f1-3593-85de00000174"
+     }
+    }
+   },
+   {
+    "characteristicValue": "blue",
+    "assortment": {
+     "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/variant/b2f3b991-5504-11f1-3593-85de0000016e",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata",
+      "type": "variant",
+      "mediaType": "application/json",
+      "uuidHref": "https://api.kladana.com/app/#feature/edit?id=b2f3b496-5504-11f1-3593-85de0000016d"
+     }
+    }
+   }
+  ],
+  "paramQuantityCharacteristic": {
+   "meta": {
+    "href": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics/c348a010-5504-11f1-3593-85de00000182",
+    "type": "attributemetadata",
+    "mediaType": "application/json"
+   }
+  },
+  "paramQuantities": [
+   {
+    "characteristicValue": "L",
+    "quantity": 1.0
+   },
+   {
+    "characteristicValue": "M",
+    "quantity": 1.0
+   }
+  ],
+  "processingProcessPosition": {
+   "meta": {
+    "href": "https://api.kladana.com/api/remap/1.2/entity/processingprocess/9990d1d6-5504-11f1-3593-85de000000fd/positions/9990da42-5504-11f1-3593-85de000000fe",
+    "type": "processingprocessposition",
+    "mediaType": "application/json"
+   }
+  }
+ }
+]
+```
+### Edit Parametric Material
+
+> Example of a request to update a single parametric material in Bill of Materials.
+
+```shell
+  curl --compressed -X PUT \
+    "https://api.kladana.com/api/remap/1.2/entity/processingplan/d6f4307a-5504-11f1-3593-85de000001ac/parametricmaterials/f981eb42-58fc-11f1-2841-b5c200000000" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
+      -d '{
+          "paramQuantities": [
+              {
+                  "characteristicValue": "L",
+                  "quantity": 4.0
+              },
+              {
+                  "characteristicValue": "M",
+                  "quantity": 3.5
+              }
+    ]
+}'  
+```
+
+> Response 200 (application/json)
+Successful request. Result is a JSON representation of the updated Bill of Materials.
+
+```json
+{
+ "meta": {
+  "href": "https://api.kladana.com/api/remap/1.2/entity/processingplan/d6f4307a-5504-11f1-3593-85de000001ac/materials/f981eb42-58fc-11f1-2841-b5c200000000",
+  "type": "processingplanmaterial",
+  "mediaType": "application/json"
+ },
+ "id": "f981eb42-58fc-11f1-2841-b5c200000000",
+ "accountId": "976b7d32-5504-11f1-a690-207c00000001",
+ "paramFeatureCharacteristic": {
+  "meta": {
+   "href": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics/c348958b-5504-11f1-3593-85de00000181",
+   "type": "attributemetadata",
+   "mediaType": "application/json"
+  }
+ },
+ "paramFeatures": [
+  {
+   "characteristicValue": "blue",
+   "assortment": {
+    "meta": {
+     "href": "https://api.kladana.com/api/remap/1.2/entity/variant/b2f3b991-5504-11f1-3593-85de0000016e",
+     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata",
+     "type": "variant",
+     "mediaType": "application/json",
+     "uuidHref": "https://api.kladana.com/app/#feature/edit?id=b2f3b496-5504-11f1-3593-85de0000016d"
+    }
+   }
+  },
+  {
+   "characteristicValue": "red",
+   "assortment": {
+    "meta": {
+     "href": "https://api.kladana.com/api/remap/1.2/entity/variant/b6badef4-5504-11f1-3593-85de00000175",
+     "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata",
+     "type": "variant",
+     "mediaType": "application/json",
+     "uuidHref": "https://api.kladana.com/app/#feature/edit?id=b6bad6c2-5504-11f1-3593-85de00000174"
+    }
+   }
+  }
+ ],
+ "paramQuantityCharacteristic": {
+  "meta": {
+   "href": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics/c348a010-5504-11f1-3593-85de00000182",
+   "type": "attributemetadata",
+   "mediaType": "application/json"
+  }
+ },
+ "paramQuantities": [
+  {
+   "characteristicValue": "L",
+   "quantity": 4.0
+  },
+  {
+   "characteristicValue": "M",
+   "quantity": 3.5
+  }
+ ],
+ "processingProcessPosition": {
+  "meta": {
+   "href": "https://api.kladana.com/api/remap/1.2/entity/processingprocess/9990d1d6-5504-11f1-3593-85de000000fd/positions/9990da42-5504-11f1-3593-85de000000fe",
+   "type": "processingprocessposition",
+   "mediaType": "application/json"
+  }
+ }
+}
+```
+
+### Delete Parametric Material
+
+> Request to delete the Bill of Materials' parametric material with the specified ID.
+
+```shell
+curl --compressed -X DELETE \
+  "https://api.kladana.com/api/remap/1.2/entity/processingplan/d6f4307a-5504-11f1-3593-85de000001ac/parametricmaterials/f981eb42-58fc-11f1-2841-b5c200000000" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip"
+```
+
+> Response 200 (application/json)
+Successfully removed parametric material of the Bill of Materials.
+
+### Bulk Deletion of Parametric Materials
+
+> Request for bulk deletion of Bill of Materials parametric materials.
+
+```shell
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/processingplan/d6f4307a-5504-11f1-3593-85de000001ac/parametricmaterials/delete" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
+    -d '[
+          {
+              "meta": {
+                "href": "https://api.kladana.com/api/remap/1.2/entity/processingplan/d6f4307a-5504-11f1-3593-85de000001ac/parametricmaterials/93718a39-5900-11f1-fc77-337300000008",
+                "type": "processingplanmaterial",
+                "mediaType": "application/json"
+            }
+          },
+          {
+              "meta": {
+                "href": "https://api.kladana.com/api/remap/1.2/entity/processingplan/d6f4307a-5504-11f1-3593-85de000001ac/parametricmaterials/937199df-5900-11f1-fc77-33730000000b",
+                "type": "processingplanmaterial",
+                "mediaType": "application/json"
+            }
+          }
+]' 
+```
+> Response 200 (application/json)
+Successfully removed parametric materials from Bill of Materials.
 
 ### Products of Bill of Materials 
 Separate resource for managing raw materials of a Bill of Materials allows you to manage materials of a large Bill of Materials which number of materials exceeds the limit on the number of materials stored with the document. The limit is 1000. Learn more about the [limits](../#kladana-json-api-limitations).

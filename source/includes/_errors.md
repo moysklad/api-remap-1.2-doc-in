@@ -391,13 +391,13 @@ This section lists the JSON API error codes and their descriptions.
 
 ### Error codes for Bills of Materials
 
-| Error code | Message | Description |
-| ------------| ----------| ---------|
+| Error code                      | Message | Description |
+|---------------------------------| ----------| ---------|
 | <a name="error_25060">25060</a> | Save error: array element '{type}' can only contain an item from the Routing specified in the Bill of Materials in the processingProcess field | Check that the specified Routing items belong to the Routing of the Bill of Materials. |
 | <a name="error_25061">25061</a> | Save error: You cannot specify production cost in both the Bill of Materials and the production operations of Bill of Materials. | Check that you are not passing the production cost (cost field) in both the Bill of Materials and the items of the production operation. |
 | <a name="error_25062">25062</a> | Save error: When specifying a Bill of Material for a raw material, it must contain this material as a product | Check that the operation does not result in incorrect Bills of Materials. |
 | <a name="error_25063">25063</a> | Save error: cannot enable standard hours calculation for a Production Operation and modify the labour cost value at the same time | Check the `enableHourAccounting` flag for the Bill of Materials Operation. When standard hours calculation is enabled, the `labourCost` value is reset and calculated automatically. If you want to set a new labour cost value manually, first change the calculation type to fixed (`enableHourAccounting == false`). |
-
+| <a name="error_25064">25064</a> | Cannot add product to parametric BOM | Make sure you are not trying to add a product to a parametric BOM (check for objects in parametricMaterials). A parametric BOM does not support having two or more products, as this may cause conflicts in parametric material settings. |
 
 ### Error codes for Production Orders
 

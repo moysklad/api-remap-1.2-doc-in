@@ -6,6 +6,12 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 26-05-2026
+#### Added
+- Field `parametricMaterials` collection of parametric materials of [BoM](../dictionaries/#entities-bills-of-materials)
+- Endpoint for parametric materials of [BoM](../dictionaries/#entities-bills-of-materials-parametric-materials-in-bill-of-materials)
+- Error [25064](../#kladana-json-api-errors-error-codes-for-bills-of-materials)
+
 ### 18-05-2026
 #### Added
 - Bulk [create/update](../dictionaries/#entities-event-feed-bulk-creation-and-update-of-events) for Event Feed

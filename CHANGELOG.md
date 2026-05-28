@@ -2,6 +2,12 @@
 
 JSON API 1.2 changes will be added here soon
 
+### 26-05-2026
+#### Added
+- Field `parametricMaterials` collection of parametric materials of [BoM](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-bills-of-materials)
+- Endpoint for parametric materials of [BoM](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-bills-of-materials-parametric-materials-in-bill-of-materials)
+- Error [25064](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-bills-of-materials)
+
 ### 18-05-2026
 #### Added
 - Bulk [create/update](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-event-feed-bulk-creation-and-update-of-events) for Event Feed
