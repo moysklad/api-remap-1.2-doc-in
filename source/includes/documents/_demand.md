@@ -359,8 +359,8 @@ Successful request. The result is a JSON representation of the list of Shipments
        },
        "consignor": {
          "meta": {
-           "href": "https://api.moysklad.ru/api/remap/1.2/entity/counterparty/869d7628-6396-11e6-8a84-bae50000000b",
-           "metadataHref": "https://api.moysklad.ru/api/remap/1.2/entity/counterparty/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/869d7628-6396-11e6-8a84-bae50000000b",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
            "type": "counterparty",
            "mediaType": "application/json"
          }
