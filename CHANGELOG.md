@@ -5,8 +5,8 @@ JSON API 1.2 changes will be added here soon
 ### 28-05-2026
 #### Added
 - Field consignor (Consignor) in [Shipment](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-shipment)
-- Field shippingDocumentNumber (Transport document number) in [Shipment](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-shipment)
-- Field shippingDocumentDate (Transport document date) in [Shipment](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-shipment)
+- Field shippingDocumentNumber (Shipping document №) in [Shipment](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-shipment)
+- Field shippingDocumentDate (Date of shipping document) in [Shipment](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-shipment)
 
 ### 20-05-2026
 #### Added

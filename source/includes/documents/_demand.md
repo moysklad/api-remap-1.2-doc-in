@@ -83,8 +83,8 @@ Description of overhead expenses fields.
 | **stateContractId**         | String(255)                                        | Identifier of the state contract, contract (agreement) <br/> `+Change-handler` |
 | **transportFacility**       | String(255)                                        | Vehicle <br/> `+Change-handler`                                                |
 | **transportFacilityNumber** | String(255)                                        | Vehicle number <br/> `+Change-handler`                                         |
-| **shippingDocumentNumber**  | String(255)                                        | Transport document number <br/> `+Change-handler`                              |
-| **shippingDocumentDate**    | DateTime                                           | Transport document date <br/> `+Change-handler`                                |
+| **shippingDocumentNumber**  | String(255)                                        | Shipping document № <br/> `+Change-handler`                              |
+| **shippingDocumentDate**    | DateTime                                           | Date of shipping document <br/> `+Change-handler`                                |
 
 #### Shipment Items
 
