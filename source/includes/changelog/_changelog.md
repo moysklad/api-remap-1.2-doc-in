@@ -6,6 +6,12 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 28-05-2026
+#### Added
+- Field consignor (Consignor) in [Shipment](../documents/#transactions-shipment)
+- Field shippingDocumentNumber (Transport document number) in [Shipment](../documents/#transactions-shipment)
+- Field shippingDocumentDate (Transport document date) in [Shipment](../documents/#transactions-shipment)
+
 ### 20-05-2026
 #### Added
 - Production Operations validation error: [25101](../#kladana-json-api-errors-error-codes-for-production-operations)
