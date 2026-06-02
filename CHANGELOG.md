@@ -2,12 +2,14 @@
 
 JSON API 1.2 changes will be added here soon
 
-### 13-05-2026
+### 20-05-2026
 #### Added
-- Methods for creating, updating, and deleting, as well as bulk creating, updating, and deleting [Content Cards](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-content-card)
+- Production Operations validation error: [25101](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-production-operations)
 
-#### Changed
-- Updated the descriptions of the `assortment`, `cardContentName`, `description`, `name`, `salePlatform`, and `salesChannels` fields in [Content Cards](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-content-card)
+### 18-05-2026
+#### Added
+- Bulk [create/update](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-event-feed-bulk-creation-and-update-of-events) for Event Feed
+- Bulk [delete](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-event-feed-bulk-removal-of-events) for Event Feed
 
 ### 07-05-2026
 #### Added
