@@ -2,10 +2,18 @@
 
 JSON API 1.2 changes will be added here soon
 
-### 19-05-2026
+### 19-06-2026
 #### Added
 - Error [26116](../#kladana-json-api-errors-error-codes-for-production-orders) when attempting to change the BOM variant of a production order item
 - Error [26117](../#kladana-json-api-errors-error-codes-for-production-orders) when a product variant is missing for a parametric BOM in a production order
+
+### 22-05-2026
+#### Removed
+- Fields `owner`, `group`, and `shared` were removed from [Content Cards](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-content-card)
+
+### 20-05-2026
+#### Added
+- Production Operations validation error: [25101](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-production-operations)
 
 ### 18-05-2026
 #### Added
