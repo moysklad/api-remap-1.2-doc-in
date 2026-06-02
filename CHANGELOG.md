@@ -5,7 +5,8 @@ JSON API 1.2 changes will be added here soon
 ### 19-06-2026
 #### Added
 - Error [26116](../#kladana-json-api-errors-error-codes-for-production-orders) when attempting to change the BOM variant of a production order item
-- Error [26117](../#kladana-json-api-errors-error-codes-for-production-orders) when a product variant is missing for a parametric BOM in a production order
+- Error [26117](../#kladana-json-api-errors-error-codes-for-production-orders) when a product variant is missing for a parametric  Bill of Materials in a production order
+- Error [26118](../#kladana-json-api-errors-error-codes-for-production-orders) when a product variant does not belong to the product of the parametric Bill of Materials 
 
 ### 22-05-2026
 #### Removed
