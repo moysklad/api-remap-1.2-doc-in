@@ -72,19 +72,19 @@ Description of overhead expenses fields.
 
 #### Other fields
 
-| Title                       | Type                                               | Description                                                                    |
-|-----------------------------|----------------------------------------------------|--------------------------------------------------------------------------------|
-| **cargoName**               | String(255)                                        | Name of cargo <br/> `+Change-handler`                                          |
-| **carrier**                 | [Meta](../#kladana-json-api-general-info-metadata) | Carrier metadata (counterparty or legal entity)<br>`+Expand` `+Change-handler` |
-| **consignee**               | [Meta](../#kladana-json-api-general-info-metadata) | Consignee's metadata (counterparty or legal entity) <br/> `+Change-handler`    |
-| **consignor**               | [Meta](../#kladana-json-api-general-info-metadata) | Consignor's metadata (counterparty or legal entity) <br/> `+Change-handler`    |
-| **goodPackQuantity**        | Int                                                | Total seats <br/> `+Change-handler`                                            |
-| **shippingInstructions**    | String(255)                                        | Shipper instructions <br/> `+Change-handler`                                   |
-| **stateContractId**         | String(255)                                        | Identifier of the state contract, contract (agreement) <br/> `+Change-handler` |
-| **transportFacility**       | String(255)                                        | Vehicle <br/> `+Change-handler`                                                |
-| **transportFacilityNumber** | String(255)                                        | Vehicle number <br/> `+Change-handler`                                         |
-| **shippingDocumentNumber**  | String(255)                                        | Shipping document № <br/> `+Change-handler`                              |
-| **shippingDocumentDate**    | DateTime                                           | Date of shipping document <br/> `+Change-handler`                                |
+| Title                       | Type                                               | Description                                                                          |
+|-----------------------------|----------------------------------------------------|--------------------------------------------------------------------------------------|
+| **cargoName**               | String(255)                                        | Name of cargo <br/> `+Change-handler`                                                |
+| **carrier**                 | [Meta](../#kladana-json-api-general-info-metadata) | Carrier metadata (counterparty or legal entity)<br>`+Expand` `+Change-handler`       |
+| **consignee**               | [Meta](../#kladana-json-api-general-info-metadata) | Consignee's metadata (counterparty or legal entity) <br/>`+Expand` `+Change-handler` |
+| **consignor**               | [Meta](../#kladana-json-api-general-info-metadata) | Consignor's metadata (counterparty or legal entity) <br/>`+Expand` `+Change-handler` |
+| **goodPackQuantity**        | Int                                                | Total seats <br/> `+Change-handler`                                                  |
+| **shippingInstructions**    | String(255)                                        | Shipper instructions <br/> `+Change-handler`                                         |
+| **stateContractId**         | String(255)                                        | Identifier of the state contract, contract (agreement) <br/> `+Change-handler`       |
+| **transportFacility**       | String(255)                                        | Vehicle <br/> `+Change-handler`                                                      |
+| **transportFacilityNumber** | String(255)                                        | Vehicle number <br/> `+Change-handler`                                               |
+| **shippingDocumentNumber**  | String(255)                                        | Shipping document № <br/> `+Change-handler`                                          |
+| **shippingDocumentDate**    | DateTime                                           | Date of shipping document <br/> `+Change-handler`                                    |
 
 #### Shipment Items
 
