@@ -2,6 +2,10 @@
 
 JSON API 1.2 changes will be added here soon
 
+### 02-06-2026
+#### Added
+- Field `operatingExpenses` for [Expense item](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-expense-item)
+
 ### 20-05-2026
 #### Added
 - Production Operations validation error: [25101](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-production-operations)
