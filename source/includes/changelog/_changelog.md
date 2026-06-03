@@ -6,12 +6,25 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
-### 13-05-2026
+### 03-06-2026
 #### Added
 - Methods for creating, updating, and deleting, as well as bulk creating, updating, and deleting [Content Cards](../dictionaries/#entities-content-card)
 
 #### Changed
 - Updated the descriptions of the `assortment`, `cardContentName`, `description`, `name`, `salePlatform`, and `salesChannels` fields in [Content Cards](../dictionaries/#entities-content-card)
+
+### 22-05-2026
+#### Removed
+- Fields `owner`, `group`, and `shared` were removed from [Content Cards](../dictionaries/#entities-content-card)
+
+### 20-05-2026
+#### Added
+- Production Operations validation error: [25101](../#kladana-json-api-errors-error-codes-for-production-operations)
+
+### 18-05-2026
+#### Added
+- Bulk [create/update](../dictionaries/#entities-event-feed-bulk-creation-and-update-of-events) for Event Feed
+- Bulk [delete](../dictionaries/#entities-event-feed-bulk-removal-of-events) for Event Feed
 
 ### 07-05-2026
 #### Added
