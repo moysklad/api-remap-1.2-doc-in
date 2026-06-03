@@ -724,8 +724,7 @@ This section lists the JSON API error codes and their descriptions.
 
 ### Error codes for content cards
 
-| Error code                    | Message                                                                                                           | Description                                                  |
-|-------------------------------|-------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
+| Error code                      | Message                                                                                                           | Description                                                  |
+|---------------------------------|-------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
 | <a name="error_74000">74000</a> | Failed to save content card: You cannot specify an archived sales channel in the content card                     | Check that the list does not contain archived sales channels |
-| <a name="error_74001">74001</a> | Failed to save content card: You cannot add more than 1000 sales channels. Remove extra channels to save the card | Sales channel limit reached for the specified content card   |
-| <a name="error_74002">74002</a> | Failed to save content card: A maximum of 100 content cards can be created for a single product                   | Content card limit reached for the specified product         |
+| <a name="error_74001">74001</a> | Failed to save content card: A maximum of 100 content cards can be created for a single product                   | Content card limit reached for the specified product         |
