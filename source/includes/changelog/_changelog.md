@@ -12,6 +12,12 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 - Error [26117](../#kladana-json-api-errors-error-codes-for-production-orders) when a product variant is missing for a parametric Bill of Materials in a production order
 - Error [26118](../#kladana-json-api-errors-error-codes-for-production-orders) when a product variant does not belong to the product of the parametric Bill of Materials
 
+### 04-06-2026
+#### Added
+- Field consignor (Consignor) in [Shipment](../documents/#transactions-shipment)
+- Field shippingDocumentNumber (Shipping document №) in [Shipment](../documents/#transactions-shipment)
+- Field shippingDocumentDate (Date of shipping document) in [Shipment](../documents/#transactions-shipment)
+
 ### 22-05-2026
 #### Removed
 - Fields `owner`, `group`, and `shared` were removed from [Content Cards](../dictionaries/#entities-content-card)
