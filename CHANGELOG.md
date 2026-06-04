@@ -2,11 +2,15 @@
 
 JSON API 1.2 changes will be added here soon
 
-### 28-05-2026
+### 04-06-2026
 #### Added
 - Field consignor (Consignor) in [Shipment](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-shipment)
 - Field shippingDocumentNumber (Shipping document №) in [Shipment](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-shipment)
 - Field shippingDocumentDate (Date of shipping document) in [Shipment](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-shipment)
+
+### 22-05-2026
+#### Removed
+- Fields `owner`, `group`, and `shared` were removed from [Content Cards](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-content-card)
 
 ### 20-05-2026
 #### Added

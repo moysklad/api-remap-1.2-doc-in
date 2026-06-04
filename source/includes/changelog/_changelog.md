@@ -6,11 +6,15 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
-### 28-05-2026
+### 04-06-2026
 #### Added
 - Field consignor (Consignor) in [Shipment](../documents/#transactions-shipment)
 - Field shippingDocumentNumber (Shipping document №) in [Shipment](../documents/#transactions-shipment)
 - Field shippingDocumentDate (Date of shipping document) in [Shipment](../documents/#transactions-shipment)
+
+### 22-05-2026
+#### Removed
+- Fields `owner`, `group`, and `shared` were removed from [Content Cards](../dictionaries/#entities-content-card)
 
 ### 20-05-2026
 #### Added
