@@ -8,9 +8,10 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 
 ### 19-06-2026
 #### Added
-- Error [26116](../#kladana-json-api-errors-error-codes-for-production-orders) when attempting to change the BOM variant of a production order item
+- Error [26116](../#kladana-json-api-errors-error-codes-for-production-orders) when attempting to change the Bill of Materials variant of a production order item
 - Error [26117](../#kladana-json-api-errors-error-codes-for-production-orders) when a product variant is missing for a parametric Bill of Materials in a production order
 - Error [26118](../#kladana-json-api-errors-error-codes-for-production-orders) when a product variant does not belong to the product of the parametric Bill of Materials
+- Error [26119](../#kladana-json-api-errors-error-codes-for-production-orders) when a product variant is specified for a non-parametric Bill of Materials
 
 ### 04-06-2026
 #### Added
