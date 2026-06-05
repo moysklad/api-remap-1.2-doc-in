@@ -6,6 +6,10 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 05-06-2026
+#### Added
+- Error [67007](../#kladana-json-api-errors-error-codes-for-bins-and-warehouse-locations) when the limit on the number of warehouses on an account has been violated
+
 ### 07-05-2026
 #### Added
 - Error [62004](../#kladana-json-api-errors-error-codes-for-extended-bonus-program) when the bonus account balance limit of a counterparty is exceeded
