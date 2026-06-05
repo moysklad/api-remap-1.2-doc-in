@@ -2,7 +2,7 @@
 
 JSON API 1.2 changes will be added here soon
 
-### ----------
+### 05-06-2026
 #### Added
 - Error [67007](../#kladana-json-api-errors-error-codes-for-bins-and-warehouse-locations) when the limit on the number of warehouses on an account has been violated
 
