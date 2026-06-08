@@ -5,8 +5,7 @@ The section lists changes to existing endpoints and new endpoints that allow you
 See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-1.2-doc-in/blob/master/CHANGELOG.md).
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
-
-### 03-06-2026
+### 08-06-2026
 #### Added
 - Methods for creating, updating, and deleting, as well as bulk creating, updating, and deleting [Content Cards](../dictionaries/#entities-content-card)
 - Error [74000](../#kladana-json-api-errors-error-codes-for-content-cards) You cannot specify an archived sales channel in the [Content Card](../dictionaries/#entities-content-card)
@@ -14,6 +13,12 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 
 #### Changed
 - Updated the descriptions of the `assortment`, `cardContentName`, `description`, `name`, `salePlatform`, and `salesChannels` fields in [Content Cards](../dictionaries/#entities-content-card)
+
+### 04-06-2026
+#### Added
+- Field consignor (Consignor) in [Shipment](../documents/#transactions-shipment)
+- Field shippingDocumentNumber (Shipping document №) in [Shipment](../documents/#transactions-shipment)
+- Field shippingDocumentDate (Date of shipping document) in [Shipment](../documents/#transactions-shipment)
 
 ### 22-05-2026
 #### Removed

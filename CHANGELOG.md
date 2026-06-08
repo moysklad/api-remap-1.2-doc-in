@@ -2,7 +2,7 @@
 
 JSON API 1.2 changes will be added here soon
 
-### 03-06-2026
+### 08-06-2026
 #### Added
 - Methods for creating, updating, and deleting, as well as bulk creating, updating, and deleting [Content Cards](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-content-card)
 - Error [74000](../#kladana-json-api-errors-error-codes-for-content-cards) You cannot specify an archived sales channel in the [Content Card](../dictionaries/#entities-content-card)
@@ -10,6 +10,12 @@ JSON API 1.2 changes will be added here soon
 
 #### Changed
 - Updated the descriptions of the `assortment`, `cardContentName`, `description`, `name`, `salePlatform`, and `salesChannels` fields in [Content Cards](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-content-card)
+
+### 04-06-2026
+#### Added
+- Field consignor (Consignor) in [Shipment](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-shipment)
+- Field shippingDocumentNumber (Shipping document №) in [Shipment](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-shipment)
+- Field shippingDocumentDate (Date of shipping document) in [Shipment](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-shipment)
 
 ### 22-05-2026
 #### Removed
