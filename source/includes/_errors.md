@@ -685,7 +685,7 @@ This section lists the JSON API error codes and their descriptions.
 | ------------| ----------| ---------|
 | <a name="error_64000">64000</a> | Sales Channel Update Error: You cannot change the type for an Automatically Created Sales Channel | Sales channel created automatically has a read-only immutable type |
 
-### Error codes for Bins and Warehouse Locations
+### Error codes for Warehouses
 
 | Error code                      | Message                                                                                       | Description                                                               |
 |---------------------------------|-----------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
