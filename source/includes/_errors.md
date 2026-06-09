@@ -725,3 +725,10 @@ This section lists the JSON API error codes and their descriptions.
 | Error code                         | Message                                                                                                                           | Description                                                                                                                                                                      |
 |------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | <a name="error_72000">72000</a>  | Error saving bank account: at least one of the bank accounts must be in the accounting currency                                    | When creating or first adding bank accounts to a legal entity, at least one of the accounts must be in the company's accounting currency.                                                    |
+
+### Error codes for content cards
+
+| Error code                      | Message                                                                                                           | Description                                                  |
+|---------------------------------|-------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
+| <a name="error_75000">75000</a> | Failed to save content card: You cannot specify an archived sales channel in the content card                     | Check that the list does not contain archived sales channels |
+| <a name="error_75001">75001</a> | Failed to save content card: A maximum of 100 content cards can be created for a single product                   | Content card limit reached for the specified product         |

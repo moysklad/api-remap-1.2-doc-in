@@ -9,6 +9,15 @@ JSON API 1.2 changes will be added here soon
 - Error [26118](../#kladana-json-api-errors-error-codes-for-production-orders) when a product variant does not belong to the product of the parametric Bill of Materials
 - Error [26119](../#kladana-json-api-errors-error-codes-for-production-orders) when a product variant is specified for a non-parametric Bill of Materials
 
+### 08-06-2026
+#### Added
+- Methods for creating, updating, and deleting, as well as bulk creating, updating, and deleting [Content Cards](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-content-card)
+- Error [75000](../#kladana-json-api-errors-error-codes-for-content-cards) You cannot specify an archived sales channel in the [Content Card](../dictionaries/#entities-content-card)
+- Error [75001](../#kladana-json-api-errors-error-codes-for-content-cards) A maximum of 100 [Content Cards](../dictionaries/#entities-content-card) can be created for a single product
+
+#### Changed
+- Updated the descriptions of the `assortment`, `cardContentName`, `description`, `name`, `salePlatform`, and `salesChannels` fields in [Content Cards](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-content-card)
+
 ### 04-06-2026
 #### Added
 - Field consignor (Consignor) in [Shipment](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-shipment)
