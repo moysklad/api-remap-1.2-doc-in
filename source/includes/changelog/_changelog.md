@@ -5,6 +5,13 @@ The section lists changes to existing endpoints and new endpoints that allow you
 See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-1.2-doc-in/blob/master/CHANGELOG.md).
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
+### 19-06-2026
+#### Added
+- Error [26116](../#kladana-json-api-errors-error-codes-for-production-orders) when attempting to change the Bill of Materials variant of a production order item
+- Error [26117](../#kladana-json-api-errors-error-codes-for-production-orders) when a product variant is missing for a parametric Bill of Materials in a production order
+- Error [26118](../#kladana-json-api-errors-error-codes-for-production-orders) when a product variant does not belong to the product of the parametric Bill of Materials
+- Error [26119](../#kladana-json-api-errors-error-codes-for-production-orders) when a product variant is specified for a non-parametric Bill of Materials
+
 ### 08-06-2026
 #### Added
 - Methods for creating, updating, and deleting, as well as bulk creating, updating, and deleting [Content Cards](../dictionaries/#entities-content-card)
@@ -13,13 +20,6 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 
 #### Changed
 - Updated the descriptions of the `assortment`, `cardContentName`, `description`, `name`, `salePlatform`, and `salesChannels` fields in [Content Cards](../dictionaries/#entities-content-card)
-
-### 19-06-2026
-#### Added
-- Error [26116](../#kladana-json-api-errors-error-codes-for-production-orders) when attempting to change the Bill of Materials variant of a production order item
-- Error [26117](../#kladana-json-api-errors-error-codes-for-production-orders) when a product variant is missing for a parametric Bill of Materials in a production order
-- Error [26118](../#kladana-json-api-errors-error-codes-for-production-orders) when a product variant does not belong to the product of the parametric Bill of Materials
-- Error [26119](../#kladana-json-api-errors-error-codes-for-production-orders) when a product variant is specified for a non-parametric Bill of Materials
 
 ### 04-06-2026
 #### Added
