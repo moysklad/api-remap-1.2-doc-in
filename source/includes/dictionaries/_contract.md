@@ -45,7 +45,7 @@ The search among contract objects for matching the search string will be carried
 | **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=`| When the entity was last updated<br>`+Required when replying` `+Read-only` |
 
 
-Table of fields, their values and their values in JSON representation:
+Table of enum fields, their UI values, and their values in JSON representation:
 
 | Field name | Possible Values | Corresponding value in JSON | Default value |
 | ------- | ---------- | ---- | ------- |
