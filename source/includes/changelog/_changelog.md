@@ -5,6 +5,10 @@ The section lists changes to existing endpoints and new endpoints that allow you
 See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-1.2-doc-in/blob/master/CHANGELOG.md).
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
+### 10-06-2026
+#### Added
+- Error [67007](../#kladana-json-api-errors-error-codes-for-warehouses) when the limit on the number of warehouses on an account has been violated
+
 ### 08-06-2026
 #### Added
 - Methods for creating, updating, and deleting, as well as bulk creating, updating, and deleting [Content Cards](../dictionaries/#entities-content-card)
@@ -32,10 +36,6 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 #### Added
 - Bulk [create/update](../dictionaries/#entities-event-feed-bulk-creation-and-update-of-events) for Event Feed
 - Bulk [delete](../dictionaries/#entities-event-feed-bulk-removal-of-events) for Event Feed
-
-### 10-06-2026
-#### Added
-- Error [67007](../#kladana-json-api-errors-error-codes-for-warehouses) when the limit on the number of warehouses on an account has been violated
 
 ### 07-05-2026
 #### Added
