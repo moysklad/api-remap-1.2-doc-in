@@ -6,6 +6,34 @@ JSON API 1.2 changes will be added here soon
 #### Added
 - Error [67007](../#kladana-json-api-errors-error-codes-for-warehouses) when the limit on the number of warehouses on an account has been violated
 
+### 08-06-2026
+#### Added
+- Methods for creating, updating, and deleting, as well as bulk creating, updating, and deleting [Content Cards](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-content-card)
+- Error [75000](../#kladana-json-api-errors-error-codes-for-content-cards) You cannot specify an archived sales channel in the [Content Card](../dictionaries/#entities-content-card)
+- Error [75001](../#kladana-json-api-errors-error-codes-for-content-cards) A maximum of 100 [Content Cards](../dictionaries/#entities-content-card) can be created for a single product
+
+#### Changed
+- Updated the descriptions of the `assortment`, `cardContentName`, `description`, `name`, `salePlatform`, and `salesChannels` fields in [Content Cards](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-content-card)
+
+### 04-06-2026
+#### Added
+- Field consignor (Consignor) in [Shipment](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-shipment)
+- Field shippingDocumentNumber (Shipping document №) in [Shipment](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-shipment)
+- Field shippingDocumentDate (Date of shipping document) in [Shipment](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-shipment)
+
+### 22-05-2026
+#### Removed
+- Fields `owner`, `group`, and `shared` were removed from [Content Cards](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-content-card)
+
+### 20-05-2026
+#### Added
+- Production Operations validation error: [25101](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-production-operations)
+
+### 18-05-2026
+#### Added
+- Bulk [create/update](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-event-feed-bulk-creation-and-update-of-events) for Event Feed
+- Bulk [delete](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-event-feed-bulk-removal-of-events) for Event Feed
+
 ### 07-05-2026
 #### Added
 - Error [62004](../#kladana-json-api-errors-error-codes-for-extended-bonus-program) when the bonus account balance limit of a counterparty is exceeded

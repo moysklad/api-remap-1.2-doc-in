@@ -372,11 +372,11 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_24003">24003</a> | Inventory save error: Service cannot be an inventory item | A service cannot be an inventory item. |
 | <a name="error_24004">24004</a> | Error saving inventory: inventory cannot contain duplicate items | A product, product variant, service, batches or bundle can only be added to the inventory once. |
 
-### Error codes for Production Operations
+### Error codes for Production Records
 
 | Error code | Message | Description |
 | ------------| ----------| ---------|
-| <a name="error_25003">25003</a> | Saving error: the production operation must contain a product or Bill of Materials | When creating a production operation or deleting a product, the production operation must have at least one product item. |
+| <a name="error_25003">25003</a> | Saving error: the production record must contain a product or Bill of Materials | When creating a production record or deleting a product, the production operation must have at least one product item. |
 
 ### Error codes for Routings
 
@@ -398,6 +398,11 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_25062">25062</a> | Save error: When specifying a Bill of Material for a raw material, it must contain this material as a product | Check that the operation does not result in incorrect Bills of Materials. |
 | <a name="error_25063">25063</a> | Save error: cannot enable standard hours calculation for a Production Operation and modify the labour cost value at the same time | Check the `enableHourAccounting` flag for the Bill of Materials Operation. When standard hours calculation is enabled, the `labourCost` value is reset and calculated automatically. If you want to set a new labour cost value manually, first change the calculation type to fixed (`enableHourAccounting == false`). |
 
+### Error codes for Production Operations
+
+| Error code                      | Message | Description |
+|---------------------------------| ----------| ---------|
+| <a name="error_25101">25101</a> | Cannot restrict task visibility for an operation that all employees perform | Make sure you are not creating a situation where an operation has no explicitly assigned performers, but a filter is enabled that only shows each performer their own tasks. |
 
 ### Error codes for Production Orders
 
@@ -717,3 +722,10 @@ This section lists the JSON API error codes and their descriptions.
 | Error code                         | Message                                                                                                                           | Description                                                                                                                                                                      |
 |------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | <a name="error_72000">72000</a>  | Error saving bank account: at least one of the bank accounts must be in the accounting currency                                    | When creating or first adding bank accounts to a legal entity, at least one of the accounts must be in the company's accounting currency.                                                    |
+
+### Error codes for content cards
+
+| Error code                      | Message                                                                                                           | Description                                                  |
+|---------------------------------|-------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
+| <a name="error_75000">75000</a> | Failed to save content card: You cannot specify an archived sales channel in the content card                     | Check that the list does not contain archived sales channels |
+| <a name="error_75001">75001</a> | Failed to save content card: A maximum of 100 content cards can be created for a single product                   | Content card limit reached for the specified product         |

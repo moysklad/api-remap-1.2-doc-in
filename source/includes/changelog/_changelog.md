@@ -5,6 +5,33 @@ The section lists changes to existing endpoints and new endpoints that allow you
 See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-1.2-doc-in/blob/master/CHANGELOG.md).
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
+### 08-06-2026
+#### Added
+- Methods for creating, updating, and deleting, as well as bulk creating, updating, and deleting [Content Cards](../dictionaries/#entities-content-card)
+- Error [75000](../#kladana-json-api-errors-error-codes-for-content-cards) You cannot specify an archived sales channel in the [Content Card](../dictionaries/#entities-content-card)
+- Error [75001](../#kladana-json-api-errors-error-codes-for-content-cards) A maximum of 100 [Content Cards](../dictionaries/#entities-content-card) can be created for a single product
+
+#### Changed
+- Updated the descriptions of the `assortment`, `cardContentName`, `description`, `name`, `salePlatform`, and `salesChannels` fields in [Content Cards](../dictionaries/#entities-content-card)
+
+### 04-06-2026
+#### Added
+- Field consignor (Consignor) in [Shipment](../documents/#transactions-shipment)
+- Field shippingDocumentNumber (Shipping document №) in [Shipment](../documents/#transactions-shipment)
+- Field shippingDocumentDate (Date of shipping document) in [Shipment](../documents/#transactions-shipment)
+
+### 22-05-2026
+#### Removed
+- Fields `owner`, `group`, and `shared` were removed from [Content Cards](../dictionaries/#entities-content-card)
+
+### 20-05-2026
+#### Added
+- Production Operations validation error: [25101](../#kladana-json-api-errors-error-codes-for-production-operations)
+
+### 18-05-2026
+#### Added
+- Bulk [create/update](../dictionaries/#entities-event-feed-bulk-creation-and-update-of-events) for Event Feed
+- Bulk [delete](../dictionaries/#entities-event-feed-bulk-removal-of-events) for Event Feed
 
 ### 10-06-2026
 #### Added
