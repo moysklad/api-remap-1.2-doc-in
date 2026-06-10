@@ -58,7 +58,7 @@ Purchase Returns Items is a list of products, services, and product variants. Th
 | ----------| --------- |-------- |
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
 | **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of a product, service, batch, or product variant, which is an item<br>`+Required when replying` `+Expand` |
-| **discount** | Float | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` |
+| **discount** | Float | The percentage of the discount or markup. The markup is indicated as a negative number, i.e. -10 will create a markup of 10%<br>`+Required when replying` `+Read only` |
 | **id** | UUID | Item ID<br>`+Required when replying` `+Read Only` |
 | **pack** | Object | Product packaging. [Learn more](../dictionaries/#entities-product-products-nested-entity-attributes-product-packaging) |
 | **price** | Float | The price of the products/services in paise<br>`+Required when replying` |

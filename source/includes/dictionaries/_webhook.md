@@ -54,7 +54,7 @@ An example of how the data will be transmitted:
 | ------- | ------- |--------- |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Changed entity metadata<br>`+Required when replying` |
 | **action** | Enum | The action that triggered the webhook. Possible values: `[CREATE, UPDATE, DELETE, PROCESSED]`<br>`+Required when replying` |
-| **accountId** | UUID | Cashier account ID<br>`+Required when replying` |
+| **accountId** | UUID | Account ID<br>`+Required when replying` |
 | **updatedFields** | Array(String) | Entity fields modified by the user |
 
 To display an entity attribute, the **updatedFields** event needs the webhook to have **diffType=FIELDS** and **action=UPDATE**
@@ -290,17 +290,11 @@ Successful request. The result is a JSON representation of the created webhook.
 In the body of the request, you need to pass an array containing the JSON representation of the webhooks you want to create or update.
 Updated webhooks must contain the ID as metadata.
 
-**Parameters**
-
-| Parameter | Description |
-| ------- | ------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* webhook id. |
-
 > Example of creating and updating multiple webhooks
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/webhook/7944ef04-f831-11e5-7a69-971500188b19" \
+     "https://api.kladana.com/api/remap/1.2/entity/webhook" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \

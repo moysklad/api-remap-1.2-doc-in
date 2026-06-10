@@ -42,7 +42,8 @@ Using the JSON API, you can create and update information about Incoming Cash Pa
 
 | Title | Description |
 | --------- | ------------- |
-| **operations** | An array of links to related operations in the format [Metadata](../#kladana-json-api-general-info-metadata) |
+| **factureOut** | Link to the related Outgoing invoice in the [Metadata](../#kladana-json-api-general-info-metadata) format |
+| **operations** | Collection of metadata ([Metadata](../#kladana-json-api-general-info-metadata)) for linked operations, with a **linkedSum** field for each linked operation |
 
 Allowed types of linked operations:
 

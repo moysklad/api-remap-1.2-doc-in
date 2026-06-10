@@ -23,7 +23,7 @@ The search among contract objects for matching the search string will be carried
 | **archived** | Boolean | `=` `!=` | Has the Contract been added to the archive<br>`+Required when answering` |
 | **attributes** | Array(Object) |[Additional Operators fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Collection of additional fields |
 | **code** | String(255) | `=` `!=` `~` `~=` `=~` | Contract Code |
-| **contractType** | Enum | | Contract type. Possible values: `Commission contract`, `Purchase and sale contract`<br>`+Required when answering` |
+| **contractType** | Enum | | Contract type. Possible values are listed below in the enum fields table.<br>`+Required when answering` |
 | **description** | String(4096) | `=` `!=` `~` `~=` `=~` | Description of the Contract |
 | **externalCode** | String(255) | `=` `!=` `~` `~=` `=~` | External Code of the Contract<br>`+Required when answering` |
 | **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee department metadata<br>`+Required when answering` `+Expand` |
@@ -35,8 +35,6 @@ The search among contract objects for matching the search string will be carried
 | **ownAgent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Metadata of your legal entity<br>`+Required when answering` `+Expand` `+Required when creating` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee) metadata<br>`+Expand` |
 | **rate** | [Meta](../#kladana-json-api-general-info-metadata) | | Currency metadata<br>`+Required when answering` `+Expand` |
-| **rewardPercent** | Int | | Reward in percent (from 0 to 100) |
-| **rewardType** | Enum | | Reward Type. Possible values: `Percentage of the sale amount`, `Do not calculate` |
 | **shared** | Boolean | `=` `!=` | Sharing<br>`+Required when answering` |
 | **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Contract status metadata<br>`+Expand` |
 | **sum** | Int | | Amount of the Contract<br>`+Required when replying` |
@@ -45,14 +43,11 @@ The search among contract objects for matching the search string will be carried
 | **updated** | DateTime | `=` `!=` `<` `>` `<=` `>=`| When the entity was last updated<br>`+Required when replying` `+Read-only` |
 
 
-Table of fields, their values and their values in JSON representation:
+Table of enum fields, their UI values, and their values in JSON representation:
 
 | Field name | Possible Values | Corresponding value in JSON | Default value |
 | ------- | ---------- | ---- | ------- |
-| **contractType** | Commission contract | Commission | Purchase and Sale Agreement |
-|  | Purchase and Sale Agreement | Sales |   |
-| **rewardType** | Percentage of sales amount | PercentOfSales | Do not count |
-|  | Do not count | None |   |
+| **contractType** | Buy and Sell contract | Sales | Buy and Sell contract |
 
 About working with fields of the Contracts can be read [here](../#kladana-json-api-general-info-additional-fields).
 
@@ -225,9 +220,7 @@ Successful request. The result is a JSON representation of the list of Contracts
        "archived": false,
        "moment": "2016-04-25 11:33:00",
        "sum": 9999999000,
-       "contractType": "Commission",
-       "rewardType": "PercentOfSales",
-       "rewardPercent": 0,
+       "contractType": "Sales",
        "ownAgent": {
          "meta": {
            "href": "https://api.kladana.com/api/remap/1.2/entity/organization/850c8195-f504-11e5-8a84-bae50000015e",
