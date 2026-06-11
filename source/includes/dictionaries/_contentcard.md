@@ -4,17 +4,18 @@
 Using the JSON API, you can create, update, delete, and view Content Cards, request lists of Content Cards, and get information about individual Content Cards. The entity code for a Content Card in the JSON API is the **contentcard** keyword.
 
 #### Entity attributes
-| Title | Type | Filtration | Description                                                                                                                                                                                                                                                                        |
-| ------ | :------ | :------ |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **accountId** | UUID | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only`                                                                                                                                                                                                                               |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Assortment metadata<br>`+Expand` `+Required when replying` `+Required when creating` `+Cannot be changed after filling`                                                                                                                                                            |
-| **cardContentName** | String(255) | | How the Content Card is displayed in the UI list<br>`+Required when replying` `+Required when creating`                                                                                                                                                                            |
-| **description** | String(10000) | | Product or service description<br>`+Required when replying` `+Required when creating`                                                                                                                                                                                              |
-| **id** | UUID | `=` `!=` | Content Card ID<br>`+Required when replying` `+Read Only`                                                                                                                                                                                                                          |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Content Card metadata<br>`+Required when replying`                                                                                                                                                                                                                                 |
-| **name** | String(255) | | Product or service name<br>`+Required when replying` `+Required when creating`                                                                                                                                                                                                     |
-| **salePlatform** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sale Platform metadata. [Learn more](../dictionaries/#entities-sale-platform).<br>`+Expand` `+Required when replying` `+Required when creating`                                                                                                                                    |
-| **salesChannels** | Array(Object) | `=` | Array of links to related Sales Channels in the Metadata format. [Learn more](../dictionaries/#entities-sales-channel). Maximum number is 1000. To filter by this field, use its singular form: **salesChannel**.<br>`+Expand` `+Required when replying` `+Required when creating` |
+| Title                 | Type                                               | Filtration | Description                                                                                                                                                                                                                                                                        |
+|-----------------------|:---------------------------------------------------|:-----------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **accountId**         | UUID                                               | `=` `!=`   | Account ID<br>`+Required when replying` `+Read Only`                                                                                                                                                                                                                               |
+| **assortment**        | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`   | Assortment metadata<br>`+Expand` `+Required when replying` `+Required when creating` `+Cannot be changed after filling`                                                                                                                                                            |
+| **cardContentName**   | String(255)                                        |            | How the Content Card is displayed in the UI list<br>`+Required when replying` `+Required when creating`                                                                                                                                                                            |
+| **description**       | String(10000)                                      |            | Product or service description<br>`+Required when replying` `+Required when creating`                                                                                                                                                                                              |
+| **id**                | UUID                                               | `=` `!=`   | Content Card ID<br>`+Required when replying` `+Read Only`                                                                                                                                                                                                                          |
+| **meta**              | [Meta](../#kladana-json-api-general-info-metadata) |            | Content Card metadata<br>`+Required when replying`                                                                                                                                                                                                                                 |
+| **name**              | String(255)                                        |            | Product or service name<br>`+Required when replying` `+Required when creating`                                                                                                                                                                                                     |
+| **salePlatform**      | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`   | Sale Platform metadata. [Learn more](../dictionaries/#entities-sale-platform).<br>`+Expand` `+Required when replying` `+Required when creating`                                                                                                                                    |
+| **salesChannels**     | Array(Object)                                      | `=`        | Array of links to related Sales Channels in the Metadata format. [Learn more](../dictionaries/#entities-sales-channel). Maximum number is 1000. To filter by this field, use its singular form: **salesChannel**.<br>`+Expand` `+Required when replying` `+Required when creating` |
+| **images**            | MetaArray                                          |            | [Images](../dictionaries/#entities-image) metadata array (Maximum number of images - 15)<br>`+Expand`                                                                                                                                                                              |
 
 #### Attributes available for filtering
 | Value | Description |
@@ -104,6 +105,16 @@ Successful request. The result is a JSON representation of the list of Content C
           "mediaType": "application/json"
         }
       },
+      "images": {
+        "meta": {
+          "href": "http://localhost/api/remap/1.2/entity/contentcard/529eb5b6-d726-11f0-0a80-073800000329/images",
+          "type": "image",
+          "mediaType": "application/json",
+          "size": 0,
+          "limit": 1000,
+          "offset": 0
+        }
+      },
       "salesChannels": [
         {
           "meta": {
@@ -143,6 +154,16 @@ Successful request. The result is a JSON representation of the list of Content C
           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/saleplatform/metadata",
           "type": "saleplatform",
           "mediaType": "application/json"
+        }
+      },
+      "images": {
+        "meta": {
+          "href": "http://localhost/api/remap/1.2/entity/contentcard/dfbef48e-d67d-11f0-0a80-0738000002d8/images",
+          "type": "image",
+          "mediaType": "application/json",
+          "size": 0,
+          "limit": 1000,
+          "offset": 0
         }
       },
       "salesChannels": [
@@ -210,6 +231,16 @@ Successful request. The result is a JSON representation of the Content Card.
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/saleplatform/metadata",
       "type": "saleplatform",
       "mediaType": "application/json"
+    }
+  },
+  "images": {
+    "meta": {
+      "href": "http://localhost/api/remap/1.2/entity/contentcard/529eb5b6-d726-11f0-0a80-073800000329/images",
+      "type": "image",
+      "mediaType": "application/json",
+      "size": 0,
+      "limit": 1000,
+      "offset": 0
     }
   },
   "salesChannels": [
@@ -301,6 +332,16 @@ Successful request. The result is a JSON representation of the created Content C
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/saleplatform/metadata",
       "type": "saleplatform",
       "mediaType": "application/json"
+    }
+  },
+  "images": {
+    "meta": {
+      "href": "http://localhost/api/remap/1.2/entity/contentcard/529eb5b6-d726-11f0-0a80-073800000329/images",
+      "type": "image",
+      "mediaType": "application/json",
+      "size": 0,
+      "limit": 1000,
+      "offset": 0
     }
   },
   "salesChannels": [
@@ -408,6 +449,16 @@ Successful request. The result is an array of JSON representations of the create
         "mediaType": "application/json"
       }
     },
+    "images": {
+      "meta": {
+        "href": "http://localhost/api/remap/1.2/entity/contentcard/529eb5b6-d726-11f0-0a80-073800000329/images",
+        "type": "image",
+        "mediaType": "application/json",
+        "size": 0,
+        "limit": 1000,
+        "offset": 0
+      }
+    },
     "salesChannels": [
       {
         "meta": {
@@ -446,6 +497,16 @@ Successful request. The result is an array of JSON representations of the create
         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/saleplatform/metadata",
         "type": "saleplatform",
         "mediaType": "application/json"
+      }
+    },
+    "images": {
+      "meta": {
+        "href": "http://localhost/api/remap/1.2/entity/contentcard/dfbef48e-d67d-11f0-0a80-0738000002d8/images",
+        "type": "image",
+        "mediaType": "application/json",
+        "size": 0,
+        "limit": 1000,
+        "offset": 0
       }
     },
     "salesChannels": [
@@ -536,6 +597,16 @@ Successful request. The result is a JSON representation of the updated Content C
       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/saleplatform/metadata",
       "type": "saleplatform",
       "mediaType": "application/json"
+    }
+  },
+  "images": {
+    "meta": {
+      "href": "http://localhost/api/remap/1.2/entity/contentcard/529eb5b6-d726-11f0-0a80-073800000329/images",
+      "type": "image",
+      "mediaType": "application/json",
+      "size": 0,
+      "limit": 1000,
+      "offset": 0
     }
   },
   "salesChannels": [

@@ -2,6 +2,13 @@
 
 JSON API 1.2 changes will be added here soon
 
+### 11-06-2026
+#### Added
+- Field `images` in [Content Cards](../dictionaries/#entities-content-card)
+- Error [75002](../#kladana-json-api-errors-error-codes-for-content-cards) image size exceeds the maximum allowed for the [Content Card](../dictionaries/#entities-content-card)
+- Error [75003](../#kladana-json-api-errors-error-codes-for-content-cards) the number of images cannot exceed 15 in [Content Card](../dictionaries/#entities-content-card)
+- Error [75004](../#kladana-json-api-errors-error-codes-for-content-cards) unsupported image format for [Content Cards](../dictionaries/#entities-content-card). Supported formats: JPEG, PNG, BMP, and GIF
+
 ### 10-06-2026
 #### Added
 - Error [67007](../#kladana-json-api-errors-error-codes-for-warehouses) when the limit on the number of warehouses on an account has been violated

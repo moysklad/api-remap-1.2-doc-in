@@ -1,12 +1,13 @@
 ## Image
 ### Images
-Using the JSON API, you can create and update information on Images for Products, Bundles and Product Variants, request lists of Images,
+Using the JSON API, you can create and update information on Images for Products, Bundles, Product Variants and Content Cards, request lists of Images,
 as well as information on individual Images.
 The entity code for an Image in the JSON API is the **image** keyword.
 
-Products, Bundles and Product Variants may contain multiple identical Images. Images are considered the same if when adding Images
+Products, Bundles, Product Variants and Content Cards may contain multiple identical Images. Images are considered the same if when adding Images
 they had the same `filename` and `content`. Identical Images have the same `id` parameter value.
 A Product, Bundle or Product Variant can have no more than 10 Images.
+A Content card can have no more than 15 Images.
 
 #### Entity attributes
 
@@ -20,8 +21,8 @@ A Product, Bundle or Product Variant can have no more than 10 Images.
 | **title** | String(255)                                        | Image Title<br>`+Required when answering` |
 | **updated** | DateTime                                           | File upload time to server<br>`+Required when answering` |
 
-### Get a list of Product, Product Variant and Bundle Images
-Request to receive all images of a product, product variant or bundle for this account.
+### Get a list of Product, Product Variant, Bundle and Content Card Images
+Request to receive all images of a product, product variant, bundle or content card for this account.
 Result: JSON object including fields:
 
 | Title | Type | Description |
@@ -119,7 +120,7 @@ Successful request. The result is an array of all Product Images.
 }
 ```
 
-### Get a link to the Image of Product, Product Variant, Bundle
+### Get a link to the Image of Product, Product Variant, Bundle, ContentCard
 
 You can get a link to download the image by contacting the address specified in the `downloadHref` field at the image meta.
 
@@ -141,13 +142,13 @@ The link to download the image is in the `location` header. You can get the imag
 The link is active for 1 minutes.
 
 
-### Add Image to Product, Product Variant, Bundle
-Add a new image to a product, product variant, or bundle.
+### Add Image to Product, Product Variant, Bundle, Content Card
+Add a new image to a product, product variant, bundle or content card.
 
 #### Description
 The Image is loaded and added to the Images based on the passed JSON object,
 which contains a representation of the new Image.
-The result is a JSON representation of the updated list of Images. To create and add a new Image to a Product, Product Variant, Bundle it is necessary and sufficient to indicate in the url request the `id` of the entity to which the Image is added, and specify non-empty fields `filename` and `content` in the passed object.
+The result is a JSON representation of the updated list of Images. To create and add a new Image to a Product, Product Variant, Bundle, or Content Card it is necessary and sufficient to indicate in the url request the `id` of the entity to which the Image is added, and specify non-empty fields `filename` and `content` in the passed object.
 
 In the `content` field, you need to specify an image encoded in Base64, in the `filename` field - the file name with the extension.
 
@@ -226,10 +227,10 @@ Successful request. The result is an array of all Product Images.
 ]
 ```
 
-### Changing the list of Images for a Product, Product Variant, Bundle
+### Changing the list of Images for a Product, Product Variant, Bundle, Content Card
 
-In the body of the request, you need to pass an array containing the JSON representation of the Images that you want to set for the Product, Product Variant, or Bundle.
-If it is necessary to leave some Images for the Product, Product Variant, or Bundle, then the request body must contain their identifiers in the form of metadata.
+In the body of the request, you need to pass an array containing the JSON representation of the Images that you want to set for the Product, Product Variant, Bundle, or Content Card.
+If it is necessary to leave some Images for the Product, Product Variant, Bundle, or Content Card, then the request body must contain their identifiers in the form of metadata.
 
 
 **Parameters**
@@ -318,7 +319,7 @@ Successful request. The result is a modified array of all Product Images.
 
 ### Delete Image
 
-When deleting an image, the first image found with the given identifier is deleted from the Product, Product Variant or Bundle.
+When deleting an image, the first image found with the given identifier is deleted from the Product, Product Variant, Bundle or Content Card.
 
 
 **Parameters**
@@ -341,7 +342,7 @@ Successful deletion of the Image.
 
 ### Delete group of Images
 
-When deleting several images for a Product, Product Variant, or Bundle, the first images found by `id` specified in the request body are deleted.
+When deleting several images for a Product, Product Variant, Bundle, or Content Card, the first images found by `id` specified in the request body are deleted.
 
 
 **Parameters**
