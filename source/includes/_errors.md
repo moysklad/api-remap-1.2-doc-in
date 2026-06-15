@@ -725,10 +725,10 @@ This section lists the JSON API error codes and their descriptions.
 
 ### Error codes for content cards
 
-| Error code                       | Message                                                                                           | Description                                                  |
-|----------------------------------|---------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
-| <a name="error_75000">75000</a>  | Failed to save content card: You cannot specify an archived sales channel in the content card     | Check that the list does not contain archived sales channels |
-| <a name="error_75001">75001</a>  | Failed to save content card: A maximum of 100 content cards can be created for a single product   | Content card limit reached for the specified product         |
-| <a name="error_75002">75002</a>  | Failed to save content card: Image size exceeds the maximum allowed (10 MB)                       |                                                              |
-| <a name="error_75003">75003</a>  | Failed to save content card: The number of images cannot exceed 15                                |                                                              |
-| <a name="error_75004">75004</a>  | Failed to save content card: Unsupported image format. Supported formats: JPEG, PNG, BMP, and GIF |                                                              |
+| Error code                       | Message                                                                                           | Description                                                                |
+|----------------------------------|---------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|
+| <a name="error_75000">75000</a>  | Failed to save content card: You cannot specify an archived sales channel in the content card     | Check that the list does not contain archived sales channels               |
+| <a name="error_75001">75001</a>  | Failed to save content card: A maximum of 100 content cards can be created for a single product   | Content card limit reached for the specified product                       |
+| <a name="error_75002">75002</a>  | Failed to save content card: Image size exceeds the maximum allowed (10 MB)                       | Try reducing the image size                                                |
+| <a name="error_75003">75003</a>  | Failed to save content card: The number of images cannot exceed 15                                | A content card cannot contain more than 15 images. Remove the extra images |
+| <a name="error_75004">75004</a>  | Failed to save content card: Unsupported image format. Supported formats: JPEG, PNG, BMP, and GIF | Upload an image in one of the supported formats: JPEG, PNG, BMP, or GIF    |
