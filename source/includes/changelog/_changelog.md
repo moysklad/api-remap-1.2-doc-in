@@ -5,6 +5,14 @@ The section lists changes to existing endpoints and new endpoints that allow you
 See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-1.2-doc-in/blob/master/CHANGELOG.md).
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
+### 11-06-2026
+#### Added
+- Field `images` in [Content Cards](../dictionaries/#entities-content-card)
+- Error [75002](../#kladana-json-api-errors-error-codes-for-content-cards) image size exceeds the maximum allowed for the [Content Card](../dictionaries/#entities-content-card)
+- Error [75003](../#kladana-json-api-errors-error-codes-for-content-cards) the number of images cannot exceed 15 in [Content Card](../dictionaries/#entities-content-card)
+- Error [75004](../#kladana-json-api-errors-error-codes-for-content-cards) unsupported image format for [Content Cards](../dictionaries/#entities-content-card). Supported formats: JPEG, PNG, BMP, and GIF
+
+
 ### 10-06-2026
 #### Added
 - Error [67007](../#kladana-json-api-errors-error-codes-for-warehouses) when the limit on the number of warehouses on an account has been violated
