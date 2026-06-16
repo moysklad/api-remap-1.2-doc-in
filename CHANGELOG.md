@@ -5,7 +5,7 @@ JSON API 1.2 changes will be added here soon
 ### 16-06-2026
 #### Added
 - The `article` field has been added to the  [Product variant](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-product-variant-product-variants) to support variant-specific article numbers.
-- Added the `article` field to the [Assortment](../dictionaries/#entities-assortment) entity for product variant item types to support variant article numbers.
+- Added the `article` field for product variants in the [Assortment](../dictionaries/#entities-assortment) entity to support variant article numbers.
 
 ### 10-06-2026
 #### Added
