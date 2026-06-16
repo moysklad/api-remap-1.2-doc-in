@@ -2,6 +2,10 @@
 
 JSON API 1.2 changes will be added here soon
 
+### 16-06-2026
+#### Added
+- The article field has been added to the  [Product variant](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-product-variant-product-variants) to support variant-specific article numbers.
+
 ### 10-06-2026
 #### Added
 - Error [67007](../#kladana-json-api-errors-error-codes-for-warehouses) when the limit on the number of warehouses on an account has been violated

@@ -26,6 +26,7 @@ Examples:
 |------------------------|----------------------------------------------------|----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **accountId**          | UUID                                               | `=` `!=`                   | Account ID<br>`+Required when answering` `+Read Only`                                                                                                                                                                                                   |
 | **archived**           | Boolean                                            | `=` `!=`                   | Whether the product was added to the archive<br>`+Required when answering`                                                                                                                                                                              |
+| **article**            | String(255)                                        | `=` `!=` `~` `~=` `=~`     | Variant article number     
 | **barcodes**           | Array(Object)                                      | `=` `!=` `~` `~=` `=~`     | An array of Product variant barcodes. To filter by a field, you must specify it in the singular **barcode**. [Learn more](../dictionaries/#entities-product-variant-product-variants-nested-entity-attributes-barcodes)                                                                                                        |
 | **buyprice**           | Object                                             |                            | Purchase price                                                                                                                                                                                                                                          |
 | **characteristics**    | Array(Object)                                      |                            | Characteristics Product variants. [Learn more](../dictionaries/#entities-product-variant-product-variants-nested-entity-attributes-product-variant-metadata-characteristics-of-product-variant)<br>`+Required when replying` `+Required when creating` |
@@ -52,6 +53,7 @@ Examples:
 | **code** | Product variant Code |
 | **externalCode** | External Code Product variants |
 | **archived** | Is the product added to the archive |
+| **article** | Variant article number  |
 
 #### Nested entity attributes
 
@@ -297,6 +299,7 @@ Successful request. The result is a JSON representation of the list of Product v
        "code": "00005",
        "externalCode": "rAhHA0T1glL2xY3d1aHFT2",
        "archived": false,
+       "article": "T01 (M01)",
        "discountProhibited": false,
        "characteristics": [
          {
