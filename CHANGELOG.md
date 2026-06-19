@@ -2,6 +2,10 @@
 
 JSON API 1.2 changes will be added here soon
 
+### 19-06-2026
+#### Added
+- New [Payroll](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-payroll) section
+
 ### 10-06-2026
 #### Added
 - Error [67007](../#kladana-json-api-errors-error-codes-for-warehouses) when the limit on the number of warehouses on an account has been violated
