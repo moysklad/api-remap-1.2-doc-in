@@ -70,7 +70,7 @@ Result: JSON object including fields:
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Offset in the list of returned entities.                                         |
 | **search** | `string` (optional) *Example: 0001* Filters transactions by the specified search string.                                           |
 
-> Get Payrolls
+> Get a list of Payrolls
 
 ```shell
 curl --compressed -X GET \
@@ -1064,7 +1064,73 @@ Successful request. The result is a JSON representation of the separate addition
 }
 ```
 
-### Payroll
+### Payroll Template
+
+> Request to receive a Payroll template pre-filled with standard values without being associated with any document.
+
+```shell
+curl --compressed -X PUT \
+  "https://api.kladana.com/api/remap/1.2/entity/payroll/new" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
+  -d''
+```
+
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the prefilled Payroll.
+
+```json
+{
+  "owner": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/employee/21a3bef7-6bb0-11f1-0a83-03d300000058",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+      "type": "employee",
+      "mediaType": "application/json",
+      "uuidHref": "https://app.kladana.com/app/#employee/edit?id=21a3bef7-6bb0-11f1-0a83-03d300000058"
+    }
+  },
+  "shared": false,
+  "group": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/group/2060a765-6bb0-11f1-0a83-1de100000002",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
+      "type": "group",
+      "mediaType": "application/json"
+    }
+  },
+  "name": "",
+  "moment": "2026-06-19 17:02:34.325",
+  "applicable": true,
+  "sum": 0.0,
+  "organization": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/organization/21e9d868-6bb0-11f1-0a83-03d3000000a6",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
+      "type": "organization",
+      "mediaType": "application/json",
+      "uuidHref": "https://app.kladana.com/app/#mycompany/edit?id=21e9d868-6bb0-11f1-0a83-03d3000000a6"
+    }
+  },
+  "state": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/payroll/metadata/states/68acf1ac-6bb0-11f1-0a83-03d300000116",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/payroll/metadata",
+      "type": "state",
+      "mediaType": "application/json"
+    }
+  },
+  "printed": false,
+  "published": false,
+  "files": {
+    "rows": []
+  },
+  "positions": {
+    "rows": []
+  }
+}
+```
 
 ### Get Payroll
 
@@ -1523,11 +1589,11 @@ Successful request. The result is a JSON representation of the updated Payroll.
 }
 ```
 
-### Payroll Item Management
+### Payroll Items
 
 Separate resources for managing Payroll items. You can use them to manage items of a large transaction when the number of rows exceeds the limit for rows saved together with the transaction. This limit is 1000. Learn more about limits on the number of transaction rows and working with large transactions in [Working with transaction items](../#kladana-json-api-general-info-working-with-transaction-items).
 
-### Get Items
+### Get Payroll Items
 
 Request to get a list of all items for the specified Payroll.
 
@@ -1545,7 +1611,7 @@ Request to get a list of all items for the specified Payroll.
 | **limit**  | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* Offset in the list of returned entities.                                         |
 
-> Get Items
+> Get Payroll Items
 
 ```shell
 curl --compressed -X GET \
@@ -1624,7 +1690,7 @@ Successful request. The result is a JSON representation of the items list for a 
 
 ### Payroll Item
 
-### Get Item
+### Get Payroll Item
 
 **Parameters**
 
