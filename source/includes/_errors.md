@@ -611,15 +611,15 @@ This section lists the JSON API error codes and their descriptions.
 
 ### Error codes for Images
 
-| Error code | Message | Description |
-| ------------| ----------| ---------|
-| <a name="error_51001">51001</a> | Image error: Image has no content | When transferring an image as part of a product in the request to create a product, you must specify the content |
-| <a name="error_51002">51002</a> | Image error: Cannot convert content field to image | The content of the "content" field must be an image encoded in base64 format with a jpg or png extension. |
-| <a name="error_51003">51003</a> | Error while working with image: Insufficient storage space. | The storage space allocated for your account has run out. |
-| <a name="error_51004">51004</a> | Error while working with the image: the image size exceeds the maximum allowed (3 mb) | Try reducing the image size. |
-| <a name="error_51005">51005</a> | Error while working with image: image has no file name | When uploading an image, you must specify a non-empty filename in the filename field. |
-| <a name="error_51006">51006</a> | Error when working with an image: the number of images for a product cannot be more than 10 | A product cannot have more than 10 images. |
-| <a name="error_51007">51007</a> | Error while working with image: file storage is not available. | Internal error on the server. Please try again later. |
+| Error code | Message                                                                                           | Description                                                                                                      |
+| ------------|---------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
+| <a name="error_51001">51001</a> | Image error: Image has no content                                                                 | When transferring an image as part of a product in the request to create a product, you must specify the content |
+| <a name="error_51002">51002</a> | Image error: Cannot convert content field to image                                                | The content of the "content" field must be an image encoded in base64 format with a jpg or png extension.        |
+| <a name="error_51003">51003</a> | Error while working with image: Insufficient storage space.                                       | The storage space allocated for your account has run out.                                                        |
+| <a name="error_51004">51004</a> | Error while working with the image: the image size exceeds the maximum allowed ({size} mb)        | Try reducing the image size.                                                                                     |
+| <a name="error_51005">51005</a> | Error while working with image: image has no file name                                            | When uploading an image, you must specify a non-empty filename in the filename field.                            |
+| <a name="error_51006">51006</a> | Error when working with an image: the number of images for a product cannot be more than {number} | The number of images cannot exceed the limit.                                                                    |
+| <a name="error_51007">51007</a> | Error while working with image: file storage is not available.                                    | Internal error on the server. Please try again later.                                                            |
 
 ### Error codes for Server apps
 
@@ -729,6 +729,3 @@ This section lists the JSON API error codes and their descriptions.
 |----------------------------------|---------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|
 | <a name="error_75000">75000</a>  | Failed to save content card: You cannot specify an archived sales channel in the content card     | Check that the list does not contain archived sales channels               |
 | <a name="error_75001">75001</a>  | Failed to save content card: A maximum of 100 content cards can be created for a single product   | Content card limit reached for the specified product                       |
-| <a name="error_75002">75002</a>  | Failed to save content card: Image size exceeds the maximum allowed (10 MB)                       | Try reducing the image size                                                |
-| <a name="error_75003">75003</a>  | Failed to save content card: The number of images cannot exceed 15                                | A content card cannot contain more than 15 images. Remove the extra images |
-| <a name="error_75004">75004</a>  | Failed to save content card: Unsupported image format. Supported formats: JPEG, PNG, BMP, and GIF | Upload an image in one of the supported formats: JPEG, PNG, BMP, or GIF    |
