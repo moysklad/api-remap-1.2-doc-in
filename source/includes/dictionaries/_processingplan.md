@@ -6,28 +6,28 @@ This entity can be contextually searched using the special `search` parameter. [
 ### Bills of Materials
 #### Entity attributes
 
-| Title | Type   | Filtration | Description |
-| ------ | ------- | ------ | ----- |
-| **accountId** | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only` |
-| **archived**  | Boolean   | `=` `!=`  | Is the Bill of Materials archived or not<br>`+Required when replying` |
-| **code** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Code of the Bill of Materials |
-| **cost** | Int                                                | | Production cost |
-| **costDistributionType** | Enum | | Cost of distribution type. Possible values: `BY_PRICE`, `BY_PRODUCTION`<br>`+Required when replying` `+Read-only` |
-| **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~` | External code Bills of Materials<br>`+Required when replying` |
-| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Employee's department<br>`+Required when replying` `+Expand` |
-|**stages** | MetaArray | | Collection of metadata of the Bill of Materials' operations <br>`+Required when replying` `+Expand` |
-| **id** | UUID                                               | `=` `!=` | Bill of Materials ID<br>`+Required when replying` `+Read only` |
-| **parametricMaterials**   | MetaArray                      | | Parametric Raw Materials Metadata Collection Bills of Materials<br>`+Required when replying` `+Expand`|
-| **materials** | MetaArray                                          | | Material Metadata Collection Bills of Materials<br>`+Required when replying` `+Expand` |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata Bills of Materials<br>`+Required when replying` |
-| **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Name Bills of Materials<br>`+Required when replying` `+Required when creating` |
-| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` |
-| **parent** | [Meta](../#kladana-json-api-general-info-metadata) | | Tech group metadata cards<br>`+Required when replying` `+Expand` |
-| **pathName** | String                                             | | The name of the group that includes Bill of Materials<br>`+Required when replying` `+Read only` |
-| **processingProcess** | [Meta](../#kladana-json-api-general-info-metadata) | | Bill of Materials Metadata<br>`+Required when replying` `+Expand` |
-| **products** | MetaArray                                          | | Collection of finished products metadata Bills of Materials<br>`+Required when replying` `+Expand` `+Required when creating` |
-| **shared** | Boolean                                            | `=` `!=` | Sharing<br>`+Required when replying` |
-| **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | The moment of the last update Bills of Materials<br>`+Required when replying` `+Read only` |
+| Title                    | Type                                               | Filtration                 | Description                                                                                                                                                                                                                |
+|--------------------------|----------------------------------------------------|----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **accountId**            | UUID                                               | `=` `!=`                   | Account ID<br>`+Required when replying` `+Read Only`                                                                                                                                                                       |
+| **archived**             | Boolean                                            | `=` `!=`                   | Is the Bill of Materials archived or not<br>`+Required when replying`                                                                                                                                                      |
+| **code**                 | String(255)                                        | `=` `!=` `~` `~=` `=~`     | Code of the Bill of Materials                                                                                                                                                                                              |
+| **cost**                 | Int                                                |                            | Production cost                                                                                                                                                                                                            |
+| **costDistributionType** | Enum                                               |                            | Cost of distribution type. Possible values: `BY_PRICE`, `BY_PRODUCTION`<br>`+Required when replying` `+Read-only`                                                                                                          |
+| **externalCode**         | String(255)                                        | `=` `!=` `~` `~=` `=~`     | External code Bills of Materials<br>`+Required when replying`                                                                                                                                                              |
+| **group**                | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`                   | Employee's department<br>`+Required when replying` `+Expand`                                                                                                                                                               |
+| **stages**               | MetaArray                                          |                            | Collection of metadata of the Bill of Materials' operations <br>`+Required when replying` `+Expand`                                                                                                                        |
+| **id**                   | UUID                                               | `=` `!=`                   | Bill of Materials ID<br>`+Required when replying` `+Read only`                                                                                                                                                             |
+| **parametricMaterials**  | MetaArray                                          |                            | Parametric Raw Materials Metadata Collection Bills of Materials<br>`+Required when replying` `+Expand`                                                                                                                     |
+| **materials**            | MetaArray                                          |                            | Material Metadata Collection Bills of Materials<br>`+Required when replying` `+Expand`                                                                                                                                     |
+| **meta**                 | [Meta](../#kladana-json-api-general-info-metadata) |                            | Metadata Bills of Materials<br>`+Required when replying`                                                                                                                                                                   |
+| **name**                 | String(255)                                        | `=` `!=` `~` `~=` `=~`     | Name Bills of Materials<br>`+Required when replying` `+Required when creating`                                                                                                                                             |
+| **owner**                | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`                   | Owner (Employee)<br>`+Expand`                                                                                                                                                                                              |
+| **parent**               | [Meta](../#kladana-json-api-general-info-metadata) |                            | Tech group metadata cards<br>`+Required when replying` `+Expand`                                                                                                                                                           |
+| **pathName**             | String                                             |                            | The name of the group that includes Bill of Materials<br>`+Required when replying` `+Read only`                                                                                                                            |
+| **processingProcess**    | [Meta](../#kladana-json-api-general-info-metadata) |                            | Bill of Materials Metadata<br>`+Required when replying` `+Expand`                                                                                                                                                          |
+| **products**             | MetaArray                                          |                            | Collection of finished products metadata Bills of Materials. A parametric Bill of Materials can only have a single product (parent product with variants)<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **shared**               | Boolean                                            | `=` `!=`                   | Sharing<br>`+Required when replying`                                                                                                                                                                                       |
+| **updated**              | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | The moment of the last update Bills of Materials<br>`+Required when replying` `+Read only`                                                                                                                                 |
 
 For costDistributionType, the value BY_PRODUCTION is only available for Bills of Materials with two or more product items. When the number of product items changes to a value less than 2, it automatically changes to BY_PRICE.
 
@@ -35,16 +35,16 @@ For costDistributionType, the value BY_PRODUCTION is only available for Bills of
 
 The object of the production operation in the Bill of Materials contains the following fields:
 
-| Name | Type | Description |
-| ----- | ---- | ------- |
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Read-only` |
-| **enableHourAccounting** | Boolean | Indicates whether standard hour accounting is enabled<br>`+Required when replying` |
-| **id** | UUID | Raw material ID<br>`+Required when replying` `+Read-only` |
-| **cost** | Double | Production cost of a certain production operation `+Required when replying` |
-| **labourCost** | Double | Labor cost of a certain production operation `+Required when replying` |
-| **standardHour** | Double | Standard hours of a production operation `+Required when replying` |
-| **processingProcessPosition** | [Meta](../#kladana-json-api-general-info-metadata) | Bill of Materials item metadata<br>`+Required when replying` |
-| **standardHourCost** | Double | Standart Hour Cost<br>`+Required when replying` `+Read-only` |
+| Name                          | Type                                               | Description                                                                        |
+|-------------------------------|----------------------------------------------------|------------------------------------------------------------------------------------|
+| **accountId**                 | UUID                                               | Account ID<br>`+Required when replying` `+Read-only`                               |
+| **enableHourAccounting**      | Boolean                                            | Indicates whether standard hour accounting is enabled<br>`+Required when replying` |
+| **id**                        | UUID                                               | Raw material ID<br>`+Required when replying` `+Read-only`                          |
+| **cost**                      | Double                                             | Production cost of a certain production operation `+Required when replying`        |
+| **labourCost**                | Double                                             | Labor cost of a certain production operation `+Required when replying`             |
+| **standardHour**              | Double                                             | Standard hours of a production operation `+Required when replying`                 |
+| **processingProcessPosition** | [Meta](../#kladana-json-api-general-info-metadata) | Bill of Materials item metadata<br>`+Required when replying`                       |
+| **standardHourCost**          | Double                                             | Standart Hour Cost<br>`+Required when replying` `+Read-only`                       |
 
 Features:
 
@@ -63,15 +63,15 @@ Bill of Materials' raw materials are the list of products and product variants u
 
 Raw material object in Bills of Materials contains the following fields:
 
-| Title   | Type   | Description   |
-| ------- | ------ | ------------- |
-| **accountId** | UUID    | Account ID<br>`+Required when replying` `+Read Only`    |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Product or product variant item metadata<br>`+Required when replying` `+Expand` |
-| **id** | UUID | Raw material ID<br>`+Required when replying` `+Read-only` |
-| **product** | [Meta](../#kladana-json-api-general-info-metadata) | Product item metadata. If the **assortment** field specifies a product variant, the field contains the product to which the product variant applies<br>`+Required when replying` `+Expand` |
-| **quantity** | Float | Quantity of products of the type in the item<br>`+Required when replying` |
-| **processingProcessPosition** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Bill of Materials' item<br>`+Required when replying` |
-| **materialProcessingPlan** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Bill of Materials' raw material<br>`+Read-only` |
+| Title                         | Type                                               | Description                                                                                                                                                                                |
+|-------------------------------|----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **accountId**                 | UUID                                               | Account ID<br>`+Required when replying` `+Read Only`                                                                                                                                       |
+| **assortment**                | [Meta](../#kladana-json-api-general-info-metadata) | Product or product variant item metadata<br>`+Required when replying` `+Expand`                                                                                                            |
+| **id**                        | UUID                                               | Raw material ID<br>`+Required when replying` `+Read-only`                                                                                                                                  |
+| **product**                   | [Meta](../#kladana-json-api-general-info-metadata) | Product item metadata. If the **assortment** field specifies a product variant, the field contains the product to which the product variant applies<br>`+Required when replying` `+Expand` |
+| **quantity**                  | Float                                              | Quantity of products of the type in the item<br>`+Required when replying`                                                                                                                  |
+| **processingProcessPosition** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Bill of Materials' item<br>`+Required when replying`                                                                                                                       |
+| **materialProcessingPlan**    | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Bill of Materials' raw material<br>`+Read-only`                                                                                                                            |
 
 If you do not specify a link to a Bill of Materials item when adding a raw material, the material will be linked by default to the first item in the Bill of Materials.
 
@@ -80,19 +80,18 @@ If you do not specify a link to a Bill of Materials item when adding a raw mater
 Bill of Materials' parametric raw materials a list of products and variants used to manufacture finished products (variants of the same parent product). These materials are configured depending on variant attributes.
 Parametric raw material object in Bills of Materials contains the following fields:
 
-| Title   | Type   | Description   |
-| ------- | ------ | ------------- |
-| **accountId** | UUID    | Account ID<br>`+Required when replying` `+Read Only`    |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Product or product variant item metadata<br>`+Required when replying` `+Expand` |
-| **id** | UUID | Raw material ID<br>`+Required when replying` `+Read-only` |
-| **product** | [Meta](../#kladana-json-api-general-info-metadata) | Product item metadata. If the **assortment** field specifies a product variant, the field contains the product to which the product variant applies<br>`+Required when replying` `+Expand` |
-| **quantity** | Float | Quantity of products of the type in the item<br>`+Required when replying` |
-| **paramFeatureCharacteristic**  | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the product attribute that determines which raw material is selected for this parametric material item. Returns null when a specific raw material is set.<br>`+Required when replying`                                                                    |
-| **paramQuantityCharacteristic** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the product attribute that determines the quota for this parametric material item. Returns null when the quota is fixed for the entire parametric material item.<br>`+Required when replying`                                       |
-| **paramFeatures**               | Array(Object)                  | List of attribute values linked to raw materials. Each object describes which raw material is used for the corresponding attribute value.<br>`+Required when replying`                                                                                        |
-| **paramQuantities**             | Array(Object)                  | List of attribute values linked to quotas. Each object describes the material quantity required for the corresponding attribute value.<br>`+Required when replying`                                                                            |
-| **characteristicValue**         | String                         | The attribute value for which a raw material (in paramFeatures) or a quota (in paramQuantities) is set. This field is omitted when a specific raw material is used (paramFeatureCharacteristic = null) or a specific quota is used (paramQuantityCharacteristic = null).<br>`+Read only` |
-| **processingProcessPosition** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Bill of Materials' item<br>`+Required when replying` |
+| Title                           | Type                                               | Description                                                                                                                                                                                                                                                                              |
+|---------------------------------|----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **accountId**                   | UUID                                               | Account ID<br>`+Required when replying` `+Read Only`                                                                                                                                                                                                                                     |
+| **assortment**                  | [Meta](../#kladana-json-api-general-info-metadata) | Product or product variant item metadata<br>`+Required when replying` `+Expand`                                                                                                                                                                                                          |
+| **id**                          | UUID                                               | Raw material ID<br>`+Required when replying` `+Read-only`                                                                                                                                                                                                                                |
+| **quantity**                    | Float                                              | Quantity of products of the type in the item<br>`+Required when replying`                                                                                                                                                                                                                |
+| **paramFeatureCharacteristic**  | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the product attribute that determines which raw material is selected for this parametric material item. Returns null when a specific raw material is set.<br>`+Required when replying`                                                                                       |
+| **paramQuantityCharacteristic** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the product attribute that determines the quota for this parametric material item. Returns null when the quota is fixed for the entire parametric material item.<br>`+Required when replying`                                                                                |
+| **paramFeatures**               | Array(Object)                                      | List of attribute values linked to raw materials. Each object describes which raw material is used for the corresponding attribute value.<br>`+Required when replying`                                                                                                                   |
+| **paramQuantities**             | Array(Object)                                      | List of attribute values linked to quotas. Each object describes the material quantity required for the corresponding attribute value.<br>`+Required when replying`                                                                                                                      |
+| **characteristicValue**         | String                                             | The attribute value for which a raw material (in paramFeatures) or a quota (in paramQuantities) is set. This field is omitted when a specific raw material is used (paramFeatureCharacteristic = null) or a specific quota is used (paramQuantityCharacteristic = null).<br>`+Read only` |
+| **processingProcessPosition**   | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Bill of Materials' item<br>`+Required when replying`                                                                                                                                                                                                                     |
 
 If you do not specify a link to a Bill of Materials item when adding a parametric raw material, the material will be linked by default to the first item in the Bill of Materials.
 
@@ -101,13 +100,13 @@ If you do not specify a link to a Bill of Materials item when adding a parametri
 Products of Bills of Materials are a list of products/ product variants obtained during production.
 Product Object of a Bill of Materials contains the following fields:
 
-| Title | Type | Description |
-| -------- | -------- |------- |
-| **accountId** | UUID | Account ID<br>`+Required when replying` `+Read Only` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the item or item variant<br>`+Required when replying` `+Expand` |
-| **id** | UUID | Product ID<br>`+Required when replying` `+Read Only` |
-| **product** | [Meta](../#kladana-json-api-general-info-metadata) | Item metadata. If a product variant is specified in the **assortment** field, the field contains the product to which the product variant relates<br>`+Required when replying` `+Expand` |
-| **quantity** | Int | Quantity of products of this type in item<br>`+Required when replying` |
+| Title          | Type                                               | Description                                                                                                                                                                              |
+|----------------|----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **accountId**  | UUID                                               | Account ID<br>`+Required when replying` `+Read Only`                                                                                                                                     |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the item or item variant<br>`+Required when replying` `+Expand`                                                                                                              |
+| **id**         | UUID                                               | Product ID<br>`+Required when replying` `+Read Only`                                                                                                                                     |
+| **product**    | [Meta](../#kladana-json-api-general-info-metadata) | Item metadata. If a product variant is specified in the **assortment** field, the field contains the product to which the product variant relates<br>`+Required when replying` `+Expand` |
+| **quantity**   | Int                                                | Quantity of products of this type in item<br>`+Required when replying`                                                                                                                   |
 
 You can work with materials and products using [special resources for managing items of Bills of Materials](../dictionaries/#entities-bills-of-materials),
 and also as part of a separate Bills of Materials. When working as part of a separate Bills of Materials,
@@ -128,19 +127,19 @@ items will be deleted, new ones added, existing ones changed.
 Request all Bills of Materials on this account.
 Result: JSON object including fields:
 
-| Title | Type | Description |
-| -------- | -------- |---- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata. |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request. |
-| **rows** | Array(Object) | An array of JSON objects representing the Bills of Materials. |
+| Title       | Type                                               | Description                                                   |
+|-------------|----------------------------------------------------|---------------------------------------------------------------|
+| **meta**    | [Meta](../#kladana-json-api-general-info-metadata) | Issuance metadata.                                            |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the person who made the request.                  |
+| **rows**    | Array(Object)                                      | An array of JSON objects representing the Bills of Materials. |
 
 **Parameters**
 
-| Parameter | Description |
-| -------- | -------- |
-| **limit** | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
-| **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
-| **search** | `string` (optional) *Example: 0001* Filter documents by the specified search string. |
+| Parameter  | Description                                                                                                                      |
+|------------|----------------------------------------------------------------------------------------------------------------------------------|
+| **limit**  | `number` (optional) **Default: 1000** *Example: 1000* The maximum number of entities to retrieve. `Allowed values are 1 - 1000`. |
+| **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities.                                          |
+| **search** | `string` (optional) *Example: 0001* Filter documents by the specified search string.                                             |
 
 > Get a list of Bills of Materials
 
@@ -536,6 +535,319 @@ Successful request. The result is a JSON representation of the generated Bills o
   }
 }
 ```
+> An example of creating a new Dashboard with a request body containing materials field.
+
+```shell
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/processingplan" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "name": "plan_name",
+  "products": [
+    {
+      "assortment": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/product/3b89c8e1-6fae-11f1-c5b5-417f00000153",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+          "type": "product",
+          "mediaType": "application/json"
+        }
+      },
+      "quantity": 1
+    }
+  ],
+  "materials": [
+    {
+      "assortment": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/product/4d2cdff9-6fae-11f1-c5b5-417f00000176",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+          "type": "product",
+          "mediaType": "application/json"
+        }
+      },
+      "quantity": 1
+    }
+  ]
+}'
+```
+
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the generated Bills of Materials.
+
+```json
+{
+ "meta": {
+  "href": "https://api.kladana.com/api/remap/1.2/entity/processingplan/2ca7125a-7068-11f1-dd6d-6f1800000024",
+  "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/processingplan/metadata",
+  "type": "processingplan",
+  "mediaType": "application/json",
+  "uuidHref": "https://api.kladana.com/app/#processingplan/edit?id=2ca7125a-7068-11f1-dd6d-6f1800000024"
+ },
+ "id": "2ca7125a-7068-11f1-dd6d-6f1800000024",
+ "accountId": "f1b6a7de-6fad-11f1-7ba9-aab600000001",
+ "owner": {
+  "meta": {
+   "href": "https://api.kladana.com/api/remap/1.2/entity/employee/f2f6a239-6fad-11f1-c5b5-417f00000058",
+   "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+   "type": "employee",
+   "mediaType": "application/json",
+   "uuidHref": "https://api.kladana.com/app/#employee/edit?id=f2f6a239-6fad-11f1-c5b5-417f00000058"
+  }
+ },
+ "shared": true,
+ "group": {
+  "meta": {
+   "href": "https://api.kladana.com/api/remap/1.2/entity/group/f1ba4000-6fad-11f1-7ba9-aab600000002",
+   "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
+   "type": "group",
+   "mediaType": "application/json"
+  }
+ },
+ "updated": "2026-06-25 10:33:35.211",
+ "name": "plan_name",
+ "externalCode": "qwl-9vmoiB4cm4dS0SByT2",
+ "archived": false,
+ "pathName": "",
+ "processingProcess": {
+  "meta": {
+   "href": "https://api.kladana.com/api/remap/1.2/entity/processingprocess/f4221eb5-6fad-11f1-c5b5-417f00000100",
+   "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/processingprocess/metadata",
+   "type": "processingprocess",
+   "mediaType": "application/json",
+   "uuidHref": "https://api.kladana.com/app/#processingprocess/edit?id=f4221eb5-6fad-11f1-c5b5-417f00000100"
+  }
+ },
+ "cost": 0.0,
+ "costDistributionType": "BY_PRICE",
+ "stages": {
+  "meta": {
+   "href": "https://api.kladana.com/api/remap/1.2/entity/processingplan/2ca7125a-7068-11f1-dd6d-6f1800000024/stages",
+   "type": "processingplanstage",
+   "mediaType": "application/json",
+   "size": 1,
+   "limit": 1000,
+   "offset": 0
+  }
+ },
+ "materials": {
+  "meta": {
+   "href": "https://api.kladana.com/api/remap/1.2/entity/processingplan/2ca7125a-7068-11f1-dd6d-6f1800000024/materials",
+   "type": "processingplanmaterial",
+   "mediaType": "application/json",
+   "size": 1,
+   "limit": 1000,
+   "offset": 0
+  }
+ },
+ "parametricMaterials": {
+  "meta": {
+   "href": "https://api.kladana.com/api/remap/1.2/entity/processingplan/2ca7125a-7068-11f1-dd6d-6f1800000024/parametricmaterials",
+   "type": "processingplanparametricmaterial",
+   "mediaType": "application/json",
+   "size": 0,
+   "limit": 1000,
+   "offset": 0
+  }
+ },
+ "products": {
+  "meta": {
+   "href": "https://api.kladana.com/api/remap/1.2/entity/processingplan/2ca7125a-7068-11f1-dd6d-6f1800000024/products",
+   "type": "processingplanresult",
+   "mediaType": "application/json",
+   "size": 1,
+   "limit": 1000,
+   "offset": 0
+  }
+ }
+}
+```
+
+> An example of creating a new Dashboard with a request body containing materials and parametricMaterials fields.
+
+```shell
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/processingplan" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "name": "plan_name",
+  "products": [
+    {
+      "assortment": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/product/3b89c8e1-6fae-11f1-c5b5-417f00000153",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+          "type": "product",
+          "mediaType": "application/json"
+        }
+      },
+      "quantity": 1
+    }
+  ],
+  "materials": [
+    {
+      "assortment": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/product/4d2cdff9-6fae-11f1-c5b5-417f00000176",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+          "type": "product",
+          "mediaType": "application/json"
+        }
+      },
+      "quantity": 1
+    }
+  ],
+  "parametricMaterials": [
+    {
+      "paramFeatureCharacteristic": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics/58fe2fba-6fae-11f1-c5b5-417f00000183",
+          "type": "attributemetadata",
+          "mediaType": "application/json"
+        }
+      },
+      "paramFeatures": [
+        {
+          "characteristicValue": "blue",
+          "assortment": {
+            "meta": {
+              "href": "https://api.kladana.com/api/remap/1.2/entity/product/48a9a623-6fae-11f1-c5b5-417f00000168",
+              "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+              "type": "product",
+              "mediaType": "application/json",
+              "uuidHref": "https://api.kladana.com/app/#feature/edit?id=48a98379-6fae-11f1-c5b5-417f00000166"
+            }
+          }
+        },
+        {
+          "characteristicValue": "red",
+          "assortment": {
+            "meta": {
+              "href": "https://api.kladana.com/api/remap/1.2/entity/product/4af31bf0-6fae-11f1-c5b5-417f0000016f",
+              "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+              "type": "product",
+              "mediaType": "application/json",
+              "uuidHref": "https://api.kladana.com/app/#feature/edit?id=4af30c01-6fae-11f1-c5b5-417f0000016d"
+            }
+          }
+        }
+      ],
+      "paramQuantityCharacteristic": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics/58fe3a69-6fae-11f1-c5b5-417f00000184",
+          "type": "attributemetadata",
+          "mediaType": "application/json"
+        }
+      },
+      "paramQuantities": [
+        {
+          "characteristicValue": "L",
+          "quantity": 2.0
+        },
+        {
+          "characteristicValue": "M",
+          "quantity": 1.0
+        }
+      ]
+    }
+  ]
+}'
+```
+
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the generated Bills of Materials.
+
+```json
+{
+ "meta": {
+  "href": "https://api.kladana.com/api/remap/1.2/entity/processingplan/05a7341e-7062-11f1-dd6d-6f1800000011",
+  "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/processingplan/metadata",
+  "type": "processingplan",
+  "mediaType": "application/json",
+  "uuidHref": "https://api.kladana.com/app/#processingplan/edit?id=05a7341e-7062-11f1-dd6d-6f1800000011"
+ },
+ "id": "05a7341e-7062-11f1-dd6d-6f1800000011",
+ "accountId": "f1b6a7de-6fad-11f1-7ba9-aab600000001",
+ "owner": {
+  "meta": {
+   "href": "https://api.kladana.com/api/remap/1.2/entity/employee/f2f6a239-6fad-11f1-c5b5-417f00000058",
+   "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+   "type": "employee",
+   "mediaType": "application/json",
+   "uuidHref": "https://api.kladana.com/app/#employee/edit?id=f2f6a239-6fad-11f1-c5b5-417f00000058"
+  }
+ },
+ "shared": true,
+ "group": {
+  "meta": {
+   "href": "https://api.kladana.com/api/remap/1.2/entity/group/f1ba4000-6fad-11f1-7ba9-aab600000002",
+   "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
+   "type": "group",
+   "mediaType": "application/json"
+  }
+ },
+ "updated": "2026-06-25 09:49:32.726",
+ "name": "plan_name",
+ "externalCode": "8Ax3rk4ZiUzNpSO9M3JB60",
+ "archived": false,
+ "pathName": "",
+ "processingProcess": {
+  "meta": {
+   "href": "https://api.kladana.com/api/remap/1.2/entity/processingprocess/f4221eb5-6fad-11f1-c5b5-417f00000100",
+   "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/processingprocess/metadata",
+   "type": "processingprocess",
+   "mediaType": "application/json",
+   "uuidHref": "https://api.kladana.com/app/#processingprocess/edit?id=f4221eb5-6fad-11f1-c5b5-417f00000100"
+  }
+ },
+ "cost": 0.0,
+ "costDistributionType": "BY_PRICE",
+ "stages": {
+  "meta": {
+   "href": "https://api.kladana.com/api/remap/1.2/entity/processingplan/05a7341e-7062-11f1-dd6d-6f1800000011/stages",
+   "type": "processingplanstage",
+   "mediaType": "application/json",
+   "size": 1,
+   "limit": 1000,
+   "offset": 0
+  }
+ },
+ "materials": {
+  "meta": {
+   "href": "https://api.kladana.com/api/remap/1.2/entity/processingplan/05a7341e-7062-11f1-dd6d-6f1800000011/materials",
+   "type": "processingplanmaterial",
+   "mediaType": "application/json",
+   "size": 1,
+   "limit": 1000,
+   "offset": 0
+  }
+ },
+ "parametricMaterials": {
+  "meta": {
+   "href": "https://api.kladana.com/api/remap/1.2/entity/processingplan/05a7341e-7062-11f1-dd6d-6f1800000011/parametricmaterials",
+   "type": "processingplanparametricmaterial",
+   "mediaType": "application/json",
+   "size": 1,
+   "limit": 1000,
+   "offset": 0
+  }
+ },
+ "products": {
+  "meta": {
+   "href": "https://api.kladana.com/api/remap/1.2/entity/processingplan/05a7341e-7062-11f1-dd6d-6f1800000011/products",
+   "type": "processingplanresult",
+   "mediaType": "application/json",
+   "size": 1,
+   "limit": 1000,
+   "offset": 0
+  }
+ }
+}
+```
 
 ### Bulk creation and update of Bill of Materials
 [Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of a Bill of Materials.
@@ -779,9 +1091,9 @@ Successful request. The result is a JSON array of representations created and up
 
 **Parameters**
 
-| Parametr | Description |
-| -------- | -------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Bill of Materials id. |
+| Parametr | Description                                                                               |
+|----------|-------------------------------------------------------------------------------------------|
+| **id**   | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Bill of Materials id. |
  
 > Request for deletion of Bill of Materials with the specified ID.
 
@@ -847,9 +1159,9 @@ curl --compressed -X POST \
 
 **Parameters**
 
-| Parameter | Description |
-| -------- | -------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Bills of Materials ID. |
+| Parameter | Description                                                                                |
+|-----------|--------------------------------------------------------------------------------------------|
+| **id**    | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Bills of Materials ID. |
  
 > Request for a separate Bill of Materials with the specified ID.
 
@@ -949,9 +1261,9 @@ Linking another Routing will delete materials linked to the previous Routing.
 
 **Parameters**
 
-| Parameter | Description |
-| -------- | -------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Bill of Materials ID. |
+| Parameter | Description                                                                               |
+|-----------|-------------------------------------------------------------------------------------------|
+| **id**    | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Bill of Materials ID. |
 
 > An example of a request to update a separate Bill of Materials.
 
@@ -1053,19 +1365,19 @@ Arbitrary creation and deletion of productions operations in Bills of Materials 
 ### Get Operations of Bill of Materials
 Request to obtain a list of all Operations of a Bill of Materials.
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the issue. |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the employee who made the request. |
-| **rows** | Array(Object) | An array of JSON objects representing the production operation of a Bill of Materials. |
+| Name        | Type                                               | Description                                                                            |
+|-------------|----------------------------------------------------|----------------------------------------------------------------------------------------|
+| **meta**    | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the issue.                                                                 |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the employee who made the request.                                         |
+| **rows**    | Array(Object)                                      | An array of JSON objects representing the production operation of a Bill of Materials. |
 
 **Parameters**
 
-| Parameter | Description |
-| --------- | ------------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Bill of Materials ID. |
-| **limit** | `number` (optional) **Default: 1000** *Example: 1000* Maximum number of entities to extract. `Possible values ​​1 - 1000`. |
-| **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
+| Parameter  | Description                                                                                                                |
+|------------|----------------------------------------------------------------------------------------------------------------------------|
+| **id**     | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Bill of Materials ID.                                  |
+| **limit**  | `number` (optional) **Default: 1000** *Example: 1000* Maximum number of entities to extract. `Possible values ​​1 - 1000`. |
+| **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities.                                    |
 
 > Get the production operations of a Bill of Materials
 
@@ -1117,10 +1429,10 @@ Successful request. Result is JSON representation of the list of production oper
 
 **Parameters**
 
-| Parameter | Description |
-| --------- | ------------- |
-| **id**         | `string` (required) *Example: d72b4281-b000-11e6-8af5-581e00000074* Bill of Materials ID.         |
-| **stagesID**   | `string` (required) *Example: 9560e3e3-9609-11e6-8af5-581e00000008* Production operation ID.   |
+| Parameter    | Description                                                                                  |
+|--------------|----------------------------------------------------------------------------------------------|
+| **id**       | `string` (required) *Example: d72b4281-b000-11e6-8af5-581e00000074* Bill of Materials ID.    |
+| **stagesID** | `string` (required) *Example: 9560e3e3-9609-11e6-8af5-581e00000008* Production operation ID. |
 
 > Request to get a single production operation of a Bill of Materials with the specified ID.
 
@@ -1161,9 +1473,9 @@ There are no required fields in the request body to update a Production Operatio
 
 **Parameters**
 
-| Parameter | Description |
-| ------- | ------------- |
-| **id** | `string` (required) *Example: d72b4281-b000-11e6-8af5-581e00000074* Bill of Materials ID. |
+| Parameter    | Description                                                                                                                |
+|--------------|----------------------------------------------------------------------------------------------------------------------------|
+| **id**       | `string` (required) *Example: d72b4281-b000-11e6-8af5-581e00000074* Bill of Materials ID.                                  |
 | **stagesID** | `string` (required) *Example: 9560e3e3-9609-11e6-8af5-581e00000008* ID of the Production Operation of a Bill of Materials. |
 
 > Example of a request to update a Production Operation of a Bill of Materials.
@@ -1211,19 +1523,19 @@ Separate resource for managing raw materials of a Bill of Materials allows you t
 ### Get Materials in Bill of Materials  
 Request to get the list of all raw materials in a Bill of Materials.
 
-| Name | Type | Description |
-| ---- | ----- | ---------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the issue. |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the employee who performed the request. |
-| **rows** | Array(Object) | Array of JSON objects representing the materials of the Bill of Materials. |
+| Name        | Type                                               | Description                                                                |
+|-------------|----------------------------------------------------|----------------------------------------------------------------------------|
+| **meta**    | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the issue.                                                     |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the employee who performed the request.                        |
+| **rows**    | Array(Object)                                      | Array of JSON objects representing the materials of the Bill of Materials. |
 
 **Parameters**
 
-| Parameter | Description |
-| --------- | ----------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Bill of Materials ID. |
-| **limit** | `number` (optional) **Default: 1000** *Example: 1000* Maximum number of entities to retrieve. `Possible values ​​are 1 - 1000`. |
-| **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities. |
+| Parameter  | Description                                                                                                                     |
+|------------|---------------------------------------------------------------------------------------------------------------------------------|
+| **id**     | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Bill of Materials ID.                                       |
+| **limit**  | `number` (optional) **Default: 1000** *Example: 1000* Maximum number of entities to retrieve. `Possible values ​​are 1 - 1000`. |
+| **offset** | `number` (optional) **Default: 0** *Example: 40* Indent in the output list of entities.                                         |
 
 > Get Bill of Materials' raw materials
 
@@ -1301,9 +1613,9 @@ Successful request. The result is a JSON representation of the list of raw mater
 
 **Parameters**
 
-| Parameter | Description |
-| ------------- | ---------- |
-| **id** | `string` (required) *Example: d72b4281-b000-11e6-8af5-581e00000074* Bill of Materials ID. |
+| Parameter      | Description                                                                                           |
+|----------------|-------------------------------------------------------------------------------------------------------|
+| **id**         | `string` (required) *Example: d72b4281-b000-11e6-8af5-581e00000074* Bill of Materials ID.             |
 | **positionID** | `string` (required) *Example: 9560e3e3-9609-11e6-8af5-581e00000008* Item ID of the Bill of Materials. |
 
 > Request to get a separate Bill of Materials material with the specified ID.
@@ -1364,9 +1676,9 @@ For successful creation, you must specify the following fields in the request bo
 
 **Parameters**
 
-| Parameter | Description |
-| ------- | ----------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Bill of Materials ID. |
+| Parameter | Description                                                                               |
+|-----------|-------------------------------------------------------------------------------------------|
+| **id**    | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Bill of Materials ID. |
 
 > Example of creating one material in the Bill of Materials.
 
@@ -1552,9 +1864,9 @@ Request to update a single material of Bill of Materials. There are no required 
 
 **Parameters**
 
-| Parameter | Description |
-| ---------- | -------- |
-| **id** | `string` (required) *Example: d72b4281-b000-11e6-8af5-581e00000074* Bill of Materials ID. |
+| Parameter      | Description                                                                                           |
+|----------------|-------------------------------------------------------------------------------------------------------|
+| **id**         | `string` (required) *Example: d72b4281-b000-11e6-8af5-581e00000074* Bill of Materials ID.             |
 | **positionID** | `string` (required) *Example: 9560e3e3-9609-11e6-8af5-581e00000008* Item ID of the Bill of Materials. |
 
 > Example of a request to update a single material in Bill of Materials.
@@ -1615,9 +1927,9 @@ Successful request. Result is a JSON representation of the updated Bill of Mater
 
 **Parameters**
 
-| Parameter | Description |
-| --------- | ----------- |
-| **id** | `string` (required) *Example: d72b4281-b000-11e6-8af5-581e00000074* Bill of Materials ID. |
+| Parameter      | Description                                                                                           |
+|----------------|-------------------------------------------------------------------------------------------------------|
+| **id**         | `string` (required) *Example: d72b4281-b000-11e6-8af5-581e00000074* Bill of Materials ID.             |
 | **positionID** | `string` (required) *Example: 9560e3e3-9609-11e6-8af5-581e00000008* Item ID of the Bill of Materials. |
 
 > Request to delete the Bill of Materials' material with the specified ID.
@@ -1676,9 +1988,9 @@ Similarly, when only the quota depends on the attribute and the material is a fi
 
 **Parameters**
 
-| Parameter | Description |
-| ------------- | ---------- |
-| **id** | `string` (required) *Example: d72b4281-b000-11e6-8af5-581e00000074* Bill of Materials ID. |
+| Parameter      | Description                                                                                           |
+|----------------|-------------------------------------------------------------------------------------------------------|
+| **id**         | `string` (required) *Example: d72b4281-b000-11e6-8af5-581e00000074* Bill of Materials ID.             |
 | **positionID** | `string` (required) *Example: 9560e3e3-9609-11e6-8af5-581e00000008* Item ID of the Bill of Materials. |
 
 > Request to get Bill of Materials parametric materials.
@@ -1930,7 +2242,7 @@ Like a regular raw material, the collection must consist of both raw materials a
 ```
 
 > Response 200 (application/json)
-Successful request. The result is a JSON representation of the created material of a separate Bill of Materials.
+Successful request. The result is a JSON representation of the created parametric material of a separate Bill of Materials.
 
 ```json
 [
@@ -2002,6 +2314,204 @@ Successful request. The result is a JSON representation of the created material 
  }
 ]
 ```
+
+> Example of creating one parametric material in the Bill of Materials with parameterized quantity.
+
+```shell
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/parametricmaterials" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
+  -d '[
+    {
+      "assortment": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/product/4d2cdff9-6fae-11f1-c5b5-417f00000176",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+          "type": "product",
+          "mediaType": "application/json"
+        }
+      },
+      "paramQuantityCharacteristic": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics/58fe3a69-6fae-11f1-c5b5-417f00000184",
+          "type": "attributemetadata",
+          "mediaType": "application/json"
+        }
+      },
+      "paramQuantities": [
+        {
+          "characteristicValue": "L",
+          "quantity": 2.0
+        },
+        {
+          "characteristicValue": "M",
+          "quantity": 1.0
+        }
+      ]
+    }
+  ]'
+
+```
+
+> Response 200 (application/json)
+Successful request. The result is a JSON representation of the created parametric material of a separate Bill of Materials.
+
+```json
+[
+ {
+  "meta": {
+   "href": "https://api.kladana.com/api/remap/1.2/entity/processingplan/89af70a4-6fae-11f1-c5b5-417f000001d7/parametricmaterials/cba80368-7066-11f1-dd6d-6f180000001c",
+   "type": "processingplanparametricmaterial",
+   "mediaType": "application/json"
+  },
+  "id": "cba80368-7066-11f1-dd6d-6f180000001c",
+  "accountId": "f1b6a7de-6fad-11f1-7ba9-aab600000001",
+  "assortment": {
+   "meta": {
+    "href": "https://api.kladana.com/api/remap/1.2/entity/product/4d2cdff9-6fae-11f1-c5b5-417f00000176",
+    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+    "type": "product",
+    "mediaType": "application/json",
+    "uuidHref": "https://api.kladana.com/app/#good/edit?id=4d2cc5e9-6fae-11f1-c5b5-417f00000174"
+   }
+  },
+  "paramQuantityCharacteristic": {
+   "meta": {
+    "href": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics/58fe3a69-6fae-11f1-c5b5-417f00000184",
+    "type": "attributemetadata",
+    "mediaType": "application/json"
+   }
+  },
+  "paramQuantities": [
+   {
+    "characteristicValue": "L",
+    "quantity": 2.0
+   },
+   {
+    "characteristicValue": "M",
+    "quantity": 1.0
+   }
+  ],
+  "processingProcessPosition": {
+   "meta": {
+    "href": "https://api.kladana.com/api/remap/1.2/entity/processingprocess/f4221eb5-6fad-11f1-c5b5-417f00000100/positions/f422252c-6fad-11f1-c5b5-417f00000101",
+    "type": "processingprocessposition",
+    "mediaType": "application/json"
+   }
+  }
+ }
+]
+```
+
+> Example of creating one parametric material in the Bill of Materials with parameterized assortment.
+
+```shell
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/parametricmaterials" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
+  -d '[
+    {
+      "paramFeatureCharacteristic": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics/58fe2fba-6fae-11f1-c5b5-417f00000183",
+          "type": "attributemetadata",
+          "mediaType": "application/json"
+        }
+      },
+      "paramFeatures": [
+        {
+          "characteristicValue": "blue",
+          "assortment": {
+            "meta": {
+              "href": "https://api.kladana.com/api/remap/1.2/entity/product/48a9a623-6fae-11f1-c5b5-417f00000168",
+              "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+              "type": "product",
+              "mediaType": "application/json",
+              "uuidHref": "https://api.kladana.com/app/#feature/edit?id=48a98379-6fae-11f1-c5b5-417f00000166"
+            }
+          }
+        },
+        {
+          "characteristicValue": "red",
+          "assortment": {
+            "meta": {
+              "href": "https://api.kladana.com/api/remap/1.2/entity/product/4af31bf0-6fae-11f1-c5b5-417f0000016f",
+              "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+              "type": "product",
+              "mediaType": "application/json",
+              "uuidHref": "https://api.kladana.com/app/#feature/edit?id=4af30c01-6fae-11f1-c5b5-417f0000016d"
+            }
+          }
+        }
+      ],
+      "quantity": 3.5
+    }
+  ]'
+
+```
+
+> Response 200 (application/json)
+Successful request. The result is a JSON representation of the created parametric material of a separate Bill of Materials.
+
+```json
+[
+ {
+  "meta": {
+   "href": "https://api.kladana.com/api/remap/1.2/entity/processingplan/89af70a4-6fae-11f1-c5b5-417f000001d7/parametricmaterials/cba81c40-7066-11f1-dd6d-6f180000001f",
+   "type": "processingplanparametricmaterial",
+   "mediaType": "application/json"
+  },
+  "id": "cba81c40-7066-11f1-dd6d-6f180000001f",
+  "accountId": "f1b6a7de-6fad-11f1-7ba9-aab600000001",
+  "paramFeatureCharacteristic": {
+   "meta": {
+    "href": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata/characteristics/58fe2fba-6fae-11f1-c5b5-417f00000183",
+    "type": "attributemetadata",
+    "mediaType": "application/json"
+   }
+  },
+  "paramFeatures": [
+   {
+    "characteristicValue": "blue",
+    "assortment": {
+     "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/variant/48a9a623-6fae-11f1-c5b5-417f00000168",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata",
+      "type": "variant",
+      "mediaType": "application/json",
+      "uuidHref": "https://api.kladana.com/app/#feature/edit?id=48a993b5-6fae-11f1-c5b5-417f00000167"
+     }
+    }
+   },
+   {
+    "characteristicValue": "red",
+    "assortment": {
+     "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/variant/4af31bf0-6fae-11f1-c5b5-417f0000016f",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata",
+      "type": "variant",
+      "mediaType": "application/json",
+      "uuidHref": "https://api.kladana.com/app/#feature/edit?id=4af31684-6fae-11f1-c5b5-417f0000016e"
+     }
+    }
+   }
+  ],
+  "quantity": 3.5,
+  "processingProcessPosition": {
+   "meta": {
+    "href": "https://api.kladana.com/api/remap/1.2/entity/processingprocess/f4221eb5-6fad-11f1-c5b5-417f00000100/positions/f422252c-6fad-11f1-c5b5-417f00000101",
+    "type": "processingprocessposition",
+    "mediaType": "application/json"
+   }
+  }
+ }
+]
+```
+
 ### Edit Parametric Material
 
 > Example of a request to update a single parametric material in Bill of Materials.
@@ -2148,19 +2658,19 @@ Separate resource for managing raw materials of a Bill of Materials allows you t
 ### Get Bill of Materials Products
 Request to get a list of all products in a Bill of Materials.
 
-| Name | Type | Description |
-| ----- | ------- | ---------- |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the issue. |
-| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the employee who made the request. |
-| **rows** | Array(Object) | Array of JSON objects representing the Bill of Materials products.|
+| Name        | Type                                               | Description                                                        |
+|-------------|----------------------------------------------------|--------------------------------------------------------------------|
+| **meta**    | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the issue.                                             |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the employee who made the request.                     |
+| **rows**    | Array(Object)                                      | Array of JSON objects representing the Bill of Materials products. |
 
 **Parameters**
 
-| Parameter | Description |
-| --------- | ----------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Bill of Materials ID. |
-| **limit** | `number` (optional) **Default: 1000** *Example: 1000* Maximum number of entities to retrieve. `Valid values ​​are 1 - 1000`.|
-| **offset** | `number` (optional) **Default: 0** *Example: 40* Indentation in the returned list of entities. |
+| Parameter  | Description                                                                                                                  |
+|------------|------------------------------------------------------------------------------------------------------------------------------|
+| **id**     | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Bill of Materials ID.                                    |
+| **limit**  | `number` (optional) **Default: 1000** *Example: 1000* Maximum number of entities to retrieve. `Valid values ​​are 1 - 1000`. |
+| **offset** | `number` (optional) **Default: 0** *Example: 40* Indentation in the returned list of entities.                               |
 
 > Get Bill of Materials products
 
@@ -2231,10 +2741,10 @@ Successful request. The result is a JSON representation of a list of products of
 
 **Parameters**
 
-| Parameter | Description |
-| --------- | ----------- |
-| **id** | `string` (required) *Example: d72b4281-b000-11e6-8af5-581e00000074* Bill of Materials ID. |
-| **positionID** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Product ID of the Bill of Materials.|
+| Parameter      | Description                                                                                              |
+|----------------|----------------------------------------------------------------------------------------------------------|
+| **id**         | `string` (required) *Example: d72b4281-b000-11e6-8af5-581e00000074* Bill of Materials ID.                |
+| **positionID** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Product ID of the Bill of Materials. |
 
 > Request to get a single Bill of Materials product with the specified ID.
 
@@ -2280,7 +2790,7 @@ Successful request. Result is a JSON representation of a separate product of the
 ```
 
 ### Create a product
-Request to create a new product in Bill of Materials.
+This request adds a new product to the existing products in the Bill of Materials. Parametric Bills of Materials support only one product, so adding products to them is restricted.
 For successful creation, the following fields must be specified in the request body:
 
 + **product** - Link to the product that the item represents.
@@ -2288,9 +2798,9 @@ For successful creation, the following fields must be specified in the request b
 
 **Parameters**
 
-| Parameter | Description |
-| ------- | ------------ |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Bill of Materials ID. |
+| Parameter | Description                                                                               |
+|-----------|-------------------------------------------------------------------------------------------|
+| **id**    | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Bill of Materials ID. |
 
 > Example of creating one product in Bill of Materials.
 
@@ -2445,12 +2955,14 @@ Successful request. Result is a JSON representation of the list of created produ
 
 ### Edit Product
 Request to update a single product of a Bill of Materials. To update a product, specify only the fields you want to update in the request body.
+When replacing the single product in a parametric Bill of Materials with another product, any configured parametric materials will be reset. 
+The attributes and their values of the new product must match those previously set for the materials. Partial migration of materials is not supported.
 
 **Parameters**
 
-| Parameter | Description |
-| -------- | ------------ |
-| **id** | `string` (required) *Example: d72b4281-b000-11e6-8af5-581e00000074* Bill of Materials ID. |
+| Parameter      | Description                                                                                              |
+|----------------|----------------------------------------------------------------------------------------------------------|
+| **id**         | `string` (required) *Example: d72b4281-b000-11e6-8af5-581e00000074* Bill of Materials ID.                |
 | **positionID** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Product ID in the Bill of Materials. |
 
 > Example of a request to update a single product in a Bill of Materials.
@@ -2505,9 +3017,9 @@ Successful request. The result is a JSON representation of the Bill of Materials
 
 **Parameters**
 
-| Parameter | Description |
-| --------- | ----------- |
-| **id** | `string` (required) *Example: d72b4281-b000-11e6-8af5-581e00000074* Bill of Materials ID. |
+| Parameter      | Description                                                                                              |
+|----------------|----------------------------------------------------------------------------------------------------------|
+| **id**         | `string` (required) *Example: d72b4281-b000-11e6-8af5-581e00000074* Bill of Materials ID.                |
 | **positionID** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Product ID of the Bill of Materials. |
 
 > Request to delete the Bill of Materials product with the specified ID.

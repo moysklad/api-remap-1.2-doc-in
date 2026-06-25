@@ -5,6 +5,12 @@ The section lists changes to existing endpoints and new endpoints that allow you
 See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-1.2-doc-in/blob/master/CHANGELOG.md).
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
+### 26-06-2026
+#### Added
+- Field `parametricMaterials` collection of parametric materials of [BoM](../dictionaries/#entities-bills-of-materials)
+- Endpoint for parametric materials of [BoM](../dictionaries/#entities-bills-of-materials-parametric-materials-in-bill-of-materials)
+- Errors [25064-25071](../#kladana-json-api-errors-error-codes-for-bills-of-materials)
+- 
 ### 25-06-2026
 #### Added
 - Error [26116](../#kladana-json-api-errors-error-codes-for-production-orders) when attempting to change the Bill of Materials variant of a production order item
@@ -42,12 +48,6 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 ### 20-05-2026
 #### Added
 - Production Operations validation error: [25101](../#kladana-json-api-errors-error-codes-for-production-operations)
-
-### 26-05-2026
-#### Added
-- Field `parametricMaterials` collection of parametric materials of [BoM](../dictionaries/#entities-bills-of-materials)
-- Endpoint for parametric materials of [BoM](../dictionaries/#entities-bills-of-materials-parametric-materials-in-bill-of-materials)
-- Error [25064](../#kladana-json-api-errors-error-codes-for-bills-of-materials)
 
 ### 18-05-2026
 #### Added
