@@ -37,6 +37,8 @@ Result: JSON object including fields:
 | ---------| ---------|
 | **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Product ID with Images. |
 
+Similarly to [Product](../dictionaries/#entities-product-get-item): if you specify the UUID from the UI instead of the API ID, the server will return a **308** redirect with a `Location` header pointing to the URL `.../entity/product/{apiId}/images`.
+
 > Get a list of Images for a Product
 
 ```shell
@@ -157,6 +159,8 @@ In the `content` field, you need to specify an image encoded in Base64, in the `
 | Parameter | Description |
 | ---------| ---------|
 | **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Product ID with Images. |
+
+Similarly to [Product](../dictionaries/#entities-product-get-item): if you specify the UUID from the UI instead of the API ID, the server will return a **308** redirect with a `Location` header pointing to the URL `.../entity/product/{apiId}/images`.
 
 > Example of adding an Image to a Product
   

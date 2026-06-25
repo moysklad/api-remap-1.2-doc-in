@@ -340,8 +340,8 @@ curl --compressed -X POST \
            "productFolders": [
           {
            "meta": {
-           "href": "https://api.kladana.com/api/remap/1.2/entity/product/39c62b64-a722-11ea-ac12-000d00000015",
-           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/productfolder/39c62b64-a722-11ea-ac12-000d00000015",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productfolder/metadata",
            "type": "productfolder",
            "mediaType": "application/json"
            }
@@ -515,8 +515,8 @@ curl --compressed -X PUT \
             "productFolders": [
                 {
                     "meta": {
-                        "href": "https://api.kladana.com/api/remap/1.2/entity/product/39c62b64-a722-11ea-ac12-000d00000015",
-                        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+                        "href": "https://api.kladana.com/api/remap/1.2/entity/productfolder/39c62b64-a722-11ea-ac12-000d00000015",
+                        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productfolder/metadata",
                         "type": "productfolder",
                         "mediaType": "application/json"
                     }
@@ -630,8 +630,8 @@ curl --compressed -X POST \
         "productFolders": [
             {
                 "meta": {
-                    "href": "https://api.kladana.com/api/remap/1.2/entity/product/39c62b64-a722-11ea-ac12-000d00000015",
-                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/productfolder/39c62b64-a722-11ea-ac12-000d00000015",
+                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productfolder/metadata",
                     "type": "productfolder",
                     "mediaType": "application/json"
                 }
@@ -786,8 +786,8 @@ curl --compressed -X PUT \
         "productFolders": [
             {
                 "meta": {
-                    "href": "https://api.kladana.com/api/remap/1.2/entity/product/39c62b64-a722-11ea-ac12-000d00000015",
-                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/productfolder/39c62b64-a722-11ea-ac12-000d00000015",
+                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productfolder/metadata",
                     "type": "productfolder",
                     "mediaType": "application/json"
                 }
@@ -899,8 +899,8 @@ curl --compressed -X POST \
           "productFolders": [
               {
                   "meta": {
-                      "href": "https://api.kladana.com/api/remap/1.2/entity/product/39c62b64-a722-11ea-ac12-000d00000015",
-                      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+                      "href": "https://api.kladana.com/api/remap/1.2/entity/productfolder/39c62b64-a722-11ea-ac12-000d00000015",
+                      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productfolder/metadata",
                       "type": "productfolder",
                       "mediaType": "application/json"
                   }

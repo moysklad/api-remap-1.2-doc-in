@@ -186,6 +186,7 @@ An error in the Kladana API is an 'Error' array containing 'Error' objects. Each
 | **301**          | The requested resource has another URL                                                                                                                               |
 | **302**          | The requested resource is temporarily located at a different URI                                                                                                     |
 | **303**          | The requested resource has another URL. Use GET request to find it                                                                                                   |
+| **308**          | The requested resource is located at a different URL                                                                                                                 |
 | **400**          | The transmitted request has a JSON structure error                                                                                                                   |
 | **401**          | Incorrect username or password, or the user or account has been blocked                                                                                              |
 | **403**          | No permission to view the object                                                                                                                                     |
@@ -208,7 +209,7 @@ Along with the error response body, you may receive the following headers:
 - X-Lognex-Auth — Extended authentication error code.
 - X-Lognex-Auth-Message — Error message.
 - X-Lognex-API-Version-Deprecated — The date the requested API version was disabled.
-- Location — The requested resource's current URL (if you receive 301 or 303 code as a response).
+- Location — The requested resource's current URL (if you receive 301, 303, or 308 code as a response).
 
 Use the following headers to check the remaining limits for requests per unit of time:
 
