@@ -72,16 +72,19 @@ Description of overhead expenses fields.
 
 #### Other fields
 
-| Title | Type                                               | Description |
-| ------- |----------------------------------------------------| -------- |
-| **cargoName** | String(255)                                        | Name of cargo <br/> `+Change-handler` |
-| **carrier** | [Meta](../#kladana-json-api-general-info-metadata) | Carrier metadata (counterparty or legal entity)<br>`+Expand` `+Change-handler` |
-| **consignee** | [Meta](../#kladana-json-api-general-info-metadata) | Consignee's metadata (counterparty or legal entity) <br/> `+Change-handler` |
-| **goodPackQuantity** | Int                                                | Total seats <br/> `+Change-handler` |
-| **shippingInstructions** | String(255)                                        | Shipper instructions <br/> `+Change-handler` |
-| **stateContractId** | String(255)                                        | Identifier of the state contract, contract (agreement) <br/> `+Change-handler` |
-| **transportFacility** | String(255)                                        | Vehicle <br/> `+Change-handler` |
-| **transportFacilityNumber** | String(255)                                        | Vehicle number <br/> `+Change-handler` |
+| Title                       | Type                                               | Description                                                                          |
+|-----------------------------|----------------------------------------------------|--------------------------------------------------------------------------------------|
+| **cargoName**               | String(255)                                        | Name of cargo <br/> `+Change-handler`                                                |
+| **carrier**                 | [Meta](../#kladana-json-api-general-info-metadata) | Carrier metadata (counterparty or legal entity)<br>`+Expand` `+Change-handler`       |
+| **consignee**               | [Meta](../#kladana-json-api-general-info-metadata) | Consignee's metadata (counterparty or legal entity) <br/>`+Expand` `+Change-handler` |
+| **consignor**               | [Meta](../#kladana-json-api-general-info-metadata) | Consignor's metadata (counterparty or legal entity) <br/>`+Expand` `+Change-handler` |
+| **goodPackQuantity**        | Int                                                | Total seats <br/> `+Change-handler`                                                  |
+| **shippingInstructions**    | String(255)                                        | Shipper instructions <br/> `+Change-handler`                                         |
+| **stateContractId**         | String(255)                                        | Identifier of the state contract, contract (agreement) <br/> `+Change-handler`       |
+| **transportFacility**       | String(255)                                        | Vehicle <br/> `+Change-handler`                                                      |
+| **transportFacilityNumber** | String(255)                                        | Vehicle number <br/> `+Change-handler`                                               |
+| **shippingDocumentNumber**  | String(255)                                        | Shipping document № <br/> `+Change-handler`                                          |
+| **shippingDocumentDate**    | DateTime                                           | Date of shipping document <br/> `+Change-handler`                                    |
 
 #### Shipment Items
 
@@ -354,7 +357,17 @@ Successful request. The result is a JSON representation of the list of Shipments
            "mediaType": "application/json"
          }
        },
+       "consignor": {
+         "meta": {
+           "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/869d7628-6396-11e6-8a84-bae50000000b",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
+           "type": "counterparty",
+           "mediaType": "application/json"
+         }
+       },
        "transportFacilityNumber": "lb777m",
+       "shippingDocumentNumber": "76543210",
+       "shippingDocumentDate": "2026-04-15 00:00:00.000",
        "shippingInstructions": "Keep out of the sun",
        "cargoName": "Vegetables",
        "transportFacility": "mercedes benz",

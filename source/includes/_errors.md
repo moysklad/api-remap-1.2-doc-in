@@ -137,7 +137,7 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_3005">3005</a> | Error saving object: invalid value `{value}` of field `{field name}`. Valid values: `{list of values}`                                                      | You are trying to assign a non-existent value to a field of type "enumeration" (enum). You can check all possible values of this field in the documentation for this entity in the "Entity Attributes" section.                      |
 | <a name="error_3006">3006</a> | Error saving object: unique constraint violated for parameter `{parameter name}`                                                                            | The specified field/parameter must have a unique value in the system. For example, if checking for unique operation numbers is enabled, `name` cannot be the same for different documents.                                           |
 | <a name="error_3007">3007</a> | Saved object validation failed: `{object}`                                                                                                                  | Exchange error. Check if the object you are transferring complies with all the conditions.                                                                                                                                           |
-| <a name="error_3008">3008</a> | Error saving object: value of field `{field name}` exceeds maximum allowed value                                                                            | The value of a numeric field exceeds the maximum allowed value: 9,999,999,999.                                                                                                                                                       |
+| <a name="error_3008">3008</a> | Error saving object: value of field `{field name}` exceeds maximum allowed value                                                                            | This field has a maximum value limit. Enter a value below the threshold.                                                                                                                                                             |
 | <a name="error_3009">3009</a> | Validation error: field `{field name}` cannot be empty or absent                                                                                            | The required field cannot be empty or missing.                                                                                                                                                                                       |
 | <a name="error_3010">3010</a> | Validation error: you can't link a document from the shopping cart to a payment                                                                             | A document from the shopping cart cannot be linked to a payment.                                                                                                                                                                     |
 | <a name="error_3011">3011</a> | Barcode validation error: Unable to add a barcode longer than 255 characters to an entity                                                                   | Correct the barcode length and try again.                                                                                                                                                                                            |
@@ -372,11 +372,11 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_24003">24003</a> | Inventory save error: Service cannot be an inventory item | A service cannot be an inventory item. |
 | <a name="error_24004">24004</a> | Error saving inventory: inventory cannot contain duplicate items | A product, product variant, service, batches or bundle can only be added to the inventory once. |
 
-### Error codes for Production Operations
+### Error codes for Production Records
 
 | Error code | Message | Description |
 | ------------| ----------| ---------|
-| <a name="error_25003">25003</a> | Saving error: the production operation must contain a product or Bill of Materials | When creating a production operation or deleting a product, the production operation must have at least one product item. |
+| <a name="error_25003">25003</a> | Saving error: the production record must contain a product or Bill of Materials | When creating a production record or deleting a product, the production operation must have at least one product item. |
 
 ### Error codes for Routings
 
@@ -399,6 +399,12 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_25063">25063</a> | Save error: cannot enable standard hours calculation for a Production Operation and modify the labour cost value at the same time | Check the `enableHourAccounting` flag for the Bill of Materials Operation. When standard hours calculation is enabled, the `labourCost` value is reset and calculated automatically. If you want to set a new labour cost value manually, first change the calculation type to fixed (`enableHourAccounting == false`). |
 | <a name="error_25064">25064</a> | Cannot add product to parametric BOM | Make sure you are not trying to add a product to a parametric BOM (check for objects in parametricMaterials). A parametric BOM does not support having two or more products, as this may cause conflicts in parametric material settings. |
 
+### Error codes for Production Operations
+
+| Error code                      | Message | Description |
+|---------------------------------| ----------| ---------|
+| <a name="error_25101">25101</a> | Cannot restrict task visibility for an operation that all employees perform | Make sure you are not creating a situation where an operation has no explicitly assigned performers, but a filter is enabled that only shows each performer their own tasks. |
+
 ### Error codes for Production Orders
 
 | Error code                      | Message | Description |
@@ -418,6 +424,10 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_26113">26113</a> | Error updating: quantity of goods taken into account by serial numbers cannot be fractional | When using a material or product taken into account by serial numbers, it is necessary to specify its quantity in integer form |
 | <a name="error_26114">26114</a> | Production stage update error: cannot enable standard hours calculation and modify the labour cost value at the same time | Check the `enableHourAccounting` flag for the production stage. When standard hours calculation is enabled, the `labourUnitCost` value is reset and calculated automatically. If you want to set a new labour cost value manually, first change the calculation type to fixed (`enableHourAccounting == false`). |
 | <a name="error_26115">26115</a> | Error updating production order item: item volume ratio is less than allowable limit | Unable to decrease the volume ratio for the Production Order item below the value already consumed. Check the volume ratios for completed, distributed, and in-progress operations. |
+| <a name="error_26116">26116</a> | Error updating production order item: Variant operations are not supported | Cannot change the Bill of Materials variant for a production order item, nor specify a variant if none was previously set. |
+| <a name="error_26117">26117</a> | Error saving production order: Variant is missing | Make sure that when using a parametric Bill of Materials, a product variant of this Bill of Materials is provided. This is required to correctly transfer materials from the Bill of Materials to the production order. If you need to produce the base product, use a Bill of Materials that does not contain materials dependent on variant attributes (non-parametric Bill of Materials). |
+| <a name="error_26118">26118</a> | Error saving production order: Variant does not belong to the product of the Bill of Materials | Cannot pass a variant from a different parent product that is not the product of the current parametric Bill of Materials. |
+| <a name="error_26119">26119</a> | Error saving production order: Cannot specify a variant for a non-parametric Bill of Materials | Make sure you are not trying to pass a variant for a non-parametric Bill of Materials. If you need to produce a variant, use a Bill of Materials that contains the parent product of this variant as its product and has raw materials that depend on the product's variant attributes (parametric Bill of Materials). |
 
 ### Error codes for Operation Reports
 
@@ -685,17 +695,18 @@ This section lists the JSON API error codes and their descriptions.
 | ------------| ----------| ---------|
 | <a name="error_64000">64000</a> | Sales Channel Update Error: You cannot change the type for an Automatically Created Sales Channel | Sales channel created automatically has a read-only immutable type |
 
-### Error codes for Bins and Warehouse Locations
+### Error codes for Warehouses
 
-| Error code | Message | Description |
-| ------------| ----------| ---------|
-| <a name="error_67000">67000</a> |A bin with identifier '{parameter}' does not belong to the specified warehouse '{parameter}'" | You cannot specify a bin from another warehouse |
-| <a name="error_67001">67001</a> | Cannot specify bin for '{parameter}' | You cannot specify a bin for document items of type Bundle or Service |
-| <a name="error_67002">67002</a> | The specified location '{parameter}' is not a warehouse location '{parameter}' of the bin | It is not allowed to assign another warehouse location to a bin |
-| <a name="error_67003">67003</a> | Exceeded the maximum number of locations at the warehouse | The limit on the number of locations on an account has been violated |
-| <a name="error_67004">67004</a> | Warehouse location '{parameter}' is not a warehouse location '{parameter}' | You cannot change the location of another warehouse for a given warehouse |
-| <a name="error_67005">67005</a> | Bin '{parameter}' is not a warehouse bin '{parameter}' | For a given warehouse, you cannot change the bin of another warehouse |
-| <a name="error_67006">67006</a> | Barcode already specified in another bin | Cannot duplicate a bin barcode within a warehouse |
+| Error code                      | Message                                                                                       | Description                                                               |
+|---------------------------------|-----------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
+| <a name="error_67000">67000</a> | A bin with identifier '{parameter}' does not belong to the specified warehouse '{parameter}'" | You cannot specify a bin from another warehouse                           |
+| <a name="error_67001">67001</a> | Cannot specify bin for '{parameter}'                                                          | You cannot specify a bin for document items of type Bundle or Service     |
+| <a name="error_67002">67002</a> | The specified location '{parameter}' is not a warehouse location '{parameter}' of the bin     | It is not allowed to assign another warehouse location to a bin           |
+| <a name="error_67003">67003</a> | Exceeded the maximum number of locations at the warehouse                                     | The limit on the number of locations on an account has been violated      |
+| <a name="error_67004">67004</a> | Warehouse location '{parameter}' is not a warehouse location '{parameter}'                    | You cannot change the location of another warehouse for a given warehouse |
+| <a name="error_67005">67005</a> | Bin '{parameter}' is not a warehouse bin '{parameter}'                                        | For a given warehouse, you cannot change the bin of another warehouse     |
+| <a name="error_67006">67006</a> | Barcode already specified in another bin                                                      | Cannot duplicate a bin barcode within a warehouse                         |
+| <a name="error_67007">67007</a> | Error working with warehouses: the number of active warehouses cannot exceed 2000             | The limit on the number of warehouses on an account has been violated     |
 
 ### Error Codes for Event Feed
 
@@ -716,3 +727,10 @@ This section lists the JSON API error codes and their descriptions.
 | Error code                         | Message                                                                                                                           | Description                                                                                                                                                                      |
 |------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | <a name="error_72000">72000</a>  | Error saving bank account: at least one of the bank accounts must be in the accounting currency                                    | When creating or first adding bank accounts to a legal entity, at least one of the accounts must be in the company's accounting currency.                                                    |
+
+### Error codes for content cards
+
+| Error code                      | Message                                                                                                           | Description                                                  |
+|---------------------------------|-------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
+| <a name="error_75000">75000</a> | Failed to save content card: You cannot specify an archived sales channel in the content card                     | Check that the list does not contain archived sales channels |
+| <a name="error_75001">75001</a> | Failed to save content card: A maximum of 100 content cards can be created for a single product                   | Content card limit reached for the specified product         |

@@ -5,6 +5,43 @@ The section lists changes to existing endpoints and new endpoints that allow you
 See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-1.2-doc-in/blob/master/CHANGELOG.md).
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
+### 25-06-2026
+#### Added
+- Error [26116](../#kladana-json-api-errors-error-codes-for-production-orders) when attempting to change the Bill of Materials variant of a production order item
+- Error [26117](../#kladana-json-api-errors-error-codes-for-production-orders) when a product variant is missing for a parametric Bill of Materials in a production order
+- Error [26118](../#kladana-json-api-errors-error-codes-for-production-orders) when a product variant does not belong to the product of the parametric Bill of Materials
+- Error [26119](../#kladana-json-api-errors-error-codes-for-production-orders) when a product variant is specified for a non-parametric Bill of Materials
+
+### 19-06-2026
+#### Added
+- New [Payroll](../documents/#transactions-payroll) section
+
+### 10-06-2026
+#### Added
+- Error [67007](../#kladana-json-api-errors-error-codes-for-warehouses) when the limit on the number of warehouses on an account has been violated
+
+### 08-06-2026
+#### Added
+- Methods for creating, updating, and deleting, as well as bulk creating, updating, and deleting [Content Cards](../dictionaries/#entities-content-card)
+- Error [75000](../#kladana-json-api-errors-error-codes-for-content-cards) You cannot specify an archived sales channel in the [Content Card](../dictionaries/#entities-content-card)
+- Error [75001](../#kladana-json-api-errors-error-codes-for-content-cards) A maximum of 100 [Content Cards](../dictionaries/#entities-content-card) can be created for a single product
+
+#### Changed
+- Updated the descriptions of the `assortment`, `cardContentName`, `description`, `name`, `salePlatform`, and `salesChannels` fields in [Content Cards](../dictionaries/#entities-content-card)
+
+### 04-06-2026
+#### Added
+- Field consignor (Consignor) in [Shipment](../documents/#transactions-shipment)
+- Field shippingDocumentNumber (Shipping document №) in [Shipment](../documents/#transactions-shipment)
+- Field shippingDocumentDate (Date of shipping document) in [Shipment](../documents/#transactions-shipment)
+
+### 22-05-2026
+#### Removed
+- Fields `owner`, `group`, and `shared` were removed from [Content Cards](../dictionaries/#entities-content-card)
+
+### 20-05-2026
+#### Added
+- Production Operations validation error: [25101](../#kladana-json-api-errors-error-codes-for-production-operations)
 
 ### 26-05-2026
 #### Added
