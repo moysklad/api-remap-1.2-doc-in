@@ -178,8 +178,8 @@ This flag cannot be combined with the **weighed**, **isSerialTrackable**, **alco
 |--------------|----------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **barcodes** | Array(Object)                                      | An array of barcodes for product packaging. This array can contain at most one barcode. If there is no barcode in the array, then this field is not displayed |
 | **id**       | UUID                                               | Product Package ID<br>`+Required when replying` `+Read Only`                                                                                                  |
-| **quantity** | Float                                              | Quantity of products in this type of package<br>`+Required when replying` `+Required when creating`                                                           |
-| **uom*       | [Meta](../#kladana-json-api-general-info-metadata) | Units metadata<br>`+Required when replying` `+Expand`                                                                                                         |
+| **quantity** | Float                                              | Quantity of products in this type of package<br>`+Required when replying`                                                            |
+| **uom**       | [Meta](../#kladana-json-api-general-info-metadata) | Units metadata<br>`+Required when replying` `+Expand`                                                                                                         |
 
 In API version 1.2, a separate resource for working with product packages was removed. Now packages are a nested collection.
 

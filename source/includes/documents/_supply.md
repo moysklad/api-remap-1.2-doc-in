@@ -82,7 +82,7 @@ The Receiving item object contains the following fields:
 | **things** | Array(String)                                      | Serial numbers. The value of this attribute is ignored if the item item is not in serial accounting. Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value. |
 | **trackingCodes** | Array(Object)                                      | Codes for marking goods and transport packages. [Learn more](../documents/#transactions-receiving-receivings-codes-for-marking-goods-and-transport-packages) |
 | **overhead** | Int                                                | Overhead expenses. [Learn more](../documents/#transactions-stock-adjustment-stock-adjustment-overhead-expenses). If no Receiving Items are set, Write-offs cannot be set.<br>`+Required when replying` `+Read Only` |
-| **vat** | Boolean                                            | VAT applicable to the current item<br>`+Required when replying` `+Change-handler` `+Update-provider` |
+| **vat** | Int                                                | VAT applicable to the current item<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **vatEnabled** | Boolean                                            | Whether VAT is included for the item. With this flag, you can set VAT = 0 or VAT = "excluding VAT" for an item. (vat = 0, vatEnabled = false) -> vat = "without VAT", (vat = 0, vatEnabled = true) -> vat = 0%.<br>`+Required when replying` `+Change-handler` ` +Update-provider` |
 
 Items can be managed using [special resources for managing Receiving items](../documents/#transactions-receiving-receivings-receiving-items),

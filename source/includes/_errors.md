@@ -137,7 +137,7 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_3005">3005</a> | Error saving object: invalid value `{value}` of field `{field name}`. Valid values: `{list of values}`                                                      | You are trying to assign a non-existent value to a field of type "enumeration" (enum). You can check all possible values of this field in the documentation for this entity in the "Entity Attributes" section.                      |
 | <a name="error_3006">3006</a> | Error saving object: unique constraint violated for parameter `{parameter name}`                                                                            | The specified field/parameter must have a unique value in the system. For example, if checking for unique operation numbers is enabled, `name` cannot be the same for different documents.                                           |
 | <a name="error_3007">3007</a> | Saved object validation failed: `{object}`                                                                                                                  | Exchange error. Check if the object you are transferring complies with all the conditions.                                                                                                                                           |
-| <a name="error_3008">3008</a> | Error saving object: value of field `{field name}` exceeds maximum allowed value                                                                            | The value of a numeric field exceeds the maximum allowed value: 9,999,999,999.                                                                                                                                                       |
+| <a name="error_3008">3008</a> | Error saving object: value of field `{field name}` exceeds maximum allowed value                                                                            | This field has a maximum value limit. Enter a value below the threshold.                                                                                                                                                             |
 | <a name="error_3009">3009</a> | Validation error: field `{field name}` cannot be empty or absent                                                                                            | The required field cannot be empty or missing.                                                                                                                                                                                       |
 | <a name="error_3010">3010</a> | Validation error: you can't link a document from the shopping cart to a payment                                                                             | A document from the shopping cart cannot be linked to a payment.                                                                                                                                                                     |
 | <a name="error_3011">3011</a> | Barcode validation error: Unable to add a barcode longer than 255 characters to an entity                                                                   | Correct the barcode length and try again.                                                                                                                                                                                            |
@@ -694,17 +694,18 @@ This section lists the JSON API error codes and their descriptions.
 | ------------| ----------| ---------|
 | <a name="error_64000">64000</a> | Sales Channel Update Error: You cannot change the type for an Automatically Created Sales Channel | Sales channel created automatically has a read-only immutable type |
 
-### Error codes for Bins and Warehouse Locations
+### Error codes for Warehouses
 
-| Error code | Message | Description |
-| ------------| ----------| ---------|
-| <a name="error_67000">67000</a> |A bin with identifier '{parameter}' does not belong to the specified warehouse '{parameter}'" | You cannot specify a bin from another warehouse |
-| <a name="error_67001">67001</a> | Cannot specify bin for '{parameter}' | You cannot specify a bin for document items of type Bundle or Service |
-| <a name="error_67002">67002</a> | The specified location '{parameter}' is not a warehouse location '{parameter}' of the bin | It is not allowed to assign another warehouse location to a bin |
-| <a name="error_67003">67003</a> | Exceeded the maximum number of locations at the warehouse | The limit on the number of locations on an account has been violated |
-| <a name="error_67004">67004</a> | Warehouse location '{parameter}' is not a warehouse location '{parameter}' | You cannot change the location of another warehouse for a given warehouse |
-| <a name="error_67005">67005</a> | Bin '{parameter}' is not a warehouse bin '{parameter}' | For a given warehouse, you cannot change the bin of another warehouse |
-| <a name="error_67006">67006</a> | Barcode already specified in another bin | Cannot duplicate a bin barcode within a warehouse |
+| Error code                      | Message                                                                                       | Description                                                               |
+|---------------------------------|-----------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
+| <a name="error_67000">67000</a> | A bin with identifier '{parameter}' does not belong to the specified warehouse '{parameter}'" | You cannot specify a bin from another warehouse                           |
+| <a name="error_67001">67001</a> | Cannot specify bin for '{parameter}'                                                          | You cannot specify a bin for document items of type Bundle or Service     |
+| <a name="error_67002">67002</a> | The specified location '{parameter}' is not a warehouse location '{parameter}' of the bin     | It is not allowed to assign another warehouse location to a bin           |
+| <a name="error_67003">67003</a> | Exceeded the maximum number of locations at the warehouse                                     | The limit on the number of locations on an account has been violated      |
+| <a name="error_67004">67004</a> | Warehouse location '{parameter}' is not a warehouse location '{parameter}'                    | You cannot change the location of another warehouse for a given warehouse |
+| <a name="error_67005">67005</a> | Bin '{parameter}' is not a warehouse bin '{parameter}'                                        | For a given warehouse, you cannot change the bin of another warehouse     |
+| <a name="error_67006">67006</a> | Barcode already specified in another bin                                                      | Cannot duplicate a bin barcode within a warehouse                         |
+| <a name="error_67007">67007</a> | Error working with warehouses: the number of active warehouses cannot exceed 2000             | The limit on the number of warehouses on an account has been violated     |
 
 ### Error Codes for Event Feed
 
