@@ -2,14 +2,14 @@
 
 JSON API 1.2 changes will be added here soon
 
-### 19-06-2026
-#### Added
-- New [Payroll](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-payroll) section
-
-### 16-06-2026
+### 26-06-2026
 #### Added
 - The `article` field has been added to the  [Product variant](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-product-variant-product-variants) to support variant-specific article numbers.
 - Added the `article` field for product variants in the [Assortment](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-assortment) entity to support variant article numbers.
+
+### 19-06-2026
+#### Added
+- New [Payroll](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-payroll) section
 
 ### 10-06-2026
 #### Added
