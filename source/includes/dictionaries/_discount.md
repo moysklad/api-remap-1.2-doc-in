@@ -1192,3 +1192,79 @@ Successful request. The result is a JSON representation of the changed rounding 
    "agentTags": []
 }
 ```
+
+### Bulk update of paise rounding
+
+[Bulk update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of paise rounding.
+In the body of the request, you need to pass an array containing the JSON representation of the paise rounding you want to update.
+Only updating existing entities is supported. Updated entities must contain the identifier in the form of metadata.
+In the body of the request, you must pass the fields that will be updated (**name** or **active**). The response will also include the **agentTags** and **allAgents** fields, but they cannot be changed.
+
+> Example of updating multiple paise rounding
+
+```shell
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/discount" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
+  -d '[
+    {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/discount/8ae26646-b1aa-11ea-ac12-000b00000001",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/discount/metadata",
+        "type": "discount",
+        "mediaType": "application/json"
+      },
+      "name": "updatedName",
+      "active": true
+    },
+    {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/discount/8ae26646-b1aa-11ea-ac12-000b00000002",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/discount/metadata",
+        "type": "discount",
+        "mediaType": "application/json"
+      },
+      "active": false
+    }
+  ]'
+```
+
+> Response 200(application/json)
+Successful request. The result is a JSON array of representations of the updated paise rounding.
+
+```json
+[
+  {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/discount/8ae26646-b1aa-11ea-ac12-000b00000001",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/discount/metadata",
+      "type": "discount",
+      "mediaType": "application/json",
+      "uuidHref": "https://app.kladana.com/app/#discount/edit?id=8ae26646-b1aa-11ea-ac12-000b00000001"
+    },
+    "id": "8ae26646-b1aa-11ea-ac12-000b00000001",
+    "accountId": "5e8a41b1-a419-11ea-ac12-000c00000001",
+    "name": "updatedName",
+    "active": true,
+    "allAgents": true,
+    "agentTags": []
+  },
+  {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/discount/8ae26646-b1aa-11ea-ac12-000b00000002",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/discount/metadata",
+      "type": "discount",
+      "mediaType": "application/json",
+      "uuidHref": "https://app.kladana.com/app/#discount/edit?id=8ae26646-b1aa-11ea-ac12-000b00000002"
+    },
+    "id": "8ae26646-b1aa-11ea-ac12-000b00000002",
+    "accountId": "5e8a41b1-a419-11ea-ac12-000c00000001",
+    "name": "Paise rounding",
+    "active": false,
+    "allAgents": true,
+    "agentTags": []
+  }
+]
+```
