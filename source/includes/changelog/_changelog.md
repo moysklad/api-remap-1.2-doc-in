@@ -5,6 +5,10 @@ The section lists changes to existing endpoints and new endpoints that allow you
 See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-1.2-doc-in/blob/master/CHANGELOG.md).
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
+### 19-06-2026
+#### Added
+- New [Payroll](../documents/#transactions-payroll) section
+
 ### 16-06-2026
 #### Added
 - The `article` field has been added to the [Product variant](../dictionaries/#entities-product-variant-product-variants) to support variant-specific article numbers.
