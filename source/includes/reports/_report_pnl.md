@@ -4,7 +4,7 @@ Using the JSON API, you can request the Profit report for all products, services
 To access the report via the API, you need the access rights to view the Profit report.
 
 
-#### Profit Report by Products
+### Profit Report by Products
 #### Report object attributes
 
 | Title              | Type | Description                                                                                                                                                                         |
@@ -234,7 +234,7 @@ Successful request. The result is a JSON representation of the report.
 }
 ```
 
-#### Profit Reports for product variants
+### Profit Reports for product variants
 #### Report object attributes:
 
 | Title              | Type | Description                                                                                                                                                                                                                                               |
@@ -463,7 +463,7 @@ Successful request. The result is a JSON representation of the report.
 }
 ```
 
-#### Profit Report by employee
+### Profit Report by employee
 #### Report object attributes
 
 | Title | Type | Description                                                                                                                               |
@@ -603,7 +603,7 @@ Successful request. The result is a JSON representation of the report.
 }
 ```
 
-#### Profit Report by counterparty
+### Profit Report by counterparty
 #### Report object attributes:
 
 | Title | Type | Description                                                                                                                              |
@@ -744,7 +744,7 @@ Successful request. The result is a JSON representation of the report.
 }
 ```
 
-#### Profit Report by sales channel
+### Profit Report by sales channel
 #### Report object attributes
 
 | Title | Type | Description                                                                                                                                          |

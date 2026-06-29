@@ -105,7 +105,7 @@ Successful request. The result is a JSON representation of a list of webhooks fo
        "accountId": "8afc8c88-38a5-11ed-ac14-000f00000001",
        "stockType": "stock",
        "reportType": "all",
-       "url": "http://www.example.com",
+       "url": "https://www.example.com",
        "enabled": true
      },
      {
@@ -119,7 +119,7 @@ Successful request. The result is a JSON representation of a list of webhooks fo
        "accountId": "8afc8c88-38a5-11ed-ac14-000f00000001",
        "stockType": "stock",
        "reportType": "all",
-       "url": "http://www.example.com",
+       "url": "https://www.example.com",
        "enabled": true
      },
      {
@@ -133,7 +133,7 @@ Successful request. The result is a JSON representation of a list of webhooks fo
        "accountId": "8afc8c88-38a5-11ed-ac14-000f00000001",
        "stockType": "stock",
        "reportType": "all",
-       "url": "http://www.example.com",
+       "url": "https://www.example.com",
        "enabled": true
      }
    ]
@@ -154,7 +154,7 @@ remnants with different **url** for users and no more than 1 for the application
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \
        -d '{
-             "url": "http://www.example.com",
+             "url": "https://www.example.com",
              "enabled": true,
              "reportType": "all",
              "stockType": "stock"
@@ -176,7 +176,7 @@ Successful request. The result is a JSON representation of the created webhook f
    "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
    "stockType": "stock",
    "reportType": "all",
-   "url": "http://www.example.com",
+   "url": "https://www.example.com",
    "enabled": true
 }
 ```
@@ -196,7 +196,7 @@ Residue change webhooks that are updated must contain the identifier as metadata
      -H "Content-Type: application/json" \
        -d'[
              {
-               "url": "http://www.example.com",
+               "url": "https://www.example.com",
                "stockType": "stock",
                "reportType": "all",
              },
@@ -207,7 +207,7 @@ Residue change webhooks that are updated must contain the identifier as metadata
                  "type": "webhookstock",
                  "mediaType": "application/json"
                },
-               "url": "http://www.example.com",
+               "url": "https://www.example.com",
                "stockType": "stock",
                "reportType": "bystore",
              }
@@ -230,7 +230,7 @@ Successful request. The result is a JSON array of generated and updated webhooks
      "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
      "stockType": "stock",
      "reportType": "all",
-     "url": "http://www.example.com",
+     "url": "https://www.example.com",
      "enabled": true
    },
    {
@@ -244,7 +244,7 @@ Successful request. The result is a JSON array of generated and updated webhooks
      "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
      "stockType": "stock",
      "reportType": "bystore",
-     "url": "http://www.example.com",
+     "url": "https://www.example.com",
      "enabled": true
    }
 ]
@@ -283,7 +283,7 @@ Successful request. The result is a JSON representation of a webhook for changin
    "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
    "stockType": "stock",
    "reportType": "bystore",
-   "url": "http://www.example.com",
+   "url": "https://www.example.com",
    "enabled": true
 }
 ```
@@ -306,7 +306,7 @@ An example of a request to change webhook details for changing stock.
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \
        -d '{
-             "url": "http://www.example.com",
+             "url": "https://www.example.com",
              "stockType": "stock",
              "reportType": "bystore"
            }'
@@ -327,7 +327,7 @@ Successful request. The result is a JSON representation of the modified webhook 
    "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
    "stockType": "stock",
    "reportType": "bystore",
-   "url": "http://www.example.com",
+   "url": "https://www.example.com",
    "enabled": true
 }
 ```
@@ -369,7 +369,7 @@ Successful request. The result is a JSON representation of a disabled webhook fo
    "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
    "stockType": "stock",
    "reportType": "bystore",
-   "url": "http://www.example.com",
+   "url": "https://www.example.com",
    "enabled": false
 }
 ```

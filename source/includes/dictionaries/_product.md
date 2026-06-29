@@ -2597,6 +2597,8 @@ A product that is accessed by its ID value.
 | ---------| ------- |
 | **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Product id. |
 
+The URL must specify the Product API ID (the `id` field in the response). If you specify the UUID from the UI (the `UUID` value in `meta.uuidHref`), the server will return a **308** redirect with a `Location` header pointing to the URL with the API ID. [Learn more](../#kladana-json-api-general-info-error-processing)
+
 > Request to receive the Products with the specified id.
 
 ```shell

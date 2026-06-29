@@ -226,7 +226,7 @@ The directory settings allow the user to change the code uniqueness checking, se
 | Title | Type | Description |
 | ------------ | ------ | ------------- |
 | **checkUniqueCode** | Boolean | Checking the uniqueness of the entity code of the product directory<br>`+Required when answering` |
-| **fillUniqueCode** | Boolean | Set a unique code when creating the creation of goods directory entities<br>`+Required when answering` |
+| **fillUniqueCode** | Boolean | Set a unique code when creating goods directory entities<br>`+Required when answering` |
 
 ##### Settings for barcode rules for lookup entities
 
