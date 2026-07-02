@@ -5,7 +5,7 @@ The section lists changes to existing endpoints and new endpoints that allow you
 See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-1.2-doc-in/blob/master/CHANGELOG.md).
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
-### 24-06-2026
+### 02-07-2026
 #### Added
 - Field `images` in [Content Cards](../dictionaries/#entities-content-card)
 
@@ -13,6 +13,14 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 - Message for [51004](../#kladana-json-api-errors-error-codes-for-images)
 - Message and description for [51006](../#kladana-json-api-errors-error-codes-for-images)
 
+### 26-06-2026
+#### Added
+- The `article` field has been added to the [Product variant](../dictionaries/#entities-product-variant-product-variants) to support variant-specific article numbers.
+- Added the `article` field for product variants in the [Assortment](../dictionaries/#entities-assortment) entity to support variant article numbers.
+
+### 19-06-2026
+#### Added
+- New [Payroll](../documents/#transactions-payroll) section
 
 ### 10-06-2026
 #### Added
