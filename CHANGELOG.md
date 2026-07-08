@@ -2,6 +2,12 @@
 
 JSON API 1.2 changes will be added here soon
 
+### 26-06-2026
+#### Added
+- Field `parametricMaterials` collection of parametric materials of [BoM](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-bills-of-materials)
+- Endpoint for parametric materials of [BoM](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-bills-of-materials-parametric-materials-in-bill-of-materials)
+- Errors [25064-25071](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-bills-of-materials)
+
 ### 25-06-2026
 #### Added
 - Error [26116](../#kladana-json-api-errors-error-codes-for-production-orders) when attempting to change the Bill of Materials variant of a production order item
