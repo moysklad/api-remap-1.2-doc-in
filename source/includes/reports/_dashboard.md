@@ -6,9 +6,9 @@ As part of the JSON API, you can request daily, monthly, and weekly metrics. Acc
 
 | Title | Type | Description |
 | ------ | ----- | ---------- |
-| **sales** | Object | A nested object that represents sales information for the specified period. [Learn more](../dictionaries/#entities-product-products-entity-attributes-tax-system-code)<br>`+Required when replying` |
-| **orders** | Object | A nested object representing information about orders for the specified period. [Learn more](../dictionaries/#entities-product-products-entity-attributes-tax-system-code)<br>`+Required when replying` |
-| **money** | Object | A nested object representing money information for the specified period. [Learn more](../dictionaries/#entities-product-products-entity-attributes-tax-system-code)<br>`+Required when replying` |
+| **sales** | Object | A nested object that represents sales information for the specified period. [Learn more](../reports/#reports-indicators-indicators-object-structure-sales-for-the-period)<br>`+Required when replying` |
+| **orders** | Object | A nested object representing information about orders for the specified period. [Learn more](../reports/#reports-indicators-indicators-object-structure-orders-for-the-period)<br>`+Required when replying` |
+| **money** | Object | A nested object representing money information for the specified period. [Learn more](../reports/#reports-indicators-indicators-object-structure-money-for-the-period)<br>`+Required when replying` |
   
 #### Sales for the period
 
