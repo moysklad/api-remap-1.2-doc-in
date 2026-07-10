@@ -2069,6 +2069,60 @@ Successful request.
 }
 ```
 
+### Create a legal entity bank account
+Request to create a new bank account for a legal entity.
+For successful creation, specify the following field in the request body:
+
++ **accountNumber** - Account number.
+
+**Parameters**
+
+| Parameter | Description                                                                            |
+| --------- | -------------------------------------------------------------------------------------- |
+| **id**    | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* legal entity ID.   |
+
+> Example of creating a legal entity bank account.
+
+```shell
+  curl --compressed -X POST \
+    "https://api.kladana.com/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19/accounts" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
+      -d '{
+            "accountNumber": "86686868768768757656876876"
+          }'
+```
+
+> Response 200 (application/json)
+Successful request. Result: JSON representation of the created legal entity bank account.
+
+```json
+[
+  {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19/accounts/d9560d0e-6703-11e7-9464-e4de00000052",
+      "type": "account",
+      "mediaType": "application/json"
+    },
+    "id": "d9560d0e-6703-11e7-9464-e4de00000052",
+    "accountId": "d8a2e973-6703-11e7-9464-e4de00000001",
+    "updated": "2024-01-22 17:57:54.558",
+    "isDefault": false,
+    "accountNumber": "86686868768768757656876876",
+    "currency": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/currency/0f5fbe16-ceff-11ee-0a83-00490000009d",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
+        "type": "currency",
+        "mediaType": "application/json",
+        "uuidHref": "https://app.kladana.com/app/#currency/edit?id=0f5fbe16-ceff-11ee-0a83-00490000009d"
+      }
+    }
+  }
+]
+```
+
 ### Change a legal entity account
 Updates a separate legal entity account with the specified id.
 
@@ -2129,3 +2183,67 @@ Successful request.
   }
 }
 ```
+
+### Delete a legal entity account
+
+**Parameters**
+
+| Parameter     | Description                                                                            |
+| ------------- | -------------------------------------------------------------------------------------- |
+| **id**        | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* legal entity ID.   |
+| **accountId** | `string` (required) *Example: d9560d0e-6703-11e7-9464-e4de00000052* legal entity account ID. |
+
+> Request to delete a legal entity account with the specified id.
+
+```shell
+curl --compressed -X DELETE \
+  "https://api.kladana.com/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19/accounts/d9560d0e-6703-11e7-9464-e4de00000052" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip"
+```
+
+
+
+> Response 200 (application/json)
+Successful deletion of a legal entity account.
+
+### Bulk delete legal entity accounts
+
+**Parameters**
+
+| Parameter | Description                                                                            |
+| --------- | -------------------------------------------------------------------------------------- |
+| **id**    | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* legal entity ID.   |
+
+In the request body, pass an array containing JSON metadata of the legal entity accounts you want to delete.
+
+> Request to bulk delete legal entity accounts.
+
+```shell
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19/accounts/delete" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
+  -d '[
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19/accounts/d9560d0e-6703-11e7-9464-e4de00000052",
+            "type": "account",
+            "mediaType": "application/json"
+          }
+        },
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19/accounts/97fc6499-b96f-11e7-9464-e4de00000006",
+            "type": "account",
+            "mediaType": "application/json"
+          }
+        }
+      ]'
+```
+
+
+
+> Response 200 (application/json)
+Successful deletion of legal entity accounts.
