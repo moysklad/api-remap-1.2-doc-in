@@ -123,6 +123,7 @@ curl --compressed -X GET \
 
 - **`barcode`** — the `!=` operator is not supported. Available operators: `=`, `~`, `~=`, `=~`.
 - **LIKE operator combinations** — incompatible combinations for the same field (e.g., `code~val1;code~val2`). Available combinations `~=`, `=~` (e.g., `code=~val1;code~=val2` or `code~=val1;code=~val2`).
+- filtering by additional batch fields is available.
 
 ##### Expand limitations
 
@@ -175,6 +176,10 @@ For this parameter, you need to use the `=` operator. Barcode search is performe
 ##### Filtering additional fields
 
 The functionality is described in more detail in the section [Filtering by additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields).
+Filtering by additional batch fields is also available.
+
+Notes on filtering by an additional field:
+- with filter `filter={additionalfield}=` or `filter={additionalfield}=false` — entities where the additional field is absent will also be returned
 
 Filtering examples:
 
@@ -194,6 +199,7 @@ Filtering examples:
 - `filter=search=product`
 - `filter=https://api.kladana.com/api/remap/1.2/entity/product/metadata/attributes/b83c12e7-42bf-11ec-0a80-08bb00000161=color`
 - `filter=https://api.kladana.com/api/remap/1.2/entity/product/metadata/attributes/83386e05-51c0-11ec-0a83-0640000001bb>=2021-11-30 12:39:00`
+- `filter=https://api.kladana.com/api/remap/1.2/entity/consignment/metadata/attributes/83386e05-51c0-11ec-0a83-0640000001bb>=2021-11-30 12:39:00`
 
 
 

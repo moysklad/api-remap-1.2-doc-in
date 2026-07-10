@@ -68,6 +68,10 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 #### Changed
 - Calculate field `balance` in [Cash balances](../reports/#reports-money-report-cash-balances)
 
+### 14-04-2026
+#### Changed
+- Support for filtering by additional batch fields in the new [Assortment](../dictionaries/#entities-assortment) endpoint
+
 ### 10-04-2026
 #### Added
 - Error [3051](../#kladana-json-api-errors-common-validation-errors)
