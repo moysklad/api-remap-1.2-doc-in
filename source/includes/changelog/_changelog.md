@@ -5,6 +5,11 @@ The section lists changes to existing endpoints and new endpoints that allow you
 See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-1.2-doc-in/blob/master/CHANGELOG.md).
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
+
+### 20-07-2026
+#### Added
+- Error [31001-31003](../#kladana-json-api-errors-error-codes-for-currencies)
+
 ### 02-07-2026
 #### Added
 - Field `images` in [Content Cards](../dictionaries/#entities-content-card)

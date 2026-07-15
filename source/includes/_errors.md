@@ -476,9 +476,12 @@ This section lists the JSON API error codes and their descriptions.
 
 ### Error codes for Currencies
 
-| error code | message | description |
-| ------------| ----------| ---------|
-| <a name="error_31000">31000</a> | Accounting currency cannot be deleted | The accounting currency cannot be deleted. |
+| error code                      | message                                              | description                                                                                 |
+|---------------------------------|------------------------------------------------------|---------------------------------------------------------------------------------------------|
+| <a name="error_31000">31000</a> | Accounting currency cannot be deleted                | The accounting currency cannot be deleted.                                                  |
+| <a name="error_31001">31001</a> | System currency not found                            | Make sure that the code and isoCode were passed correctly when creating the system currency |
+| <a name="error_31002">31002</a> | To add system currency, must specify code or isoCode | Make sure that the code and isoCode were passed                                             |
+| <a name="error_31003">31003</a> | The rate of accounting currency cannot be changed    | Automatic exchange rate calculation cannot be set for the accounting currency               |
 
 ### Error codes for Contracts
 
