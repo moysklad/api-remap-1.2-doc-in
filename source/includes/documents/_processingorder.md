@@ -28,6 +28,7 @@ Using the JSON API, you can create and update information about Production Order
 | **positions** | MetaArray | | Metadata of Production Order items<br>`+Required when replying` `+Expand` `+Required when creating` |
 | **printed** | Boolean | `=` `!=` | Is the document printed<br>`+Required when replying` `+Read Only` |
 | **processingPlan** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of Bill of Materials<br>`+Required when replying` `+Expand` `+Required when creating` |
+| **productionVariant** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata of Product variant<br> |
 | **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand` |
 | **published** | Boolean | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only` |
 | **quantity** | Float | `=` `!=` `<` `>` `<=` `>=` | Production volume<br>`+Required when replying` `+Read only` |
