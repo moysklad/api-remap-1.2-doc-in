@@ -39,7 +39,7 @@ Using the JSON API, you can create and update Returns to Suppliers information, 
 | **updated** | DateTime                                          | `=` `!=` `<` `>` `<=` `>=` | When was last updated Purchase Returns<br>`+Required when replying` `+Read-only` |
 | **vatEnabled** | Boolean                                           | | Is VAT taken into account<br>`+Required when replying` |
 | **vatIncluded** | Boolean                                           | | Is VAT included in the price |
-| **vatSum** | Float                                             | | VAT amount<br>`+Required when replying` |
+| **vatSum** | Float                                             | | VAT amount<br>`+Read only` |
 
 #### Links to other documents
 

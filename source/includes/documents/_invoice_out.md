@@ -44,7 +44,7 @@ Using the JSON API, you can create and update information about the Sales Invoic
 | **updated** | DateTime                                          | `=` `!=` `<` `>` `<=` `>=` | The moment of the last update of the Sales Invoice<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **vatEnabled** | Boolean                                           | | Is VAT taken into Sales Invoice<br>`+Required when replying` `+Change-handler` |
 | **vatIncluded** | Boolean                                           | | Is VAT included in the price<br>`+Change-handler` |
-| **vatSum** | Float                                             | | VAT amount<br>`+Required when replying` `+Read-only` `+Change-handler` |
+| **vatSum** | Float                                             | | VAT amount<br>`+Read-only` `+Change-handler` |
 
 #### Links to other transactions
 
