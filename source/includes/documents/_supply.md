@@ -44,7 +44,7 @@ Using the JSON API, you can create and update information about Receivings, quer
 | **updated** | DateTime                                          | `=` `!=` `<` `>` `<=` `>=` | Receiving last updated time<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **vatEnabled** | Boolean                                           | | Is VAT taken into account<br>`+Required when replying` `+Change-handler` `+Update-provider` |
 | **vatIncluded** | Boolean                                           | | Is VAT included in the price<br>`+Change-handler` `+Update-provider` |
-| **vatSum** | Float                                             | | VAT amount<br>`+Required when replying` `+Read-only` `+Change-handler` |
+| **vatSum** | Float                                             | | VAT amount<br>`+Read-only` `+Change-handler` |
 
 #### Overhead expenses
 Description of overhead expenses fields

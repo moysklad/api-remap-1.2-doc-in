@@ -2,7 +2,7 @@
 
 JSON API 1.2 changes will be added here soon
 
-### 26-06-2026
+### 29-07-2026
 #### Added
 - Field `parametricMaterials` collection of parametric materials of [BoM](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-bills-of-materials)
 - Field `productionVariant` in [Production Order](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-production-order)
@@ -12,6 +12,19 @@ JSON API 1.2 changes will be added here soon
 - Error [26117](../#kladana-json-api-errors-error-codes-for-production-orders) when a product variant is missing for a parametric  Bill of Materials in a production order
 - Error [26118](../#kladana-json-api-errors-error-codes-for-production-orders) when a product variant does not belong to the product of the parametric Bill of Materials
 - Error [26119](../#kladana-json-api-errors-error-codes-for-production-orders) when a product variant is specified for a non-parametric Bill of Materials
+
+### 02-07-2026
+#### Added
+- Field `images` in [Content Cards](../dictionaries/#entities-content-card)
+
+#### Changed
+- Message for error [51004](../#kladana-json-api-errors-error-codes-for-images)
+- Message and description for error [51006](../#kladana-json-api-errors-error-codes-for-images)
+
+### 26-06-2026
+#### Added
+- The `article` field has been added to the  [Product variant](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-product-variant-product-variants) to support variant-specific article numbers.
+- Added the `article` field for product variants in the [Assortment](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-assortment) entity to support variant article numbers.
 
 ### 19-06-2026
 #### Added

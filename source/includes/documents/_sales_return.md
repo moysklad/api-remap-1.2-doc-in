@@ -41,7 +41,7 @@ Using the JSON API, you can create and update information about Sales Returns, q
 | **updated** | DateTime                                          | `=` `!=` `<` `>` `<=` `>=` | Sales Return Last update date<br>`+Required when replying` `+Read-only` `+Change-handler` |
 | **vatEnabled** | Boolean                                           | | Is VAT taken into account or not<br>`+Required when replying` `+Change-handler` |
 | **vatIncluded** | Boolean                                           | | Is VAT included in the price of `+Change-handler` or not|
-| **vatSum** | Float                                             | | VAT amount<br>`+Required when replying` `+Change-handler` |
+| **vatSum** | Float                                             | | VAT amount<br>`+Read only` `+Change-handler` |
 
 #### Links to other documents
 

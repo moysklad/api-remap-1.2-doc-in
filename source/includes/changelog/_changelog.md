@@ -5,7 +5,7 @@ The section lists changes to existing endpoints and new endpoints that allow you
 See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-1.2-doc-in/blob/master/CHANGELOG.md).
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
-### 26-06-2026
+### 29-07-2026
 #### Added
 - Field `parametricMaterials` collection of parametric materials of [BoM](../dictionaries/#entities-bills-of-materials)
 - Field `productionVariant` in [Production Order](../documents/#transactions-production-order)
@@ -15,6 +15,24 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 - Error [26117](../#kladana-json-api-errors-error-codes-for-production-orders) when a product variant is missing for a parametric Bill of Materials in a production order
 - Error [26118](../#kladana-json-api-errors-error-codes-for-production-orders) when a product variant does not belong to the product of the parametric Bill of Materials
 - Error [26119](../#kladana-json-api-errors-error-codes-for-production-orders) when a product variant is specified for a non-parametric Bill of Materials
+
+
+### 20-07-2026
+#### Added
+- Error [31001-31003](../#kladana-json-api-errors-error-codes-for-currencies)
+
+### 02-07-2026
+#### Added
+- Field `images` in [Content Cards](../dictionaries/#entities-content-card)
+
+#### Changed
+- Message for [51004](../#kladana-json-api-errors-error-codes-for-images)
+- Message and description for [51006](../#kladana-json-api-errors-error-codes-for-images)
+
+### 26-06-2026
+#### Added
+- The `article` field has been added to the [Product variant](../dictionaries/#entities-product-variant-product-variants) to support variant-specific article numbers.
+- Added the `article` field for product variants in the [Assortment](../dictionaries/#entities-assortment) entity to support variant article numbers.
 
 ### 19-06-2026
 #### Added

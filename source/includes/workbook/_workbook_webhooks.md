@@ -15,7 +15,7 @@ The webhook itself contains a description of the change (object type and a link 
 
 ```json
 {
-   "url": "http://www.example.com",
+   "url": "https://www.example.com",
    "action": "CREATE",
    "entityType": "supply"
 }
@@ -69,7 +69,7 @@ curl --compressed -X POST \
    -H 'Authorization: Bearer <Access-Token>' \
    -H 'Content-Type: application/json' \
    -d '{
-           "url": "http://www.example.com",
+           "url": "https://www.example.com",
            "action": "CREATE",
            "entityType": "service"
         }'
@@ -90,7 +90,7 @@ The response should be json containing a description of the webhook
      "id": "a5b3cd1f-caee-11e8-9ff4-34e80022dcb3",
      "accountId": "45eb22e0-0e7b-11e2-1c31-3c4a92f3a0a7",
      "entityType": "service",
-     "url": "http://www.example.com",
+     "url": "https://www.example.com",
      "method": "POST",
      "enabled": true,
      "action": "CREATE"
@@ -187,7 +187,7 @@ curl --compressed -X GET \
           "id":"a5b3cd1f-caee-11e8-9ff4-34e80022dcb3",
           "accountId":"45eb22e0-0e7b-11e2-1c31-3c4a92f3a0a7",
           "entityType":"service",
-          "url":"http://www.example.com",
+          "url":"https://www.example.com",
           "method":"POST",
           "enabled": true,
           "action":"CREATE"

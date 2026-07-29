@@ -39,7 +39,7 @@ Using the JSON API, you can create and update information about Internal Orders,
 | **updated** | DateTime                                          | `=` `!=` `<` `>` `<=` `>=` | Time when the Internal Order was last updated<br>`+Required when replying` `+Read Only` |
 | **vatEnabled** | Boolean                                           | | Is VAT taken into account<br>`+Required when replying` |
 | **vatIncluded** | Boolean                                           | | Is VAT included in the price |
-| **vatSum** | Float                                             | | VAT amount<br>`+Required when replying` `+Read only` |
+| **vatSum** | Float                                             | | VAT amount<br>`+Read only` |
 
 #### Internal order items
 
