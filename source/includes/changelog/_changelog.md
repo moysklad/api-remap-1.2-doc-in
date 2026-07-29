@@ -6,6 +6,10 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 29-07-2026
+#### Added
+- Field `operatingExpenses` for [Expense item](../dictionaries/#entities-expense-item)
+
 ### 20-07-2026
 #### Added
 - Error [31001-31003](../#kladana-json-api-errors-error-codes-for-currencies)

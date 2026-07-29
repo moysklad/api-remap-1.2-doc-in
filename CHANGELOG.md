@@ -2,6 +2,10 @@
 
 JSON API 1.2 changes will be added here soon
 
+### 29-07-2026
+#### Added
+- Field `operatingExpenses` for [Expense item](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-expense-item)
+
 ### 02-07-2026
 #### Added
 - Field `images` in [Content Cards](../dictionaries/#entities-content-card)

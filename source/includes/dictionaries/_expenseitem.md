@@ -18,6 +18,7 @@ The search among the objects of the Items of expenditure for matching the search
 | **id** | UUID                                               | `=` `!=` | Expense item ID<br>`+Required when replying` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Expense Item Metadata<br>`+Required when replying` |
 | **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Name Item of expenses<br>`+Required when replying` `+Required when creating` |
+| **operatingExpenses** | Boolean                                        | `=` `!=` | Flag for including/excluding in profit calculation. Default value `true`.<br>`+Required when replying` |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required when replying` `+Read-only` |
 
 ### Get Expense Items
@@ -74,6 +75,7 @@ Successful request. The result is a JSON representation of the list of Expense I
        "updated": "2015-05-27 17:03:10",
        "name": "Procurement of goods",
        "description": "The cost of purchasing goods is accounted for in the Profit and Loss Statement as cost of goods sold",
+       "operatingExpenses": true,
        "code": "1",
        "externalCode": "1"
      },
@@ -88,6 +90,7 @@ Successful request. The result is a JSON representation of the list of Expense I
        "updated": "2015-05-27 17:03:10",
        "name": "Return",
        "description": "Return Write-offs are not included in the Profit and Loss statement",
+       "operatingExpenses": false,
        "code": "3",
        "externalCode": "3"
      },
@@ -218,6 +221,7 @@ Successful request. The result is a JSON representation of the generated expense
    "updated": "2016-07-01 17:52:42",
    "name": "Taxes and non-taxes",
    "description": "Expense item taxes",
+   "operatingExpenses": true,
    "code": "tax",
    "externalCode": "wwoaon21431"
 }
@@ -275,6 +279,7 @@ Successful request. The result is a JSON array of representations of the created
      "updated": "2016-07-01 17:52:42",
      "name": "Taxes and non-taxes",
      "description": "Expense item taxes",
+     "operatingExpenses": true,
      "code": "tax",
      "externalCode": "wwoaon21431"
    },
@@ -290,6 +295,7 @@ Successful request. The result is a JSON array of representations of the created
      "updated": "2016-07-01 17:52:42",
      "name": "Additional costs",
      "description": "More additional costs",
+     "operatingExpenses": false,
      "code": "additional",
      "externalCode": "sdeEfr32rfe"
    }
@@ -400,6 +406,7 @@ Successful request. The result is a JSON representation of the list of Expense I
    "updated": "2016-06-09 18:43:58",
    "name": "Rent",
    "description": "Rent",
+   "operatingExpenses": true,
    "code": "Rent",
    "externalCode": "IVslr34uhCUuglxPD7Idm0"
 }
@@ -425,6 +432,7 @@ Request to change an existing expense item.
        -d '{
              "name": "Not taxes and taxes",
              "description": "Taxes and non-taxes. Such an article",
+             "operatingExpenses": false,
              "code": "nalogi net",
              "externalCode": "wwoa1142aon21431"
            }'
@@ -446,6 +454,7 @@ Successful request. The result is a JSON representation of the updated expense i
    "updated": "2016-07-01 17:52:42",
    "name": "Not taxes and taxes",
    "description": "Taxes and non-taxes. Description example",
+   "operatingExpenses": false,
    "code": "nalogi net",
    "externalCode": "wwoa1142aon21431"
 }
