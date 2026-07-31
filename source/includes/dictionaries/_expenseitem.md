@@ -145,6 +145,23 @@ Successful request. The result is a JSON representation of the list of Expense I
        },
        "id": "fb0a4b75-2e58-11e6-8a84-bae500000058",
        "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
+       "owner": {
+         "meta": {
+           "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+           "type": "employee",
+           "mediaType": "application/json"
+         }
+       },
+       "shared": false,
+       "group": {
+         "meta": {
+           "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
+           "type": "group",
+           "mediaType": "application/json"
+         }
+       },
        "updated": "2016-06-09 18:43:58",
        "name": "Rent",
        "description": "Rent",
@@ -160,6 +177,23 @@ Successful request. The result is a JSON representation of the list of Expense I
        },
        "id": "fb0c8620-2e58-11e6-8a84-bae500000059",
        "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
+       "owner": {
+         "meta": {
+           "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+           "type": "employee",
+           "mediaType": "application/json"
+         }
+       },
+       "shared": false,
+       "group": {
+         "meta": {
+           "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
+           "type": "group",
+           "mediaType": "application/json"
+         }
+       },
        "updated": "2016-06-09 18:43:58",
        "name": "Salary",
        "description": "Salary",
@@ -175,6 +209,23 @@ Successful request. The result is a JSON representation of the list of Expense I
        },
        "id": "fb0dc966-2e58-11e6-8a84-bae50000005a",
        "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
+       "owner": {
+         "meta": {
+           "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+           "type": "employee",
+           "mediaType": "application/json"
+         }
+       },
+       "shared": false,
+       "group": {
+         "meta": {
+           "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
+           "type": "group",
+           "mediaType": "application/json"
+         }
+       },
        "updated": "2016-06-09 18:43:58",
        "name": "Marketing and advertising",
        "description": "Marketing and advertising",
@@ -201,7 +252,24 @@ Request to create a new expense item. Mandatory field for creating an expense it
                 "name": "Taxes and non-taxes",
                 "description": "Expense item taxes",
                 "code": "tax",
-                "externalCode": "wwoaon21431"
+                "externalCode": "wwoaon21431",
+                "shared": false,
+                "owner": {
+                  "meta": {
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+                    "type": "employee",
+                    "mediaType": "application/json"
+                  }
+                },
+                "group": {
+                  "meta": {
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
+                    "type": "group",
+                    "mediaType": "application/json"
+                  }
+                }
             }'
 ```
 
@@ -218,6 +286,23 @@ Successful request. The result is a JSON representation of the generated expense
    },
    "id": "76e88dff-3f9b-11e6-8a84-bae50000009b",
    "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
+   "owner": {
+     "meta": {
+       "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json"
+     }
+   },
+   "shared": false,
+   "group": {
+     "meta": {
+       "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
    "updated": "2016-07-01 17:52:42",
    "name": "Taxes and non-taxes",
    "description": "Expense item taxes",
@@ -275,6 +360,23 @@ Successful request. The result is a JSON array of representations of the created
      },
      "id": "76e88dff-3f9b-11e6-8a84-bae50000009b",
      "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
+     "owner": {
+       "meta": {
+         "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json"
+       }
+     },
+     "shared": false,
+     "group": {
+       "meta": {
+         "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
+         "type": "group",
+         "mediaType": "application/json"
+       }
+     },
      "updated": "2016-07-01 17:52:42",
      "name": "Taxes and non-taxes",
      "description": "Expense item taxes",
@@ -290,6 +392,23 @@ Successful request. The result is a JSON array of representations of the created
      },
      "id": "7944ef04-f831-11e5-7a69-971500188b19",
      "accountId": "7944ef04-f831-11e5-7a69-971500188b19",
+     "owner": {
+       "meta": {
+         "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+         "type": "employee",
+         "mediaType": "application/json"
+       }
+     },
+     "shared": false,
+     "group": {
+       "meta": {
+         "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
+         "type": "group",
+         "mediaType": "application/json"
+       }
+     },
      "updated": "2016-07-01 17:52:42",
      "name": "Additional costs",
      "description": "More additional costs",
@@ -299,7 +418,7 @@ Successful request. The result is a JSON array of representations of the created
 ]
 ```
 
-Standard (system) expense items cannot be modified or deleted. An attempt to modify returns error [1024](../#kladana-json-api-errors-common-validation-errors), deletion returns [1025](../#kladana-json-api-errors-common-validation-errors).
+Standard (system) expense items cannot be modified or deleted. An attempt to modify returns error [1024](../#kladana-json-api-errors), deletion returns [1025](../#kladana-json-api-errors).
 
 ### Delete Line Item
 
@@ -402,6 +521,23 @@ Successful request. The result is a JSON representation of the list of Expense I
    },
    "id": "fb0a4b75-2e58-11e6-8a84-bae500000058",
    "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
+   "owner": {
+     "meta": {
+       "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json"
+     }
+   },
+   "shared": false,
+   "group": {
+     "meta": {
+       "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
    "updated": "2016-06-09 18:43:58",
    "name": "Rent",
    "description": "Rent",
@@ -448,6 +584,23 @@ Successful request. The result is a JSON representation of the updated expense i
    },
    "id": "76e88dff-3f9b-11e6-8a84-bae50000009b",
    "accountId": "f976ed28-2e58-11e6-8a84-bae500000001",
+   "owner": {
+     "meta": {
+       "href": "https://api.kladana.com/api/remap/1.2/entity/employee/faba7f37-2e58-11e6-8a84-bae500000028",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+       "type": "employee",
+       "mediaType": "application/json"
+     }
+   },
+   "shared": false,
+   "group": {
+     "meta": {
+       "href": "https://api.kladana.com/api/remap/1.2/entity/group/f97aa1fb-2e58-11e6-8a84-bae500000002",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
+       "type": "group",
+       "mediaType": "application/json"
+     }
+   },
    "updated": "2016-07-01 17:52:42",
    "name": "Not taxes and taxes",
    "description": "Taxes and non-taxes. Description example",

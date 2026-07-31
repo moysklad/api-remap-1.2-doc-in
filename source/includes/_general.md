@@ -3074,6 +3074,7 @@ These types have the following fields:
 | **demand**                 | OPERATION | Shipment |
 | **employees**              | BASE | Employees |
 | **enter**                  | OPERATION | Posting |
+| **expenseitem**            | BASE | [Expense items](../dictionaries/#entities-expense-item) |
 | **factoryIn**              | OPERATION | Invoices received |
 | **facture**                | OPERATION | Invoices issued |
 | **good**                   | DICTIONARY | Products and Services |
@@ -3249,6 +3250,12 @@ Successful request. The result is a JSON representation of information about the
             "delete": "ALL"
         },
         "employee": {
+            "view": "ALL",
+            "create": "ALL",
+            "update": "ALL",
+            "delete": "ALL"
+        },
+        "expenseitem": {
             "view": "ALL",
             "create": "ALL",
             "update": "ALL",
