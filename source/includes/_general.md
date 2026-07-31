@@ -3074,7 +3074,7 @@ These types have the following fields:
 | **demand**                 | OPERATION | Shipment |
 | **employees**              | BASE | Employees |
 | **enter**                  | OPERATION | Posting |
-| **expenseitem**            | BASE | [Expense items](../dictionaries/#entities-expense-item) |
+| **expenseItem**            | BASE | [Expense items](../dictionaries/#entities-expense-item) |
 | **factoryIn**              | OPERATION | Invoices received |
 | **facture**                | OPERATION | Invoices issued |
 | **good**                   | DICTIONARY | Products and Services |
@@ -3098,10 +3098,10 @@ These types have the following fields:
 | **purchaseOrder**          | OPERATION | Purchase Orders |
 | **purchaseReturn**         | OPERATION | Purchase Returns |
 | **retailDemand**           | OPERATION | Sales |
-| **retailSalesReturn**            | OPERATION | Sales Returns |
+| **retailSalesReturn**      | OPERATION | Sales Returns |
 | **supply**                 | OPERATION | Receivings |
 | **task**                   | [Special](#kladana-json-api-general-info-employee-request-context-nested-entity-attributes-employee-permissions-permissions-for-tasks) | Tasks |
-| **uom**                     | BASE | Units of measure |
+| **uom**                    | BASE | Units of measure |
 | **warehouse**              | BASE | Warehouses |
 | **webhook**                | DICTIONARY | Webhooks |
 
@@ -3255,7 +3255,7 @@ Successful request. The result is a JSON representation of information about the
             "update": "ALL",
             "delete": "ALL"
         },
-        "expenseitem": {
+        "expenseItem": {
             "view": "ALL",
             "create": "ALL",
             "update": "ALL",
