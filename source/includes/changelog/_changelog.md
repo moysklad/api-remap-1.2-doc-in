@@ -6,7 +6,7 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
-### 19-05-2026
+### 31-07-2026
 #### Added
 - [expenseitem entity permissions](../dictionaries/#entities-employee-employee-permissions) (Expense items)
 - expenseitem permissions in JSON returned in [Custom roles](../dictionaries/#entities-custom-role-get-custom-role)
