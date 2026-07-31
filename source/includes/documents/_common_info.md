@@ -68,6 +68,8 @@ the URI filter parameter **search** is used.
 The Recycle Bin helps you avoid the risk of accidentally deleting important transactions. Removal
 to the cart is available only if the employee has the appropriate rights, and company settings on the use of the shopping cart.
 
+A document can be restored from the trash only via the UI (restoration via API is not supported).
+
 ### Example of deleting Putaway to Trash
 
 > Request to delete the Acceptance with the specified ID in the trash.

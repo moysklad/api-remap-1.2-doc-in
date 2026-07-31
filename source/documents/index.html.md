@@ -19,6 +19,7 @@ includes:
   - documents/inventory
   - documents/cashout
   - documents/payment_out
+  - documents/payroll
   - documents/print
   - documents/processingorder
   - documents/productionStage

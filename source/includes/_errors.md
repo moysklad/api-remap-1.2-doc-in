@@ -137,7 +137,7 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_3005">3005</a> | Error saving object: invalid value `{value}` of field `{field name}`. Valid values: `{list of values}`                                                      | You are trying to assign a non-existent value to a field of type "enumeration" (enum). You can check all possible values of this field in the documentation for this entity in the "Entity Attributes" section.                      |
 | <a name="error_3006">3006</a> | Error saving object: unique constraint violated for parameter `{parameter name}`                                                                            | The specified field/parameter must have a unique value in the system. For example, if checking for unique operation numbers is enabled, `name` cannot be the same for different documents.                                           |
 | <a name="error_3007">3007</a> | Saved object validation failed: `{object}`                                                                                                                  | Exchange error. Check if the object you are transferring complies with all the conditions.                                                                                                                                           |
-| <a name="error_3008">3008</a> | Error saving object: value of field `{field name}` exceeds maximum allowed value                                                                            | The value of a numeric field exceeds the maximum allowed value: 9,999,999,999.                                                                                                                                                       |
+| <a name="error_3008">3008</a> | Error saving object: value of field `{field name}` exceeds maximum allowed value                                                                            | This field has a maximum value limit. Enter a value below the threshold.                                                                                                                                                             |
 | <a name="error_3009">3009</a> | Validation error: field `{field name}` cannot be empty or absent                                                                                            | The required field cannot be empty or missing.                                                                                                                                                                                       |
 | <a name="error_3010">3010</a> | Validation error: you can't link a document from the shopping cart to a payment                                                                             | A document from the shopping cart cannot be linked to a payment.                                                                                                                                                                     |
 | <a name="error_3011">3011</a> | Barcode validation error: Unable to add a barcode longer than 255 characters to an entity                                                                   | Correct the barcode length and try again.                                                                                                                                                                                            |
@@ -305,7 +305,7 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_17022">17022</a> | Document saving error: {variety type} cannot be part of a item of a document of type {document_type}   | Assortment type to be added cannot be an item in this document type   |
 | <a name="error_17023">17023</a> | Document position saving error: there is no permission {type of permission} to change field {field name}   | The field value cannot be changed due to lack of appropriate permission   |
 | <a name="error_17101">17101</a> | Document saving error: item <name of item> has no labeled product attribute. Change the product to save the marking codes  | Set the labeled product attribute 'trackingType' of the corresponding category for the product   |
-| <a name="error_17102">17102</a> | Document saving error: incorrect marking code format <value KM / KM TU / KM PU>   | The marking code for all categories of marked products must follow the format: <ul><li>01+GTIN+21+SERIAL. GTIN - product identifier of 14 digits, SERIAL - serial number of 13 characters. Example: <b><font color='green'>01</font>04630037590265<font color='green'>21</font>K6UT)6\"pIG-<</b></li></ul>Exceptions:<ul></li>Tobacco products, pack: GTIN+SERIAL GTIN - product identifier of 14 digits, SERIAL - serial number of 7 characters</li><li>Tobacco products, unit (package): 01+GTIN+21+SERIAL GTIN is a 14-digit item ID, SERIAL is a 7-character serial number Example: <b>01</b>04630034070029<b>21</b>tXXXu%d</li><li>Cameras and flash lamps: 01+GTIN+21+SERIAL GTIN is a 14-digit product identifier, SERIAL is a 20-character serial number</li><li>The shipping packaging marking code of the product must contain 18 numbers - GS1 format</li></ul> |
+| <a name="error_17102">17102</a> | Document saving error: incorrect marking code format <value KM / KM TU / KM PU>   | The marking code for all categories of marked products must follow the format: <ul><li>01+GTIN+21+SERIAL. GTIN - product identifier of 14 digits, SERIAL - serial number of 13 characters. Example: <b><font color='green'>01</font>04630037590265<font color='green'>21</font>K6UT)6\"pIG-<</b></li></ul>Exceptions:<ul><li>Tobacco products, pack: GTIN+SERIAL GTIN - product identifier of 14 digits, SERIAL - serial number of 7 characters</li><li>Tobacco products, unit (package): 01+GTIN+21+SERIAL GTIN is a 14-digit item ID, SERIAL is a 7-character serial number Example: <b>01</b>04630034070029<b>21</b>tXXXu%d</li><li>Cameras and flash lamps: 01+GTIN+21+SERIAL GTIN is a 14-digit product identifier, SERIAL is a 20-character serial number</li><li>The shipping packaging marking code of the product must contain 18 numbers - GS1 format</li></ul> |
 | <a name="error_17103">17103</a> | Document saving error: there are several identical codes in the document <value KM / KM TU / KM PU>                                                         | Among the marking codes there are duplicates. Remove duplicate marking codes to save item  |
 | <a name="error_17104">17104</a> | Document saving error: marking code <КМ> cannot contain nested codes    | It is allowed to save a list of marking codes <b>trackingcode</b>, a list of consumer packages <b>consumerpack</b>, a list of transport packages <b>transportpack</b>, a list of marking codes <b>trackingcode</b> nested into <b>transportpack</b> transport packages or <b>consumerpack</b> consumer packages, list of <b>consumerpack</b> consumer packages nested in <b>transportpack</b> transport packages. Saving other nested structures is not supported  |
 | <a name="error_17105">17105</a> | Document saving error: shipping package marking code <КМ ТY> cannot contain nested shipping package codes   | It is acceptable to save a list of <b>trackingcode</b> marking codes or a list of <b>consumerpack</b> consumer packages nested in <b>transportpack</b> transport packages. Shipping packages nested in shipping packages not supported    |
@@ -372,11 +372,11 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_24003">24003</a> | Inventory save error: Service cannot be an inventory item | A service cannot be an inventory item. |
 | <a name="error_24004">24004</a> | Error saving inventory: inventory cannot contain duplicate items | A product, product variant, service, batches or bundle can only be added to the inventory once. |
 
-### Error codes for Production Operations
+### Error codes for Production Records
 
 | Error code | Message | Description |
 | ------------| ----------| ---------|
-| <a name="error_25003">25003</a> | Saving error: the production operation must contain a product or Bill of Materials | When creating a production operation or deleting a product, the production operation must have at least one product item. |
+| <a name="error_25003">25003</a> | Saving error: the production record must contain a product or Bill of Materials | When creating a production record or deleting a product, the production operation must have at least one product item. |
 
 ### Error codes for Routings
 
@@ -391,13 +391,26 @@ This section lists the JSON API error codes and their descriptions.
 
 ### Error codes for Bills of Materials
 
-| Error code | Message | Description |
-| ------------| ----------| ---------|
-| <a name="error_25060">25060</a> | Save error: array element '{type}' can only contain an item from the Routing specified in the Bill of Materials in the processingProcess field | Check that the specified Routing items belong to the Routing of the Bill of Materials. |
-| <a name="error_25061">25061</a> | Save error: You cannot specify production cost in both the Bill of Materials and the production operations of Bill of Materials. | Check that you are not passing the production cost (cost field) in both the Bill of Materials and the items of the production operation. |
-| <a name="error_25062">25062</a> | Save error: When specifying a Bill of Material for a raw material, it must contain this material as a product | Check that the operation does not result in incorrect Bills of Materials. |
-| <a name="error_25063">25063</a> | Save error: cannot enable standard hours calculation for a Production Operation and modify the labour cost value at the same time | Check the `enableHourAccounting` flag for the Bill of Materials Operation. When standard hours calculation is enabled, the `labourCost` value is reset and calculated automatically. If you want to set a new labour cost value manually, first change the calculation type to fixed (`enableHourAccounting == false`). |
+| Error code                        | Message                                                                                                                                        | Description                                                                                                                                                                                                                                                                                                                                            |
+|-----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <a name="error_25060">25060</a>   | Save error: array element '{type}' can only contain an item from the Routing specified in the Bill of Materials in the processingProcess field | Check that the specified Routing items belong to the Routing of the Bill of Materials.                                                                                                                                                                                                                                                                 |
+| <a name="error_25061">25061</a>   | Save error: You cannot specify production cost in both the Bill of Materials and the production operations of Bill of Materials.               | Check that you are not passing the production cost (cost field) in both the Bill of Materials and the items of the production operation.                                                                                                                                                                                                               |
+| <a name="error_25062">25062</a>   | Save error: When specifying a Bill of Material for a raw material, it must contain this material as a product                                  | Check that the operation does not result in incorrect Bills of Materials.                                                                                                                                                                                                                                                                              |
+| <a name="error_25063">25063</a>   | Save error: cannot enable standard hours calculation for a Production Operation and modify the labour cost value at the same time              | Check the `enableHourAccounting` flag for the Bill of Materials Operation. When standard hours calculation is enabled, the `labourCost` value is reset and calculated automatically. If you want to set a new labour cost value manually, first change the calculation type to fixed (`enableHourAccounting == false`).                                |
+| <a name="error_25064">25064</a>   | Cannot add product to parametric BOM                                                                                                           | Make sure you are not trying to add a product to a parametric BOM (check for objects in parametricMaterials). A parametric BOM does not support having two or more products, as this may cause conflicts in parametric material settings.                                                                                                              |
+| <div id="error_25065">25065</div> | Save error: Cannot use quantity, paramQuantityCharacteristic, and paramQuantities together                                                     | Make sure you are not passing fields related to different material types in the same material structure. For a regular material or a specific parametric material quota, pass the quantity field. For a parametric material whose quota depends on a product attribute, pass paramQuantityCharacteristic and paramQuantities.                          |
+| <div id="error_25066">25066</div> | Save error: Cannot use assortment, paramFeatureCharacteristic, and paramFeatures together                                                      | Make sure you are not passing fields related to different material types in the same material structure. For a regular material or a specific material whose quota depends on a product attribute, pass the assortment field. For a parametric material that depends on a product attribute itself, pass paramFeatureCharacteristic and paramFeatures. |
+| <div id="error_25067">25067</div> | Save error: Attribute <UUID> not found in the product                                                                                          | The specified attribute does not belong to the product. Use only attributes that are available for the product's variants.                                                                                                                                                                                                                             |
+| <div id="error_25068">25068</div> | Save error: Attribute value '{characteristics name}' not found in the product                                                                  | The specified attribute value is missing from the product's variants. Check the available attribute values for this product.                                                                                                                                                                                                                           |
+| <div id="error_25069">25069</div> | Save error: Duplicate attribute values: '{characteristics names}'                                                                              | Make sure you pass unique values together with the product attribute. Using the same attribute and its values for the list of dependent raw materials and for the list of dependent quotas is allowed, but attribute values must not be duplicated within each list.                                                                                   |
+| <div id="error_25070">25070</div> | Save error: Incompatible material parameters                                                                                                   | For a parametric material, either both paramFeatureCharacteristic and paramFeatures must be provided, or both paramQuantityCharacteristic and paramQuantities must be provided. Providing only one field from a pair is not allowed.                                                                                                                   |
+| <div id="error_25071">25071</div> | Save error: Regular material passed in a parametric material context                                                                           | A parametric material must contain a dependency on product attributes (at least one pair of fields: paramFeatureCharacteristic/paramFeatures or paramQuantityCharacteristic/paramQuantities). If you are saving a regular material (assortment and quantity fields), use the regular material structure, not the parametric one.                       |
 
+### Error codes for Production Operations
+
+| Error code                      | Message | Description |
+|---------------------------------| ----------| ---------|
+| <a name="error_25101">25101</a> | Cannot restrict task visibility for an operation that all employees perform | Make sure you are not creating a situation where an operation has no explicitly assigned performers, but a filter is enabled that only shows each performer their own tasks. |
 
 ### Error codes for Production Orders
 
@@ -418,6 +431,10 @@ This section lists the JSON API error codes and their descriptions.
 | <a name="error_26113">26113</a> | Error updating: quantity of goods taken into account by serial numbers cannot be fractional | When using a material or product taken into account by serial numbers, it is necessary to specify its quantity in integer form |
 | <a name="error_26114">26114</a> | Production stage update error: cannot enable standard hours calculation and modify the labour cost value at the same time | Check the `enableHourAccounting` flag for the production stage. When standard hours calculation is enabled, the `labourUnitCost` value is reset and calculated automatically. If you want to set a new labour cost value manually, first change the calculation type to fixed (`enableHourAccounting == false`). |
 | <a name="error_26115">26115</a> | Error updating production order item: item volume ratio is less than allowable limit | Unable to decrease the volume ratio for the Production Order item below the value already consumed. Check the volume ratios for completed, distributed, and in-progress operations. |
+| <a name="error_26116">26116</a> | Error updating production order item: Variant operations are not supported | Cannot change the Bill of Materials variant for a production order item, nor specify a variant if none was previously set. |
+| <a name="error_26117">26117</a> | Error saving production order: Variant is missing | Make sure that when using a parametric Bill of Materials, a product variant of this Bill of Materials is provided. This is required to correctly transfer materials from the Bill of Materials to the production order. If you need to produce the base product, use a Bill of Materials that does not contain materials dependent on variant attributes (non-parametric Bill of Materials). |
+| <a name="error_26118">26118</a> | Error saving production order: Variant does not belong to the product of the Bill of Materials | Cannot pass a variant from a different parent product that is not the product of the current parametric Bill of Materials. |
+| <a name="error_26119">26119</a> | Error saving production order: Cannot specify a variant for a non-parametric Bill of Materials | Make sure you are not trying to pass a variant for a non-parametric Bill of Materials. If you need to produce a variant, use a Bill of Materials that contains the parent product of this variant as its product and has raw materials that depend on the product's variant attributes (parametric Bill of Materials). |
 
 ### Error codes for Operation Reports
 
@@ -471,9 +488,12 @@ This section lists the JSON API error codes and their descriptions.
 
 ### Error codes for Currencies
 
-| error code | message | description |
-| ------------| ----------| ---------|
-| <a name="error_31000">31000</a> | Accounting currency cannot be deleted | The accounting currency cannot be deleted. |
+| error code                      | message                                              | description                                                                                 |
+|---------------------------------|------------------------------------------------------|---------------------------------------------------------------------------------------------|
+| <a name="error_31000">31000</a> | Accounting currency cannot be deleted                | The accounting currency cannot be deleted.                                                  |
+| <a name="error_31001">31001</a> | System currency not found                            | Make sure that the code and isoCode were passed correctly when creating the system currency |
+| <a name="error_31002">31002</a> | To add system currency, must specify code or isoCode | Make sure that the code and isoCode were passed                                             |
+| <a name="error_31003">31003</a> | The rate of accounting currency cannot be changed    | Automatic exchange rate calculation cannot be set for the accounting currency               |
 
 ### Error codes for Contracts
 
@@ -525,6 +545,7 @@ This section lists the JSON API error codes and their descriptions.
 | ------------| ----------| ---------|
 | <a name="error_37000">37000</a> | Error: You cannot work with tasks because your plan does not have the CRM option | You cannot create, edit and delete tasks without the CRM tariff option. |
 | <a name="error_37001">37001</a> | Error: You cannot edit or delete a task created by another employee | A user who is not an administrator can only modify or delete tasks that he himself created, or change the readiness status of a task for which he is assigned responsibility. |
+| <a name="error_37003">37003</a> | Access Denied: you do not have permission to close the task | Error when attempting to close a task (`done` = true) without the required permission. |
 | <a name="error_38000">38000</a> | Requires administrator rights to work with audit | Viewing changes is available only to users with administrative rights. |
 
 ### Error codes for Metrics 
@@ -606,15 +627,15 @@ This section lists the JSON API error codes and their descriptions.
 
 ### Error codes for Images
 
-| Error code | Message | Description |
-| ------------| ----------| ---------|
-| <a name="error_51001">51001</a> | Image error: Image has no content | When transferring an image as part of a product in the request to create a product, you must specify the content |
-| <a name="error_51002">51002</a> | Image error: Cannot convert content field to image | The content of the "content" field must be an image encoded in base64 format with a jpg or png extension. |
-| <a name="error_51003">51003</a> | Error while working with image: Insufficient storage space. | The storage space allocated for your account has run out. |
-| <a name="error_51004">51004</a> | Error while working with the image: the image size exceeds the maximum allowed (3 mb) | Try reducing the image size. |
-| <a name="error_51005">51005</a> | Error while working with image: image has no file name | When uploading an image, you must specify a non-empty filename in the filename field. |
-| <a name="error_51006">51006</a> | Error when working with an image: the number of images for a product cannot be more than 10 | A product cannot have more than 10 images. |
-| <a name="error_51007">51007</a> | Error while working with image: file storage is not available. | Internal error on the server. Please try again later. |
+| Error code | Message                                                                                           | Description                                                                                                      |
+| ------------|---------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
+| <a name="error_51001">51001</a> | Image error: Image has no content                                                                 | When transferring an image as part of a product in the request to create a product, you must specify the content |
+| <a name="error_51002">51002</a> | Image error: Cannot convert content field to image                                                | The content of the "content" field must be an image encoded in base64 format with a jpg or png extension.        |
+| <a name="error_51003">51003</a> | Error while working with image: Insufficient storage space.                                       | The storage space allocated for your account has run out.                                                        |
+| <a name="error_51004">51004</a> | Error while working with the image: the image size exceeds the maximum allowed ({size} mb)        | Try reducing the image size.                                                                                     |
+| <a name="error_51005">51005</a> | Error while working with image: image has no file name                                            | When uploading an image, you must specify a non-empty filename in the filename field.                            |
+| <a name="error_51006">51006</a> | Error when working with an image: the number of images for a product cannot be more than {number} | The number of images cannot exceed the limit.                                                                    |
+| <a name="error_51007">51007</a> | Error while working with image: file storage is not available.                                    | Internal error on the server. Please try again later.                                                            |
 
 ### Error codes for Server apps
 
@@ -639,7 +660,7 @@ This section lists the JSON API error codes and their descriptions.
 
 | Error Code | Message| Description|
 | ------------| ----------| ---------|
-| <a name="error_60000">60000</a> | Access Denied: only a user with administrative rights can create, modify or delete departments |
+| <a name="error_60000">60000</a> | Access Denied: only a user with administrative rights can create, modify or delete departments | Working with departments via API is available only to an administrator. |
 | <a name="error_60001">60001</a> | Error saving department: department with the same name already exists | each department must have a unique name |
 | <a name="error_60002">60002</a> | Department save error: index out of range | index must not be greater than the number of departments or less than 0 |
 | <a name="error_60003">60003</a> | Error deleting department: cannot delete all departments | at least one department must remain after deletion |
@@ -685,17 +706,18 @@ This section lists the JSON API error codes and their descriptions.
 | ------------| ----------| ---------|
 | <a name="error_64000">64000</a> | Sales Channel Update Error: You cannot change the type for an Automatically Created Sales Channel | Sales channel created automatically has a read-only immutable type |
 
-### Error codes for Bins and Warehouse Locations
+### Error codes for Warehouses
 
-| Error code | Message | Description |
-| ------------| ----------| ---------|
-| <a name="error_67000">67000</a> |A bin with identifier '{parameter}' does not belong to the specified warehouse '{parameter}'" | You cannot specify a bin from another warehouse |
-| <a name="error_67001">67001</a> | Cannot specify bin for '{parameter}' | You cannot specify a bin for document items of type Bundle or Service |
-| <a name="error_67002">67002</a> | The specified location '{parameter}' is not a warehouse location '{parameter}' of the bin | It is not allowed to assign another warehouse location to a bin |
-| <a name="error_67003">67003</a> | Exceeded the maximum number of locations at the warehouse | The limit on the number of locations on an account has been violated |
-| <a name="error_67004">67004</a> | Warehouse location '{parameter}' is not a warehouse location '{parameter}' | You cannot change the location of another warehouse for a given warehouse |
-| <a name="error_67005">67005</a> | Bin '{parameter}' is not a warehouse bin '{parameter}' | For a given warehouse, you cannot change the bin of another warehouse |
-| <a name="error_67006">67006</a> | Barcode already specified in another bin | Cannot duplicate a bin barcode within a warehouse |
+| Error code                      | Message                                                                                       | Description                                                               |
+|---------------------------------|-----------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
+| <a name="error_67000">67000</a> | A bin with identifier '{parameter}' does not belong to the specified warehouse '{parameter}'" | You cannot specify a bin from another warehouse                           |
+| <a name="error_67001">67001</a> | Cannot specify bin for '{parameter}'                                                          | You cannot specify a bin for document items of type Bundle or Service     |
+| <a name="error_67002">67002</a> | The specified location '{parameter}' is not a warehouse location '{parameter}' of the bin     | It is not allowed to assign another warehouse location to a bin           |
+| <a name="error_67003">67003</a> | Exceeded the maximum number of locations at the warehouse                                     | The limit on the number of locations on an account has been violated      |
+| <a name="error_67004">67004</a> | Warehouse location '{parameter}' is not a warehouse location '{parameter}'                    | You cannot change the location of another warehouse for a given warehouse |
+| <a name="error_67005">67005</a> | Bin '{parameter}' is not a warehouse bin '{parameter}'                                        | For a given warehouse, you cannot change the bin of another warehouse     |
+| <a name="error_67006">67006</a> | Barcode already specified in another bin                                                      | Cannot duplicate a bin barcode within a warehouse                         |
+| <a name="error_67007">67007</a> | Error working with warehouses: the number of active warehouses cannot exceed 2000             | The limit on the number of warehouses on an account has been violated     |
 
 ### Error Codes for Event Feed
 
@@ -716,3 +738,10 @@ This section lists the JSON API error codes and their descriptions.
 | Error code                         | Message                                                                                                                           | Description                                                                                                                                                                      |
 |------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | <a name="error_72000">72000</a>  | Error saving bank account: at least one of the bank accounts must be in the accounting currency                                    | When creating or first adding bank accounts to a legal entity, at least one of the accounts must be in the company's accounting currency.                                                    |
+
+### Error codes for content cards
+
+| Error code                       | Message                                                                                           | Description                                                                |
+|----------------------------------|---------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|
+| <a name="error_75000">75000</a>  | Failed to save content card: You cannot specify an archived sales channel in the content card     | Check that the list does not contain archived sales channels               |
+| <a name="error_75001">75001</a>  | Failed to save content card: A maximum of 100 content cards can be created for a single product   | Content card limit reached for the specified product                       |

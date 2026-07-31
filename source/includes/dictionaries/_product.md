@@ -178,8 +178,8 @@ This flag cannot be combined with the **weighed**, **isSerialTrackable**, **alco
 |--------------|----------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **barcodes** | Array(Object)                                      | An array of barcodes for product packaging. This array can contain at most one barcode. If there is no barcode in the array, then this field is not displayed |
 | **id**       | UUID                                               | Product Package ID<br>`+Required when replying` `+Read Only`                                                                                                  |
-| **quantity** | Float                                              | Quantity of products in this type of package<br>`+Required when replying` `+Required when creating`                                                           |
-| **uom*       | [Meta](../#kladana-json-api-general-info-metadata) | Units metadata<br>`+Required when replying` `+Expand`                                                                                                         |
+| **quantity** | Float                                              | Quantity of products in this type of package<br>`+Required when replying`                                                            |
+| **uom**       | [Meta](../#kladana-json-api-general-info-metadata) | Units metadata<br>`+Required when replying` `+Expand`                                                                                                         |
 
 In API version 1.2, a separate resource for working with product packages was removed. Now packages are a nested collection.
 
@@ -2596,6 +2596,8 @@ A product that is accessed by its ID value.
 | Parameter | Description |
 | ---------| ------- |
 | **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* Product id. |
+
+The URL must specify the Product API ID (the `id` field in the response). If you specify the UUID from the UI (the `UUID` value in `meta.uuidHref`), the server will return a **308** redirect with a `Location` header pointing to the URL with the API ID. [Learn more](../#kladana-json-api-general-info-error-processing)
 
 > Request to receive the Products with the specified id.
 

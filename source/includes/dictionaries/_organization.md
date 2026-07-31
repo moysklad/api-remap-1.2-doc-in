@@ -50,15 +50,13 @@ Search among objects of legal entities to match the search string will be carrie
 | **fax**                                | String(255)   | `=` `!=` `~` `~=` `=~` | Fax number                                                                                                                                      |
 | **mod\_\_requisites\_\_in**            | Object       | | Requisites for legal entity of the type `[Legal entity. India]` with details on individual fields                                               |
 | **mod\_\_requisites\_\_international** | Object       | | Requisites for legal entity of the type `[Legal entity. International]` with details on individual fields                                       |
-| **fsrarId**                            | String(255)   | | Identifier in FSRAR                                                                                                                             |
-| **isEgaisEnable**                      | Boolean       | | Is EGAIS enabled for this legal entity                                                                                                          |
+| **isEgaisEnable**                      | Boolean       | | Is EGAIS enabled for this legal entity. Always false                                                                                            |
 | **legalAddress**                       | String(255)   | `=` `!=` `~` `~=` `=~` | Legal address Legal entity                                                                                                                      |
 | **legalAddressFull**                   | Object        | | Legal address of a legal entity with details on individual fields                                                                               |
 | **legalTitle**                         | String(4096)  | `=` `!=` `~` `~=` `=~` | Full name                                                                                                                                       |
 | **payerVat**                           | Boolean       | | Is this legal entity a VAT payer                                                                                                                |
 | **phone**                              | String(255)   | `=` `!=` `~` `~=` `=~` | City phone number                                                                                                                               |
 | **stamp**                              | Object        | | Seal. [Learn more](../dictionaries/#entities-entity-legal-entity-attributes-of-entity-address-signatures-and-seal)                              |
-| **utmUrl**                             | String(255)   | | UTM IP address                                                                                                                                  |
 
 #### Nested entity attributes
 #### Address
@@ -113,14 +111,13 @@ Only for legal entity with type `Legal entity. International`.
 | ---------|----------------------------------------------------| ----------|
 | **accountId** | UUID                                               |Account ID<br>`+Required when answering` `+Read Only` |
 | **accountNumber** | String(255)                                        | Account number<br>`+Required when answering` `+Required when creating` |
-| **agent** | [Meta](../#kladana-json-api-general-info-metadata) | Legal entity metadata<br>`+Required when answering` |
 | **bankLocation** | String(255)                                        | Bank address |
 | **bankName** | String(255)                                        | Bank name |
 | **bic** | String(255)                                        | BIC |
 | **correspondentAccount** | String(255)                                        | Corr account |
+| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of bank account currency<br>`+Required when answering` `+Expand` |
 | **id** | UUID                                               | Account ID<br>`+Required when replying` `+Read only` |
 | **isDefault** | Boolean                                            | Is the account the main account of a legal entity<br>`+Required when replying` |
-| **currency** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of bank account currency<br>`+Required when answering` `+Expand` |
 | **updated** | DateTime                                           | Moment of the last update of the legal entity<br>`+Required when replying` `+Read only` |
 
 #### Legal entity type
@@ -311,9 +308,7 @@ Successful request. Result: JSON object including fields:
          }
        },
        "isEgaisEnable": true,
-       "fsrarId": "1963703",
        "payerVat": true,
-       "utmUrl": "10.250.110.81",
        "bonusProgram": {
          "meta": {
            "href": "https://api.kladana.com/api/remap/1.2/entity/bonusprogram/129626ee-ac91-11e9-ac12-000d00000009",
@@ -414,9 +409,7 @@ If when creating a legal entity the request body contains field **accounts** wit
             "phone": "22222222",
             "fax": "bello123",
             "isEgaisEnable": true,
-            "fsrarId": "1963703",
             "payerVat": true,
-            "utmUrl": "10.250.110.81",
             "director": "Kipelova Alexandra",
             "directorPosition": "Head of department",
             "directorSign": {
@@ -543,9 +536,7 @@ Successful request. The result is a JSON representation of the created legal ent
      }
    },
    "isEgaisEnable": true,
-   "fsrarId": "1963703",
    "payerVat": true,
-   "utmUrl": "10.250.110.81",
    "director":"Kipelova Alexandra",
     "directorPosition":"Head of department",
     "directorSign": {
@@ -1026,9 +1017,7 @@ Updated legal entities must contain the identifier in the form of metadata.
                 "phone": "22222222",
                 "fax": "bello123",
                 "isEgaisEnable": true,
-                "fsrarId": "1963703",
                 "payerVat": true,
-                "utmUrl": "10.250.110.81",
                 "director": "Kipelova Alexandra",
                 "chiefAccountant": "Podkupnikov Ivan"
             },
@@ -1120,9 +1109,7 @@ Successful request. The result is a JSON array of representations of created and
        }
      },
      "isEgaisEnable": true,
-     "fsrarId": "1963703",
-     "payerVat": true,
-     "utmUrl": "10.250.110.81"
+     "payerVat": true
    },
    {
      "meta": {
@@ -1456,9 +1443,7 @@ Successful request. The result is a JSON representation of the legal entity with
      }
    },
    "isEgaisEnable": true,
-   "fsrarId": "1963703",
    "payerVat": true,
-   "utmUrl": "10.250.110.81",
    "director": "Administrator",
    "chiefAccountant": "Administrator",
    "bonusProgram": {
@@ -1515,7 +1500,6 @@ Successful request. The result is a JSON representation of the legal entity with
        "mediaType": "application/json"
      }
    },
-   "version": 0,
    "updated": "2020-06-18 12:38:18",
    "name": "IP Ivanov",
    "code": "someCode",
@@ -1585,9 +1569,7 @@ Request to update the legal entity with the specified ID.
            "phone": "22222222",
            "fax": "bello123",
            "isEgaisEnable": true,
-           "fsrarId": "1963703",
            "payerVat": true,
-           "utmUrl": "10.250.110.81",
            "director": "Kipelova Alexandra",
            "chiefAccountant": "Podkupnikov Ivan"
         }'
@@ -1651,9 +1633,7 @@ Successful request. The result is JSON of the updated legal entity.
      }
    },
    "isEgaisEnable": true,
-   "fsrarId": "1963703",
-   "payerVat": true,
-   "utmUrl": "10.250.110.81"
+   "payerVat": true
 }
 ```
 
@@ -2089,6 +2069,60 @@ Successful request.
 }
 ```
 
+### Create a legal entity bank account
+Request to create a new bank account for a legal entity.
+For successful creation, specify the following field in the request body:
+
++ **accountNumber** - Account number.
+
+**Parameters**
+
+| Parameter | Description                                                                            |
+| --------- | -------------------------------------------------------------------------------------- |
+| **id**    | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* legal entity ID.   |
+
+> Example of creating a legal entity bank account.
+
+```shell
+  curl --compressed -X POST \
+    "https://api.kladana.com/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19/accounts" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
+      -d '{
+            "accountNumber": "86686868768768757656876876"
+          }'
+```
+
+> Response 200 (application/json)
+Successful request. Result: JSON representation of the created legal entity bank account.
+
+```json
+[
+  {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19/accounts/d9560d0e-6703-11e7-9464-e4de00000052",
+      "type": "account",
+      "mediaType": "application/json"
+    },
+    "id": "d9560d0e-6703-11e7-9464-e4de00000052",
+    "accountId": "d8a2e973-6703-11e7-9464-e4de00000001",
+    "updated": "2024-01-22 17:57:54.558",
+    "isDefault": false,
+    "accountNumber": "86686868768768757656876876",
+    "currency": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/currency/0f5fbe16-ceff-11ee-0a83-00490000009d",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
+        "type": "currency",
+        "mediaType": "application/json",
+        "uuidHref": "https://app.kladana.com/app/#currency/edit?id=0f5fbe16-ceff-11ee-0a83-00490000009d"
+      }
+    }
+  }
+]
+```
+
 ### Change a legal entity account
 Updates a separate legal entity account with the specified id.
 
@@ -2149,3 +2183,67 @@ Successful request.
   }
 }
 ```
+
+### Delete a legal entity account
+
+**Parameters**
+
+| Parameter     | Description                                                                            |
+| ------------- | -------------------------------------------------------------------------------------- |
+| **id**        | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* legal entity ID.   |
+| **accountId** | `string` (required) *Example: d9560d0e-6703-11e7-9464-e4de00000052* legal entity account ID. |
+
+> Request to delete a legal entity account with the specified id.
+
+```shell
+curl --compressed -X DELETE \
+  "https://api.kladana.com/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19/accounts/d9560d0e-6703-11e7-9464-e4de00000052" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip"
+```
+
+
+
+> Response 200 (application/json)
+Successful deletion of a legal entity account.
+
+### Bulk delete legal entity accounts
+
+**Parameters**
+
+| Parameter | Description                                                                            |
+| --------- | -------------------------------------------------------------------------------------- |
+| **id**    | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* legal entity ID.   |
+
+In the request body, pass an array containing JSON metadata of the legal entity accounts you want to delete.
+
+> Request to bulk delete legal entity accounts.
+
+```shell
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19/accounts/delete" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
+  -d '[
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19/accounts/d9560d0e-6703-11e7-9464-e4de00000052",
+            "type": "account",
+            "mediaType": "application/json"
+          }
+        },
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19/accounts/97fc6499-b96f-11e7-9464-e4de00000006",
+            "type": "account",
+            "mediaType": "application/json"
+          }
+        }
+      ]'
+```
+
+
+
+> Response 200 (application/json)
+Successful deletion of legal entity accounts.

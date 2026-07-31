@@ -45,8 +45,8 @@ Using the JSON API, you can create and update information about an Outgoing Cash
 
 | Title | Description |
 | --------- | ------ |
-| **factureIn** | Lint to the related Incoming Cash Payment in the [Metadata](../#kladana-json-api-general-info-metadata) format |
-| **operations** | An array of links to related operations in the [Metadata](../#kladana-json-api-general-info-metadata) format |
+| **factureIn** | Link to the related Incoming invoice in the [Metadata](../#kladana-json-api-general-info-metadata) format |
+| **operations** | Collection of metadata ([Metadata](../#kladana-json-api-general-info-metadata)) for linked operations, with a **linkedSum** field for each linked operation |
 
 Allowed types of linked operations:
 
