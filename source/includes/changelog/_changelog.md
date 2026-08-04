@@ -5,6 +5,15 @@ The section lists changes to existing endpoints and new endpoints that allow you
 See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-1.2-doc-in/blob/master/CHANGELOG.md).
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
+
+### 31-07-2026
+#### Added
+- [expenseitem entity permissions](../dictionaries/#entities-employee-employee-permissions) (Expense items)
+- expenseitem permissions in JSON returned in [Custom roles](../dictionaries/#entities-custom-role-get-custom-role)
+
+#### Changed
+- [Expense items](../dictionaries/#entities-expense-item) entity description: **owner**, **group**, **shared** fields
+
 ### 29-07-2026
 #### Added
 - Field `parametricMaterials` collection of parametric materials of [BoM](../dictionaries/#entities-bills-of-materials)
@@ -15,7 +24,6 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 - Error [26117](../#kladana-json-api-errors-error-codes-for-production-orders) when a product variant is missing for a parametric Bill of Materials in a production order
 - Error [26118](../#kladana-json-api-errors-error-codes-for-production-orders) when a product variant does not belong to the product of the parametric Bill of Materials
 - Error [26119](../#kladana-json-api-errors-error-codes-for-production-orders) when a product variant is specified for a non-parametric Bill of Materials
-
 
 ### 20-07-2026
 #### Added

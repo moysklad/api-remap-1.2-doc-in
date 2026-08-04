@@ -2,6 +2,14 @@
 
 JSON API 1.2 changes will be added here soon
 
+### 31-07-2026
+#### Added
+- [expenseitem entity permissions](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-employee-employee-permissions) (Expense items)
+- expenseitem permissions in JSON returned in [Custom roles](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-custom-role-get-custom-role)
+
+#### Changed
+- [Expense items](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-expense-item) entity description: **owner**, **group**, **shared** fields
+
 ### 29-07-2026
 #### Added
 - Field `parametricMaterials` collection of parametric materials of [BoM](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-bills-of-materials)
