@@ -200,462 +200,471 @@ Successful request. The result is a JSON representation of the report.
 
 ```json
 {
-   "context": {
-     "employee": {
-       "href": "https://api.kladana.com/api/remap/1.2/context/employee",
-       "type": "employee",
-       "mediaType": "application/json"
-     }
-   },
-   "meta": {
-     "href": "https://api.kladana.com/api/remap/1.2/report/stock/all",
-     "type": "stock",
-     "mediaType": "application/json",
-     "size": 26,
-     "limit": 10,
-     "offset": 0,
-     "nextHref": "https://api.kladana.com/api/remap/1.2/report/stock/all?limit=10&offset=10"
-   },
-   "rows": [
-     {
-       "meta": {
-         "href": "https://api.kladana.com/api/remap/1.2/entity/product/c02e3a5c-007e-11e6-9464-e4de00000006?expand=supplier",
-         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
-         "type": "product",
-         "mediaType": "application/json"
-       },
-       "stock": -30,
-       "inTransit": 0,
-       "reserve": 0,
-       "quantity": -30,
-       "name": "Product",
-       "code": "one1",
-       "article": "Ar23",
-       "price": 0.0,
-       "salePrice": 346347237000.0,
-       "uom": {
-         "meta": {
-           "href": "https://api.kladana.com/api/remap/1.2/entity/uom/c6bc9273-2c83-11e6-8a84-bae5000000a3",
-           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/uom/metadata",
-           "type": "uom",
-           "mediaType": "application/json"
-         },
-         "name": "pcs"
-       },
-       "externalCode": "ibWbdtWWhXiIwfZVEal6z2"
-     },
-     {
-       "meta": {
-         "href": "https://api.kladana.com/api/remap/1.2/entity/product/cc99c055-fa34-11e5-9464-e4de00000069?expand=supplier",
-         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
-         "type": "product",
-         "mediaType": "application/json"
-       },
-       "stock": 4,
-       "inTransit": 0,
-       "reserve": 0,
-       "quantity": 4,
-       "name": "ItemWithout Barcode",
-       "code": "00006",
-       "price": 0.0,
-       "salePrice": 0.0,
-       "uom": {
-         "meta": {
-           "href": "https://api.kladana.com/api/remap/1.2/entity/uom/c6bc9273-2c83-11e6-8a84-bae5000000a3",
-           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/uom/metadata",
-           "type": "uom",
-           "mediaType": "application/json"
-         },
-         "name": "pcs"
-       },
-       "externalCode": "ibWbdtWWhXiIwfZVEal6z2"
-     },
-     {
-       "meta": {
-         "href": "https://api.kladana.com/api/remap/1.2/entity/product/e8f5f9ff-fa34-11e5-9464-e4de0000008a?expand=supplier",
-         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
-         "type": "product",
-         "mediaType": "application/json"
-       },
-       "stock": 1,
-       "inTransit": 0,
-       "reserve": 0,
-       "quantity": 1,
-       "name": "Product with fashion without bar code",
-       "code": "00008",
-       "price": 0.0,
-       "salePrice": 0.0,
-       "uom": {
-         "meta": {
-           "href": "https://api.kladana.com/api/remap/1.2/entity/uom/c6bc9273-2c83-11e6-8a84-bae5000000a3",
-           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/uom/metadata",
-           "type": "uom",
-           "mediaType": "application/json"
-         },
-         "name": "pcs"
-       },
-       "externalCode": "ibWbdtWWhXiIwfZVEal6z2"
-     },
-     {
-       "meta": {
-         "href": "https://api.kladana.com/api/remap/1.2/entity/variant/e8f9d714-fa34-11e5-9464-e4de0000008d?expand=product.supplier",
-         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata",
-         "type": "variant",
-         "mediaType": "application/json"
-       },
-       "stock": 1,
-       "inTransit": 0,
-       "reserve": 0,
-       "quantity": 1,
-       "name": "Product with fashion without bar code (1)",
-       "code": "00208",
-       "price": 0.0,
-       "salePrice": 0.0,
-       "uom": {
-         "meta": {
-           "href": "https://api.kladana.com/api/remap/1.2/entity/uom/c6bc9273-2c83-11e6-8a84-bae5000000a3",
-           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/uom/metadata",
-           "type": "uom",
-           "mediaType": "application/json"
-         },
-         "name": "pcs"
-       },
-       "externalCode": "ibWbdtWWhXiIwfZVEal6z2"
-     },
-     {
-       "meta": {
-         "href": "https://api.kladana.com/api/remap/1.2/entity/variant/e8fc24b5-fa34-11e5-9464-e4de00000091?expand=product.supplier",
-         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata",
-         "type": "variant",
-         "mediaType": "application/json"
-       },
-       "stock": 1,
-       "inTransit": 0,
-       "reserve": 0,
-       "quantity": 1,
-       "name": "Product with fashion without bar code (2)",
-       "code": "00209",
-       "price": 0.0,
-       "salePrice": 0.0,
-       "uom": {
-         "meta": {
-           "href": "https://api.kladana.com/api/remap/1.2/entity/uom/c6bc9273-2c83-11e6-8a84-bae5000000a3",
-           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/uom/metadata",
-           "type": "uom",
-           "mediaType": "application/json"
-         },
-         "name": "pcs"
-       },
-       "externalCode": "ibWbdtWWhXiIwfZVEal6z2"
-     },
-     {
-       "meta": {
-         "href": "https://api.kladana.com/api/remap/1.2/entity/variant/e91042b4-fa34-11e5-9464-e4de00000095?expand=product.supplier",
-         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata",
-         "type": "variant",
-         "mediaType": "application/json"
-       },
-       "stock": 1,
-       "inTransit": 0,
-       "reserve": 0,
-       "quantity": 1,
-       "name": "Product with fashion without bar code (3)",
-       "code": "00210",
-       "price": 0.0,
-       "salePrice": 0.0,
-       "uom": {
-         "meta": {
-           "href": "https://api.kladana.com/api/remap/1.2/entity/uom/c6bc9273-2c83-11e6-8a84-bae5000000a3",
-           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/uom/metadata",
-           "type": "uom",
-           "mediaType": "application/json"
-         },
-         "name": "pcs"
-       },
-       "externalCode": "ibWbdtWWhXiIwfZVEal6z2"
-     },
-     {
-       "meta": {
-         "href": "https://api.kladana.com/api/remap/1.2/entity/product/daf1186d-fa34-11e5-9464-e4de0000006f?expand=supplier",
-         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
-         "type": "product",
-         "mediaType": "application/json"
-       },
-       "stock": 1,
-       "inTransit": 0,
-       "reserve": 0,
-       "quantity": 1,
-       "name": "Item with fashion_and_code",
-       "code": "00007",
-       "price": 0.0,
-       "salePrice": 0.0,
-       "uom": {
-         "meta": {
-           "href": "https://api.kladana.com/api/remap/1.2/entity/uom/c6bc9273-2c83-11e6-8a84-bae5000000a3",
-           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/uom/metadata",
-           "type": "uom",
-           "mediaType": "application/json"
-         },
-         "name": "pcs"
-       },
-       "externalCode": "ibWbdtWWhXiIwfZVEal6z2"
-     },
-     {
-       "meta": {
-         "href": "https://api.kladana.com/api/remap/1.2/entity/variant/db1a888a-fa34-11e5-9464-e4de00000073?expand=product.supplier",
-         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata",
-         "type": "variant",
-         "mediaType": "application/json"
-       },
-       "stock": 1,
-       "inTransit": 0,
-       "reserve": 0,
-       "quantity": 1,
-       "name": "Item with fashion_and_code(1)",
-       "code": "00205",
-       "price": 0.0,
-       "salePrice": 0.0,
-       "uom": {
-         "meta": {
-           "href": "https://api.kladana.com/api/remap/1.2/entity/uom/c6bc9273-2c83-11e6-8a84-bae5000000a3",
-           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/uom/metadata",
-           "type": "uom",
-           "mediaType": "application/json"
-         },
-         "name": "pcs"
-       },
-       "externalCode": "ibWbdtWWhXiIwfZVEal6z2"
-     },
-     {
-       "meta": {
-         "href": "https://api.kladana.com/api/remap/1.2/entity/variant/db2066c8-fa34-11e5-9464-e4de00000077?expand=product.supplier",
-         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata",
-         "type": "variant",
-         "mediaType": "application/json"
-       },
-       "stock": 1,
-       "inTransit": 0,
-       "reserve": 0,
-       "quantity": 1,
-       "name": "Item with fashion_and_code(2)",
-       "code": "00206",
-       "price": 0.0,
-       "salePrice": 0.0,
-       "uom": {
-         "meta": {
-           "href": "https://api.kladana.com/api/remap/1.2/entity/uom/c6bc9273-2c83-11e6-8a84-bae5000000a3",
-           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/uom/metadata",
-           "type": "uom",
-           "mediaType": "application/json"
-         },
-         "name": "pcs"
-       },
-       "externalCode": "ibWbdtWWhXiIwfZVEal6z2"
-     },
-     {
-       "meta": {
-         "href": "https://api.kladana.com/api/remap/1.2/entity/variant/db22f3e8-fa34-11e5-9464-e4de0000007b?expand=product.supplier",
-         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata",
-         "type": "variant",
-         "mediaType": "application/json"
-       },
-       "stock": 1,
-       "inTransit": 0,
-       "reserve": 0,
-       "quantity": 1,
-       "name": "Item with fashion_and_code(3)",
-       "code": "00207",
-       "price": 0.0,
-       "salePrice": 0.0,
-       "uom": {
-         "meta": {
-           "href": "https://api.kladana.com/api/remap/1.2/entity/uom/c6bc9273-2c83-11e6-8a84-bae5000000a3",
-           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/uom/metadata",
-           "type": "uom",
-           "mediaType": "application/json"
-         },
-         "name": "pcs"
-       },
-       "externalCode": "ibWbdtWWhXiIwfZVEal6z2"
-     },
-     {
-       "meta": {
-         "href": "https://api.kladana.com/api/remap/1.2/entity/product/d3e2dcd6-f648-11e5-8a84-bae500000074?expand=supplier",
-         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
-         "type": "product",
-         "mediaType": "application/json"
-       },
-       "stock": -6438,
-       "inTransit": 0,
-       "reserve": 0,
-       "quantity": -6438,
-       "name": "ProductWithCountry",
-       "code": "00002",
-       "price": 0.0,
-       "salePrice": 0.0,
-       "uom": {
-         "meta": {
-           "href": "https://api.kladana.com/api/remap/1.2/entity/uom/c6bc9273-2c83-11e6-8a84-bae5000000a3",
-           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/uom/metadata",
-           "type": "uom",
-           "mediaType": "application/json"
-         },
-         "name": "pcs"
-       },
-       "externalCode": "ibWbdtWWhXiIwfZVEal6z2"
-     },
-     {
-       "meta": {
-         "href": "https://api.kladana.com/api/remap/1.2/entity/product/eeef177f-f648-11e5-8a84-bae50000007a?expand=supplier",
-         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
-         "type": "product",
-         "mediaType": "application/json"
-       },
-       "stock": -113,
-       "inTransit": 0,
-       "reserve": 0,
-       "quantity": -113,
-       "name": "Ball",
-       "code": "00003",
-       "price": 0.0,
-       "salePrice": 0.0,
-       "uom": {
-         "meta": {
-           "href": "https://api.kladana.com/api/remap/1.2/entity/uom/c6bc9273-2c83-11e6-8a84-bae5000000a3",
-           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/uom/metadata",
-           "type":"uom",
-           "mediaType": "application/json"
-         },
-         "name": "pcs"
-       },
-       "externalCode": "ibWbdtWWhXiIwfZVEal6z2"
-     },
-     {
-       "meta": {
-         "href": "https://api.kladana.com/api/remap/1.2/entity/variant/fd867506-f67d-11e5-8a84-bae50000006e?expand=product.supplier",
-         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata",
-         "type": "variant",
-         "mediaType": "application/json"
-       },
-       "stock": -21,
-       "inTransit": 0,
-       "reserve": 0,
-       "quantity": -21,
-       "name": "Ball (Soccer)",
-       "code": "00002",
-       "price": 0.0,
-       "salePrice": 0.0,
-       "uom": {
-         "meta": {
-           "href": "https://api.kladana.com/api/remap/1.2/entity/uom/c6bc9273-2c83-11e6-8a84-bae5000000a3",
-           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/uom/metadata",
-           "type": "uom",
-           "mediaType": "application/json"
-         },
-         "name": "pcs"
-       },
-       "externalCode": "ibWbdtWWhXiIwfZVEal6z2"
-     },
-     {
-       "meta": {
-         "href": "https://api.kladana.com/api/remap/1.2/entity/variant/fd92dbb9-f67d-11e5-8a84-bae500000076?expand=product.supplier",
-         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata",
-         "type": "variant",
-         "mediaType": "application/json"
-       },
-       "stock": -1,
-       "inTransit": 0,
-       "reserve": 0,
-       "quantity": -1,
-       "name": "Ball (Volleyball)",
-       "code": "00004",
-       "price": 0.0,
-       "salePrice": 0.0,
-       "uom": {
-         "meta": {
-           "href": "https://api.kladana.com/api/remap/1.2/entity/uom/c6bc9273-2c83-11e6-8a84-bae5000000a3",
-           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/uom/metadata",
-           "type": "uom",
-           "mediaType": "application/json"
-         },
-         "name": "pcs"
-       },
-       "externalCode": "ibWbdtWWhXiIwfZVEal6z2"
-     },
-     {
-       "meta": {
-         "href": "https://api.kladana.com/api/remap/1.2/entity/product/be903062-f504-11e5-8a84-bae50000019a?expand=supplier",
-         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
-         "type": "product",
-         "mediaType": "application/json"
-       },
-       "stock": 69,
-       "inTransit": 0,
-       "reserve": 20,
-       "quantity": 49,
-       "name": "Trollolosha",
-       "code": "00001",
-       "price": 50260.86956521739,
-       "salePrice": 123000.0,
-       "uom": {
-         "meta": {
-           "href": "https://api.kladana.com/api/remap/1.2/entity/uom/c6bc9273-2c83-11e6-8a84-bae5000000a3",
-           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/uom/metadata",
-           "type": "uom",
-           "mediaType": "application/json"
-         },
-         "name": "pcs"
-       },
-       "externalCode": "ibWbdtWWhXiIwfZVEal6z2"
-     },
-     {
-       "meta": {
-         "href": "https://api.kladana.com/api/remap/1.2/entity/variant/d1bef0a1-ffe7-11e5-9464-e4de0000001c?expand=product.supplier",
-         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata",
-         "type": "variant",
-         "mediaType": "application/json"
-       },
-       "stock": -1,
-       "inTransit": 0,
-       "reserve": 0,
-       "quantity": -1,
-       "name": "Comrade (10)",
-       "code": "00214",
-       "article": "Article",
-       "price": 0.0,
-       "salePrice": 346347237000.0,
-       "uom": {
-         "meta": {
-           "href": "https://api.kladana.com/api/remap/1.2/entity/uom/c6bc9273-2c83-11e6-8a84-bae5000000a3",
-           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/uom/metadata",
-           "type": "uom",
-           "mediaType": "application/json"
-         },
-         "name": "pcs"
-       },
-       "folder": {
-         "meta": {
-           "href": "https://api.kladana.com/api/remap/1.2/entity/productfolder/0c78adde-ffe3-11e5-9464-e4de000000a2",
-           "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productFolder/metadata",
-           "type": "productfolder",
-           "mediaType": "application/json"
-         },
-         "name": "Products From custom group",
-         "pathName": "Group"
-       },
-       "images": {
-         "meta": {
-           "href": "https://api.kladana.com/api/remap/1.2/entity/variant/d1bef0a1-ffe7-11e5-9464-e4de0000001c/images",
-           "type": "image",
-           "mediaType": "application/json",
-           "size": 1,
-           "limit": 1000,
-           "offset": 0
-         }
-       },
-       "externalCode": "ibWbdtWWhXiIwfZVEal6z2"
-     }
-   ]
+    "context": {
+        "employee": {
+            "href": "https://api.kladana.com/api/remap/1.2/context/employee",
+            "type": "employee",
+            "mediaType": "application/json"
+        }
+    },
+    "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/report/stock/all",
+        "type": "stock",
+        "mediaType": "application/json",
+        "size": 26,
+        "limit": 10,
+        "offset": 0,
+        "nextHref": "https://api.kladana.com/api/remap/1.2/report/stock/all?limit=10&offset=10"
+    },
+    "rows": [
+        {
+            "meta": {
+                "href": "https://api.kladana.com/api/remap/1.2/entity/product/c02e3a5c-007e-11e6-9464-e4de00000006?expand=supplier",
+                "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+                "type": "product",
+                "mediaType": "application/json"
+            },
+            "stock": -30,
+            "inTransit": 0,
+            "reserve": 0,
+            "quantity": -30,
+            "name": "Product",
+            "code": "one1",
+            "article": "Ar23",
+            "price": 0.0,
+            "salePrice": 346347237000.0,
+            "uom": {
+                "meta": {
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/uom/c6bc9273-2c83-11e6-8a84-bae5000000a3",
+                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/uom/metadata",
+                    "type": "uom",
+                    "mediaType": "application/json"
+                },
+                "name": "pcs"
+            },
+            "externalCode": "ibWbdtWWhXiIwfZVEal6z2"
+        },
+        {
+            "meta": {
+                "href": "https://api.kladana.com/api/remap/1.2/entity/product/cc99c055-fa34-11e5-9464-e4de00000069?expand=supplier",
+                "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+                "type": "product",
+                "mediaType": "application/json"
+            },
+            "stock": 4,
+            "inTransit": 0,
+            "reserve": 0,
+            "quantity": 4,
+            "name": "ItemWithout Barcode",
+            "code": "00006",
+            "price": 0.0,
+            "salePrice": 0.0,
+            "uom": {
+                "meta": {
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/uom/c6bc9273-2c83-11e6-8a84-bae5000000a3",
+                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/uom/metadata",
+                    "type": "uom",
+                    "mediaType": "application/json"
+                },
+                "name": "pcs"
+            },
+            "externalCode": "ibWbdtWWhXiIwfZVEal6z2"
+        },
+        {
+            "meta": {
+                "href": "https://api.kladana.com/api/remap/1.2/entity/product/e8f5f9ff-fa34-11e5-9464-e4de0000008a?expand=supplier",
+                "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+                "type": "product",
+                "mediaType": "application/json"
+            },
+            "stock": 1,
+            "inTransit": 0,
+            "reserve": 0,
+            "quantity": 1,
+            "name": "Product with fashion without bar code",
+            "code": "00008",
+            "price": 0.0,
+            "salePrice": 0.0,
+            "uom": {
+                "meta": {
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/uom/c6bc9273-2c83-11e6-8a84-bae5000000a3",
+                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/uom/metadata",
+                    "type": "uom",
+                    "mediaType": "application/json"
+                },
+                "name": "pcs"
+            },
+            "externalCode": "ibWbdtWWhXiIwfZVEal6z2"
+        },
+        {
+            "meta": {
+                "href": "https://api.kladana.com/api/remap/1.2/entity/variant/e8f9d714-fa34-11e5-9464-e4de0000008d?expand=product.supplier",
+                "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata",
+                "type": "variant",
+                "mediaType": "application/json"
+            },
+            "stock": 1,
+            "inTransit": 0,
+            "reserve": 0,
+            "quantity": 1,
+            "name": "Product with fashion without bar code (1)",
+            "code": "00208",
+            "price": 0.0,
+            "salePrice": 0.0,
+            "uom": {
+                "meta": {
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/uom/c6bc9273-2c83-11e6-8a84-bae5000000a3",
+                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/uom/metadata",
+                    "type": "uom",
+                    "mediaType": "application/json"
+                },
+                "name": "pcs"
+            },
+            "externalCode": "ibWbdtWWhXiIwfZVEal6z2"
+        },
+        {
+            "meta": {
+                "href": "https://api.kladana.com/api/remap/1.2/entity/variant/e8fc24b5-fa34-11e5-9464-e4de00000091?expand=product.supplier",
+                "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata",
+                "type": "variant",
+                "mediaType": "application/json"
+            },
+            "stock": 1,
+            "inTransit": 0,
+            "reserve": 0,
+            "quantity": 1,
+            "name": "Product with fashion without bar code (2)",
+            "code": "00209",
+            "price": 0.0,
+            "salePrice": 0.0,
+            "uom": {
+                "meta": {
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/uom/c6bc9273-2c83-11e6-8a84-bae5000000a3",
+                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/uom/metadata",
+                    "type": "uom",
+                    "mediaType": "application/json"
+                },
+                "name": "pcs"
+            },
+            "externalCode": "ibWbdtWWhXiIwfZVEal6z2"
+        },
+        {
+            "meta": {
+                "href": "https://api.kladana.com/api/remap/1.2/entity/variant/e91042b4-fa34-11e5-9464-e4de00000095?expand=product.supplier",
+                "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata",
+                "type": "variant",
+                "mediaType": "application/json"
+            },
+            "stock": 1,
+            "inTransit": 0,
+            "reserve": 0,
+            "quantity": 1,
+            "name": "Product with fashion without bar code (3)",
+            "code": "00210",
+            "price": 0.0,
+            "salePrice": 0.0,
+            "uom": {
+                "meta": {
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/uom/c6bc9273-2c83-11e6-8a84-bae5000000a3",
+                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/uom/metadata",
+                    "type": "uom",
+                    "mediaType": "application/json"
+                },
+                "name": "pcs"
+            },
+            "externalCode": "ibWbdtWWhXiIwfZVEal6z2"
+        },
+        {
+            "meta": {
+                "href": "https://api.kladana.com/api/remap/1.2/entity/product/daf1186d-fa34-11e5-9464-e4de0000006f?expand=supplier",
+                "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+                "type": "product",
+                "mediaType": "application/json"
+            },
+            "stock": 1,
+            "inTransit": 0,
+            "reserve": 0,
+            "quantity": 1,
+            "name": "Item with fashion_and_code",
+            "code": "00007",
+            "price": 0.0,
+            "salePrice": 0.0,
+            "uom": {
+                "meta": {
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/uom/c6bc9273-2c83-11e6-8a84-bae5000000a3",
+                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/uom/metadata",
+                    "type": "uom",
+                    "mediaType": "application/json"
+                },
+                "name": "pcs"
+            },
+            "externalCode": "ibWbdtWWhXiIwfZVEal6z2"
+        },
+        {
+            "meta": {
+                "href": "https://api.kladana.com/api/remap/1.2/entity/variant/db1a888a-fa34-11e5-9464-e4de00000073?expand=product.supplier",
+                "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata",
+                "type": "variant",
+                "mediaType": "application/json"
+            },
+            "stock": 1,
+            "inTransit": 0,
+            "reserve": 0,
+            "quantity": 1,
+            "name": "Item with fashion_and_code(1)",
+            "code": "00205",
+            "price": 0.0,
+            "salePrice": 0.0,
+            "uom": {
+                "meta": {
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/uom/c6bc9273-2c83-11e6-8a84-bae5000000a3",
+                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/uom/metadata",
+                    "type": "uom",
+                    "mediaType": "application/json"
+                },
+                "name": "pcs"
+            },
+            "externalCode": "ibWbdtWWhXiIwfZVEal6z2"
+        },
+        {
+            "meta": {
+                "href": "https://api.kladana.com/api/remap/1.2/entity/variant/db2066c8-fa34-11e5-9464-e4de00000077?expand=product.supplier",
+                "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata",
+                "type": "variant",
+                "mediaType": "application/json"
+            },
+            "stock": 1,
+            "inTransit": 0,
+            "reserve": 0,
+            "quantity": 1,
+            "name": "Item with fashion_and_code(2)",
+            "code": "00206",
+            "price": 0.0,
+            "salePrice": 0.0,
+            "uom": {
+                "meta": {
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/uom/c6bc9273-2c83-11e6-8a84-bae5000000a3",
+                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/uom/metadata",
+                    "type": "uom",
+                    "mediaType": "application/json"
+                },
+                "name": "pcs"
+            },
+            "externalCode": "ibWbdtWWhXiIwfZVEal6z2"
+        },
+        {
+            "meta": {
+                "href": "https://api.kladana.com/api/remap/1.2/entity/variant/db22f3e8-fa34-11e5-9464-e4de0000007b?expand=product.supplier",
+                "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata",
+                "type": "variant",
+                "mediaType": "application/json"
+            },
+            "stock": 1,
+            "inTransit": 0,
+            "reserve": 0,
+            "quantity": 1,
+            "name": "Item with fashion_and_code(3)",
+            "code": "00207",
+            "price": 0.0,
+            "salePrice": 0.0,
+            "uom": {
+                "meta": {
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/uom/c6bc9273-2c83-11e6-8a84-bae5000000a3",
+                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/uom/metadata",
+                    "type": "uom",
+                    "mediaType": "application/json"
+                },
+                "name": "pcs"
+            },
+            "externalCode": "ibWbdtWWhXiIwfZVEal6z2"
+        },
+        {
+            "meta": {
+                "href": "https://api.kladana.com/api/remap/1.2/entity/product/d3e2dcd6-f648-11e5-8a84-bae500000074?expand=supplier",
+                "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+                "type": "product",
+                "mediaType": "application/json"
+            },
+            "stock": -6438,
+            "inTransit": 0,
+            "reserve": 0,
+            "quantity": -6438,
+            "name": "ProductWithCountry",
+            "code": "00002",
+            "price": 0.0,
+            "salePrice": 0.0,
+            "uom": {
+                "meta": {
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/uom/c6bc9273-2c83-11e6-8a84-bae5000000a3",
+                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/uom/metadata",
+                    "type": "uom",
+                    "mediaType": "application/json"
+                },
+                "name": "pcs"
+            },
+            "externalCode": "ibWbdtWWhXiIwfZVEal6z2"
+        },
+        {
+            "meta": {
+                "href": "https://api.kladana.com/api/remap/1.2/entity/product/eeef177f-f648-11e5-8a84-bae50000007a?expand=supplier",
+                "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+                "type": "product",
+                "mediaType": "application/json"
+            },
+            "stock": -113,
+            "inTransit": 0,
+            "reserve": 0,
+            "quantity": -113,
+            "name": "Ball",
+            "code": "00003",
+            "price": 0.0,
+            "salePrice": 0.0,
+            "uom": {
+                "meta": {
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/uom/c6bc9273-2c83-11e6-8a84-bae5000000a3",
+                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/uom/metadata",
+                    "type": "uom",
+                    "mediaType": "application/json"
+                },
+                "name": "pcs"
+            },
+            "externalCode": "ibWbdtWWhXiIwfZVEal6z2"
+        },
+        {
+            "meta": {
+                "href": "https://api.kladana.com/api/remap/1.2/entity/variant/fd867506-f67d-11e5-8a84-bae50000006e?expand=product.supplier",
+                "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata",
+                "type": "variant",
+                "mediaType": "application/json"
+            },
+            "stock": -21,
+            "inTransit": 0,
+            "reserve": 0,
+            "quantity": -21,
+            "name": "Ball (Soccer)",
+            "code": "00002",
+            "price": 0.0,
+            "salePrice": 0.0,
+            "uom": {
+                "meta": {
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/uom/c6bc9273-2c83-11e6-8a84-bae5000000a3",
+                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/uom/metadata",
+                    "type": "uom",
+                    "mediaType": "application/json"
+                },
+                "name": "pcs"
+            },
+            "externalCode": "ibWbdtWWhXiIwfZVEal6z2"
+        },
+        {
+            "meta": {
+                "href": "https://api.kladana.com/api/remap/1.2/entity/variant/fd92dbb9-f67d-11e5-8a84-bae500000076?expand=product.supplier",
+                "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata",
+                "type": "variant",
+                "mediaType": "application/json"
+            },
+            "stock": -1,
+            "inTransit": 0,
+            "reserve": 0,
+            "quantity": -1,
+            "name": "Ball (Volleyball)",
+            "code": "00004",
+            "price": 0.0,
+            "salePrice": 0.0,
+            "uom": {
+                "meta": {
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/uom/c6bc9273-2c83-11e6-8a84-bae5000000a3",
+                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/uom/metadata",
+                    "type": "uom",
+                    "mediaType": "application/json"
+                },
+                "name": "pcs"
+            },
+            "externalCode": "ibWbdtWWhXiIwfZVEal6z2"
+        },
+        {
+            "meta": {
+                "href": "https://api.kladana.com/api/remap/1.2/entity/product/be903062-f504-11e5-8a84-bae50000019a?expand=supplier",
+                "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+                "type": "product",
+                "mediaType": "application/json"
+            },
+            "stock": 69,
+            "inTransit": 0,
+            "reserve": 20,
+            "quantity": 49,
+            "name": "Trollolosha",
+            "code": "00001",
+            "price": 50260.86956521739,
+            "salePrice": 123000.0,
+            "uom": {
+                "meta": {
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/uom/c6bc9273-2c83-11e6-8a84-bae5000000a3",
+                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/uom/metadata",
+                    "type": "uom",
+                    "mediaType": "application/json"
+                },
+                "name": "pcs"
+            },
+            "externalCode": "ibWbdtWWhXiIwfZVEal6z2"
+        },
+        {
+            "meta": {
+                "href": "https://api.kladana.com/api/remap/1.2/entity/variant/d1bef0a1-ffe7-11e5-9464-e4de0000001c?expand=product.supplier",
+                "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/variant/metadata",
+                "type": "variant",
+                "mediaType": "application/json"
+            },
+            "stock": -1,
+            "inTransit": 0,
+            "reserve": 0,
+            "quantity": -1,
+            "name": "Comrade (10)",
+            "code": "00214",
+            "article": "Article",
+            "price": 0.0,
+            "salePrice": 346347237000.0,
+            "uom": {
+                "meta": {
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/uom/c6bc9273-2c83-11e6-8a84-bae5000000a3",
+                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/uom/metadata",
+                    "type": "uom",
+                    "mediaType": "application/json"
+                },
+                "name": "pcs"
+            },
+            "folder": {
+                "meta": {
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/productfolder/0c78adde-ffe3-11e5-9464-e4de000000a2",
+                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/productFolder/metadata",
+                    "type": "productfolder",
+                    "mediaType": "application/json"
+                },
+                "name": "Products From custom group",
+                "pathName": "Group"
+            },
+            "image": {
+                "meta": {
+                    "href": "https://api.kladana.com/api/remap/1.2/download/d2bc700a-696c-4082-b807-be8cfff7d7a1",
+                    "mediaType": "application/octet-stream"
+                },
+                "title": "image-product",
+                "filename": "image-product.jpg",
+                "size": 7180,
+                "updated": "2026-08-04 14:08:31.663",
+                "miniature": {
+                    "href": "https://api.kladana.com/api/remap/1.2/download/bd159783-95ee-11e6-8a84-bae500000001?miniature=true",
+                    "mediaType": "application/octet-stream",
+                    "downloadHref": "https://miniature.kladana.com/miniature/79b17fec-2f08-11eb-0a80-052200009a8a/documentminiature/7129822c-2409-417c-977f-31a1e889039a"
+                },
+                "tiny": {
+                    "href": "https://tinyimage-prod.kladana.com/static/tinyimage/79b17fec-2f08-11eb-0a80-052200009a8a/tinyimage/bd14f0b6-95ee-11e6-8a84-bae500000000/t.png",
+                    "mediaType": "application/octet-stream"
+                }
+            },
+            "externalCode": "ibWbdtWWhXiIwfZVEal6z2"
+        }
+    ]
 }
 ```
 ### Brief Stock Report
