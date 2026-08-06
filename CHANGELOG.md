@@ -6,6 +6,7 @@ JSON API 1.2 changes will be added here soon
 #### Added
 - [expenseitem entity permissions](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-employee-employee-permissions) (Expense items)
 - expenseitem permissions in JSON returned in [Custom roles](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-custom-role-get-custom-role)
+- Field `operatingExpenses` for [Expense item](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-expense-item)
 
 #### Changed
 - [Expense items](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-expense-item) entity description: **owner**, **group**, **shared** fields
