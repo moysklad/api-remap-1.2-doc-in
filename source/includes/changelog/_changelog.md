@@ -6,9 +6,25 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 31-07-2026
+#### Added
+- [expenseitem entity permissions](../dictionaries/#entities-employee-employee-permissions) (Expense items)
+- expenseitem permissions in JSON returned in [Custom roles](../dictionaries/#entities-custom-role-get-custom-role)
+- Field `operatingExpenses` for [Expense item](../dictionaries/#entities-expense-item)
+
+#### Changed
+- [Expense items](../dictionaries/#entities-expense-item) entity description: **owner**, **group**, **shared** fields
+
 ### 29-07-2026
 #### Added
-- Field `operatingExpenses` for [Expense item](../dictionaries/#entities-expense-item)
+- Field `parametricMaterials` collection of parametric materials of [BoM](../dictionaries/#entities-bills-of-materials)
+- Field `productionVariant` in [Production Order](../documents/#transactions-production-order)
+- Endpoint for parametric materials of [BoM](../dictionaries/#entities-bills-of-materials-parametric-materials-in-bill-of-materials)
+- Errors [25064-25071](../#kladana-json-api-errors-error-codes-for-bills-of-materials)
+- Error [26116](../#kladana-json-api-errors-error-codes-for-production-orders) when attempting to change the Bill of Materials variant of a production order item
+- Error [26117](../#kladana-json-api-errors-error-codes-for-production-orders) when a product variant is missing for a parametric Bill of Materials in a production order
+- Error [26118](../#kladana-json-api-errors-error-codes-for-production-orders) when a product variant does not belong to the product of the parametric Bill of Materials
+- Error [26119](../#kladana-json-api-errors-error-codes-for-production-orders) when a product variant is specified for a non-parametric Bill of Materials
 
 ### 20-07-2026
 #### Added

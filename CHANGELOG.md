@@ -2,9 +2,25 @@
 
 JSON API 1.2 changes will be added here soon
 
+### 31-07-2026
+#### Added
+- [expenseitem entity permissions](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-employee-employee-permissions) (Expense items)
+- expenseitem permissions in JSON returned in [Custom roles](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-custom-role-get-custom-role)
+- Field `operatingExpenses` for [Expense item](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-expense-item)
+
+#### Changed
+- [Expense items](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-expense-item) entity description: **owner**, **group**, **shared** fields
+
 ### 29-07-2026
 #### Added
-- Field `operatingExpenses` for [Expense item](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-expense-item)
+- Field `parametricMaterials` collection of parametric materials of [BoM](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-bills-of-materials)
+- Field `productionVariant` in [Production Order](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-production-order)
+- Endpoint for parametric materials of [BoM](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-bills-of-materials-parametric-materials-in-bill-of-materials)
+- Errors [25064-25071](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-bills-of-materials)
+- Error [26116](../#kladana-json-api-errors-error-codes-for-production-orders) when attempting to change the Bill of Materials variant of a production order item
+- Error [26117](../#kladana-json-api-errors-error-codes-for-production-orders) when a product variant is missing for a parametric  Bill of Materials in a production order
+- Error [26118](../#kladana-json-api-errors-error-codes-for-production-orders) when a product variant does not belong to the product of the parametric Bill of Materials
+- Error [26119](../#kladana-json-api-errors-error-codes-for-production-orders) when a product variant is specified for a non-parametric Bill of Materials
 
 ### 02-07-2026
 #### Added

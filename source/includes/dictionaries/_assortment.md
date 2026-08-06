@@ -5,6 +5,7 @@
 ### Assortment
 
 The `assortment` entity is the list of all products, services, bundles, product variants, and batches.
+This entity can be contextually searched using the special `search` parameter. [Learn more](../#kladana-json-api-general-info-context-search).
 
 The new assortment endpoint is a lightweight version that performs faster by not calculating stock levels within a single request.
 
@@ -123,6 +124,7 @@ curl --compressed -X GET \
 
 - **`barcode`** — the `!=` operator is not supported. Available operators: `=`, `~`, `~=`, `=~`.
 - **LIKE operator combinations** — incompatible combinations for the same field (e.g., `code~val1;code~val2`). Available combinations `~=`, `=~` (e.g., `code=~val1;code~=val2` or `code~=val1;code=~val2`).
+- **`search`** — is not part of the filter; it is a separate parameter, as with all entities. For more details on how this parameter works, see [here](../#kladana-json-api-general-info-context-search).
 
 ##### Expand limitations
 
@@ -153,7 +155,6 @@ The query results can be filtered using the `filter` parameter.
 | **name** | parameter for filtering by entity names. You can use the `=`, `!=`, `~`, `~=`, `=~` operators. You can pass multiple values. |
 | **pathName** | parameter for filtering by the name of product groups. You can use the `=`, `!=`, `~`, `~=`, `=~` operators. You can pass multiple values. You can specify an empty value. |
 | **productFolder** | parameter for filtering by several product groups. You can use the `=` and `!=` operators. The value of the parameter is a link to a product group that should be included in or excluded from the sample. You can pass multiple values. The selection will include products that are (or are not) directly in the specified groups. |
-| **search** | prefix search in string fields displayed in assortment. For this parameter, you need to use the `=` operator. Barcode search is performed by full match. Only one value can be passed. [Learn more](../dictionaries/#entities-assortment-assortment-attributes-available-for-filtering-available-values-for-search) |
 | **supplier** | option to filter by multiple vendors. You can use the `=` and `!=` operators. The value of the parameter is a link to the counterparty or organization. You can pass an empty value. |
 | **type** | parameter for filtering by entity type (product, service, bundle, variant, consignment). It is used with the `=` operator. You can pass multiple values. To filter by consignment type, you need to use grouping (groupBy=consignment). |
 | **updated** | parameter for filtering by the time of the last update of entities. You can use the `=`, `<`, `<=`, `>`, `>=` operators. Passed as a string in [date-time format](../#kladana-json-api-general-info-date-and-time-format). |
@@ -195,7 +196,13 @@ Filtering examples:
 - `filter=https://api.kladana.com/api/remap/1.2/entity/product/metadata/attributes/b83c12e7-42bf-11ec-0a80-08bb00000161=color`
 - `filter=https://api.kladana.com/api/remap/1.2/entity/product/metadata/attributes/83386e05-51c0-11ec-0a83-0640000001bb>=2021-11-30 12:39:00`
 
+##### Parameter search
 
+For this entity, you can perform a contextual search using the special `search` parameter. For more details, see [here](#/general#3-kontekstnyj-poisk).
+
+Search example:
+
+- `search=div`
 
 **Parameters**
 
