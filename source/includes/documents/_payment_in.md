@@ -45,7 +45,7 @@ Using the JSON API, you can create and update payment information, request lists
 
 | Title| Description|
 | --------|---------- |
-| **operations** | An array of links to related operations in the format [Metadata](../#kladana-json-api-general-info-metadata) |
+| **operations** | Collection of metadata ([Metadata](../#kladana-json-api-general-info-metadata)) for linked operations, with a **linkedSum** field for each linked operation |
 
 Allowed types of linked operations:
 

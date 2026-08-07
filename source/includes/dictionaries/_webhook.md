@@ -54,7 +54,7 @@ An example of how the data will be transmitted:
 | ------- | ------- |--------- |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Changed entity metadata<br>`+Required when replying` |
 | **action** | Enum | The action that triggered the webhook. Possible values: `[CREATE, UPDATE, DELETE, PROCESSED]`<br>`+Required when replying` |
-| **accountId** | UUID | Cashier account ID<br>`+Required when replying` |
+| **accountId** | UUID | Account ID<br>`+Required when replying` |
 | **updatedFields** | Array(String) | Entity fields modified by the user |
 
 To display an entity attribute, the **updatedFields** event needs the webhook to have **diffType=FIELDS** and **action=UPDATE**
@@ -166,7 +166,7 @@ Successful request. The result is a JSON representation of a list of webhooks.
        "id": "aec51463-bbd2-11e6-8a84-bae500000003",
        "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
        "entityType": "demand",
-       "url": "http://www.example.com",
+       "url": "https://www.example.com",
        "method": "POST",
        "enabled": true,
        "action": "CREATE"
@@ -181,7 +181,7 @@ Successful request. The result is a JSON representation of a list of webhooks.
        "id": "d08f9217-bbd2-11e6-8a84-bae500000004",
        "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
        "entityType": "supply",
-       "url": "http://www.example.com",
+       "url": "https://www.example.com",
        "method": "POST",
        "enabled": true,
        "action": "CREATE"
@@ -196,7 +196,7 @@ Successful request. The result is a JSON representation of a list of webhooks.
        "id": "d946c7ff-bbd2-11e6-8a84-bae500000005",
        "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
        "entityType": "cash",
-       "url": "http://www.example.com",
+       "url": "https://www.example.com",
        "method": "POST",
        "enabled": true,
        "action": "UPDATE",
@@ -220,7 +220,7 @@ combination of **entityType**, **action**, **url** must be unique. Just one uniq
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \
        -d '{
-             "url": "http://www.example.com",
+             "url": "https://www.example.com",
              "action": "CREATE",
              "entityType": "supply"
            }'
@@ -240,7 +240,7 @@ Successful request. The result is a JSON representation of the created webhook.
    "id": "d08f9217-bbd2-11e6-8a84-bae500000004",
    "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
    "entityType": "supply",
-   "url": "http://www.example.com",
+   "url": "https://www.example.com",
    "method": "POST",
    "enabled": true,
    "action": "CREATE"
@@ -256,7 +256,7 @@ Successful request. The result is a JSON representation of the created webhook.
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \
        -d '{
-             "url": "http://www.example.com",
+             "url": "https://www.example.com",
              "action": "UPDATE",
              "entityType": "supply",
              "diffType": "FIELDS"
@@ -277,7 +277,7 @@ Successful request. The result is a JSON representation of the created webhook.
    "id": "d08f9217-bbd2-11e6-8a84-bae500000004",
    "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
    "entityType": "supply",
-   "url": "http://www.example.com",
+   "url": "https://www.example.com",
    "method": "POST",
    "enabled": true,
    "action": "UPDATE",
@@ -290,23 +290,17 @@ Successful request. The result is a JSON representation of the created webhook.
 In the body of the request, you need to pass an array containing the JSON representation of the webhooks you want to create or update.
 Updated webhooks must contain the ID as metadata.
 
-**Parameters**
-
-| Parameter | Description |
-| ------- | ------- |
-| **id** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* webhook id. |
-
 > Example of creating and updating multiple webhooks
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/webhook/7944ef04-f831-11e5-7a69-971500188b19" \
+     "https://api.kladana.com/api/remap/1.2/entity/webhook" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \
        -d'[
              {
-               "url": "http://www.example.com",
+               "url": "https://www.example.com",
                "action": "CREATE",
                "entityType": "supply"
              },
@@ -317,7 +311,7 @@ Updated webhooks must contain the ID as metadata.
                  "type": "webhook",
                  "mediaType": "application/json"
                },
-               "url": "http://www.example.com",
+               "url": "https://www.example.com",
                "action": "DELETE"
              }
            ]'
@@ -338,7 +332,7 @@ Successful request. The result is a JSON array of representations of the created
      "id": "d08f9217-bbd2-11e6-8a84-bae500000004",
      "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
      "entityType": "supply",
-     "url": "http://www.example.com",
+     "url": "https://www.example.com",
      "method": "POST",
      "enabled": true,
      "action": "CREATE"
@@ -353,7 +347,7 @@ Successful request. The result is a JSON array of representations of the created
      "id": "aec51463-bbd2-11e6-8a84-bae500000003",
      "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
      "entityType": "demand",
-     "url": "http://www.example.com",
+     "url": "https://www.example.com",
      "method": "POST",
      "enabled": true,
      "action": "DELETE"
@@ -393,7 +387,7 @@ Successful request. The result is a JSON representation of the webhook with the 
    "id": "aec51463-bbd2-11e6-8a84-bae500000003",
    "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
    "entityType": "demand",
-   "url": "http://www.example.com",
+   "url": "https://www.example.com",
    "method": "POST",
    "enabled": true,
    "action": "CREATE"
@@ -418,7 +412,7 @@ An example request to change webhook details.
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \
        -d '{
-             "url": "http://www.example.com",
+             "url": "https://www.example.com",
              "action": "DELETE"
            }'
 ```
@@ -437,7 +431,7 @@ Successful request. The result is a JSON representation of the modified webhook.
    "id": "aec51463-bbd2-11e6-8a84-bae500000003",
    "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
    "entityType": "demand",
-   "url": "http://www.example.com",
+   "url": "https://www.example.com",
    "method": "POST",
    "enabled": true,
    "action": "DELETE"
@@ -480,7 +474,7 @@ Successful request. The result is a JSON representation of the disabled webhook.
    "id": "aec51463-bbd2-11e6-8a84-bae500000003",
    "accountId": "b8b74698-9128-11e6-8a84-bae500000001",
    "entityType": "demand",
-   "url": "http://www.example.com",
+   "url": "https://www.example.com",
    "method": "POST",
    "enabled": false,
    "action": "DELETE"

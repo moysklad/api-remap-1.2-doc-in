@@ -2602,6 +2602,67 @@ Fields that were not specified in the JSON request are not changed.
   "bic": "1005002good"
 }
 ```
+### Delete Counterparty account
+
+**Parameters**
+
+| Parameter     | Description                                                                            |
+|---------------|----------------------------------------------------------------------------------------|
+| **id**        | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* - Counterparty id. |
+| **accountId** | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b18* - Account id.      |
+
+> Request to delete an incident with the specified id.
+
+```shell
+curl --compressed -X DELETE \
+   "https://api.kladana.com/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19/accounts/7944ef04-f831-11e5-7a69-971500188b18" \
+   -H "Authorization: Basic <Credentials>" \
+   -H "Accept-Encoding: gzip"
+```
+
+> Response 200(application/json). Successful deletion of the account.
+
+### Bulk delete legal entity accounts
+
+**Parameters**
+
+| Parameter | Description                                                                            |
+| --------- | -------------------------------------------------------------------------------------- |
+| **id**    | `string` (required) *Example: 7944ef04-f831-11e5-7a69-971500188b19* legal entity ID.   |
+
+In the request body, pass an array containing JSON metadata of the legal entity accounts you want to delete.
+
+> Request to bulk delete legal entity accounts.
+
+```shell
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19/accounts/delete" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
+  -d '[
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19/accounts/7944ef04-f831-11e5-7a69-971500188b18",
+            "type": "account",
+            "mediaType": "application/json"
+          }
+        },
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19/accounts/7944ef04-f831-11e5-7a69-971500188b17",
+            "type": "account",
+            "mediaType": "application/json"
+          }
+        }
+      ]'
+```
+
+
+
+> Response 200 (application/json)
+Successful deletion of legal entity accounts.
+
 
 ### Counterparty Contact persons
 

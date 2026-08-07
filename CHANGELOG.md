@@ -2,9 +2,65 @@
 
 JSON API 1.2 changes will be added here soon
 
-### 02-06-2026
+### 31-07-2026
 #### Added
+- [expenseitem entity permissions](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-employee-employee-permissions) (Expense items)
+- expenseitem permissions in JSON returned in [Custom roles](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-custom-role-get-custom-role)
 - Field `operatingExpenses` for [Expense item](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-expense-item)
+
+#### Changed
+- [Expense items](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-expense-item) entity description: **owner**, **group**, **shared** fields
+
+### 29-07-2026
+#### Added
+- Field `parametricMaterials` collection of parametric materials of [BoM](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-bills-of-materials)
+- Field `productionVariant` in [Production Order](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-production-order)
+- Endpoint for parametric materials of [BoM](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-bills-of-materials-parametric-materials-in-bill-of-materials)
+- Errors [25064-25071](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-bills-of-materials)
+- Error [26116](../#kladana-json-api-errors-error-codes-for-production-orders) when attempting to change the Bill of Materials variant of a production order item
+- Error [26117](../#kladana-json-api-errors-error-codes-for-production-orders) when a product variant is missing for a parametric  Bill of Materials in a production order
+- Error [26118](../#kladana-json-api-errors-error-codes-for-production-orders) when a product variant does not belong to the product of the parametric Bill of Materials
+- Error [26119](../#kladana-json-api-errors-error-codes-for-production-orders) when a product variant is specified for a non-parametric Bill of Materials
+
+### 02-07-2026
+#### Added
+- Field `images` in [Content Cards](../dictionaries/#entities-content-card)
+
+#### Changed
+- Message for error [51004](../#kladana-json-api-errors-error-codes-for-images)
+- Message and description for error [51006](../#kladana-json-api-errors-error-codes-for-images)
+
+### 26-06-2026
+#### Added
+- The `article` field has been added to the  [Product variant](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-product-variant-product-variants) to support variant-specific article numbers.
+- Added the `article` field for product variants in the [Assortment](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-assortment) entity to support variant article numbers.
+
+### 19-06-2026
+#### Added
+- New [Payroll](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-payroll) section
+
+### 10-06-2026
+#### Added
+- Error [67007](../#kladana-json-api-errors-error-codes-for-warehouses) when the limit on the number of warehouses on an account has been violated
+
+### 08-06-2026
+#### Added
+- Methods for creating, updating, and deleting, as well as bulk creating, updating, and deleting [Content Cards](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-content-card)
+- Error [75000](../#kladana-json-api-errors-error-codes-for-content-cards) You cannot specify an archived sales channel in the [Content Card](../dictionaries/#entities-content-card)
+- Error [75001](../#kladana-json-api-errors-error-codes-for-content-cards) A maximum of 100 [Content Cards](../dictionaries/#entities-content-card) can be created for a single product
+
+#### Changed
+- Updated the descriptions of the `assortment`, `cardContentName`, `description`, `name`, `salePlatform`, and `salesChannels` fields in [Content Cards](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-content-card)
+
+### 04-06-2026
+#### Added
+- Field consignor (Consignor) in [Shipment](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-shipment)
+- Field shippingDocumentNumber (Shipping document №) in [Shipment](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-shipment)
+- Field shippingDocumentDate (Date of shipping document) in [Shipment](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-shipment)
+
+### 22-05-2026
+#### Removed
+- Fields `owner`, `group`, and `shared` were removed from [Content Cards](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-content-card)
 
 ### 20-05-2026
 #### Added
