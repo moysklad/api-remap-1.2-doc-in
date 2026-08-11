@@ -6,6 +6,10 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 11-08-2026
+#### Added
+- Filtering by fields `accountId`, `applicable`, `created`, `description`, `externalCode`, `group`, `id`, `moment`, `name`, `owner`, `shared`, `sum`, `updated` in [Payroll](../documents/#transactions-payroll)
+
 ### 31-07-2026
 #### Added
 - [expenseitem entity permissions](../dictionaries/#entities-employee-employee-permissions) (Expense items)
