@@ -2,6 +2,10 @@
 
 JSON API 1.2 changes will be added here soon
 
+### 11-08-2026
+#### Added
+- Filtering by fields `accountId`, `applicable`, `created`, `description`, `externalCode`, `group`, `id`, `moment`, `name`, `owner`, `shared`, `sum`, `updated` in [Payroll](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-payroll)
+
 ### 31-07-2026
 #### Added
 - [expenseitem entity permissions](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-employee-employee-permissions) (Expense items)
