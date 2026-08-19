@@ -19,6 +19,7 @@ The search among the objects of the Items of expenditure for matching the search
 | **id** | UUID                                               | `=` `!=` | Expense item ID<br>`+Required when replying` `+Read Only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Expense Item Metadata<br>`+Required when replying` |
 | **name** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Name Item of expenses<br>`+Required when replying` `+Required when creating` |
+| **operatingExpenses** | Boolean                                        | `=` `!=` | Flag for including/excluding in profit calculation. Default value `true`.<br>`+Required when replying` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` `+For custom expense items` |
 | **shared** | Boolean                                           | `=` `!=` | Shared access<br>`+Required when replying` `+For custom expense items` |
 | **operatingExpenses** | Boolean                                        | `=` `!=` | Flag for including/excluding in profit calculation. Default value `true`.<br>`+Required when replying` |
