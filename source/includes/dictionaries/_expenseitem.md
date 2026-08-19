@@ -22,7 +22,6 @@ The search among the objects of the Items of expenditure for matching the search
 | **operatingExpenses** | Boolean                                        | `=` `!=` | Flag for including/excluding in profit calculation. Default value `true`.<br>`+Required when replying` |
 | **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br>`+Expand` `+For custom expense items` |
 | **shared** | Boolean                                           | `=` `!=` | Shared access<br>`+Required when replying` `+For custom expense items` |
-| **operatingExpenses** | Boolean                                        | `=` `!=` | Flag for including/excluding in profit calculation. Default value `true`.<br>`+Required when replying` |
 | **updated** | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | When the entity was last updated<br>`+Required when replying` `+Read-only` |
 
 ### Get Expense Items
