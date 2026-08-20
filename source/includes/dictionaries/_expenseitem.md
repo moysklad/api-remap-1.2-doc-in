@@ -108,6 +108,7 @@ Successful request. The result is a JSON representation of the list of Expense I
        "updated": "2015-05-27 17:03:10",
        "name": "Taxes and Fees",
        "description": "Expenses on taxes and fees are accounted for as a separate item, not included in operating expenses",
+       "operatingExpenses": true,
        "code": "2",
        "externalCode": "2"
      },
@@ -122,6 +123,7 @@ Successful request. The result is a JSON representation of the list of Expense I
        "updated": "2015-05-27 17:03:24",
        "name": "Write-offs",
        "description": "Write-offs",
+       "operatingExpenses": true,
        "code": "4",
        "externalCode": "4"
      },
@@ -136,6 +138,7 @@ Successful request. The result is a JSON representation of the list of Expense I
        "updated": "2016-06-09 18:40:35",
        "name": "Move",
        "description": "Money transfers between cash registers are not included in the Profit and Loss report.",
+       "operatingExpenses": false,
        "code": "5",
        "externalCode": "5"
      },
@@ -151,6 +154,7 @@ Successful request. The result is a JSON representation of the list of Expense I
        "updated": "2016-06-09 18:43:58",
        "name": "Rent",
        "description": "Rent",
+       "operatingExpenses": true,
        "code": "Rent",
        "externalCode": "IVslr34uhCUuglxPD7Idm0"
      },
@@ -166,6 +170,7 @@ Successful request. The result is a JSON representation of the list of Expense I
        "updated": "2016-06-09 18:43:58",
        "name": "Salary",
        "description": "Salary",
+       "operatingExpenses": true,
        "code": "Salary",
        "externalCode": "RY7G3TULiTyjqYRrzr3V03"
      },
@@ -181,6 +186,7 @@ Successful request. The result is a JSON representation of the list of Expense I
        "updated": "2016-06-09 18:43:58",
        "name": "Marketing and advertising",
        "description": "Marketing and advertising",
+       "operatingExpenses": true,
        "code": "Marketing and advertising",
        "externalCode": "1PMtKJq-jjVJQbu5OWqBG1"
      }
