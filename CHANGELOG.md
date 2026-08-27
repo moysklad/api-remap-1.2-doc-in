@@ -1,6 +1,6 @@
 # JSON API 1.2 Changelog
 
-JSON API 1.2 changes will be added here soon
+JSON API 1.2 changes will be added here soon 
 
 ### 11-08-2026
 #### Added
