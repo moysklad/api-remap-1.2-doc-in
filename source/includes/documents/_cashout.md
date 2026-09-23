@@ -5,40 +5,41 @@ Using the JSON API, you can create and update information about an Outgoing Cash
 
 #### Entity attributes
 
-| Title | Type                                              | Filtration | Description                                                                                                                   |
-| ------- |---------------------------------------------------| ----|-------------------------------------------------------------------------------------------------------------------------------|
-| **accountId** | UUID                                              | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only`                                                                          |
-| **agent** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty metadata<br>`+Required when replying` `+Expand` `+Required when creating`                                        |
-| **applicable** | Boolean                                           | `=` `!=` | Check mark<br>`+Required when replying`                                                                                      |
-| **attributes** | Array(Object)                                     | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)                   |
-| **code** | String(255)                                       | `=` `!=` `~` `~=` `=~` | Outgoing Cash Payment Code                                                                                                    |
-| **contract** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Contract metadata<br>`+Expand`                                                                                                |
-| **created** | DateTime                                          | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only`                                                                       |
-| **deleted** | DateTime                                          | `=` `!=` `<` `>` `<=` `>=` | Time of the last deletion of the Disbursement Note<br>`+Read Only`                                                            |
-| **description** | String(4096)                                      | `=` `!=` `~` `~=` `=~` | Disbursement note commentary                                                                                                  |
-| **expenseItem** | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata Line Items<br>`+Required when replying` `+Expand` `+Required when creating`                                          |
-| **externalCode** | String(255)                                       | `=` `!=` `~` `~=` `=~` | Outgoing Cash Payment External Code<br>`+Required when replying`                                                              |
-| **files** | MetaArray                                         | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand` |
-| **group** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`| Employee's department<br>`+Required when replying` `+Expand`  |
-| **noClosingDocs**   | Boolean                                           |  | Sign "No closing documents". You cannot simultaneously pass **noClosingDocs = true** and a non-empty **operations**<br>`+Required when replying` |
-| **id** | UUID                                              | `=` `!=` | Disbursement Note ID<br>`+Required when replying` `+Read Only`                                                                |
-| **meta** | [Meta](../#kladana-json-api-general-info-metadata) | | Disbursement note metadata<br>`+Required when replying`                                                                       |
-| **moment** | DateTime                                          | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying`                                                                                    |
-| **name** | String(255)                                       | `=` `!=` `~` `~=` `=~` | Name of the Outgoing Order<br>`+Required when replying`                                                                       |
-| **organization** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating`                                        |
-| **owner** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br> `+Expand`                                                                       |
-| **paymentPurpose** | String(255)                                       | `=` `!=` `~` `~=` `=~` | Reason<br>`+Required when replying`                                                                                          |
-| **printed** | Boolean                                           | `=` `!=` | Is the document printed<br>`+Required when replying` `+Read Only`                                                           |
-| **project** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand`                                                                                                 |
-| **published** | Boolean                                           | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only`                                                           |
-| **rate** | object                                            | | Currency. [Learn more](../documents/#transactions-currency-in-transactions)<br>`+Required when replying`               |
-| **salesChannel** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales channel metadata<br>`+Expand`                                                                                           |
-| **shared** | Boolean                                           | `=` `!=`| Sharing<br>`+Required when replying`                                                                                          |
-| **state** | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Expenditure note status metadata<br>`+Expand`                                                                                 |
-| **sum** | Float                                             | `=` `!=` `<` `>` `<=` `>=` | Amount of the Outgoing Cash Payment in the specified currency<br>`+Required when replying` |
-| **syncId** | UUID                                              | `=` `!=` | Synchronization ID. After filling it is not available for change                                                              |
-| **updated** | DateTime                                          | `=` `!=` `<` `>` `<=` `>=` | Time when the Disbursement Note was last updated<br>`+Required when replying` `+Read Only`                                    |
-| **vatSum** | Float                                             | | VAT amount<br>`+Required when replying`                                                                                      |
+| Title              | Type                                               | Filtration | Description                                                                                                                                      |
+|--------------------|----------------------------------------------------| ----|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| **accountId**      | UUID                                               | `=` `!=` | Account ID<br>`+Required when replying` `+Read Only`                                                                                             |
+| **agent**          | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Counterparty metadata<br>`+Required when replying` `+Expand` `+Required when creating`                                                           |
+| **applicable**     | Boolean                                            | `=` `!=` | Check mark<br>`+Required when replying`                                                                                                          |
+| **attributes**     | Array(Object)                                      | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)                                      |
+| **code**           | String(255)                                        | `=` `!=` `~` `~=` `=~` | Outgoing Cash Payment Code                                                                                                                       |
+| **contract**       | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Contract metadata<br>`+Expand`                                                                                                                   |
+| **created**        | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation date<br>`+Required when replying` `+Read only`                                                                                          |
+| **deleted**        | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Time of the last deletion of the Disbursement Note<br>`+Read Only`                                                                               |
+| **description**    | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Disbursement note commentary                                                                                                                     |
+| **expenseItem**    | [Meta](../#kladana-json-api-general-info-metadata) | | Metadata Line Items<br>`+Required when replying` `+Expand` `+Required when creating`                                                             |
+| **externalCode**   | String(255)                                        | `=` `!=` `~` `~=` `=~` | Outgoing Cash Payment External Code<br>`+Required when replying`                                                                                 |
+| **files**          | MetaArray                                          | | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand`                   |
+| **group**          | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`| Employee's department<br>`+Required when replying` `+Expand`                                                                                     |
+| **noClosingDocs**  | Boolean                                            |  | Sign "No closing documents". You cannot simultaneously pass **noClosingDocs = true** and a non-empty **operations**<br>`+Required when replying` |
+| **id**             | UUID                                               | `=` `!=` | Disbursement Note ID<br>`+Required when replying` `+Read Only`                                                                                   |
+| **meta**           | [Meta](../#kladana-json-api-general-info-metadata) | | Disbursement note metadata<br>`+Required when replying`                                                                                          |
+| **moment**         | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Document date<br>`+Required when replying`                                                                                                       |
+| **name**           | String(255)                                        | `=` `!=` `~` `~=` `=~` | Name of the Outgoing Order<br>`+Required when replying`                                                                                          |
+| **organization**   | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Legal entity metadata<br>`+Required when replying` `+Expand` `+Required when creating`                                                           |
+| **owner**          | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Owner (Employee)<br> `+Expand`                                                                                                                   |
+| **paymentPurpose** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Reason<br>`+Required when replying`                                                                                                              |
+| **printed**        | Boolean                                            | `=` `!=` | Is the document printed<br>`+Required when replying` `+Read Only`                                                                                |
+| **project**        | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Project metadata<br>`+Expand`                                                                                                                    |
+| **published**      | Boolean                                            | `=` `!=` | Is the document published<br>`+Required when replying` `+Read Only`                                                                              |
+| **rate**           | object                                             | | Currency. [Learn more](../documents/#transactions-currency-in-transactions)<br>`+Required when replying`                                         |
+| **salesChannel**   | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Sales channel metadata<br>`+Expand`                                                                                                              |
+| **shared**         | Boolean                                            | `=` `!=`| Sharing<br>`+Required when replying`                                                                                                             |
+| **state**          | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=` | Expenditure note status metadata<br>`+Expand`                                                                                                    |
+| **sum**            | Float                                              | `=` `!=` `<` `>` `<=` `>=` | Amount of the Outgoing Cash Payment in the specified currency<br>`+Required when replying`                                                       |
+| **syncId**         | UUID                                               | `=` `!=` | Synchronization ID. After filling it is not available for change                                                                                 |
+| **updated**        | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Time when the Disbursement Note was last updated<br>`+Required when replying` `+Read Only`                                                       |
+| **vatSum**         | Float                                              | | VAT amount<br>`+Required when replying`                                                                                                          |
+| **accrualDate**    | DateTime                                           | | Accrual date                                                                                                                                     |
 
 
 #### Links to other documents
@@ -54,6 +55,7 @@ Allowed types of linked operations:
 + Receiving (supply)
 + Supplier invoice (invoicein)
 + Order to the supplier (purchaseorder)
++ Payroll (payroll)
 
 About working with fields of the Outgoing Orders can be read [here](../#kladana-json-api-general-info-additional-fields)
 
@@ -202,6 +204,7 @@ Successful request. The result is a JSON representation of a list of Outgoing Ca
          }
        ],
        "paymentPurpose": "Pay for another acceptance",
+       "accrualDate": "2026-09-23 00:29:14.514",
        "expenseItem": {
          "meta": {
            "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
@@ -310,6 +313,7 @@ Successful request. The result is a JSON representation of a list of Outgoing Ca
          }
        ],
        "paymentPurpose": "Pay for another acceptance",
+       "accrualDate": "2026-09-23 00:29:14.514",
        "expenseItem": {
          "meta": {
            "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
@@ -430,6 +434,7 @@ Successful request. The result is a JSON representation of a list of Outgoing Ca
          }
        ],
        "paymentPurpose": "Acceptance payment",
+       "accrualDate": "2026-09-23 00:29:14.514",
        "expenseItem": {
          "meta": {
            "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/82031d62-2e58-11e6-ab5c-d8cb8a84bae5",
@@ -479,6 +484,7 @@ Mandatory fields to create:
                     "mediaType": "application/json"
                 }
             },
+            "accrualDate": "2026-09-23 00:29:14.514",
             "expenseItem": {
                 "meta": {
                     "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
@@ -551,6 +557,7 @@ Successful request. The result is a JSON representation of the created Outgoing 
        "mediaType": "application/json"
      }
    },
+  "accrualDate": "2026-09-23 00:29:14.514",
    "expenseItem": {
      "meta": {
        "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
@@ -595,6 +602,7 @@ Updatable Outgoing Cash Payments must contain the identifier in the form of meta
                    "mediaType": "application/json"
                  }
                },
+               "accrualDate": "2026-09-23 00:29:14.514",
                "expenseItem": {
                  "meta": {
                    "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
@@ -620,6 +628,7 @@ Updatable Outgoing Cash Payments must contain the identifier in the form of meta
                "applicable": true,
                "sum": 25190,
                "paymentPurpose": "Paying a new order to the supplier",
+               "accrualDate": "2026-09-23 00:29:14.514",
                "expenseItem": {
                  "meta": {
                    "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be23a18-0479-11e5-a260-448a5b426e7e",
@@ -720,6 +729,7 @@ Successful request. The result is a JSON array of representations of the created
          "mediaType": "application/json"
        }
      },
+     "accrualDate": "2026-09-23 00:29:14.514",
      "expenseItem": {
        "meta": {
          "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
@@ -828,6 +838,7 @@ Successful request. The result is a JSON array of representations of the created
        }
      ],
      "paymentPurpose": "Paying a new order to the supplier",
+     "accrualDate": "2026-09-23 00:29:14.514",
      "expenseItem": {
        "meta": {
          "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be23a18-0479-11e5-a260-448a5b426e7e",
@@ -1082,6 +1093,7 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
        "mediaType": "application/json"
      }
    },
+  "accrualDate": "2026-09-23 00:29:14.514",
    "expenseItem": {
      "meta": {
        "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
@@ -1167,6 +1179,7 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
        "linkedSum": 0
      }
    ],
+  "accrualDate": "2026-09-23 00:29:14.514",
    "expenseItem": {
      "meta": {
        "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
@@ -1248,6 +1261,7 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
        "linkedSum": 0
      }
    ],
+  "accrualDate": "2026-09-23 00:29:14.514",
    "expenseItem": {
      "meta": {
        "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2395a-0479-11e5-baee-448a5b426e7e",
@@ -1329,6 +1343,7 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
        "linkedSum": 0
      }
    ],
+  "accrualDate": "2026-09-23 00:29:14.514",
    "expenseItem": {
      "meta": {
        "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
@@ -1410,6 +1425,7 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
        "linkedSum": 0
      }
    ],
+  "accrualDate": "2026-09-23 00:29:14.514",
    "expenseItem": {
      "meta": {
        "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
@@ -1525,6 +1541,7 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
        "linkedSum": 10200850
      }
    ],
+  "accrualDate": "2026-09-23 00:29:14.514",
    "expenseItem": {
      "meta": {
        "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
@@ -1659,6 +1676,7 @@ Successful request. The result is a JSON representation of the Outgoing Cash Pay
      }
    ],
    "paymentPurpose": "Acceptance payment",
+  "accrualDate": "2026-09-23 00:29:14.514",
    "expenseItem": {
      "meta": {
        "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/82031d62-2e58-11e6-ab5c-d8cb8a84bae5",
@@ -1717,6 +1735,7 @@ Also, for each document, you can specify the amount paid for this document from 
              "applicable": true,
              "sum": 25190,
              "paymentPurpose": "Paying a new order to the supplier",
+             "accrualDate": "2026-09-23 00:29:14.514",
              "expenseItem": {
                "meta": {
                  "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be23a18-0479-11e5-a260-448a5b426e7e",
@@ -1857,6 +1876,7 @@ Successful request. The result is a JSON representation of the updated Outgoing 
      }
    ],
    "paymentPurpose": "Paying a new order to the supplier",
+   "accrualDate": "2026-09-23 00:29:14.514",
    "expenseItem": {
      "meta": {
        "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be23a18-0479-11e5-a260-448a5b426e7e",

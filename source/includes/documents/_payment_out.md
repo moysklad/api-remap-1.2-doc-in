@@ -41,6 +41,7 @@ Using the JSON API, you can create and update information about an Outgoing paym
 | **syncId** | UUID                                              | `=` `!=` | Synchronization ID. After filling it is not available for change                                                                          |
 | **updated** | DateTime                                          | `=` `!=` `<` `>` `<=` `>=` | Moment of the last update of the Outgoing payment<br>`+Required when replying` `+Read only`                                               |
 | **vatSum** | Float                                             | | VAT amount<br>`+Required when replying`                                                                                                  |
+| **accrualDate**    | DateTime                                           | | Accrual date                                                                                                                                     |
 
 #### Links to other transactions
 
@@ -215,6 +216,7 @@ Successful request. The result is a JSON representation of the Outgoing Payments
          }
        ],
        "paymentPurpose": "Payment by Invoice for Acceptance",
+       "accrualDate": "2026-09-23 00:29:14.514",
        "expenseItem": {
          "meta": {
            "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
@@ -311,6 +313,7 @@ Successful request. The result is a JSON representation of the Outgoing Payments
            "value": false
          }
        ],
+       "accrualDate": "2026-09-23 00:29:14.514",
        "expenseItem": {
          "meta": {
            "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
@@ -407,6 +410,7 @@ Successful request. The result is a JSON representation of the Outgoing Payments
          }
        },
        "paymentPurpose": "Payment for a laptop on account No. 340 dated June 19, 2015 Without VAT",
+       "accrualDate": "2026-09-23 00:29:14.514",
        "expenseItem": {
          "meta": {
            "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
@@ -456,6 +460,7 @@ Mandatory fields to create:
                  "mediaType": "application/json"
                }
              },
+             "accrualDate": "2026-09-23 00:29:14.514",
              "expenseItem": {
                "meta": {
                  "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
@@ -544,6 +549,7 @@ Successful request. The result is a JSON representation of the generated outgoin
        "mediaType": "application/json"
      }
    },
+  "accrualDate": "2026-09-23 00:29:14.514",
    "expenseItem": {
      "meta": {
        "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
@@ -588,6 +594,7 @@ Updated Outgoing payments must contain the identifier in the form of metadata.
                    "mediaType": "application/json"
                  }
                },
+               "accrualDate": "2026-09-23 00:29:14.514",
                "expenseItem": {
                  "meta": {
                    "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
@@ -693,6 +700,7 @@ Successful request. The result is a JSON array of representations of the created
          "mediaType": "application/json"
        }
      },
+     "accrualDate": "2026-09-23 00:29:14.514",
      "expenseItem": {
        "meta": {
          "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
@@ -779,6 +787,7 @@ Successful request. The result is a JSON array of representations of the created
          "mediaType": "application/json"
        }
      },
+     "accrualDate": "2026-09-23 00:29:14.514",
      "expenseItem": {
        "meta": {
          "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
@@ -995,6 +1004,7 @@ Successful request. The result is a JSON representation of the prefilled outgoin
        "mediaType": "application/json"
      }
    },
+  "accrualDate": "2026-09-23 00:29:14.514",
    "expenseItem": {
      "meta": {
        "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
@@ -1087,6 +1097,7 @@ Successful request. The result is a JSON representation of the prefilled outgoin
        "linkedSum": 0
      }
    ],
+  "accrualDate": "2026-09-23 00:29:14.514",
    "expenseItem": {
      "meta": {
        "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
@@ -1175,6 +1186,7 @@ Successful request. The result is a JSON representation of the prefilled outgoin
        "linkedSum": 0
      }
    ],
+  "accrualDate": "2026-09-23 00:29:14.514",
    "expenseItem": {
      "meta": {
        "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2395a-0479-11e5-baee-448a5b426e7e",
@@ -1263,6 +1275,7 @@ Successful request. The result is a JSON representation of the prefilled outgoin
        "linkedSum": 0
      }
    ],
+  "accrualDate": "2026-09-23 00:29:14.514",
    "expenseItem": {
      "meta": {
        "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
@@ -1350,6 +1363,7 @@ Successful request. The result is a JSON representation of the prefilled outgoin
        "linkedSum": 0
      }
    ],
+  "accrualDate": "2026-09-23 00:29:14.514",
    "expenseItem": {
      "meta": {
        "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
@@ -1482,6 +1496,7 @@ Successful request. The result is a JSON representation of the Outgoing payment.
      }
    ],
    "paymentPurpose": "Payment by Invoice for Acceptance",
+   "accrualDate": "2026-09-23 00:29:14.514",
    "expenseItem": {
      "meta": {
        "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
@@ -1624,6 +1639,7 @@ Successful request. The result is a JSON representation of the updated Outgoing 
        "mediaType": "application/json"
      }
    },
+   "accrualDate": "2026-09-23 00:29:14.514",
    "expenseItem": {
      "meta": {
        "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
