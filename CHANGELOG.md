@@ -2,6 +2,10 @@
 
 JSON API 1.2 changes will be added here soon
 
+### 99-99-9999
+#### Added
+- Field `archived` for [Expense item](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-expense-item)
+
 ### 11-08-2026
 #### Added
 - Filtering by fields `accountId`, `applicable`, `created`, `description`, `externalCode`, `group`, `id`, `moment`, `name`, `owner`, `shared`, `sum`, `updated` in [Payroll](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-payroll)

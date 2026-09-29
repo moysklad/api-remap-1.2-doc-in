@@ -6,6 +6,10 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 99-99-9999
+#### Added
+- Field `archived` for [Expense item](../dictionaries/#entities-expense-item)
+
 ### 11-08-2026
 #### Added
 - Filtering by fields `accountId`, `applicable`, `created`, `description`, `externalCode`, `group`, `id`, `moment`, `name`, `owner`, `shared`, `sum`, `updated` in [Payroll](../documents/#transactions-payroll)
