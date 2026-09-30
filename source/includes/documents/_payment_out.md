@@ -55,6 +55,7 @@ Allowed types of linked operations:
 + Receiving (supply)
 + Supplier invoice (invoicein)
 + Order to the supplier (purchaseorder)
++ Payroll (payroll)
 
 Learn more about Outgoing payment fields [here](../#kladana-json-api-general-info-additional-fields).
 
