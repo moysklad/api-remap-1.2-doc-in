@@ -97,7 +97,7 @@ If you do not specify a link to a Bill of Materials item when adding a parametri
 
 #### Products of Bills of Materials
 
-Products of Bills of Materials are a list of products/ product variants obtained during production.
+Products of Bills of Materials are a list of products, product variants or services obtained during production.
 Product Object of a Bill of Materials contains the following fields:
 
 | Title          | Type                                               | Description                                                                                                                                                                              |

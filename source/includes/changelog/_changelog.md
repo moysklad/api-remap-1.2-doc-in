@@ -6,6 +6,10 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 01-10-2026
+#### Changed
+- Services can be specified in product items of [Bills of Materials](../dictionaries/#entities-bills-of-materials), [Production Operations](../documents/#transactions-production-order-production-operations), [Production Orders](../documents/#transactions-production-order), and [Operation Reports](../documents/#transactions-operation-report)
+ 
 ### 11-08-2026
 #### Added
 - Filtering by fields `accountId`, `applicable`, `created`, `description`, `externalCode`, `group`, `id`, `moment`, `name`, `owner`, `shared`, `sum`, `updated` in [Payroll](../documents/#transactions-payroll)

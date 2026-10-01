@@ -1184,16 +1184,16 @@ The material object of Operation Report contains the following fields:
 | **things** | Array(String) | Serial numbers. The value of this attribute is ignored if the product of the position is not accounted for by serial numbers. Otherwise, the number of products in the position will be equal to the number of serial numbers passed in the attribute value |
 
 #### Products of Operation Report
-Products of Operation Report are products, product variants, and batches created during the execution of the Production operation.
+Products of Operation Report are products, product variants, batches and services created during the execution of the Production operation.
 
 The product object of Operation Report contains the following fields:
 
 | Name | Type | Description |
 | -------------------- |:-----------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **accountId** | UUID | Account ID<br>`+Required when replying` `+Read-only` |
-| **assortment** | [Meta](../#kladana-json-api-general-info-metadata)| Metadata of the product/product variant/batches that the item represents<br>`+Required when replying` `+Expand` |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata)| Metadata of the product/product variant/batch/service that the item represents<br>`+Required when replying` `+Expand` |
 | **id** | UUID | Item ID<br>`+Required when replying` `+Read-only` |
-| **producedQuantity** | Float | Quantity of products/product variants of this type in the item. If the item is a product that has serial numbers enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document<br>`+Required when replying` |
+| **producedQuantity** | Float | Quantity of products/product variants/services of this type in the item. If the item is a product that has serial numbers enabled, then the value in this field will always be equal to the number of serial numbers for this item in the document<br>`+Required when replying` |
 | **things** | Array(String) | Serial numbers. The value of this attribute it is ignored if the item is not accounted for by serial numbers. Otherwise, the number of items in the item will be equal to the number of serial numbers passed in the attribute value |
 
 ### Operation Report Raw Materials
