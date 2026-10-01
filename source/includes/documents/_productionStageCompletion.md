@@ -1184,7 +1184,7 @@ The material object of Operation Report contains the following fields:
 | **things** | Array(String) | Serial numbers. The value of this attribute is ignored if the product of the position is not accounted for by serial numbers. Otherwise, the number of products in the position will be equal to the number of serial numbers passed in the attribute value |
 
 #### Products of Operation Report
-Products of Operation Report are products, product variants, batches, and services created during the execution of the Production operation.
+Products of Operation Report are products, product variants, batches and services created during the execution of the Production operation.
 
 The product object of Operation Report contains the following fields:
 
