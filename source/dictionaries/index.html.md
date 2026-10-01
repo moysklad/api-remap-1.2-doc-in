@@ -32,6 +32,7 @@ includes:
   - dictionaries/organization
   - dictionaries/expenseitem
   - dictionaries/files
+  - dictionaries/handling_unit
   - dictionaries/images
   - dictionaries/tracking_code
   - dictionaries/pricetypes
