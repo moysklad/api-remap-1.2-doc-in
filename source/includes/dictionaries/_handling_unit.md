@@ -836,7 +836,7 @@ Successful request. The result is a JSON representation of the Handling unit ite
 Request to create a new item in the Handling unit. For successful creation, the following fields must be specified in the request body:
 
 + **assortment** - Link to the product/batches/product variant/set that the item represents.
-  Learn more about the field in the description of [Handling unit items](#/dictionaries/#entities-assortment-deprecated).
+  Learn more about the field in the description of [Handling unit items](../dictionaries/#entities-handling-unit-handling-unit-items).
 + **quantity** - Quantity of the specified item. It must be positive, otherwise an error occurs. You can create one or more Handling unit items at the same time. All items created by the request will be added to the existing ones.
 
 **Parameters**
