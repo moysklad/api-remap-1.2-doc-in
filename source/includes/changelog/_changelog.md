@@ -8,7 +8,7 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 
 ### 02-10-2026
 #### Added
-- An endpoint for working with [Assortment alternatives](../#entities-assortment-alternatives).
+- An endpoint for working with [Assortment alternatives](../dictionaries/#entities-assortment-alternatives).
 
 ### 11-08-2026
 #### Added
