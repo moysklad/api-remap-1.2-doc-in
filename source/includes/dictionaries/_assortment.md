@@ -1559,3 +1559,137 @@ Successful request. The result is a JSON representation of the product directory
   "createdShared": false
 }
 ```
+
+### Alternatives
+
+The JSON API allows you to retrieve alternatives for Products, Services, Bundles, and Product variants.
+
+Each response item contains an Assortment item and a list of its alternatives. The relationship between alternatives is bidirectional: if item A is an alternative to item B, item B is also an alternative to item A.
+
+Without a filter, only Assortment items that have alternatives are returned.
+
+#### Object attributes
+
+| Title            | Type                         | Filtration | Description |
+| ---------------- | :--------------------------- | :--------- | :---------- |
+| **assortment**   | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`   | Assortment metadata.<br>`+Expand` `+Required when answering` |
+| **alternatives** | Array(Object)                |            | A list of alternatives for the Assortment item.<br>`+Required when answering` |
+
+Each item in the **alternatives** array contains the following attributes:
+
+| Title          | Type                         | Description |
+| -------------- | :--------------------------- | :---------- |
+| **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Assortment item specified as an alternative.<br>`+Expand` `+Required when answering` |
+
+#### Filtering Assortment with alternatives
+
+| Title          | Description |
+| -------------- | :---------- |
+| **assortment** | A link to an Assortment item. Multiple values can be specified. |
+
+Filtering behavior:
+
+- Using `assortment=` returns the specified items, including items without alternatives. For an item without alternatives, the **alternatives** array is empty.
+- Using `assortment!=` excludes the specified items from the result. Only items that have alternatives are returned.
+- The filter applies to the items in **rows** and does not restrict the contents of their **alternatives** arrays. An item excluded from the result may still appear as an alternative to another item.
+
+#### Get Assortment with alternatives
+
+A request to retrieve Assortment with alternatives. The result is a JSON object containing the following fields:
+
+| Title       | Type                         | Description |
+| ----------- | :--------------------------- | :---------- |
+| **meta**    | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the result set. |
+| **context** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata about the employee who made the request. |
+| **rows**    | Array(Object)                | An array of JSON objects representing Assortment with alternatives. |
+
+**Parameters**
+
+| Parameter  | Description |
+| ---------- | :---------- |
+| **limit**  | `number` (optional) **Default: 1000** *Example: 100* The maximum number of Assortment items in the response. Allowed values: `1–1000`. |
+| **offset** | `number` (optional) **Default: 0** *Example: 40* The offset in the list of Assortment items. |
+
+Pagination applies to the items in `rows`. The complete `alternatives` list is returned for each item.
+
+Allowed values for the `expand` parameter: `assortment`, `alternatives.assortment`.
+
+> Get alternatives
+
+```shell
+curl --compressed -X GET \
+  "https://api.kladana.com/api/remap/1.2/entity/assortment/alternatives" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip"
+```
+
+> Response 200 (application/json). Successful request. The result is a JSON representation of Assortment items with their lists of alternatives.
+
+```json
+{
+  "context": {
+    "employee": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/context/employee",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+        "type": "employee",
+        "mediaType": "application/json"
+      }
+    }
+  },
+  "meta": {
+    "href": "https://api.kladana.com/api/remap/1.2/entity/assortment/alternatives",
+    "type": "assortmentalternatives",
+    "mediaType": "application/json",
+    "size": 2,
+    "limit": 1000,
+    "offset": 0
+  },
+  "rows": [
+    {
+      "assortment": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/product/35427052-36e7-11e7-8a7f-40d0000000d7",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+          "type": "product",
+          "mediaType": "application/json"
+        }
+      },
+      "alternatives": [
+        {
+          "assortment": {
+            "meta": {
+              "href": "https://api.kladana.com/api/remap/1.2/entity/product/437f2d67-36e7-11e7-8a7f-40d0000000df",
+              "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+              "type": "product",
+              "mediaType": "application/json"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "assortment": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/product/437f2d67-36e7-11e7-8a7f-40d0000000df",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+          "type": "product",
+          "mediaType": "application/json"
+        }
+      },
+      "alternatives": [
+        {
+          "assortment": {
+            "meta": {
+              "href": "https://api.kladana.com/api/remap/1.2/entity/product/35427052-36e7-11e7-8a7f-40d0000000d7",
+              "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+              "type": "product",
+              "mediaType": "application/json"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+```
