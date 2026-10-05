@@ -1495,8 +1495,6 @@ Each item in the **alternatives** array contains the following attributes:
 
 The links between an Assortment item and its alternatives work both ways: if item B appears in item A's **alternatives** list, item A appears in item B's list. To create such a link, you only need to specify the alternative for one of the items.
 
-Allowed values for the `expand` parameter: `assortment`, `alternatives.assortment`.
-
 ##### Filtering behavior
 
 Without a filter, only Assortment items that have alternatives are returned.
