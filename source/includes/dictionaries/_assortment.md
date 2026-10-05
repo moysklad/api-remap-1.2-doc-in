@@ -1477,89 +1477,6 @@ curl --compressed -X POST \
 ]
 ```
 
-### Get Product directory settings
-
-> Request to get product directory settings
-
-```shell
-curl --compressed -X GET \
-   "https://api.kladana.com/api/remap/1.2/entity/assortment/settings" \
-   -H "Authorization: Basic <Credentials>" \
-   -H "Accept-Encoding: gzip"
-```
-
-> Response 200(application/json)
-Successful request. The result is a JSON representation of the company settings.
-
-```json
-{
-  "meta" : {
-    "href" : "https://api.kladana.com/api/remap/1.2/entity/assortment/settings",
-    "type" : "assortmentsettings",
-    "mediaType" : "application/json"
-  },
-  "barcodeRules" : {
-    "fillEAN13Barcode" : true,
-    "weightBarcode" : true,
-    "weightBarcodePrefix" : 77
-  },
-  "uniqueCodeRules" : {
-    "checkUniqueCode" : true,
-    "fillUniqueCode" : true
-  },
-  "createdShared" : true
-}
-```
-
-### Change product directory settings
-
-In the body of the request, you need to pass an object containing a new JSON of the directory settings.
-You can partially change the settings, for this you need to add only those fields that need to be updated to the request body, the rest of the fields will remain the same. Each field is optional.
-The response will return the full entity, even if the update was partial.
-
-> Request to change the metadata of the product directory.
-
-```shell
-curl --compressed -X PUT \
-  "https://api.kladana.com/api/remap/1.2/entity/assortment/settings" \
-  -H "Authorization: Basic <Credentials>" \
-  -H "Accept-Encoding: gzip" \
-  -H "Content-Type: application/json" \
-  -d '{
-        "uniqueCodeRules": {
-          "checkUniqueCodeBoolean": true,
-          "fillUniqueCode": true
-        },
-        "barcodeRules": {
-          "fillEAN13Barcode": true,
-          "weightBarcodePrefix": 55
-        },
-        "createdShared": false
-      }'
-```
-
-> Response 200 (application/json)
-Successful request. The result is a JSON representation of the product directory settings.
-
-```json
-{
-  "meta" : {
-    "href" : "https://api.kladana.com/api/remap/1.2/entity/assortment/settings",
-    "type" : "assortmentsettings",
-    "mediaType" : "application/json"
-  },
-  "uniqueCodeRules": {
-    "checkUniqueCodeBoolean": true,
-    "fillUniqueCode": true
-  },
-  "barcodeRules": {
-    "fillEAN13Barcode": true,
-    "weightBarcodePrefix": 55
-  },
-  "createdShared": false
-}
-```
-
 ### Alternatives
 
 The JSON API allows you to retrieve alternatives for Products, Services, Bundles, and Product variants.
@@ -1691,5 +1608,88 @@ curl --compressed -X GET \
       ]
     }
   ]
+}
+```
+
+### Get Product directory settings
+
+> Request to get product directory settings
+
+```shell
+curl --compressed -X GET \
+   "https://api.kladana.com/api/remap/1.2/entity/assortment/settings" \
+   -H "Authorization: Basic <Credentials>" \
+   -H "Accept-Encoding: gzip"
+```
+
+> Response 200(application/json)
+Successful request. The result is a JSON representation of the company settings.
+
+```json
+{
+  "meta" : {
+    "href" : "https://api.kladana.com/api/remap/1.2/entity/assortment/settings",
+    "type" : "assortmentsettings",
+    "mediaType" : "application/json"
+  },
+  "barcodeRules" : {
+    "fillEAN13Barcode" : true,
+    "weightBarcode" : true,
+    "weightBarcodePrefix" : 77
+  },
+  "uniqueCodeRules" : {
+    "checkUniqueCode" : true,
+    "fillUniqueCode" : true
+  },
+  "createdShared" : true
+}
+```
+
+### Change product directory settings
+
+In the body of the request, you need to pass an object containing a new JSON of the directory settings.
+You can partially change the settings, for this you need to add only those fields that need to be updated to the request body, the rest of the fields will remain the same. Each field is optional.
+The response will return the full entity, even if the update was partial.
+
+> Request to change the metadata of the product directory.
+
+```shell
+curl --compressed -X PUT \
+  "https://api.kladana.com/api/remap/1.2/entity/assortment/settings" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
+  -d '{
+        "uniqueCodeRules": {
+          "checkUniqueCodeBoolean": true,
+          "fillUniqueCode": true
+        },
+        "barcodeRules": {
+          "fillEAN13Barcode": true,
+          "weightBarcodePrefix": 55
+        },
+        "createdShared": false
+      }'
+```
+
+> Response 200 (application/json)
+Successful request. The result is a JSON representation of the product directory settings.
+
+```json
+{
+  "meta" : {
+    "href" : "https://api.kladana.com/api/remap/1.2/entity/assortment/settings",
+    "type" : "assortmentsettings",
+    "mediaType" : "application/json"
+  },
+  "uniqueCodeRules": {
+    "checkUniqueCodeBoolean": true,
+    "fillUniqueCode": true
+  },
+  "barcodeRules": {
+    "fillEAN13Barcode": true,
+    "weightBarcodePrefix": 55
+  },
+  "createdShared": false
 }
 ```
