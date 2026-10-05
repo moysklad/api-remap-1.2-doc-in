@@ -1522,7 +1522,7 @@ The result is a JSON object containing the following fields:
 | **limit**  | `number` (optional) **Default: 1000** *Example: 100* The maximum number of Assortment items in the response. Allowed values: `1–1000`. |
 | **offset** | `number` (optional) **Default: 0** *Example: 40* The offset in the list of Assortment items. |
 
-These apply only to the items in rows; each item's alternatives list is returned in full.
+These apply to Assortment items. Each item's alternatives list is returned in full.
 
 > Get alternatives
 
