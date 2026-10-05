@@ -25,6 +25,8 @@ Using JSON API, you can create and update information about Handling units, retr
 
 To retrieve and send the **childrenList** field, you must include the `X-Lognex-Remap-Beta-Feature: aggregatePackChildrenList` header.
 
+The **childrenList** field is available as part of beta functionality and may be changed or removed in the future.
+
 If the header is not provided:
 
 + the **childrenList** field is not returned in the response.
@@ -244,7 +246,7 @@ Successful request. The result is a JSON representation of the list of user Hand
 
 Request to create a new Handling unit. To successfully create a handling unit, the **barcodes** field must be specified.
 
-> Example of creating a new Handling unit
+> Example of creating a new Handling unit with a request body containing only the required fields.
 
 ```shell
   curl --compressed -X POST \
@@ -318,6 +320,118 @@ Successful request. The result is a JSON representation of the created Handling 
       "type": "aggregatepackposition",
       "mediaType": "application/json",
       "size": 0,
+      "limit": 1000,
+      "offset": 0
+    }
+  }
+}
+```
+
+> Example of creating a new Handling Unit with a more detailed request body.
+
+```shell
+  curl --compressed -X POST \
+    "https://api.kladana.com/api/remap/1.2/entity/aggregatepack/" \
+    -H "Authorization: Basic <Credentials>" \
+    -H "Accept-Encoding: gzip" \
+    -H "Content-Type: application/json" \
+      -d '{
+            "barcodes": [
+                {
+                    "ean8": "00000000"
+                },
+                {
+                    "ean13": "2000000000015"
+                },
+                {
+                    "code128": "code128 barcode"
+                }
+            ],
+            "group": {
+                "meta": {
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/group/41afe3e0-b8d8-11f1-0a83-128600000018",
+                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
+                    "type": "group",
+                    "mediaType": "application/json"
+                }
+            },
+            "moment": "2026-09-29 16:06:00.000",
+            "owner": {
+                "meta": {
+                    "href": "https://api.kladana.com/api/remap/1.2/entity/employee/41de4dd4-b8d8-11f1-0a81-12b50000034f",
+                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+                    "type": "employee",
+                    "mediaType": "application/json"
+                }
+            },
+            "shared": true,
+            "positions": [
+                {
+                    "assortment": {
+                        "meta": {
+                            "href": "https://api.kladana.com/api/remap/1.2/entity/product/001e6a8f-b8dc-11f1-0a82-14dc00003d64",
+                            "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+                            "type": "product",
+                            "mediaType": "application/json"
+                        }
+                    },
+                    "quantity": 1.0
+                }
+            ]
+        }'  
+```
+
+> Response 200
+Successful request. The result is a JSON representation of the created Handling unit.
+
+```json
+{
+  "meta": {
+    "href": "https://api.kladana.com/api/remap/1.2/entity/aggregatepack/91850817-bc06-11f1-0a82-14dc000065ab",
+    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/aggregatepack/metadata",
+    "type": "aggregatepack",
+    "mediaType": "application/json"
+  },
+  "id": "91850817-bc06-11f1-0a82-14dc000065ab",
+  "accountId": "41af84c3-b8d8-11f1-0a83-128600000017",
+  "owner": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/employee/41de4dd4-b8d8-11f1-0a81-12b50000034f",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/employee/metadata",
+      "type": "employee",
+      "mediaType": "application/json",
+      "uuidHref": "https://app.kladana.com/app/#employee/edit?id=41de4dd4-b8d8-11f1-0a81-12b50000034f"
+    }
+  },
+  "shared": true,
+  "group": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/group/41afe3e0-b8d8-11f1-0a83-128600000018",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/group/metadata",
+      "type": "group",
+      "mediaType": "application/json"
+    }
+  },
+  "updated": "2026-09-29 16:06:22.229",
+  "moment": "2026-09-29 16:06:00.000",
+  "level": 1,
+  "barcodes": [
+    {
+      "ean8": "00000000"
+    },
+    {
+      "ean13": "2000000000015"
+    },
+    {
+      "code128": "code128 barcode"
+    }
+  ],
+  "positions": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/aggregatepack/91850817-bc06-11f1-0a82-14dc000065ab/positions",
+      "type": "aggregatepackposition",
+      "mediaType": "application/json",
+      "size": 1,
       "limit": 1000,
       "offset": 0
     }
