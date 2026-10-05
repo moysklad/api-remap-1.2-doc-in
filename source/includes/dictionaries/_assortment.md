@@ -1502,7 +1502,7 @@ Allowed values for the `expand` parameter: `assortment`, `alternatives.assortmen
 Without a filter, only Assortment items that have alternatives are returned.
 
 - Using `assortment=` returns the specified items whether or not they have alternatives. For items without alternatives, the **alternatives** array is empty.
-- Using `assortment!=` returns items with alternatives, excluding those specified in the filter. An item from filter may still appear as an alternative.
+- Using `assortment!=` returns items with alternatives, excluding those specified in the filter. An item excluded by the filter may still appear in the response as an alternative.
 - The filter applies to Assortment items and does not restrict the contents of their **alternatives** arrays.
 
 #### Get Assortment with alternatives
