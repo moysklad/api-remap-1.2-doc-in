@@ -1476,14 +1476,9 @@ curl --compressed -X POST \
    }
 ]
 ```
-
 ### Alternatives
 
 The JSON API allows you to retrieve alternatives for Products, Services, Bundles, and Product variants.
-
-Each response item contains an Assortment item and a list of its alternatives. The relationship between alternatives is bidirectional: if item A is an alternative to item B, item B is also an alternative to item A.
-
-Without a filter, only Assortment items that have alternatives are returned.
 
 #### Object attributes
 
@@ -1498,21 +1493,21 @@ Each item in the **alternatives** array contains the following attributes:
 | -------------- | :--------------------------- | :---------- |
 | **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Assortment item specified as an alternative.<br>`+Expand` `+Required when answering` |
 
-#### Filtering Assortment with alternatives
+The links between an Assortment item and its alternatives work both ways: if item B appears in item A's **alternatives** list, item A appears in item B's list. To create such a link, you only need to specify the alternative for one of the items.
 
-| Title          | Description |
-| -------------- | :---------- |
-| **assortment** | A link to an Assortment item. Multiple values can be specified. |
+Allowed values for the `expand` parameter: `assortment`, `alternatives.assortment`.
 
-Filtering behavior:
+##### Filtering behavior
 
-- Using `assortment=` returns the specified items, including items without alternatives. For an item without alternatives, the **alternatives** array is empty.
-- Using `assortment!=` excludes the specified items from the result. Only items that have alternatives are returned.
+Without a filter, only Assortment items that have alternatives are returned.
+
+- Using `assortment=` returns the specified items whether or not they have alternatives. For items without alternatives, the **alternatives** array is empty.
+- Using `assortment!=` returns items with alternatives, excluding those specified in the filter.
 - The filter applies to the items in **rows** and does not restrict the contents of their **alternatives** arrays. An item excluded from the result may still appear as an alternative to another item.
 
 #### Get Assortment with alternatives
 
-A request to retrieve Assortment with alternatives. The result is a JSON object containing the following fields:
+The result is a JSON object containing the following fields:
 
 | Title       | Type                         | Description |
 | ----------- | :--------------------------- | :---------- |
@@ -1529,8 +1524,6 @@ A request to retrieve Assortment with alternatives. The result is a JSON object 
 
 Pagination applies to the items in `rows`. The complete `alternatives` list is returned for each item.
 
-Allowed values for the `expand` parameter: `assortment`, `alternatives.assortment`.
-
 > Get alternatives
 
 ```shell
@@ -1540,7 +1533,7 @@ curl --compressed -X GET \
   -H "Accept-Encoding: gzip"
 ```
 
-> Response 200 (application/json). Successful request. The result is a JSON representation of Assortment items with their lists of alternatives.
+> Response 200 (application/json). Successful request. The result is a JSON representation of Assortment items with alternatives.
 
 ```json
 {
