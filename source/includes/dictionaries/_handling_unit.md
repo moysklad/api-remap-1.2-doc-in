@@ -6,7 +6,7 @@ Using JSON API, you can create and update information about Handling units, retr
 
 #### Entity attributes
 
-| Title        | Type          | Filtering                  | Description                                                                                                                                                |
+| Title        | Type          | Filtration                 | Description                                                                                                                                                |
 |--------------|---------------|----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | accountId    | UUID          | `=` `!=`                   | Account ID<br>`+Required when replying` `+Read Only`                                                                                                       |
 | barcodes     | Array(Object) | `=` `!=` `~` `~=` `=~`     | Handling unit barcodes. To filter by this field, specify it in the singular form: **barcode**<br>`+Required when replying` `+Required when creating`       |
