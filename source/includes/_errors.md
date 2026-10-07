@@ -745,3 +745,30 @@ This section lists the JSON API error codes and their descriptions.
 |----------------------------------|---------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|
 | <a name="error_75000">75000</a>  | Failed to save content card: You cannot specify an archived sales channel in the content card     | Check that the list does not contain archived sales channels               |
 | <a name="error_75001">75001</a>  | Failed to save content card: A maximum of 100 content cards can be created for a single product   | Content card limit reached for the specified product                       |
+
+### Error codes for barcodes
+
+| Error code                        | Message                                                                  | Description                                                                           |
+|-----------------------------------|--------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
+| <div id="error_78000">78000</div> | Error saving {entity type}: the number of barcodes cannot exceed {limit} | The number of barcodes provided for the entity must not exceed the established limit. |
+
+### Error codes for serial numbers
+
+| Error code                        | Message                                                                                                                                 | Description                                                                                                               |
+|-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
+| <div id="error_79000">79000</div> | Error saving {entity type}: serial number tracking is not enabled for product {product name}. Update the product to save serial numbers | Serial number tracking must be enabled for the product to provide serial numbers.                                         |
+| <div id="error_79001">79001</div> | Error saving {entity type}: number of serials provided does not match position quantity                                                 | The number of provided serial numbers must match the product quantity in the item.                                        |
+| <div id="error_79002">79002</div> | Error saving {entity type}: cannot add a serial number longer than 255 characters to the entity                                         | A serial number must not exceed 255 characters.                                                                           |
+| <div id="error_79003">79003</div> | Error saving {entity type}: the serial number cannot be empty                                                                           | Make sure that an empty string or null is not provided as the serial number.                                              |
+| <div id="error_79004">79004</div> | Error saving {entity type}: for serial-tracked products, specify the 'quantity' and 'things' fields                                     | For a serial-tracked product, specify the quantity in the 'quantity' field and the serial numbers in the 'things' field.. |
+
+### Error codes for Handling unit
+
+| Error code                        | Message                                                                                                                          | Description                                                                                       |
+|-----------------------------------|----------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
+| <div id="error_80000">80000</div> | Error saving handling unit: the handling unit nesting level cannot exceed 5                                                      | The maximum allowed nesting depth for Handling Units is 5 levels.                                 |
+| <div id="error_80001">80001</div> | Error saving handling unit: a handling unit cannot contain itself                                                                | A Handling Unit cannot be specified as its own nested Handling Unit.                              |
+| <div id="error_80002">80002</div> | Error saving handling unit: a parent handling unit cannot be nested inside a child handling unit                                 | A parent Handling Unit cannot be nested inside one of its child Handling Units.                   |
+| <div id="error_80003">80003</div> | Error saving handling unit: duplicate nested handling units were found in the handling unit                                      | The list of nested Handling Units must not contain duplicate Handling Units.                      |
+| <div id="error_80004">80004</div> | Error saving handling unit: the maximum number of child handling units at the same level has been exceeded                       | The number of nested Handling Units at the same level must not exceed the established limit.      |
+| <div id="error_80005">80005</div> | Error saving handling unit: the maximum allowed number of handling units in the linked handling unit structure has been exceeded | The total number of Handling Units in the linked structure must not exceed the established limit. |
