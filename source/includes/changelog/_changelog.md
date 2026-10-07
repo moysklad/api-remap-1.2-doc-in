@@ -9,9 +9,8 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 ### 99-99-9999
 #### Added
 - Field `accrualDate` in [Outgoing Payment](../documents/#transactions-outgoing-payment) and [Outgoing Cash Payment](../documents/#transactions-outgoing-cash-payment)
-- Error [22005](../index.html#kladana-json-api-errors-error-codes-for-payments) when creating or updating an [Outgoing Payment](../ind../documents/#transactions-outgoing-paymentex.html#kladana-json-api-errors-error-codes-for-payments) or an [Outgoing Cash Payment](../documents/#transactions-outgoing-cash-payment) with an accrual date if the expense item is not an operating expense or is excluded from profit calculation
-- Error [22006](../index.html#kladana-json-api-errors-error-codes-for-payments) when creating or updating an [Outgoing Payment](../ind../documents/#transactions-outgoing-paymentex.html#kladana-json-api-errors-error-codes-for-payments) or an [Outgoing Cash Payment](../documents/#transactions-outgoing-cash-payment) based on a Sales Return if an expense item other than a return is specified
-- Error [22007](../index.html#kladana-json-api-errors-error-codes-for-payments) when creating or updating an [Outgoing Payment](../ind../documents/#transactions-outgoing-paymentex.html#kladana-json-api-errors-error-codes-for-payments) or an [Outgoing Cash Payment](../documents/#transactions-outgoing-cash-payment) with an accrual date without the "Finance" option enabled
+- Error [22005](../index.html#kladana-json-api-errors-error-codes-for-payments) when creating or updating an [Outgoing Payment](../documents/#transactions-outgoing-payment) or an [Outgoing Cash Payment](../documents/#transactions-outgoing-cash-payment) with an accrual date if the expense item is not an operating expense or is excluded from profit calculation
+- Error [22006](../index.html#kladana-json-api-errors-error-codes-for-payments) when creating or updating an [Outgoing Payment](../documents/#transactions-outgoing-payment) or an [Outgoing Cash Payment](../documents/#transactions-outgoing-cash-payment) based on a Sales Return if an expense item other than a return is specified
 
 ### 11-08-2026
 #### Added
