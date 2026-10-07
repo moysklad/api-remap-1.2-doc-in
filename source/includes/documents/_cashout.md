@@ -8,6 +8,7 @@ Using the JSON API, you can create and update information about an Outgoing Cash
 | Title              | Type                                               | Filtration                                                                                                                                            | Description                                                                                                                                      |
 |--------------------|----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
 | **accountId**      | UUID                                               | `=` `!=`                                                                                                                                              | Account ID<br>`+Required when replying` `+Read Only`                                                                                             |
+| **accrualDate**    | DateTime                                           | `=` `!=` `<` `>` `<=` `>=`                                                                                                                            | Accrual date                                                                                                                                     |
 | **agent**          | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`                                                                                                                                              | Counterparty metadata<br>`+Required when replying` `+Expand` `+Required when creating`                                                           |
 | **applicable**     | Boolean                                            | `=` `!=`                                                                                                                                              | Check mark<br>`+Required when replying`                                                                                                          |
 | **attributes**     | Array(Object)                                      | [Operators of additional fields](../#kladana-json-api-general-info-filtering-the-selection-using-the-filter-parameter-filtering-by-additional-fields) | Additional metadata collection fields. [Object fields](../#kladana-json-api-general-info-additional-fields)                                      |
@@ -39,7 +40,6 @@ Using the JSON API, you can create and update information about an Outgoing Cash
 | **syncId**         | UUID                                               | `=` `!=`                                                                                                                                              | Synchronization ID. After filling it is not available for change                                                                                 |
 | **updated**        | DateTime                                           | `=` `!=` `<` `>` `<=` `>=`                                                                                                                            | Time when the Disbursement Note was last updated<br>`+Required when replying` `+Read Only`                                                       |
 | **vatSum**         | Float                                              |                                                                                                                                                       | VAT amount<br>`+Required when replying`                                                                                                          |
-| **accrualDate**    | DateTime                                           | `=` `!=` `<` `>` `<=` `>=`                                                                                                                            | Accrual date                                                                                                                                     |
 
 
 #### Links to other documents
@@ -203,10 +203,9 @@ Successful request. The result is a JSON representation of a list of Outgoing Ca
          }
        ],
        "paymentPurpose": "Pay for another acceptance",
-       "accrualDate": "2026-09-23 00:29:14.514",
        "expenseItem": {
          "meta": {
-           "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
+           "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/9147f086-b794-4448-9578-83542c8ad1db",
            "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/metadata",
            "type": "expenseitem",
            "mediaType": "application/json"
@@ -483,7 +482,6 @@ Mandatory fields to create:
                     "mediaType": "application/json"
                 }
             },
-            "accrualDate": "2026-09-23 00:29:14.514",
             "expenseItem": {
                 "meta": {
                     "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
@@ -1092,7 +1090,6 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
        "mediaType": "application/json"
      }
    },
-  "accrualDate": "2026-09-23 00:29:14.514",
    "expenseItem": {
      "meta": {
        "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
@@ -1178,7 +1175,6 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
        "linkedSum": 0
      }
    ],
-  "accrualDate": "2026-09-23 00:29:14.514",
    "expenseItem": {
      "meta": {
        "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
@@ -1260,7 +1256,6 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
        "linkedSum": 0
      }
    ],
-  "accrualDate": "2026-09-23 00:29:14.514",
    "expenseItem": {
      "meta": {
        "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2395a-0479-11e5-baee-448a5b426e7e",
@@ -1342,7 +1337,6 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
        "linkedSum": 0
      }
    ],
-  "accrualDate": "2026-09-23 00:29:14.514",
    "expenseItem": {
      "meta": {
        "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
@@ -1424,7 +1418,6 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
        "linkedSum": 0
      }
    ],
-  "accrualDate": "2026-09-23 00:29:14.514",
    "expenseItem": {
      "meta": {
        "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
@@ -1540,7 +1533,6 @@ Successful request. The result is a JSON representation of the prefilled Outgoin
        "linkedSum": 10200850
      }
    ],
-  "accrualDate": "2026-09-23 00:29:14.514",
    "expenseItem": {
      "meta": {
        "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
