@@ -123,7 +123,7 @@ Successful request. The result is a JSON representation of the created Handling 
 ```
 
 
-### Handling unit items
+#### Handling unit items
 
 Handling unit Items is a list of products/batches/variants/bundles. The Handling unit item object contains the following fields:
 
