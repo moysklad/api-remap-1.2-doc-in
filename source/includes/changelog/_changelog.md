@@ -6,7 +6,7 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
-### 99-99-9999
+### 08-10-2026
 #### Added
 - Field `payments` in [Payroll](../documents/#transactions-payroll) processing for linking to [Outgoing Cash Payment](../documents/#transactions-outgoing-cash-payment) and [Outgoing Payment](../documents/#transactions-outgoing-payment)
 - New type: Payroll in the link array `operations` of the [Outgoing Cash Payment](../documents/#transactions-outgoing-cash-payment)

@@ -2,7 +2,7 @@
 
 JSON API 1.2 changes will be added here soon
 
-### 99-99-9999
+### 08-10-2026
 #### Added
 - Field `payments` in [Payroll](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-payroll) processing for linking to [Outgoing Cash Payment](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-outgoing-cash-payment) and [Outgoing Payment](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-outgoing-payment)
 - New type: Payroll in the link array `operations` of the [Outgoing Cash Payment](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-outgoing-cash-payment)
