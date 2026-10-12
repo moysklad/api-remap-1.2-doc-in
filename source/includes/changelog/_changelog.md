@@ -13,6 +13,12 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 - Errors [79000-79004](../#kladana-json-api-errors-error-codes-for-serial-numbers)
 - Errors [80000-80005](../#kladana-json-api-errors-error-codes-for-handling-unit)
 
+### 08-10-2026
+#### Added
+- Field `payments` in [Payroll](../documents/#transactions-payroll) processing for linking to [Outgoing Cash Payment](../documents/#transactions-outgoing-cash-payment) and [Outgoing Payment](../documents/#transactions-outgoing-payment)
+- New type: Payroll in the link array `operations` of the [Outgoing Cash Payment](../documents/#transactions-outgoing-cash-payment)
+- New type: Payroll in the link array `operations` of the [Outgoing Payment](../documents/#transactions-outgoing-payment)
+
 ### 11-08-2026
 #### Added
 - Filtering by fields `accountId`, `applicable`, `created`, `description`, `externalCode`, `group`, `id`, `moment`, `name`, `owner`, `shared`, `sum`, `updated` in [Payroll](../documents/#transactions-payroll)
