@@ -1193,9 +1193,7 @@ curl --compressed -X DELETE \
 ```
 
 > Response 200 (application/json) The Handling unit item was deleted successfully.
-```json
-<Response body is empty>
-```
+The item of the Handling unit was successfully deleted
 
 ### Bulk deletion of items
 
@@ -1232,6 +1230,4 @@ curl --compressed -X POST \
 ```
 
 > Response 200 (application/json) The Handling unit items were deleted successfully.
-```json
-<Response body is empty>
-```
+The items of the Handling unit was successfully deleted.
