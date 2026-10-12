@@ -6,6 +6,10 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 20-10-2026
+#### Changed
+- The `expenseItem` field in [Write-offs](../documents/#transactions-write-off) is now processed when creating and updating documents, including bulk operations: a valid expense item reference is saved. Previously, the supplied field was ignored. Explicit `null` returns error `3000`; a reference to a nonexistent expense item or one from another account returns error `1021`.
+
 ### 12-10-2026
 #### Added
 - [Handling unit](../dictionaries/#entities-handling-unit) entity
@@ -220,7 +224,7 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 - Typo in data types corrected from int to float for the volume and weight fields for [bundle](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-bundle)
 
 ### 22-07-2025
-#### Added
+#### AddedМожно ли оптимизировать этот запрос для использовать 
 - The minimumStock field in the [Product variant](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-product-variant-product-variants) entity for working with Minimum Stock.
 
 ### 17-07-2025
