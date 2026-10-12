@@ -2,7 +2,7 @@
 
 JSON API 1.2 changes will be added here soon
 
-### 01-10-2026
+### 12-10-2026
 #### Added
 - [Handling unit](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-handling-unit) entity
 - Error [78000](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-barcodes)
