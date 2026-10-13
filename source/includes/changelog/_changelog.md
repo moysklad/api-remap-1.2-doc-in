@@ -6,6 +6,10 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 13-10-2026
+#### Added
+- Information for working with header [X-Lognex-Remap-Beta-Feature](../#kladana-json-api-general-info-x-lognex-remap-beta-feature-header)
+
 ### 12-10-2026
 #### Added
 - [Handling unit](../dictionaries/#entities-handling-unit) entity

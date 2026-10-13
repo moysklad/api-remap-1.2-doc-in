@@ -2,6 +2,10 @@
 
 JSON API 1.2 changes will be added here soon
 
+### 13-10-2026
+#### Added
+- Information for working with header [X-Lognex-Remap-Beta-Feature](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-general-info-x-lognex-remap-beta-feature-header)
+
 ### 12-10-2026
 #### Added
 - [Handling unit](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-handling-unit) entity
