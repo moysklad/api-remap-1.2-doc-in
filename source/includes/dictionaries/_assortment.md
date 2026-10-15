@@ -1,5 +1,3 @@
-# Entities
-
 ## Assortment
 
 ### Assortment
