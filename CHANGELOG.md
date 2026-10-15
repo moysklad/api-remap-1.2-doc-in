@@ -4,7 +4,7 @@ JSON API 1.2 changes will be added here soon
 
 ### 02-10-2026
 #### Added
-- An endpoint for working with [Assortment alternatives](../dictionaries/#entities-alternatives).
+- An endpoint for working with [Assortment alternatives](../dictionaries/#entities-assortment-alternatives).
 
 ### 11-08-2026
 #### Added

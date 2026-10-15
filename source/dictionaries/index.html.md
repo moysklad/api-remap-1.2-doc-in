@@ -9,7 +9,6 @@ toc_footers:
   - <a href='https://github.com/moysklad/api-remap-1.2-doc-in/issues'>Report an issue</a>
 
 includes:
-  - dictionaries/alternatives
   - dictionaries/assortment
   - dictionaries/assortment_legacy
   - dictionaries/processingplan
