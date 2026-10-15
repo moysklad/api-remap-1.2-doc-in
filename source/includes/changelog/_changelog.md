@@ -224,7 +224,7 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 - Typo in data types corrected from int to float for the volume and weight fields for [bundle](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-bundle)
 
 ### 22-07-2025
-#### AddedМожно ли оптимизировать этот запрос для использовать 
+#### Added
 - The minimumStock field in the [Product variant](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-product-variant-product-variants) entity for working with Minimum Stock.
 
 ### 17-07-2025
