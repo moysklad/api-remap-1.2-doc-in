@@ -14,7 +14,7 @@ Using the JSON API, you can create and update information about Write-offs, requ
 | **created**      | DateTime                                           | `=` `!=` `<` `>` `<=` `>=`                                                                                                                            | Creation date<br>`+Required when replying` `+Read-only` `+Change-handler`                                                         |
 | **deleted**      | DateTime                                           | `=` `!=` `<` `>` `<=` `>=`                                                                                                                            | Time of last deletion of Write-off<br>`+Read Only`                                                                                |
 | **description**  | String(4096)                                       | `=` `!=` `~` `~=` `=~`                                                                                                                                | Write-Off Comment<br>`+Change-handler`                                                                                            |
-| **expenseItem**  | [Meta](../#kladana-json-api-general-info-metadata) |                                                                                                                                                       | Metadata Line Items<br>`+Read-only` `+Expand`                                                                                     |
+| **expenseItem**  | [Meta](../#kladana-json-api-general-info-metadata) |                                                                                                                                                       | Metadata Line Items<br>`+Expand`                                                                                                  |
 | **externalCode** | String(255)                                        | `=` `!=` `~` `~=` `=~`                                                                                                                                | External Code of Write-off<br>`+Required when replying` `+Change-handler`                                                         |
 | **files**        | MetaArray                                          |                                                                                                                                                       | [Files](../dictionaries/#entities-files) array metadata (Maximum number of files - 100)<br>`+Required when replying` `+Expand`    |
 | **group**        | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`                                                                                                                                              | Employee's department<br>`+Required when replying` `+Expand`                                                                      |
@@ -35,6 +35,14 @@ Using the JSON API, you can create and update information about Write-offs, requ
 | **sum**          | Float                                              | `=` `!=` `<` `>` `<=` `>=`                                                                                                                            | Write-off amount in paise<br>`+Required when replying` `+Read-only` `+Change-handler`                                             |
 | **syncId**       | UUID                                               | `=` `!=`                                                                                                                                              | Synchronization ID. After filling it is not available for change                                                                  |
 | **updated**      | DateTime                                           | `=` `!=` `<` `>` `<=` `>=`                                                                                                                            | Time when the Write-off was last updated<br>`+Required when replying` `+Read-only` `+Change-handler`                              |
+
+#### Expense item
+
+The **expenseItem** field contains a link to an [Expense item](../dictionaries/#entities-expense-item) in metadata format with `meta.type` set to `expenseitem`. When creating or updating a Write-off, you can specify a system or custom expense item, including an archived custom expense item. The specified expense item is saved and returned in the response and in subsequent GET requests for the Write-off.
+
+If **expenseItem** is omitted when creating a Write-off, the system expense item "Write-offs" is assigned. If the field is omitted when updating a Write-off, the existing expense item is retained. For an older Write-off without an expense item, the system expense item "Write-offs" is assigned when the document is saved; until then, GET requests continue to return the document without **expenseItem**.
+
+The expense item cannot be cleared: explicitly passing `"expenseItem": null` when creating or updating a Write-off returns error `3000`. A link to a nonexistent expense item or an expense item from another account returns error `1021`. Lack of permission to view an expense item in the current account does not prevent assigning it; permissions to create and update Write-offs remain unchanged.
 
 #### Links to other documents
 
@@ -410,6 +418,14 @@ Successful request. The result is a JSON representation of the created Write-off
      }
    },
    "sum": 50000,
+   "expenseItem": {
+     "meta": {
+       "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/metadata",
+       "type": "expenseitem",
+       "mediaType": "application/json"
+     }
+   },
    "organization": {
      "meta": {
        "href": "https://api.kladana.com/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
@@ -470,6 +486,14 @@ Updated Write-offs must contain the identifier in the form of metadata.
                  "meta": {
                    "href": "https://api.kladana.com/api/remap/1.2/entity/store/b72f4f02-9b8b-11e6-8af5-581e0000009b",
                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata","type": "store",
+                   "mediaType": "application/json"
+                 }
+               },
+               "expenseItem": {
+                 "meta": {
+                   "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/23f05a1e-0479-11e5-8bb9-448a5b426e7e",
+                   "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/metadata",
+                   "type": "expenseitem",
                    "mediaType": "application/json"
                  }
                },
@@ -594,6 +618,14 @@ Successful request. The result is a JSON array of representations of created and
        }
      },
      "sum": 50000,
+     "expenseItem": {
+       "meta": {
+         "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/1be2350e-0479-11e5-b03a-448a5b426e7e",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/metadata",
+         "type": "expenseitem",
+         "mediaType": "application/json"
+       }
+     },
      "organization": {
        "meta": {
          "href": "https://api.kladana.com/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
@@ -674,6 +706,14 @@ Successful request. The result is a JSON array of representations of created and
        }
      },
      "sum": 0,
+     "expenseItem": {
+       "meta": {
+         "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/23f05a1e-0479-11e5-8bb9-448a5b426e7e",
+         "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/metadata",
+         "type": "expenseitem",
+         "mediaType": "application/json"
+       }
+     },
      "organization": {
        "meta": {
          "href": "https://api.kladana.com/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
@@ -1190,6 +1230,14 @@ Request to update the write-off with the specified id.
              "moment": "2016-07-21 15:57:32",
              "applicable": true,
              "sum": 50000,
+             "expenseItem": {
+               "meta": {
+                 "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/23f05a1e-0479-11e5-8bb9-448a5b426e7e",
+                 "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/metadata",
+                 "type": "expenseitem",
+                 "mediaType": "application/json"
+               }
+             },
              "organization": {
                "meta": {
                  "href": "https://api.kladana.com/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
@@ -1264,6 +1312,14 @@ Successful request. The result is a JSON representation of the updated Write-off
      }
    },
    "sum": 0,
+   "expenseItem": {
+     "meta": {
+       "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/23f05a1e-0479-11e5-8bb9-448a5b426e7e",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/metadata",
+       "type": "expenseitem",
+       "mediaType": "application/json"
+     }
+   },
    "organization": {
      "meta": {
        "href": "https://api.kladana.com/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
@@ -1410,6 +1466,14 @@ Successful request. The result is a JSON representation of the updated Write-off
      }
    },
    "sum": 0,
+   "expenseItem": {
+     "meta": {
+       "href": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/23f05a1e-0479-11e5-8bb9-448a5b426e7e",
+       "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/expenseitem/metadata",
+       "type": "expenseitem",
+       "mediaType": "application/json"
+     }
+   },
    "organization": {
      "meta": {
        "href": "https://api.kladana.com/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e",
