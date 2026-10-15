@@ -3,6 +3,7 @@
 ## Alternatives
 
 The JSON API allows you to retrieve and update the list of alternatives for Products, Services, Bundles, and Product variants.
+
 The maximum number of alternatives per object is 10.
 
 ### Object attributes
