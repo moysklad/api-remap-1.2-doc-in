@@ -1605,7 +1605,11 @@ curl --compressed -X GET \
 }
 ```
 
-> Get alternatives for a single Product
+#### Get alternatives for a Product
+
+To get alternatives for a specific Product, use the `assortment` filter.
+
+> Get alternatives for a Product
 
 ```shell
 curl --compressed -X GET \
