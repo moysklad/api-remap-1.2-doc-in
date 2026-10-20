@@ -36,20 +36,20 @@ Using the JSON API, you can create and update information about Write-offs, requ
 | **syncId**       | UUID                                               | `=` `!=`                                                                                                                                              | Synchronization ID. After filling it is not available for change                                                                  |
 | **updated**      | DateTime                                           | `=` `!=` `<` `>` `<=` `>=`                                                                                                                            | Time when the Write-off was last updated<br>`+Required when replying` `+Read-only` `+Change-handler`                              |
 
-#### Expense item
-
-The **expenseItem** field contains a link to an [Expense item](../dictionaries/#entities-expense-item) in metadata format with `meta.type` set to `expenseitem`. When creating or updating a Write-off, you can specify a system or custom expense item, including an archived custom expense item. The specified expense item is saved and returned in the response and in subsequent GET requests for the Write-off.
-
-If **expenseItem** is omitted when creating a Write-off, the system expense item "Write-offs" is assigned. If the field is omitted when updating a Write-off, the existing expense item is retained. For an older Write-off without an expense item, the system expense item "Write-offs" is assigned when the document is saved; until then, GET requests continue to return the document without **expenseItem**.
-
-The expense item cannot be cleared: explicitly passing `"expenseItem": null` when creating or updating a Write-off returns error `3000`. A link to a nonexistent expense item or an expense item from another account returns error `1021`. Lack of permission to view an expense item in the current account does not prevent assigning it; permissions to create and update Write-offs remain unchanged.
-
 #### Links to other documents
 
 | Title | Description |
 | ------- | -------- |
 | **salesReturn** | Link to the related of Sales Return in [Metadata](../#kladana-json-api-general-info-metadata) format|
 | **inventory**   | Link to the Inventory Count related to the Write-off in [Metadata](../#kladana-json-api-general-info-metadata) format |
+
+#### Expense item
+
+The **expenseItem** field contains a link to an [Expense item](../dictionaries/#entities-expense-item) in metadata format with `meta.type` set to `expenseitem`. When creating or updating a Write-off, you can specify a system or custom expense item, including an archived custom expense item. The specified expense item is saved and returned in the response and in subsequent GET requests for the Write-off.
+
+If **expenseItem** is omitted when creating a Write-off, the system expense item "Write-offs" is assigned. If the field is omitted when updating a Write-off, the existing expense item is retained. For an older Write-off without an expense item, the system expense item "Write-offs" is assigned when the document is saved; until then, GET requests continue to return the document without **expenseItem**.
+
+The expense item cannot be cleared. A link to a nonexistent expense item or an expense item from another account returns error `1021`.
 
 #### Write-off Items
 
