@@ -41,6 +41,7 @@ When developing a client application, consider the following points:
    + A new field can be added without disturbing the structure of the response.
    + New resources can be added.
 
+Features enabled by the [`X-Lognex-Remap-Beta-Feature`](#kladana-json-api-general-info-x-lognex-remap-beta-feature-header) header are not covered by these guarantees.
 
 ### Response content compression
 
@@ -3661,3 +3662,28 @@ An example of a request to get a list of records:
 Use the Accept-Language header to receive error messages in your preferred language. Header value processing complies 
 with the HTTP standard (RFC 7231). Current support is limited to Russian (ru) and English (en) languages and applies 
 only to error messages. The functionality and list of supported languages may be expanded in the future.
+
+### X-Lognex-Remap-Beta-Feature Header
+
+The `X-Lognex-Remap-Beta-Feature` header lets you enable beta functionality in the JSON API. This covers new features that are being rolled out, are available for user testing, or are being evaluated. Such features may still change.
+
+The contract for beta functionality is not yet fully finalized and may change. Features enabled by this header are not covered by the contract stability guarantees described in [Client Application Development Considerations](#kladana-json-api-general-info-client-application-development-considerations).
+
+While a feature is in beta:
+
++ the set of fields, their types, required status, and format may change
++ the behavior of a field or endpoint may change
++ a field or endpoint may be removed
+
+When you pass this header, account for possible contract changes in your client application.
+
+In the future, such a feature may become a regular part of the JSON API and work without the header, with a stable contract.
+
+The header value is the tag of the beta feature to enable. The value to pass is specified in the description of the corresponding field or endpoint. The header takes a single value. Passing multiple values separated by commas, or in multiple `X-Lognex-Remap-Beta-Feature` headers, is not supported.
+
+The header is ignored if its value is empty or the specified tag does not exist. No error is returned: the request is processed in the same way as without the header.
+
+The header is currently used in the following sections:
+
++ [Assortment](dictionaries/#entities-assortment)
++ [Handling unit](dictionaries/#entities-handling-unit)

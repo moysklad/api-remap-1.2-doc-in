@@ -6,9 +6,26 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
-### 99-99-9999
+### 20-10-2026
 #### Added
 - Field `archived` for [Expense item](../dictionaries/#entities-expense-item)
+
+### 13-10-2026
+#### Added
+- Information for working with header [X-Lognex-Remap-Beta-Feature](../#kladana-json-api-general-info-x-lognex-remap-beta-feature-header)
+
+### 12-10-2026
+#### Added
+- [Handling unit](../dictionaries/#entities-handling-unit) entity
+- Error [78000](../#kladana-json-api-errors-error-codes-for-barcodes)
+- Errors [79000-79004](../#kladana-json-api-errors-error-codes-for-serial-numbers)
+- Errors [80000-80005](../#kladana-json-api-errors-error-codes-for-handling-unit)
+
+### 08-10-2026
+#### Added
+- Field `payments` in [Payroll](../documents/#transactions-payroll) processing for linking to [Outgoing Cash Payment](../documents/#transactions-outgoing-cash-payment) and [Outgoing Payment](../documents/#transactions-outgoing-payment)
+- New type: Payroll in the link array `operations` of the [Outgoing Cash Payment](../documents/#transactions-outgoing-cash-payment)
+- New type: Payroll in the link array `operations` of the [Outgoing Payment](../documents/#transactions-outgoing-payment)
 
 ### 11-08-2026
 #### Added
