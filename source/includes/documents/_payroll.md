@@ -38,6 +38,17 @@ You can work with items using special resources for managing Payroll items, as w
 
 If the number of items exceeds the maximum allowed value, use the special "Payroll Items" resource to add more items. When updating a Payroll with a positions array in the request body, the array is treated as the complete set of Payroll items and fully replaces the existing collection: extra items are deleted, new items are added, and existing items are changed.
 
+#### Links to other transactions
+
+| Title        | Description                                                                                                 |
+|--------------|-------------------------------------------------------------------------------------------------------------|
+| **payments** | Array of links to the related Payments in the [metadata](../#kladana-json-api-general-info-metadata) format |
+
+Allowed types of linked payments:
+
++ Outgoing Payment (paymentout) `+Read-only`
++ Outgoing Cash Payment (cashout) `+Read-only`
+
 #### Payroll Items
 
 Payroll items are a list of employees with their base salary and piecework pay accruals. The Payroll item object contains the following fields:
@@ -178,7 +189,29 @@ Successful request. The result is a JSON representation of the Payrolls list.
         }
       },
       "startPayrollPeriod": "2026-03-03 00:00:00.000",
-      "endPayrollPeriod": "2026-03-04 23:59:59.000"
+      "endPayrollPeriod": "2026-03-04 23:59:59.000",
+      "payments": [
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/paymentout/9eef43b1-afb4-11f1-22e8-2b0900000005",
+            "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/paymentout/metadata",
+            "type": "paymentout",
+            "mediaType": "application/json",
+            "uuidHref": "https://app.kladana.com/app/#paymentout/edit?id=9eef43b1-afb4-11f1-22e8-2b0900000005"
+          },
+          "linkedSum": 3000.0
+        },
+        {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/a8d40998-afb4-11f1-22e8-2b090000000c",
+            "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata",
+            "type": "cashout",
+            "mediaType": "application/json",
+            "uuidHref": "https://app.kladana.com/app/#cashout/edit?id=a8d40998-afb4-11f1-22e8-2b090000000c"
+          },
+          "linkedSum": 2000.0
+        }
+      ]
     }
   ]
 }
@@ -1228,7 +1261,29 @@ Successful request. The result is a JSON representation of the Payroll.
         }
     },
     "startPayrollPeriod": "2026-03-03 00:00:00.000",
-    "endPayrollPeriod": "2026-03-04 23:59:59.000"
+    "endPayrollPeriod": "2026-03-04 23:59:59.000",
+    "payments": [
+      {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/paymentout/9eef43b1-afb4-11f1-22e8-2b0900000005",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/paymentout/metadata",
+          "type": "paymentout",
+          "mediaType": "application/json",
+          "uuidHref": "https://app.kladana.com/app/#paymentout/edit?id=9eef43b1-afb4-11f1-22e8-2b0900000005"
+        },
+        "linkedSum": 3000.0
+      },
+      {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/cashout/a8d40998-afb4-11f1-22e8-2b090000000c",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/cashout/metadata",
+          "type": "cashout",
+          "mediaType": "application/json",
+          "uuidHref": "https://app.kladana.com/app/#cashout/edit?id=a8d40998-afb4-11f1-22e8-2b090000000c"
+        },
+        "linkedSum": 2000.0
+      }
+    ]
 }
 ```
 
