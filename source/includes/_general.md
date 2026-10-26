@@ -1073,7 +1073,12 @@ curl --compressed -X DELETE \
 ```
 
 
-When working with special resources, you can request a list of all transaction items, create new items, and update existing ones. When creating new items using these resources, you can bypass the limit of 1000 items per transaction. Also, using this resource, you can manage the bulk update of items. To change information on line items, you must use the transaction line item management resources that are available by URI:
+When working with special resources, you can request a list of all transaction items, create new items, and update existing ones.
+When creating new items using these resources, you can bypass the limit of 1000 items per transaction.
+For bulk creation and update of items, send a POST request to `/entity/{type}/{uuid}/positions/batch`,
+if this resource is supported for the selected transaction type. Pass an array of items in the request body.
+Examples of bulk requests are provided in the sections for the corresponding transactions.
+To change information on line items, you must use the transaction line item management resources that are available by URI:
 
 + `/{transaction entity code, as part of the JSON API}/{ID of a single transaction}/positions/{ID of a single position}`
 
@@ -1174,15 +1179,70 @@ Entities that support the **syncId** field can be deleted using a url like `/ent
 When creating an object, it is enough to fill in only the fields marked `Required`. These fields are only used when creating, they are not required when updating.
 Fields marked `Read Only` are ignored when creating/updating the object.
 
-### Create and update multiple objects
+### Bulk operations with objects
 
-When using the POST method, you can specify in the request body instead of one -
-entity array. To do this, you need to pass an array (start the request body with `[` and end with `]`) that will contain the JSON representation
-objects you want to create or update. Updated entities must contain the identifier in the form of metadata.
-
-It is also possible to bulk delete entities if you specify a url like `/entity/{type}/delete` when using the POST method.
+Bulk operations allow you to create, update, or delete multiple objects of the same type in a single request:
+`/entity/{type}/batch` and `/entity/{type}/delete`, where `{type}` is the entity type code.
 
 The limit for creating, updating and deleting objects in a list is 1000.
+
+If a bulk request takes more than 5 minutes to process, the request fails with a timeout error.
+In this case, reduce the number of objects in a single request.
+
+If one or more objects cannot be processed in a request to `/entity/{type}/batch` or `/entity/{type}/delete`, the response has an HTTP status of 4xx or 5xx.
+This status does not mean that operations on all objects have failed: some objects may have been processed successfully.
+To determine the result of each operation, check the response body. The response array element at index `i`
+contains the result for the object at the same index in the request array. Check each response element for errors
+to determine which objects were processed successfully and which failed.
+
+#### Bulk creation and update
+
+To create and update objects in bulk, send a POST request to `/entity/{type}/batch`.
+Pass an array of JSON representations of the objects to create or update in the request body.
+Objects to be updated must contain an identifier in the form of `meta` metadata.
+You can include both new and existing objects in the same array.
+
+For example, the following request creates a Product named "Bananas" and adds a description to an existing Product.
+
+> Example of bulk creation and update of Products
+
+```shell
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/product/batch" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
+  -d '[
+    {
+      "name": "Bananas"
+    },
+    {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/product/d2308bcc-8fd9-11ed-ac12-000b000000c1",
+        "type": "product",
+        "mediaType": "application/json"
+      },
+      "description": "Pumpkin, Germany"
+    }
+  ]'
+```
+
+If all objects are processed successfully, the response is an array of JSON representations of the created and updated objects.
+In this example, the response element at index `0` corresponds to the creation of the "Bananas" Product,
+and the element at index `1` corresponds to adding a description to the existing Product.
+
+For child resources that support bulk creation and update, send a POST request to
+`/entity/{type}/{uuid}/{childpath}/batch`, where `{uuid}` is the parent object ID
+and `{childpath}` is the path to the collection of child objects. For example, for Sales Order items:
+`/entity/customerorder/{uuid}/positions/batch`.
+The availability of bulk operations, limits, and request and response formats are described in the section for the corresponding child resource.
+
+#### Bulk deletion
+
+To delete objects in bulk, send a POST request to `/entity/{type}/delete`.
+Pass an array of objects containing the `meta` metadata of the entities to delete in the request body.
+Check the deletion result for each object at the corresponding index in the response array,
+including when the HTTP status is 4xx or 5xx.
 
 ### Null support
 
