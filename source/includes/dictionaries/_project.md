@@ -313,7 +313,7 @@ Successful request. The result is a JSON representation of the created project.
 ```
 
 ### Bulk creating and update of Projects
-[Bulk creating and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Projects.
+[Bulk creating and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update) of Projects.
 In the body of the request, you need to pass an array containing the JSON representation of the Projects that you want to create or update.
 Updated Projects must contain the identifier in the form of metadata.
 
@@ -321,7 +321,7 @@ Updated Projects must contain the identifier in the form of metadata.
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/project" \
+     "https://api.kladana.com/api/remap/1.2/entity/project/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \

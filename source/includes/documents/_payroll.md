@@ -716,7 +716,7 @@ Successful request. The result is a JSON representation of the created Payroll.
 
 ### Bulk creating and update of Payrolls
 
-[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Payrolls.
+[Bulk creation and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update) of Payrolls.
 
 In the request body, pass an array containing JSON representations of the Payrolls you want to create or update. Payrolls being updated must contain an identifier in the metadata.
 
@@ -724,7 +724,7 @@ In the request body, pass an array containing JSON representations of the Payrol
 
 ```shell
   curl --compressed -X POST \
-    "https://api.kladana.com/api/remap/1.2/entity/payroll" \
+    "https://api.kladana.com/api/remap/1.2/entity/payroll/batch" \
     -H "Authorization: Basic <Credentials>" \
     -H "Accept-Encoding: gzip" \
     -H "Content-Type: application/json" \
@@ -1860,7 +1860,7 @@ Successful request. The result is a JSON representation of the created item in a
 
 ```shell
   curl --compressed -X POST \
-    "https://api.kladana.com/api/remap/1.2/entity/payroll/4ee9ddd8-285d-11f1-cc6f-b56e00000011/positions" \
+    "https://api.kladana.com/api/remap/1.2/entity/payroll/4ee9ddd8-285d-11f1-cc6f-b56e00000011/positions/batch" \
     -H "Authorization: Basic <Credentials>" \
     -H "Accept-Encoding: gzip" \
     -H "Content-Type: application/json" \

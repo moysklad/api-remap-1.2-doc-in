@@ -543,7 +543,7 @@ Successful request. The result is a JSON representation of a single Routing item
 
 ```shell
   curl --compressed -X POST \
-    "https://api.kladana.com/api/remap/1.2/entity/processingprocess/1d4adde5-a6bb-11ed-ac12-00090000003f/positions" \
+    "https://api.kladana.com/api/remap/1.2/entity/processingprocess/1d4adde5-a6bb-11ed-ac12-00090000003f/positions/batch" \
       -H "Authorization: Basic <Credentials>" \
       -H "Accept-Encoding: gzip" \
       -H "Content-Type: application/json" \
@@ -698,14 +698,14 @@ Successful bulk deletion of Routing Items.
 
 
 ### Routing Bulk Creation and Update
-With [bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Routings, an array must be passed in the request body,
+With [bulk creation and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update) of Routings, an array must be passed in the request body,
 containing the JSON representation of the Routings you want to create or update. The identifier for updated Routings is [Meta](../#kladana-json-api-general-info-metadata).
 
 > Request to create and update multiple Routings
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/processingprocess" \
+     "https://api.kladana.com/api/remap/1.2/entity/processingprocess/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \

@@ -452,7 +452,7 @@ Successful request. The result is a JSON representation of the created Write-off
 
 ### Bulk creation and updating of Write-offs
 
-[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Write-offs.
+[Bulk creation and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update) of Write-offs.
 In the body of the request, you need to pass an array containing the JSON representation of the Write-offs that you want to create or update.
 Updated Write-offs must contain the identifier in the form of metadata.
 
@@ -460,7 +460,7 @@ Updated Write-offs must contain the identifier in the form of metadata.
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/loss" \
+     "https://api.kladana.com/api/remap/1.2/entity/loss/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \
@@ -1658,7 +1658,7 @@ will be added to the existing ones.
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions" \
+     "https://api.kladana.com/api/remap/1.2/entity/loss/7944ef04-f831-11e5-7a69-971500188b19/positions/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \

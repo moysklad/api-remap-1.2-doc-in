@@ -1130,7 +1130,7 @@ Successful request. The result is a JSON representation of the generated Purchas
 
 ### Purchase Returns Bulk creating and update
 
-[Bulk creating and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Purchase Returns.
+[Bulk creating and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update) of Purchase Returns.
 In the body of the request, you need to pass an array containing the JSON representation of the Returns to the provider that you want to create or update.
 Updated Returns to the supplier must contain the identifier in the form of metadata.
 
@@ -1138,7 +1138,7 @@ Updated Returns to the supplier must contain the identifier in the form of metad
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/purchasereturn" \
+     "https://api.kladana.com/api/remap/1.2/entity/purchasereturn/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \
@@ -2710,7 +2710,7 @@ difference in **quantity** items (the quantity in the item in the return can be 
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/purchasereturn/7944ef04-f831-11e5-7a69-971500188b19/positions" \
+     "https://api.kladana.com/api/remap/1.2/entity/purchasereturn/7944ef04-f831-11e5-7a69-971500188b19/positions/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \

@@ -587,7 +587,7 @@ Successful request. The result is a JSON representation of the created Contract.
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/contract" \
+     "https://api.kladana.com/api/remap/1.2/entity/contract/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \
@@ -820,7 +820,7 @@ Successful request. The result is a JSON representation of the created contract.
 
 ### Contracts bulk creating and update
 
-[Сontracts bulk creating and update](../#kladana-json-api-general-info-create-and-update-multiple-objects).
+[Сontracts bulk creating and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update).
 In the body of the request, you need to pass an array containing the JSON representation of the Contracts that you want to create or update.
 Updated Contracts must contain the identifier in the form of metadata.
 
@@ -828,7 +828,7 @@ Updated Contracts must contain the identifier in the form of metadata.
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/contract" \
+     "https://api.kladana.com/api/remap/1.2/entity/contract/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \

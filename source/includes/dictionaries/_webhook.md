@@ -286,7 +286,7 @@ Successful request. The result is a JSON representation of the created webhook.
 ```
 
 ### Bulk create and update webhooks
-[Bulk create and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) webhooks.
+[Bulk create and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update) webhooks.
 In the body of the request, you need to pass an array containing the JSON representation of the webhooks you want to create or update.
 Updated webhooks must contain the ID as metadata.
 
@@ -294,7 +294,7 @@ Updated webhooks must contain the ID as metadata.
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/webhook" \
+     "https://api.kladana.com/api/remap/1.2/entity/webhook/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \

@@ -243,7 +243,7 @@ Successful request. The result is a JSON representation of the generated unit of
 
 ### Unit of measure bulk creating and update
 
-[Unit of measure bulk creating and update](../#kladana-json-api-general-info-create-and-update-multiple-objects).
+[Unit of measure bulk creating and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update).
 In the body of the request, you need to pass an array containing JSON representations of the units of measure that you want to create or update.
 Updated units of measure must contain the identifier in the form of metadata.
 
@@ -251,7 +251,7 @@ Updated units of measure must contain the identifier in the form of metadata.
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/uom" \
+     "https://api.kladana.com/api/remap/1.2/entity/uom/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \

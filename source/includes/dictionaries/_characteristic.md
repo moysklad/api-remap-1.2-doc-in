@@ -105,7 +105,7 @@ Successful request. The result is a JSON representation of the generated Feature
 
 ### Bulk Creation of Product Variant Characteristics
 
-[Bulk Creation](../#kladana-json-api-general-info-create-and-update-multiple-objects) In the body of the request, you need to pass an array containing the JSON representation of the Features you want to create.
+[Bulk Creation](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update) In the body of the request, you need to pass an array containing the JSON representation of the Features you want to create.
 
 > Example of creating multiple Characteristics
 

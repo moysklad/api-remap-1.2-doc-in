@@ -360,14 +360,14 @@ Successful request. The result is a JSON representation of the created task.
 ```
 
 ### Bulk creation and updating of Tasks
-[Bulk creation and update of Tasks](../#kladana-json-api-general-info-create-and-update-multiple-objects). In the body of the request, you need to pass an array containing the JSON representation of the Issues that you want to create or update.
+[Bulk creation and update of Tasks](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update). In the body of the request, you need to pass an array containing the JSON representation of the Issues that you want to create or update.
 Updated Tasks must contain the identifier in the form of metadata.
 
 > Example of creating and updating multiple Tasks
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/task" \
+     "https://api.kladana.com/api/remap/1.2/entity/task/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \
@@ -982,7 +982,7 @@ For successful creation, the following fields must be specified in the request b
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes" \
+     "https://api.kladana.com/api/remap/1.2/entity/task/47bc1d9b-8b87-11e8-d9ce-84d900000017/notes/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \
@@ -1360,7 +1360,7 @@ Successful request. The result is a JSON representation of the changed Task type
 ```
 
 ### Bulk creation and updating of Task types
-[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) Task types.
+[Bulk creation and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update) Task types.
 In the body of the request, you need to pass an array containing the JSON representation of the Task types that you want to create or update.
 Updated Task types must contain the identifier in the form of metadata.
 

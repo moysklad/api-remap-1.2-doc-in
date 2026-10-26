@@ -1195,7 +1195,7 @@ Successful request. The result is a JSON representation of the changed rounding 
 
 ### Bulk update of paise rounding
 
-[Bulk update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of paise rounding.
+[Bulk update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update) of paise rounding.
 In the body of the request, you need to pass an array containing the JSON representation of the paise rounding you want to update.
 Only updating existing entities is supported. Updated entities must contain the identifier in the form of metadata.
 In the body of the request, you must pass the fields that will be updated (**name** or **active**). The response will also include the **agentTags** and **allAgents** fields, but they cannot be changed.
@@ -1204,7 +1204,7 @@ In the body of the request, you must pass the fields that will be updated (**nam
 
 ```shell
 curl --compressed -X POST \
-  "https://api.kladana.com/api/remap/1.2/entity/discount" \
+  "https://api.kladana.com/api/remap/1.2/entity/discount/batch" \
   -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip" \
   -H "Content-Type: application/json" \

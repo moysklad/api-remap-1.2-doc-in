@@ -1174,7 +1174,7 @@ Successful request. The result is a JSON representation of the generated Receivi
 
 ### Bulk creating and update of Receivings
 
-[Bulk creating and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Receiving.
+[Bulk creating and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update) of Receiving.
 In the body of the request, you need to pass an array containing the JSON of the Receivings that you want to create or update.
 Updated Receivings must contain the identifier in the form of metadata.
 
@@ -1182,7 +1182,7 @@ Updated Receivings must contain the identifier in the form of metadata.
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/supply" \
+     "https://api.kladana.com/api/remap/1.2/entity/supply/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \
@@ -2947,7 +2947,7 @@ Successful request. The result is a JSON representation of the created single Re
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/supply/7944ef04-f831-11e5-7a69-971500188b19/positions" \
+     "https://api.kladana.com/api/remap/1.2/entity/supply/7944ef04-f831-11e5-7a69-971500188b19/positions/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \

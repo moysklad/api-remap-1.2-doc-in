@@ -851,7 +851,7 @@ Updated Bundles must contain the identifier in the form of metadata.
 
    ```shell
      curl --compressed -X POST \
-       "https://api.kladana.com/api/remap/1.2/entity/bundle" \
+       "https://api.kladana.com/api/remap/1.2/entity/bundle/batch" \
        -H "Authorization: Basic <Credentials>" \
        -H "Accept-Encoding: gzip" \
        -H "Content-Type: application/json" \

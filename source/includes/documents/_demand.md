@@ -1281,7 +1281,7 @@ Successful request. The result is a JSON representation of the generated Shipmen
 
 ### Bulk creating and update of Shipments
 
-[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Shipments.
+[Bulk creation and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update) of Shipments.
 
 In the request body, pass an array containing the JSON representation of the Shipments you want to create or update. Updated Shipments must contain the identifier in the form of metadata.
 
@@ -1289,7 +1289,7 @@ In the request body, pass an array containing the JSON representation of the Shi
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/demand" \
+     "https://api.kladana.com/api/remap/1.2/entity/demand/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \
@@ -3632,7 +3632,7 @@ Successful request. The result is a JSON representation of the single Shipment i
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/demand/7944ef04-f831-11e5-7a69-971500188b19/positions" \
+     "https://api.kladana.com/api/remap/1.2/entity/demand/7944ef04-f831-11e5-7a69-971500188b19/positions/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \

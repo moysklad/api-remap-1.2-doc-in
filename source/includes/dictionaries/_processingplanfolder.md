@@ -225,14 +225,14 @@ Successful request. The result is a JSON representation of the created Bills of 
 
 ### Bills of Materials Folders Bulk creation and update
 
-[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Bills of Materials Folders.
+[Bulk creation and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update) of Bills of Materials Folders.
 In the body of the request, you need to pass an array containing the JSON representation of the Bills of Materials Folders that you want to create or update. Updated Bills of Materials Folders must contain the ID as metadata.
 
 > Example of creating and updating some Bills of Materials Folders
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/processingplanfolder" \
+     "https://api.kladana.com/api/remap/1.2/entity/processingplanfolder/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \

@@ -850,7 +850,7 @@ Successful request. The result is a JSON representation of the generated Bills o
 ```
 
 ### Bulk creation and update of Bill of Materials
-[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of a Bill of Materials.
+[Bulk creation and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update) of a Bill of Materials.
 In the body of the request, you need to pass an array containing the JSON representation of Bills of Materials you want to create or update.
 Updated Bills of Materials must contain the identifier in the form of metadata.
 
@@ -860,7 +860,7 @@ Assigning another Routing will delete the materials assigned to the previous Rou
 
 ```shell
   curl --compressed -X POST \
-    "https://api.kladana.com/api/remap/1.2/entity/processingplan" \
+    "https://api.kladana.com/api/remap/1.2/entity/processingplan/batch" \
     -H "Authorization: Basic <Credentials>" \
     -H "Accept-Encoding: gzip" \
     -H "Content-Type: application/json" \
@@ -1684,7 +1684,7 @@ For successful creation, you must specify the following fields in the request bo
 
 ```shell
   curl --compressed -X POST \
-    "https://api.kladana.com/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/materials" \
+    "https://api.kladana.com/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/materials/batch" \
     -H "Authorization: Basic <Credentials>" \
     -H "Accept-Encoding: gzip" \
     -H "Content-Type: application/json" \
@@ -1748,7 +1748,7 @@ Successful request. The result is a JSON representation of the created material 
 
 ```shell
   curl --compressed -X POST \
-    "https://api.kladana.com/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/materials" \
+    "https://api.kladana.com/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/materials/batch" \
     -H "Authorization: Basic <Credentials>" \
     -H "Accept-Encoding: gzip" \
     -H "Content-Type: application/json" \
@@ -2183,7 +2183,7 @@ Like a regular raw material, the collection must consist of both raw materials a
 
 ```shell
   curl --compressed -X POST \
-    "https://api.kladana.com/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/parametricmaterials" \
+    "https://api.kladana.com/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/parametricmaterials/batch" \
     -H "Authorization: Basic <Credentials>" \
     -H "Accept-Encoding: gzip" \
     -H "Content-Type: application/json" \
@@ -2319,7 +2319,7 @@ Successful request. The result is a JSON representation of the created parametri
 
 ```shell
 curl --compressed -X POST \
-  "https://api.kladana.com/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/parametricmaterials" \
+  "https://api.kladana.com/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/parametricmaterials/batch" \
   -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip" \
   -H "Content-Type: application/json" \
@@ -2409,7 +2409,7 @@ Successful request. The result is a JSON representation of the created parametri
 
 ```shell
 curl --compressed -X POST \
-  "https://api.kladana.com/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/parametricmaterials" \
+  "https://api.kladana.com/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/parametricmaterials/batch" \
   -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip" \
   -H "Content-Type: application/json" \
@@ -2806,7 +2806,7 @@ For successful creation, the following fields must be specified in the request b
 
 ```shell
   curl --compressed -X POST \
-    "https://api.kladana.com/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/products" \
+    "https://api.kladana.com/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/products/batch" \
     -H "Authorization: Basic <Credentials>" \
     -H "Accept-Encoding: gzip" \
     -H "Content-Type: application/json" \
@@ -2863,7 +2863,7 @@ Successful request. Result is a JSON representation of the created product of a 
 
 ```shell
   curl --compressed -X POST \
-    "https://api.kladana.com/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/products" \
+    "https://api.kladana.com/api/remap/1.2/entity/processingplan/7944ef04-f831-11e5-7a69-971500188b19/products/batch" \
     -H "Authorization: Basic <Credentials>" \
     -H "Accept-Encoding: gzip" \
     -H "Content-Type: application/json" \

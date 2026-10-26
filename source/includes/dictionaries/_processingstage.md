@@ -202,7 +202,7 @@ Successful request. The result is a JSON representation of the created Productio
 ```
 
 ### Production Operations bulk creation and update
-[Production Operations bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects).
+[Production Operations bulk creation and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update).
 In the body of the request, you need to pass an array containing the JSON representation of the steps you want to create or update.
 Updated Production Operations must contain the identifier in the form of metadata.
 
@@ -210,7 +210,7 @@ Updated Production Operations must contain the identifier in the form of metadat
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/processingstage" \
+     "https://api.kladana.com/api/remap/1.2/entity/processingstage/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \

@@ -491,7 +491,7 @@ Successful request. The result is a JSON representation of the generated Stock A
 
 ### Stock Adjustments bulk creating and update
 
-[Stock Adjustments bulk creating and update](../#kladana-json-api-general-info-create-and-update-multiple-objects).
+[Stock Adjustments bulk creating and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update).
 In the body of the request, you need to pass an array containing the JSON representation of Stock Adjustments that you want to create or update.
 Updated Stock Adjustments must contain the ID as metadata.
 
@@ -499,7 +499,7 @@ Updated Stock Adjustments must contain the ID as metadata.
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/enter" \
+     "https://api.kladana.com/api/remap/1.2/entity/enter/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \
@@ -1505,7 +1505,7 @@ You can create both one and some Stock Adjustment items at the same time. All it
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19/positions" \
+     "https://api.kladana.com/api/remap/1.2/entity/enter/7944ef04-f831-11e5-7a69-971500188b19/positions/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \

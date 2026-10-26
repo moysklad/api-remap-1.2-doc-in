@@ -2252,7 +2252,7 @@ Successful request. The result is a JSON representation of the created Product w
 ```
 
 ### Products bulk creation and update
-[Products bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects).
+[Products bulk creation and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update).
 In the body of the request, you need to pass an array containing the JSON representation of the products that you want to create or update.
 Updated products must contain the identifier in the form of metadata.
 
@@ -2260,7 +2260,7 @@ Updated products must contain the identifier in the form of metadata.
   
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/product" \
+     "https://api.kladana.com/api/remap/1.2/entity/product/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \

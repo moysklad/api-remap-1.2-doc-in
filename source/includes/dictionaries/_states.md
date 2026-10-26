@@ -212,7 +212,7 @@ Successful request. The result is a JSON representation of the changed Status.
 ```
 
 ### Bulk creation and updating of Statuses
-[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) Statuses.
+[Bulk creation and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update) Statuses.
 In the body of the request, you need to pass an array containing the JSON representation of the Statuses that you want to create or update.
 Updated Statuses must contain the identifier in the form of metadata.
 

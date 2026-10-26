@@ -618,7 +618,7 @@ Successful request. The result is a JSON representation of the pre-filled Intern
 
 ### Bulk creation and updating of Internal Orders
 
-[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Internal orders.
+[Bulk creation and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update) of Internal orders.
 In the body of the request, you need to pass an array containing the JSON representation of the Internal Orders that you want to create or update.
 Updated Internal Orders must contain the identifier in the form of metadata.
 
@@ -1665,7 +1665,7 @@ will be added to the existing ones.
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/internalorder/7944ef04-f831-11e5-7a69-971500188b19/positions" \
+     "https://api.kladana.com/api/remap/1.2/entity/internalorder/7944ef04-f831-11e5-7a69-971500188b19/positions/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \

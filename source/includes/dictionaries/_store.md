@@ -725,7 +725,7 @@ Successful request. The result is a JSON representation of the created Warehouse
 
 ### Warehouses bulk creation and update
 
-[Warehouses bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects).
+[Warehouses bulk creation and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update).
 In the body of the request, you need to pass an array containing JSON representations of the Warehouses that you want to create or update.
 Updated Warehouses must contain the identifier in the form of metadata.
 
@@ -733,7 +733,7 @@ Updated Warehouses must contain the identifier in the form of metadata.
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/store" \
+     "https://api.kladana.com/api/remap/1.2/entity/store/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \
@@ -1586,7 +1586,7 @@ Successful request. Result - JSON representation of the created Warehouse Locati
 
 ### Bulk creation and update of Warehouse Locations
 
-[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) Warehouse Locations.
+[Bulk creation and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update) Warehouse Locations.
 In the body of the request, you need to pass an array containing JSON representations of the Warehouse Locations that you want to create or update.
 Updated Warehouse Locations must contain the identifier in the form of metadata.
 
@@ -1594,7 +1594,7 @@ Updated Warehouse Locations must contain the identifier in the form of metadata.
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones" \
+     "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/zones/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \
@@ -1980,7 +1980,7 @@ Successful request. The result is a JSON representation of the created Warehouse
 
 ### Bulk creation and update of Warehouse Bins
 
-[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) Warehouse bins.
+[Bulk creation and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update) Warehouse bins.
 In the body of the request, you need to pass an array containing a JSON representation of the Warehouse Bins that you want to create or update.
 Updated Warehouse Bins must contain the identifier in the form of metadata.
 
@@ -1988,7 +1988,7 @@ Updated Warehouse Bins must contain the identifier in the form of metadata.
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots" \
+     "https://api.kladana.com/api/remap/1.2/entity/store/7a6a11b6-12c5-11e6-9464-e4de00000006/slots/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \

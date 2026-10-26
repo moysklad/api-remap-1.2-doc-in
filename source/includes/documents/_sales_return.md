@@ -587,7 +587,7 @@ Successful request. The result is a JSON representation of the generated Sales R
 
 ### Bulk create and update Sales Returns
 
-[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) Sales Returns.
+[Bulk creation and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update) Sales Returns.
 In the body of the request, you need to pass an array containing the JSON representation of the Sales Returns that you want to create or update.
 Updated Sales Returns must contain the ID as metadata.
 
@@ -595,7 +595,7 @@ Updated Sales Returns must contain the ID as metadata.
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/salesreturn" \
+     "https://api.kladana.com/api/remap/1.2/entity/salesreturn/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \
@@ -623,7 +623,7 @@ Updated Sales Returns must contain the ID as metadata.
                    "mediaType": "application/json"
                  }
                },
-               store: {
+               "store": {
                  "meta": {
                    "href": "https://api.kladana.com/api/remap/1.2/entity/store/faf3ff5b-2e58-11e6-8a84-bae500000050",
                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/store/metadata",
@@ -1945,7 +1945,7 @@ difference in **quantity** items (the quantity in the item in the return can be 
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/salesreturn/7944ef04-f831-11e5-7a69-971500188b19/positions" \
+     "https://api.kladana.com/api/remap/1.2/entity/salesreturn/7944ef04-f831-11e5-7a69-971500188b19/positions/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \

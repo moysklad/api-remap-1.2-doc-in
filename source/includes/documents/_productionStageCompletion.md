@@ -711,13 +711,13 @@ Successful request. The result is a JSON representation of the generated Operati
 ```
 
 ### Bulk creation and update of Operation Report
-[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Operation Report. In the request body, you need to pass an array containing JSON representations of Operation Report that need to be created or updated. The Operation Reports to be updated must contain an identifier as metadata.
+[Bulk creation and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update) of Operation Report. In the request body, you need to pass an array containing JSON representations of Operation Report that need to be created or updated. The Operation Reports to be updated must contain an identifier as metadata.
 
 > Example of creating and updating several Operation Reports
 
 ```shell
   curl --compressed -X POST \
-    "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion" \
+    "https://api.kladana.com/api/remap/1.2/entity/productionstagecompletion/batch" \
     -H "Authorization: Basic <Credentials>" \
     -H "Accept-Encoding: gzip" \
     -H "Content-Type: application/json" \
@@ -749,8 +749,7 @@ Successful request. The result is a JSON representation of the generated Operati
                     "mediaType": "application/json"
                   }
                 },
-                "productionVolume": 15,
-              ]
+                "productionVolume": 15
             },
             {
               "meta": {

@@ -1181,7 +1181,7 @@ Successful request. The result is a JSON representation of the created Sales Inv
 
 ### Bulk creating and update of Sales Invoices
 
-[Bulk creating and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Sales Invoices.
+[Bulk creating and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update) of Sales Invoices.
 In the body of the request, you need to pass an array containing the JSON representation of the Sales Invoices that you want to create or update.
 Updated Sales Invoices must contain the identifier in the form of metadata.
 
@@ -1189,7 +1189,7 @@ Updated Sales Invoices must contain the identifier in the form of metadata.
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/invoiceout" \
+     "https://api.kladana.com/api/remap/1.2/entity/invoiceout/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \

@@ -1064,7 +1064,7 @@ Successful request. The result is a JSON representation of the generated Supplie
 
 ### Bulk creating and update of Supplier Invoices
 
-[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Supplier Invoices.
+[Bulk creation and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update) of Supplier Invoices.
 In the body of the request, you need to pass an array containing the JSON representation of the Developer Accounts you want to create or update.
 Updated Supplier Invoices must contain the identifier in the form of metadata.
 
@@ -1072,7 +1072,7 @@ Updated Supplier Invoices must contain the identifier in the form of metadata.
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/invoicein" \
+     "https://api.kladana.com/api/remap/1.2/entity/invoicein/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \

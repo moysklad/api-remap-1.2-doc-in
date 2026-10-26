@@ -1304,7 +1304,7 @@ curl --compressed -X POST \
 
 ```shell
 curl --compressed -X POST \
-   "https://api.kladana.com/api/remap/1.2/entity/counterparty" \
+   "https://api.kladana.com/api/remap/1.2/entity/counterparty/batch" \
    -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip" \
    -H "Content-Type: application/json" \
@@ -1543,7 +1543,7 @@ curl --compressed -X POST \
 ]
 ```
 
-[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Counterparties.
+[Bulk creation and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update) of Counterparties.
 In the body of the request, you need to pass an array containing the JSON representation of the Accounts that you want to create or update.
 Updated Counterparties must contain the identifier in the form of metadata.
 

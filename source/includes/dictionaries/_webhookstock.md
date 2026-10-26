@@ -182,7 +182,7 @@ Successful request. The result is a JSON representation of the created webhook f
 ```
 
 ### Bulk creation and updating of webhooks for changing stock
-[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) webhooks to change stock.
+[Bulk creation and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update) webhooks to change stock.
 In the body of the request, you need to pass an array containing the JSON representation of the remnant change webhooks that you want to create or update.
 Residue change webhooks that are updated must contain the identifier as metadata.
 
@@ -190,7 +190,7 @@ Residue change webhooks that are updated must contain the identifier as metadata
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/webhookstock" \
+     "https://api.kladana.com/api/remap/1.2/entity/webhookstock/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \
@@ -198,7 +198,7 @@ Residue change webhooks that are updated must contain the identifier as metadata
              {
                "url": "https://www.example.com",
                "stockType": "stock",
-               "reportType": "all",
+               "reportType": "all"
              },
              {
                "meta": {
@@ -209,7 +209,7 @@ Residue change webhooks that are updated must contain the identifier as metadata
                },
                "url": "https://www.example.com",
                "stockType": "stock",
-               "reportType": "bystore",
+               "reportType": "bystore"
              }
            ]'
 ```

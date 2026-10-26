@@ -335,7 +335,7 @@ Successful request. The result is a JSON representation of the generated Currenc
 ```
 
 ### Bulk creation and updating of Currencies
-[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects)
+[Bulk creation and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update)
 In the body of the request, you need to pass an array containing the JSON representation of the Currencies that you want to create or update.
 Updated Currencies must contain the identifier in the form of metadata.
 
@@ -343,7 +343,7 @@ Updated Currencies must contain the identifier in the form of metadata.
 
 ```shell
 curl --compressed -X POST \
-   https://api.kladana.com/api/remap/1.2/entity/currency/ \
+   https://api.kladana.com/api/remap/1.2/entity/currency/batch \
    -H "Authorization: Basic <Credentials>" \
    -H "Accept-Encoding: gzip" \
    -H 'Content-Type: application/json' \

@@ -979,7 +979,7 @@ Successful request. The result is a JSON representation of the created Productio
 
 ### Bulk creating and update of Production Orders
 
-[Bulk creating and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Production orders.
+[Bulk creating and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update) of Production orders.
 In the body of the request, you need to pass an array containing JSON representations of the Production Orders that you want to create or update.
 Updated Production Orders must contain the identifier in the form of metadata.
 
@@ -987,7 +987,7 @@ Updated Production Orders must contain the identifier in the form of metadata.
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/processingorder" \
+     "https://api.kladana.com/api/remap/1.2/entity/processingorder/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \
@@ -1030,7 +1030,7 @@ Updated Production Orders must contain the identifier in the form of metadata.
                },
                "name": "000034",
                "quantity": 5,
-               processingPlan: {
+               "processingPlan": {
                  "meta": {
                    "href": "https://api.kladana.com/api/remap/1.2/entity/processingplan/c38e50b0-acdc-11e6-5bed-427b0000009e",
                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/processingplan/metadata",
