@@ -893,7 +893,7 @@ Successful request. The result is the JSON representation of the created Variant
 
 ### Product variants bulk creating and update
 
-[Product variants bulk creating and update](../#kladana-json-api-general-info-create-and-update-multiple-objects).
+[Product variants bulk creating and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update).
 
 In the body of the request, you need to pass an array containing the JSON representation of the Product variants that you want to create or update.
 Updated Product variants must contain the identifier in the form of metadata.
@@ -902,7 +902,7 @@ Updated Product variants must contain the identifier in the form of metadata.
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/variant" \
+     "https://api.kladana.com/api/remap/1.2/entity/variant/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \

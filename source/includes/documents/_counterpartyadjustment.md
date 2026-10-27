@@ -347,7 +347,7 @@ Successful request. The result is a JSON representation of the created Balance A
 
 ### Bulk creation and updating of balance adjustments
 
-[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Balance adjustments.
+[Bulk creation and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update) of Balance adjustments.
 In the body of the request, you need to pass an array containing a JSON representation of the Balance Adjustments that you want to create or update.
 Updated Balance Adjustments must contain the identifier in the form of metadata.
 
@@ -355,7 +355,7 @@ Updated Balance Adjustments must contain the identifier in the form of metadata.
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment" \
+     "https://api.kladana.com/api/remap/1.2/entity/counterpartyadjustment/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \
@@ -370,7 +370,7 @@ Updated Balance Adjustments must contain the identifier in the form of metadata.
                    "uuidHref": "https://app.kladana.com/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000083"
                  }
                },
-               organization: {
+               "organization": {
                  "meta": {
                    "href": "https://api.kladana.com/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b0000007e",
                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",
@@ -391,7 +391,7 @@ Updated Balance Adjustments must contain the identifier in the form of metadata.
                    "uuidHref": "https://app.kladana.com/app/#company/edit?id=947ebfcd-099c-11ec-ac16-000b00000055"
                  }
                },
-               organization: {
+               "organization": {
                  "meta": {
                    "href": "https://api.kladana.com/api/remap/1.2/entity/organization/94527995-099c-11ec-ac16-000b00000066",
                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/organization/metadata",

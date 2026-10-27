@@ -251,7 +251,7 @@ Successful request. The result is a JSON representation of the created Country.
 ```
 
 ### Bulk creation and update of Countries
-[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects)
+[Bulk creation and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update)
 In the body of the request, you need to pass an array containing the JSON representation of the Countries that you want to create or update.
 Updated Countries must contain the identifier in the form of metadata.
 
@@ -259,7 +259,7 @@ Updated Countries must contain the identifier in the form of metadata.
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/country" \
+     "https://api.kladana.com/api/remap/1.2/entity/country/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \

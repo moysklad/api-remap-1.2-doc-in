@@ -443,13 +443,13 @@ Successful request. The result is a JSON representation of the created Handling 
 
 ### Bulk creating and update of Handling units
 
-[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Handling units. In the request body, pass an array containing the JSON representation of the Handling units you want to create or update. Updated Handling units must contain the identifier in the form of metadata.
+[Bulk creation and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update) of Handling units. In the request body, pass an array containing the JSON representation of the Handling units you want to create or update. Updated Handling units must contain the identifier in the form of metadata.
 
 > Example of creating and updating multiple Handling units
 
 ```shell
   curl --compressed -X POST \
-    "https://api.kladana.com/api/remap/1.2/entity/aggregatepack" \
+    "https://api.kladana.com/api/remap/1.2/entity/aggregatepack/batch" \
     -H "Authorization: Basic <Credentials>" \
     -H "Accept-Encoding: gzip" \
     -H "Content-Type: application/json" \
@@ -1013,7 +1013,7 @@ Successful request. The result is a JSON representation of the created Handling 
 
 ```shell
   curl --compressed -X POST \
-    "https://api.kladana.com/api/remap/1.2/entity/aggregatepack/9497f3a3-bc09-11f1-0a82-14dc000065bb/positions" \
+    "https://api.kladana.com/api/remap/1.2/entity/aggregatepack/9497f3a3-bc09-11f1-0a82-14dc000065bb/positions/batch" \
     -H "Authorization: Basic <Credentials>" \
     -H "Accept-Encoding: gzip" \
     -H "Content-Type: application/json" \

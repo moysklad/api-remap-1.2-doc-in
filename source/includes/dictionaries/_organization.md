@@ -987,7 +987,7 @@ curl --compressed -X POST \
 ```
 
 ### Legal entities bulk creation and update
-[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) legal entities.
+[Bulk creation and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update) legal entities.
 In the body of the request, you need to pass an array containing the JSON representation of the legal entities that you want to create or update.
 Updated legal entities must contain the identifier in the form of metadata.
 
@@ -995,7 +995,7 @@ Updated legal entities must contain the identifier in the form of metadata.
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/organization" \
+     "https://api.kladana.com/api/remap/1.2/entity/organization/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \
@@ -1930,7 +1930,7 @@ Fields that were not specified in the request JSON are not changed.
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19/accounts" \
+     "https://api.kladana.com/api/remap/1.2/entity/organization/7944ef04-f831-11e5-7a69-971500188b19/accounts/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \

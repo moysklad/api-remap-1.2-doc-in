@@ -924,7 +924,7 @@ Successful request. The result is a JSON representation of the created Purchase 
 
 ### Purchase Order Bulk creating and update
 
-[Bulk creating and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Purchase orders.
+[Bulk creating and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update) of Purchase orders.
 In the body of the request, you need to pass an array containing JSON representations of the Purchase Orders that you want to create or update.
 Updated Purchase Orders must contain the identifier in the form of metadata.
 
@@ -932,7 +932,7 @@ Updated Purchase Orders must contain the identifier in the form of metadata.
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/purchaseorder" \
+     "https://api.kladana.com/api/remap/1.2/entity/purchaseorder/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \
@@ -976,7 +976,7 @@ Updated Purchase Orders must contain the identifier in the form of metadata.
                    "mediaType": "application/json"
                  }
                },
-               contract: {
+               "contract": {
                  "meta": {
                    "href": "https://api.kladana.com/api/remap/1.2/entity/contract/e105a2e7-3f6f-11e6-8a84-bae500000087",
                    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/contract/metadata",
@@ -1037,7 +1037,7 @@ Updated Purchase Orders must contain the identifier in the form of metadata.
                "moment": "2016-12-05 15:30:14",
                "applicable": false,
                "rate": {
-                 currency: {
+                 "currency": {
                    "meta": {
                      "href": "https://api.kladana.com/api/remap/1.2/entity/currency/faf45b9a-2e58-11e6-8a84-bae500000055",
                      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/currency/metadata",
@@ -1063,7 +1063,7 @@ Updated Purchase Orders must contain the identifier in the form of metadata.
                  }
                },
                "state": null,
-               organizationAccount: {
+               "organizationAccount": {
                  "meta": {
                    "href": "https://api.kladana.com/api/remap/1.2/entity/organization/fae3561a-2e58-11e6-8a84-bae50000004e/accounts/fae39d66-2e58-11e6-8a84-bae50000004f",
                    "type": "account",
@@ -2723,7 +2723,7 @@ Successful request. The result is a JSON representation of the created item of a
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/purchaseOrder/7944ef04-f831-11e5-7a69-971500188b19/positions" \
+     "https://api.kladana.com/api/remap/1.2/entity/purchaseorder/7944ef04-f831-11e5-7a69-971500188b19/positions/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \
@@ -2744,7 +2744,7 @@ Successful request. The result is a JSON representation of the created item of a
              },
              {
                "quantity": 3,
-               "price": 1000.0
+               "price": 1000.0,
                "discount": 0,
                "vat": 10,
                "assortment": {

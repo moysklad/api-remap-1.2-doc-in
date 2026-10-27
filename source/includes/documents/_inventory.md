@@ -347,7 +347,7 @@ Successful request. The result is a JSON representation of the generated Invento
 
 ### Bulk Inventory Count creating and update
 
-[Bulk Inventory Count creating and update](../#kladana-json-api-general-info-create-and-update-multiple-objects).
+[Bulk Inventory Count creating and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update).
 In the body of the request, you need to pass an array containing the JSON representation of the Inventory Counts that you want to create or update.
 Updated Inventory Counts must contain the identifier in the form of metadata.
 
@@ -355,7 +355,7 @@ Updated Inventory Counts must contain the identifier in the form of metadata.
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/inventory" \
+     "https://api.kladana.com/api/remap/1.2/entity/inventory/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \

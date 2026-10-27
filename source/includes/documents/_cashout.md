@@ -569,7 +569,7 @@ Successful request. The result is a JSON representation of the created Outgoing 
 
 ### Outgoing Cash Payment bulk creating and update
 
-[Bulk creating and update of Outgoing Cash Payments](../#kladana-json-api-general-info-create-and-update-multiple-objects).
+[Bulk creating and update of Outgoing Cash Payments](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update).
 In the body of the request, you need to pass an array containing JSON representations of the Outgoing Cash Payments that you want to create or update.
 Updatable Outgoing Cash Payments must contain the identifier in the form of metadata.
 
@@ -577,7 +577,7 @@ Updatable Outgoing Cash Payments must contain the identifier in the form of meta
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/cashout" \
+     "https://api.kladana.com/api/remap/1.2/entity/cashout/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \

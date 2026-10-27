@@ -1061,13 +1061,13 @@ Successful request. The result is a JSON representation of the created Sales Ord
 
 ### Sales Orders bulk creating and update
 
-In the body of the request, you need to pass an array containing JSON representations of the Sales Orders that you want to create or update. Updated Sales Orders must contain the identifier in the form of metadata. [Learn more](../#kladana-json-api-general-info-create-and-update-multiple-objects).
+In the body of the request, you need to pass an array containing JSON representations of the Sales Orders that you want to create or update. Updated Sales Orders must contain the identifier in the form of metadata. [Learn more](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update).
 
 > Example: Creating and updating multiple Sales Orders
 
 ```shell
   curl --compressed -X POST \
-    "https://api.kladana.com/api/remap/1.2/entity/customerorder" \
+    "https://api.kladana.com/api/remap/1.2/entity/customerorder/batch" \
     -H "Authorization: Basic <Credentials>" \
     -H "Accept-Encoding: gzip" \
     -H "Content-Type: application/json" \
@@ -2643,7 +2643,7 @@ Successful request. The result is a JSON representation of the created item of a
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions" \
+     "https://api.kladana.com/api/remap/1.2/entity/customerorder/7944ef04-f831-11e5-7a69-971500188b19/positions/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \

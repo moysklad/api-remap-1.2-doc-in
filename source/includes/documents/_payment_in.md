@@ -442,7 +442,7 @@ Successful request. The result is a JSON representation of the generated Incomin
 
 ### Bulk creating and update of Incoming payments
 
-[Bulk creating and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Incoming payments.
+[Bulk creating and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update) of Incoming payments.
 In the body of the request, you need to pass an array containing the JSON representation of the Incoming Payments that you want to create or update.
 Updated Incoming payments must contain the identifier in the form of metadata.
 
@@ -450,7 +450,7 @@ Updated Incoming payments must contain the identifier in the form of metadata.
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/paymentin" \
+     "https://api.kladana.com/api/remap/1.2/entity/paymentin/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \

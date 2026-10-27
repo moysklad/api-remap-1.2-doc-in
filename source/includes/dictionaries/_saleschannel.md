@@ -238,7 +238,7 @@ Successful request. The result is a JSON representation of the created Sales Cha
 
 
 ### Bulk creation and update of Sales Channels
-[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) Sales Channels.
+[Bulk creation and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update) Sales Channels.
 In the body of the request, you need to pass an array containing the JSON representation of the Sales Channels that you want to create or update.
 Updated Sales Channels must contain the identifier in the form of metadata. For Sales Channels created when connecting an online store, you cannot update the type. If you change the name of such sales channels, the name of the associated online store will change.
 
@@ -246,7 +246,7 @@ Updated Sales Channels must contain the identifier in the form of metadata. For 
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/saleschannel" \
+     "https://api.kladana.com/api/remap/1.2/entity/saleschannel/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type:application/json" \

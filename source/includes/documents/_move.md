@@ -453,7 +453,7 @@ Successful request. The result is a JSON representation of the generated Transfe
 
 ### Bulk create and update Transfers
 
-[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Transfers.
+[Bulk creation and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update) of Transfers.
 In the body of the request, you need to pass an array containing the JSON representation of the Transfers that you want to create or update.
 Updated Transfers must contain the identifier in the form of metadata.
 
@@ -461,7 +461,7 @@ Updated Transfers must contain the identifier in the form of metadata.
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/move" \
+     "https://api.kladana.com/api/remap/1.2/entity/move/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \
@@ -2065,7 +2065,7 @@ will be added to the existing ones.
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b19/positions" \
+     "https://api.kladana.com/api/remap/1.2/entity/move/7944ef04-f831-11e5-7a69-971500188b19/positions/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \

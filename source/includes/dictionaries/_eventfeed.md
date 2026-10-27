@@ -303,7 +303,7 @@ curl --compressed -X PUT \
 
 ### Bulk creation and update of Events
 
-[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Events.
+[Bulk creation and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update) of Events.
 The request body must contain an array with JSON representations of the Events that you want to create or update.
 Events to be updated must contain an identifier in the form of metadata.
 
@@ -311,7 +311,7 @@ Events to be updated must contain an identifier in the form of metadata.
 
 ```shell
   curl --compressed -X POST \
-    "https://api.kladana.com/api/remap/1.2/entity/customerorder/e4609c69-00bc-11ef-ac12-00120000001a/notes" \
+    "https://api.kladana.com/api/remap/1.2/entity/customerorder/e4609c69-00bc-11ef-ac12-00120000001a/notes/batch" \
     -H "Authorization: Basic <Credentials>" \
     -H "Accept-Encoding: gzip" \
     -H "Content-Type: application/json" \

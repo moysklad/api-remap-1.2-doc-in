@@ -6,6 +6,10 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 28-10-2026
+#### Added
+- Added endpoints with `/batch` in the path for [bulk creation and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update): `/entity/{type}/batch` and `/entity/{type}/{uuid}/{childpath}/batch` for child resources that support these operations. The existing endpoints without `/batch` remain available.
+
 ### 21-10-2026
 #### Added
 - Field `accrualDate` in [Outgoing Payment](../documents/#transactions-outgoing-payment) and [Outgoing Cash Payment](../documents/#transactions-outgoing-cash-payment)

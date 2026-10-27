@@ -359,7 +359,7 @@ Successful request. The result is a JSON representation of the created Content C
 ```
 
 ### Bulk creation and update of Content Cards
-[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Content Cards.
+[Bulk creation and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update) of Content Cards.
 In the request body, pass an array containing JSON representations of the Content Cards you want to create or update.
 Updated Content Cards must contain the identifier as metadata.
 
@@ -367,7 +367,7 @@ Updated Content Cards must contain the identifier as metadata.
 
 ```shell
 curl --compressed -X POST \
-  "https://api.kladana.com/api/remap/1.2/entity/contentcard" \
+  "https://api.kladana.com/api/remap/1.2/entity/contentcard/batch" \
   -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip" \
   -H "Content-Type: application/json" \

@@ -198,7 +198,7 @@ Successful request. The result is a JSON representation of the list of Employees
 
 ### Bulk update of Employees
 
-[Bulk update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Employees.
+[Bulk update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update) of Employees.
 In the body of the request, you need to pass an array containing the JSON representation of the Employees you want to update.
 Updated Employees must contain the identifier in the form of metadata.
 
@@ -206,7 +206,7 @@ Updated Employees must contain the identifier in the form of metadata.
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/employee" \
+     "https://api.kladana.com/api/remap/1.2/entity/employee/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \

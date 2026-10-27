@@ -392,7 +392,7 @@ Successful request. The result is a JSON representation of the created bonus ope
 
 ### Bonus operations bulk creation and update
 
-[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Bonus operations.
+[Bulk creation and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update) of Bonus operations.
 In the body of the request, you need to pass an array containing JSON representations of the Bonus Operations that you want to create or update.
 Updated Bonus Transactions must contain the identifier in the form of metadata.
 
@@ -400,7 +400,7 @@ Updated Bonus Transactions must contain the identifier in the form of metadata.
 
 ```shell
   curl --compressed -X POST \
-    "https://api.kladana.com/api/remap/1.2/entity/bonustransaction" \
+    "https://api.kladana.com/api/remap/1.2/entity/bonustransaction/batch" \
     -H "Authorization: Basic <Credentials>" \
     -H "Accept-Encoding: gzip" \
     -H "Content-Type: application/json" \

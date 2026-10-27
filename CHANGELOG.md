@@ -2,6 +2,10 @@
 
 JSON API 1.2 changes will be added here soon
 
+### 28-10-2026
+#### Added
+- Added endpoints with `/batch` in the path for [bulk creation and update](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update): `/entity/{type}/batch` and `/entity/{type}/{uuid}/{childpath}/batch` for child resources that support these operations. The existing endpoints without `/batch` remain available.
+
 ### 21-10-2026
 #### Added
 - Field `accrualDate` in [Outgoing Payment](https://dev.kladana.in/doc/api/remap/1.2/documents/#transactions-outgoing-payment) and [Outgoing Cash Payment](https://dev.kladana.in/doc/api/remap/1.2/documents/#transactions-outgoing-cash-payment)

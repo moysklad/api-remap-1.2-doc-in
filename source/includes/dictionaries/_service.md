@@ -1025,7 +1025,7 @@ For example, to create a barcode of type Code 128, a JSON object with a code128 
 
 ### Bulk creation and update of Services
 
-[Bulk creation and update](../#kladana-json-api-general-info-create-and-update-multiple-objects) of Services.
+[Bulk creation and update](../#kladana-json-api-general-info-bulk-operations-with-objects-bulk-creation-and-update) of Services.
 In the body of the request, you need to pass an array containing the JSON representation of the Services that you want to create or update.
 The updated Services must contain the identifier in the form of metadata.
 
@@ -1033,7 +1033,7 @@ The updated Services must contain the identifier in the form of metadata.
 
 ```shell
    curl --compressed -X POST \
-     "https://api.kladana.com/api/remap/1.2/entity/service" \
+     "https://api.kladana.com/api/remap/1.2/entity/service/batch" \
      -H "Authorization: Basic <Credentials>" \
      -H "Accept-Encoding: gzip" \
      -H "Content-Type: application/json" \
