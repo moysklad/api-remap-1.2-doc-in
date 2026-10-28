@@ -1481,20 +1481,20 @@ curl --compressed -X POST \
 
 The JSON API allows you to retrieve and update the list of alternatives for Products, Services, Bundles, and Product variants.
 
-The maximum number of alternatives per object is 10.
-
 #### Object attributes
 
 | Title            | Type                         | Filtration | Description |
 | ---------------- | :--------------------------- | :--------- | :---------- |
 | **assortment**   | [Meta](../#kladana-json-api-general-info-metadata) | `=` `!=`   | Assortment metadata.<br>`+Expand` `+Required when answering` |
-| **alternatives** | Array(Object)                |            | A list of alternatives for the Assortment.<br>`+Required when answering` |
+| **alternatives** | Array(Object)                |            | A list of alternatives for the Assortment item.<br>`+Required when answering` |
 
 Each item in the **alternatives** array contains the following attributes:
 
 | Title          | Type                         | Description |
 | -------------- | :--------------------------- | :---------- |
 | **assortment** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Assortment item specified as an alternative.<br>`+Expand` `+Required when answering` |
+
+The **alternatives** list can contain up to 10 alternatives. It cannot contain the Assortment item itself or multiple references to the same alternative.
 
 The links between an Assortment item and its alternatives work both ways: if item B appears in item A's **alternatives** list, item A appears in item B's list. To create such a link, you only need to specify the alternative for one of the items.
 
@@ -1665,6 +1665,157 @@ curl --compressed -X GET \
     }
   ]
 }
+```
+
+### Update alternatives
+
+In the request body, pass an object or an array of objects with the required fields: **assortment** — metadata of the Assortment item for which you want to update the list of alternatives, and **alternatives** — the new list of alternatives.
+
+The **alternatives** list completely replaces the existing list. To remove all alternatives, pass an empty array in **alternatives**.
+
+#### Update alternatives for a Product
+
+> Example request to update alternatives for a Product
+
+```shell
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/assortment/alternatives" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "assortment": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/product/35427052-36e7-11e7-8a7f-40d0000000d7",
+      "type": "product",
+      "mediaType": "application/json"
+    }
+  },
+  "alternatives": [
+    {
+      "assortment": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/product/437f2d67-36e7-11e7-8a7f-40d0000000df",
+          "type": "product",
+          "mediaType": "application/json"
+        }
+      }
+    }
+  ]
+}'
+```
+
+> Response 200 (application/json). Successful request. The result is a JSON representation of a Product with its updated list of alternatives.
+
+```json
+{
+  "assortment": {
+    "meta": {
+      "href": "https://api.kladana.com/api/remap/1.2/entity/product/35427052-36e7-11e7-8a7f-40d0000000d7",
+      "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+      "type": "product",
+      "mediaType": "application/json"
+    }
+  },
+  "alternatives": [
+    {
+      "assortment": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/product/437f2d67-36e7-11e7-8a7f-40d0000000df",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+          "type": "product",
+          "mediaType": "application/json"
+        }
+      }
+    }
+  ]
+}
+```
+
+#### Bulk update of alternatives
+
+To update alternatives for multiple Assortment items, pass an array of objects with **assortment** and **alternatives** fields in the request body.
+
+> Example of updating alternatives for one Product and removing all alternatives for another Product
+
+```shell
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/assortment/alternatives" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
+  -d '[
+  {
+    "assortment": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/product/35427052-36e7-11e7-8a7f-40d0000000d7",
+        "type": "product",
+        "mediaType": "application/json"
+      }
+    },
+    "alternatives": [
+      {
+        "assortment": {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/product/437f2d67-36e7-11e7-8a7f-40d0000000df",
+            "type": "product",
+            "mediaType": "application/json"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "assortment": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/product/550e8400-e29b-41d4-a716-446655440000",
+        "type": "product",
+        "mediaType": "application/json"
+      }
+    },
+    "alternatives": []
+  }
+]'
+```
+
+> Response 200 (application/json). Successful request. The result is an array of Assortment items with their updated lists of alternatives.
+
+```json
+[
+  {
+    "assortment": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/product/35427052-36e7-11e7-8a7f-40d0000000d7",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+        "type": "product",
+        "mediaType": "application/json"
+      }
+    },
+    "alternatives": [
+      {
+        "assortment": {
+          "meta": {
+            "href": "https://api.kladana.com/api/remap/1.2/entity/product/437f2d67-36e7-11e7-8a7f-40d0000000df",
+            "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+            "type": "product",
+            "mediaType": "application/json"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "assortment": {
+      "meta": {
+        "href": "https://api.kladana.com/api/remap/1.2/entity/product/550e8400-e29b-41d4-a716-446655440000",
+        "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/product/metadata",
+        "type": "product",
+        "mediaType": "application/json"
+      }
+    },
+    "alternatives": []
+  }
+]
 ```
 
 ### Get Product directory settings
