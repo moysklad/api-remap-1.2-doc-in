@@ -13,6 +13,8 @@ To use it, pass the special header:
 
 `X-Lognex-Remap-Beta-Feature: assortmentWithoutStock`
 
+Read more about the header [here](../#kladana-json-api-general-info-x-lognex-remap-beta-feature-header).
+
 If the header is not provided, the request is handled by the [legacy assortment endpoint](../dictionaries/#entities-assortment-deprecated), which is planned for removal.
 
 #### Differences from the legacy endpoint
