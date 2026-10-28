@@ -2,7 +2,7 @@
 
 JSON API 1.2 changes will be added here soon
 
-### 02-10-2026
+### 01-11-2026
 #### Added
 - An endpoint for working with [Assortment alternatives](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-assortment-alternatives).
 
