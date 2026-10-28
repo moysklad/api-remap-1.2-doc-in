@@ -2,6 +2,10 @@
 
 JSON API 1.2 changes will be added here soon
 
+### 01-11-2026
+#### Added
+- An endpoint for working with [Assortment alternatives](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-assortment-alternatives).
+
 ### 21-10-2026
 #### Added
 - Field `accrualDate` in [Outgoing Payment](https://dev.kladana.in/doc/api/remap/1.2/documents/#transactions-outgoing-payment) and [Outgoing Cash Payment](https://dev.kladana.in/doc/api/remap/1.2/documents/#transactions-outgoing-cash-payment)

@@ -6,6 +6,10 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 01-11-2026
+#### Added
+- An endpoint for working with [Assortment alternatives](../dictionaries/#entities-assortment-alternatives).
+
 ### 21-10-2026
 #### Added
 - Field `accrualDate` in [Outgoing Payment](../documents/#transactions-outgoing-payment) and [Outgoing Cash Payment](../documents/#transactions-outgoing-cash-payment)
