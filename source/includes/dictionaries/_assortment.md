@@ -1671,9 +1671,9 @@ curl --compressed -X GET \
 
 ### Update alternatives
 
-In the request body, pass an object or an array of objects with the required fields: **assortment** — metadata of the Assortment item for which you want to update the list of alternatives, and **alternatives** — the new list of alternatives.
+In the request body, pass an object or an array of objects. Each object must contain the required fields: **assortment** — metadata of the Assortment item whose list of alternatives is being updated, and **alternatives** — its new list of alternatives.
 
-The **alternatives** list completely replaces the existing list. To remove all alternatives, pass an empty array in **alternatives**.
+The value of **alternatives** completely replaces the existing list. To remove all alternatives, pass an empty array `[]` or `null`.
 
 #### Update alternatives for a Product
 
@@ -1735,8 +1735,6 @@ curl --compressed -X POST \
 ```
 
 #### Bulk update of alternatives
-
-To update alternatives for multiple Assortment items, pass an array of objects with **assortment** and **alternatives** fields in the request body.
 
 > Example of updating alternatives for one Product and removing all alternatives for another Product
 
