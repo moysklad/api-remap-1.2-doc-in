@@ -10,6 +10,20 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 #### Changed
 - The `expenseItem` field in [Write-offs](../documents/#transactions-write-off) is now processed when creating and updating documents, including bulk operations: a valid expense item reference is saved. Previously, the supplied field was ignored.
 
+### 21-10-2026
+#### Added
+- Field `accrualDate` in [Outgoing Payment](../documents/#transactions-outgoing-payment) and [Outgoing Cash Payment](../documents/#transactions-outgoing-cash-payment)
+- Error [22005](../index.html#kladana-json-api-errors-error-codes-for-payments) when creating or updating an [Outgoing Payment](../documents/#transactions-outgoing-payment) or an [Outgoing Cash Payment](../documents/#transactions-outgoing-cash-payment) with an accrual date if the expense item is not an operating expense or is excluded from profit calculation
+- Error [22006](../index.html#kladana-json-api-errors-error-codes-for-payments) when creating or updating an [Outgoing Payment](../documents/#transactions-outgoing-payment) or an [Outgoing Cash Payment](../documents/#transactions-outgoing-cash-payment) based on a Sales Return if an expense item other than a return is specified
+
+### 20-10-2026
+#### Added
+- Field `archived` for [Expense item](../dictionaries/#entities-expense-item)
+
+### 13-10-2026
+#### Added
+- Information for working with header [X-Lognex-Remap-Beta-Feature](../#kladana-json-api-general-info-x-lognex-remap-beta-feature-header)
+
 ### 12-10-2026
 #### Added
 - [Handling unit](../dictionaries/#entities-handling-unit) entity

@@ -27,6 +27,8 @@ To retrieve and send the **childrenList** field, you must include the `X-Lognex-
 
 The **childrenList** field is available as part of beta functionality and may be changed or removed in the future.
 
+Read more about the header [here](../#kladana-json-api-general-info-x-lognex-remap-beta-feature-header).
+
 If the header is not provided:
 
 + the **childrenList** field is not returned in the response.

@@ -1300,17 +1300,18 @@ NotificationTaskOverdue - the task is overdue
 | **id** | UUID                                               | Notification ID<br>`+Required when replying` `+Required when creating` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` `+Required when creating` |
 | **read** | Boolean                                            | Indicates whether the Notification has been read<br>`+Required when replying` `+Required when creating` |
-| **task** | Object                                             | Task [Learn more](#notifications-detailed-description-of-notification-types-task-expired-nested-entity-attributes-employee-who-made-the-change)<br>`+Required when replying` `+Required when creating` |
+| **task** | Object                                             | Task [Learn more](#notifications-detailed-description-of-notification-types-task-expired-nested-entity-attributes-task)<br>`+Required when replying` `+Required when creating` |
 | **title** | String(255)                                        | Brief text of notification<br>`+Required when replying` `+Required when creating` |
 
 #### Nested entity attributes
-##### Employee who made the change
+##### Task
 
-| Title | Type | Description |
-| --------------- | ------ | --------- |
-| **id** | UUID | Notification ID<br>`+Required when replying` |
+| Title | Type                                               | Description |
+| --------------- |----------------------------------------------------| --------- |
+| **deadline** | DateTime                                           | Estimated completion date of the task<br>`+Required when replying` |
+| **id** | UUID                                               | Notification ID<br>`+Required when replying` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Object metadata<br>`+Required when replying` |
-| **name** | String(255) | Onnaming of Counterparty<br>`+Required when replying` |
+| **name** | String(255)                                        | Task description<br>`+Required when replying` |
 
 **Parameters**
 
