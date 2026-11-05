@@ -6,7 +6,7 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
-### 20-10-2026
+### 05-11-2026
 #### Changed
 - The `expenseItem` field in [Write-offs](../documents/#transactions-write-off) is now processed when creating and updating documents, including bulk operations: a valid expense item reference is saved. Previously, the supplied field was ignored.
 
