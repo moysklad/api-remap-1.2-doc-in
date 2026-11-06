@@ -9,7 +9,7 @@ Learn more about working with the Kladana API in [Workbook](../workbook/#workboo
 ### 05-11-2026
 #### Added
 - An endpoint for working with [Assortment alternatives](../dictionaries/#entities-assortment-alternatives).
-- Errors [81000-80003](../#kladana-json-api-errors-error-codes-for-alternatives)
+- Errors [81000-81002](../#kladana-json-api-errors-error-codes-for-alternatives)
 
 ### 21-10-2026
 #### Added
