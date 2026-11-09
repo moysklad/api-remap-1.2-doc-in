@@ -8,6 +8,10 @@ JSON API 1.2 changes will be added here soon
 - Errors [81000-81002](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-alternatives)
 - Error [2035](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-format-errors)
 
+### 05-11-2026
+#### Changed
+- The `expenseItem` field in [Write-offs](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-write-off) is now processed when creating and updating documents, including bulk operations: a valid expense item reference is saved. Previously, the supplied field was ignored.
+
 ### 21-10-2026
 #### Added
 - Field `accrualDate` in [Outgoing Payment](https://dev.kladana.in/doc/api/remap/1.2/documents/#transactions-outgoing-payment) and [Outgoing Cash Payment](https://dev.kladana.in/doc/api/remap/1.2/documents/#transactions-outgoing-cash-payment)
