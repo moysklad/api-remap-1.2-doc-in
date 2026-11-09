@@ -6,10 +6,11 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
-### 05-11-2026
+### 11-11-2026
 #### Added
 - An endpoint for working with [Assortment alternatives](../dictionaries/#entities-assortment-alternatives).
 - Errors [81000-81002](../#kladana-json-api-errors-error-codes-for-alternatives)
+- Error [2035](../#kladana-json-api-errors-format-errors)
 
 ### 21-10-2026
 #### Added

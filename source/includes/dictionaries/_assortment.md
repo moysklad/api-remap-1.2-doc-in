@@ -1669,13 +1669,11 @@ curl --compressed -X GET \
 }
 ```
 
-### Update alternatives
+### Update alternatives for a Product
 
-In the request body, pass an object or an array of objects. Each object must contain the required fields: **assortment** — metadata of the Assortment item whose list of alternatives is being updated, and **alternatives** — its new list of alternatives.
+In the request body, pass an object with the required fields: **assortment** — metadata of the Assortment item whose list of alternatives is being updated, and **alternatives** — its new list of alternatives.
 
 The value of **alternatives** completely replaces the existing list. To remove all alternatives, pass an empty array `[]` or `null`.
-
-#### Update alternatives for a Product
 
 > Example request to update alternatives for a Product
 
@@ -1734,13 +1732,15 @@ curl --compressed -X POST \
 }
 ```
 
-#### Bulk update of alternatives
+### Bulk update of alternatives
+
+In the request body, pass an array of JSON objects representing Assortment items with their lists of alternatives.
 
 > Example of updating alternatives for one Product and removing all alternatives for another Product
 
 ```shell
 curl --compressed -X POST \
-  "https://api.kladana.com/api/remap/1.2/entity/assortment/alternatives" \
+  "https://api.kladana.com/api/remap/1.2/entity/assortment/alternatives/batch" \
   -H "Authorization: Basic <Credentials>" \
   -H "Accept-Encoding: gzip" \
   -H "Content-Type: application/json" \
