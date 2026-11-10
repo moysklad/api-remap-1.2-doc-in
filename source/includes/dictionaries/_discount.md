@@ -3,6 +3,8 @@
 
 The entity code for Discounts in the JSON API is the **discount** keyword. Create, modify, and delete operations are not supported. Learn more about [Discounts](https://kladana.zendesk.com/hc/en-us/articles/360019876858).
 
+A personal or cumulative discount is assigned to a counterparty in the counterparty **discounts** array. [Learn more](../dictionaries/#entities-counterparty-counterparties-nested-entity-attributes-counterparty-discounts).
+
 #### Entity attributes
 #### Common fields
 

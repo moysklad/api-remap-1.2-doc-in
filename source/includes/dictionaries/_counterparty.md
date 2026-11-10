@@ -46,7 +46,7 @@ The fourth search condition for the fields of all contact persons of the counter
 | **created**            | DateTime                                           | `=` `!=` `<` `>` `<=` `>=` | Creation time<br>`+Required when replying` `+Read Only`                                                                                                                                                                                               |
 | **description**        | String(4096)                                       | `=` `!=` `~` `~=` `=~` | Comment to the Counterparty                                                                                                                                                                                                               |
 | **discountCardNumber** | String(255)                                        | `=` `!=` `~` `~=` `=~` | Number of the discount card of the Counterparty                                                                                                                                                                                           |
-| **discounts**          | Array(Object)                                      || Array of Counterparty discounts. The array can contain personal and cumulative discounts. A personal discount is displayed if the **discount percentage** for the counterparty has changed at least once, the value will be indicated in the **personalDiscount** |
+| **discounts**          | Array(Object)                                      || Array of Counterparty discounts. [Learn more](../dictionaries/#entities-counterparty-counterparties-nested-entity-attributes-counterparty-discounts) |
 | **email**              | String(255)                                        | `=` `!=` `~` `~=` `=~` | Email address                                                                                                                                                                                                                             |
 | **externalCode**       | String(255)                                        | `=` `!=` `~` `~=` `=~` | Counterparty external code<br>`+Required when answering`                                                                                                                                                                                  |
 | **fax**                | String(255)                                        | `=` `!=` `~` `~=` `=~` | Fax number                                                                                                                                                                                                                                |
@@ -76,10 +76,6 @@ The fourth search condition for the fields of all contact persons of the counter
 | **legalAddressFull**                   | Object       | | Legal address of the Counterparty with details on individual fields                                           |
 | **legalTitle**                         | String(4096) | `=` `!=` `~` `~=` `=~` | Full name for the Counterparty                                                                                |
 
-
-A cumulative discount is displayed if a **correction of the amount of savings at a discount** has been set at least once for the counterparty, the value will be indicated in the **demandSumCorrection** field
-or if the accumulative discount conditions **Percentage of discounts for a certain amount of sales** are met, the actual value will be displayed in the **accumulationDiscount** field.
-You can see the format for displaying discounts in the [Discounts](../dictionaries/#entities-discounts) section.
 
 #### Nested entity attributes
 ##### Address
@@ -159,6 +155,23 @@ Only for counterparty with type `Legal entity. International`.
 | **description** | String(4096)                                       | Counterparty incident text<br>`+Required when replying` `+Required when creating` |
 | **id** | UUID                                               | incident ID<br>`+Required when replying` `+Read only` |
 | **meta** | [Meta](../#kladana-json-api-general-info-metadata) | Account incident metadata<br>`+Required when replying` |
+
+##### Counterparty discounts
+
+The **discounts** array contains personal and cumulative discounts assigned to the counterparty.
+
+A personal discount is displayed if the counterparty's discount percentage has been changed at least once.
+
+A cumulative discount is displayed if a correction of the accumulated sales amount for the discount has been set for the counterparty at least once, or if the cumulative discount conditions are met (discount percentages for a certain sales amount).
+
+Information about existing discounts is available in the [Discounts](../dictionaries/#entities-discounts) section.
+
+| Title | Type | Description |
+| ----- | ---- | ----------- |
+| **discount** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the discount assigned to the counterparty. The field contains a reference to a personal (`personaldiscount`) or cumulative (`accumulationdiscount`) discount. |
+| **personalDiscount** | Float | Personal discount percentage for the counterparty. Required when the metadata of a personal discount is passed. |
+| **demandSumCorrection** | Float | Correction of the accumulated sales amount for the discount, in paise. Required when the metadata of a cumulative discount is passed. |
+| **accumulationDiscount** | Float | Current cumulative discount percentage when the sales amount conditions are met `+Read only` |
 
 #### Counterparty type
 Depending on the counterparty type **companyType**, its object will display different sets of details.
@@ -1298,6 +1311,89 @@ curl --compressed -X POST \
 }
 ```
 
+> Example of passing discounts in the discounts array
+
+```shell
+curl --compressed -X POST \
+  "https://api.kladana.com/api/remap/1.2/entity/counterparty" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
+  -d '{
+        "name": "OOO Rainbow",
+        "discounts": [
+          {
+            "discount": {
+              "meta": {
+                "href": "https://api.kladana.com/api/remap/1.2/entity/personaldiscount/0623d6b4-9ceb-11e6-8af5-581e00000003",
+                "type": "personaldiscount",
+                "mediaType": "application/json"
+              }
+            },
+            "personalDiscount": 10
+          },
+          {
+            "discount": {
+              "meta": {
+                "href": "https://api.kladana.com/api/remap/1.2/entity/accumulationdiscount/8ae26646-b1aa-11ea-ac12-000b00000001",
+                "type": "accumulationdiscount",
+                "mediaType": "application/json"
+              }
+            },
+            "demandSumCorrection": 150000
+          }
+        ]
+      }'
+```
+
+> Response 200. Successful request. The result is a JSON representation of the created Counterparty.
+
+```json
+{
+  "meta": {
+    "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/c90ea81b-7058-11e6-8a84-bae500000010",
+    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
+    "type": "counterparty",
+    "mediaType": "application/json"
+  },
+  "id": "c90ea81b-7058-11e6-8a84-bae500000010",
+  "accountId": "1185513e-692c-11e6-8a84-bae500000001",
+  "name": "OOO Rainbow",
+  "externalCode": "o7732zkki541HDkZZD1Yt3",
+  "archived": false,
+  "created": "2007-02-07 17:16:41",
+  "updated": "2016-09-01 18:28:22",
+  "companyType": "legal",
+  "discounts": [
+    {
+      "discount": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/personaldiscount/0623d6b4-9ceb-11e6-8af5-581e00000003",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/personaldiscount/metadata",
+          "type": "personaldiscount",
+          "mediaType": "application/json",
+          "uuidHref": "https://app.kladana.com/app/#discount/edit?id=0623d6b4-9ceb-11e6-8af5-581e00000003"
+        }
+      },
+      "personalDiscount": 10.0
+    },
+    {
+      "discount": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/accumulationdiscount/8ae26646-b1aa-11ea-ac12-000b00000001",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/accumulationdiscount/metadata",
+          "type": "accumulationdiscount",
+          "mediaType": "application/json",
+          "uuidHref": "https://app.kladana.com/app/#discount/edit?id=8ae26646-b1aa-11ea-ac12-000b00000001"
+        }
+      },
+      "demandSumCorrection": 150000.0,
+      "accumulationDiscount": 10.0
+    }
+  ]
+}
+```
+
 ### Bulk creation and update of Counterparties
 
 > Bulk creation and update of Counterparties
@@ -2380,6 +2476,83 @@ curl --compressed -X PUT \
        "offset":0
      }
    }
+}
+```
+
+> Example with the discounts array
+
+```shell
+curl --compressed -X PUT \
+  "https://api.kladana.com/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19" \
+  -H "Authorization: Basic <Credentials>" \
+  -H "Accept-Encoding: gzip" \
+  -H "Content-Type: application/json" \
+  -d '{
+        "discounts": [
+          {
+            "discount": {
+              "meta": {
+                "href": "https://api.kladana.com/api/remap/1.2/entity/personaldiscount/0623d6b4-9ceb-11e6-8af5-581e00000003",
+                "type": "personaldiscount",
+                "mediaType": "application/json"
+              }
+            },
+            "personalDiscount": 15
+          },
+          {
+            "discount": {
+              "meta": {
+                "href": "https://api.kladana.com/api/remap/1.2/entity/accumulationdiscount/8ae26646-b1aa-11ea-ac12-000b00000001",
+                "type": "accumulationdiscount",
+                "mediaType": "application/json"
+              }
+            },
+            "demandSumCorrection": 500000
+          }
+        ]
+      }'
+```
+
+> Response 200 (application/json) Successful update. The result is a JSON representation of the updated Counterparty.
+
+```json
+{
+  "meta": {
+    "href": "https://api.kladana.com/api/remap/1.2/entity/counterparty/7944ef04-f831-11e5-7a69-971500188b19",
+    "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/counterparty/metadata",
+    "type": "counterparty",
+    "mediaType": "application/json"
+  },
+  "id": "7944ef04-f831-11e5-7a69-971500188b19",
+  "accountId": "1185513e-692c-11e6-8a84-bae500000001",
+  "name": "OOO Rainbow",
+  "discounts": [
+    {
+      "discount": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/personaldiscount/0623d6b4-9ceb-11e6-8af5-581e00000003",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/personaldiscount/metadata",
+          "type": "personaldiscount",
+          "mediaType": "application/json",
+          "uuidHref": "https://app.kladana.com/app/#discount/edit?id=0623d6b4-9ceb-11e6-8af5-581e00000003"
+        }
+      },
+      "personalDiscount": 15.0
+    },
+    {
+      "discount": {
+        "meta": {
+          "href": "https://api.kladana.com/api/remap/1.2/entity/accumulationdiscount/8ae26646-b1aa-11ea-ac12-000b00000001",
+          "metadataHref": "https://api.kladana.com/api/remap/1.2/entity/accumulationdiscount/metadata",
+          "type": "accumulationdiscount",
+          "mediaType": "application/json",
+          "uuidHref": "https://app.kladana.com/app/#discount/edit?id=8ae26646-b1aa-11ea-ac12-000b00000001"
+        }
+      },
+      "demandSumCorrection": 500000.0,
+      "accumulationDiscount": 10.0
+    }
+  ]
 }
 ```
 
