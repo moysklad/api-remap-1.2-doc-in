@@ -2,6 +2,12 @@
 
 JSON API 1.2 changes will be added here soon
 
+### 12-11-2026
+#### Added
+- An endpoint for working with [Assortment alternatives](https://dev.kladana.com/doc/api/remap/1.2/dictionaries/#entities-assortment-alternatives).
+- Errors [81000-81002](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-error-codes-for-alternatives)
+- Error [2035](https://dev.kladana.com/doc/api/remap/1.2/#kladana-json-api-errors-format-errors)
+
 ### 05-11-2026
 #### Changed
 - The `expenseItem` field in [Write-offs](https://dev.kladana.com/doc/api/remap/1.2/documents/#transactions-write-off) is now processed when creating and updating documents, including bulk operations: a valid expense item reference is saved. Previously, the supplied field was ignored.

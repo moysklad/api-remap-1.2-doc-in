@@ -6,6 +6,12 @@ See Kladana API 1.2 changelog on [github](https://github.com/moysklad/api-remap-
 
 Learn more about working with the Kladana API in [Workbook](../workbook/#workbook).
 
+### 12-11-2026
+#### Added
+- An endpoint for working with [Assortment alternatives](../dictionaries/#entities-assortment-alternatives).
+- Errors [81000-81002](../#kladana-json-api-errors-error-codes-for-alternatives)
+- Error [2035](../#kladana-json-api-errors-format-errors)
+
 ### 05-11-2026
 #### Changed
 - The `expenseItem` field in [Write-offs](../documents/#transactions-write-off) is now processed when creating and updating documents, including bulk operations: a valid expense item reference is saved. Previously, the supplied field was ignored.
