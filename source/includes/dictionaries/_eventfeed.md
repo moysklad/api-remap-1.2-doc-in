@@ -44,15 +44,15 @@ No more than 5000 Events can be created for each transaction.
 
 #### Entity attributes
 
-| Name                  | Type                                               | Description                                                                                                                                                      |
-|-----------------------|----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **meta**              | [Meta](../#kladana-json-api-general-info-metadata) | Event Metadata<br>`+Required when replying`                                                                                                                      |
-| **id**                | UUID                                               | Event ID<br>`+Required when replying` `+Read-only`                                                                                                               |
-| **accountId**         | UUID                                               | Account ID<br>`+Required when replying` `+Read-only`                                                                                                             |
-| **created**           | DateTime                                           | Event creation time<br>`+Required when replying` `+Read-only`                                                                                                    |
-| **description**       | String(4096)                                       | Event Text<br>`+Required when replying` `+Required when creating`                                                                                                |
-| **author**            | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Employee - the creator of the Event (account administrator, if the author is an application)<br>`+Required when replying` `+Read-only` `+Expand` |
-| **authorApplication** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Application - the creator of the event<br>`+Read-only` `+Expand`                                                                                 |
+| Name                  | Type                                               | Description                                                                                                                                              |
+|-----------------------|----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **meta**              | [Meta](../#kladana-json-api-general-info-metadata) | Event Metadata<br>`+Required when replying`                                                                                                              |
+| **id**                | UUID                                               | Event ID<br>`+Required when replying` `+Read-only`                                                                                                       |
+| **accountId**         | UUID                                               | Account ID<br>`+Required when replying` `+Read-only`                                                                                                     |
+| **created**           | DateTime                                           | Event creation time<br>`+Required when replying` `+Read-only`                                                                                            |
+| **description**       | String(4096)                                       | Event Text<br>`+Required when replying` `+Required when creating`                                                                                        |
+| **author**            | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Employee - the creator of the Event (account owner, if the author is an application)<br>`+Required when replying` `+Read-only` `+Expand` |
+| **authorApplication** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Application - the creator of the event<br>`+Read-only` `+Expand`                                                                         |
 
 ### Get a list of Transaction Events
 
