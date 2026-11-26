@@ -148,7 +148,7 @@ Only for counterparty with type `Legal entity. International`.
 | ------ |----------------------------------------------------| ----- |
 | **accountId** | UUID                                               | Account ID<br>`+Required when replying` `+Read Only` |
 | **agent** | [Meta](../#kladana-json-api-general-info-metadata) | Counterparty metadata<br>`+Required when replying` `+Read-only` `+Expand` |
-| **author** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Employee - the creator of the incident (account administrator, if the author is an application)<br>`+Required when replying` `+Read-only` |
+| **author** | [Meta](../#kladana-json-api-general-info-metadata) | Metadata of the Employee - the creator of the incident (account owner, if the author is an application)<br>`+Required when replying` `+Read-only` |
 | **authorApplication** | [Meta](../#kladana-json-api-general-info-metadata) | incident Creator Application Metadata<br>`+Read Only` |
 | **created** | DateTime                                           | The moment when the Account incident was created<br>`+Required when replying` `+Read-only` |
 | **description** | String(4096)                                       | Counterparty incident text<br>`+Required when replying` `+Required when creating` |
